@@ -1,5 +1,6 @@
 using System;
-using System.Threading.Tasks;
+
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Foundation.Coroutine
@@ -13,7 +14,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Coroutine
 
     public class AsyncProcessHandle : CustomYieldInstruction, IAsyncProcessHandleSetter
     {
-        private readonly TaskCompletionSource<object> _tcs = new TaskCompletionSource<object>();
+        private readonly UniTaskCompletionSource<object> _tcs = new UniTaskCompletionSource<object>();
 
         public AsyncProcessHandle(int id)
         {
@@ -28,7 +29,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Coroutine
 
         public Exception Exception { get; private set; }
 
-        public Task<object> Task => _tcs.Task;
+        public UniTask<object> UniTask => _tcs.Task;
 
         public bool HasError => Exception != null;
 
@@ -39,7 +40,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Coroutine
             Result = result;
             IsTerminated = true;
             OnTerminate?.Invoke();
-            _tcs.SetResult(result);
+            _tcs.TrySetResult(result);
         }
 
         void IAsyncProcessHandleSetter.Error(Exception ex)
@@ -47,7 +48,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Coroutine
             Exception = ex;
             IsTerminated = true;
             OnTerminate?.Invoke();
-            _tcs.SetException(ex);
+            _tcs.TrySetException(ex);
         }
 
         public event Action OnTerminate;

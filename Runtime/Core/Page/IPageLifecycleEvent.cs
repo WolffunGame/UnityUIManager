@@ -1,21 +1,20 @@
 ﻿using System.Collections;
 #if USN_USE_ASYNC_METHODS
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 #endif
 
 namespace UnityScreenNavigator.Runtime.Core.Page
 {
     public interface IPageLifecycleEvent
     {
-
 #if USN_USE_ASYNC_METHODS
-        Task Initialize();
+        UniTask Initialize();
 #else
         IEnumerator Initialize();
 #endif
 
 #if USN_USE_ASYNC_METHODS
-        Task WillPushEnter();
+        UniTask WillPushEnter();
 #else
         IEnumerator WillPushEnter();
 #endif
@@ -23,7 +22,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         void DidPushEnter();
 
 #if USN_USE_ASYNC_METHODS
-        Task WillPushExit();
+        UniTask WillPushExit();
 #else
         IEnumerator WillPushExit();
 #endif
@@ -31,7 +30,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         void DidPushExit();
 
 #if USN_USE_ASYNC_METHODS
-        Task WillPopEnter();
+        UniTask WillPopEnter();
 #else
         IEnumerator WillPopEnter();
 #endif
@@ -39,7 +38,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         void DidPopEnter();
 
 #if USN_USE_ASYNC_METHODS
-        Task WillPopExit();
+        UniTask WillPopExit();
 #else
         IEnumerator WillPopExit();
 #endif
@@ -47,7 +46,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         void DidPopExit();
 
 #if USN_USE_ASYNC_METHODS
-        Task Cleanup();
+        UniTask Cleanup();
 #else
         IEnumerator Cleanup();
 #endif

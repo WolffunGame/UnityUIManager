@@ -6,6 +6,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
 
+
 namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
 {
     public sealed class AddressableAssetLoader : IAssetLoader

@@ -1,5 +1,5 @@
 ﻿#if USN_USE_ASYNC_METHODS
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 #else
 using System.Collections;
 #endif
@@ -9,20 +9,20 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
     public interface ISheetLifecycleEvent
     {
 #if USN_USE_ASYNC_METHODS
-        Task Initialize();
+        UniTask Initialize();
 #else
         IEnumerator Initialize();
 #endif
 
 #if USN_USE_ASYNC_METHODS
-        Task WillEnter();
+        UniTask WillEnter();
 #else
         IEnumerator WillEnter();
 #endif
         void DidEnter();
 
 #if USN_USE_ASYNC_METHODS
-        Task WillExit();
+        UniTask WillExit();
 #else
         IEnumerator WillExit();
 #endif
@@ -30,7 +30,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         void DidExit();
 
 #if USN_USE_ASYNC_METHODS
-        Task Cleanup();
+        UniTask Cleanup();
 #else
         IEnumerator Cleanup();
 #endif

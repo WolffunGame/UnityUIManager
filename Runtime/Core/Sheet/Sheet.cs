@@ -9,7 +9,7 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 #if USN_USE_ASYNC_METHODS
 using System;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 #endif
 
 namespace UnityScreenNavigator.Runtime.Core.Sheet
@@ -45,9 +45,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task Initialize()
+        public virtual UniTask Initialize()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator Initialize()
@@ -57,9 +57,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 #endif
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task WillEnter()
+        public virtual UniTask WillEnter()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator WillEnter()
@@ -73,9 +73,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task WillExit()
+        public virtual UniTask WillExit()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator WillExit()
@@ -89,9 +89,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task Cleanup()
+        public virtual UniTask Cleanup()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator Cleanup()
@@ -264,7 +264,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         }
 
 #if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(IEnumerable<Task> targets)
+        private IEnumerator CreateCoroutine(IEnumerable<UniTask> targets)
 #else
         private IEnumerator CreateCoroutine(IEnumerable<IEnumerator> targets)
 #endif
@@ -280,13 +280,13 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         }
 
 #if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(Task target)
+        private IEnumerator CreateCoroutine(UniTask target)
 #else
         private IEnumerator CreateCoroutine(IEnumerator target)
 #endif
         {
 #if USN_USE_ASYNC_METHODS
-            async void WaitTaskAndCallback(Task task, Action callback)
+            async void WaitTaskAndCallback(UniTask task, Action callback)
             {
                 await task;
                 callback?.Invoke();

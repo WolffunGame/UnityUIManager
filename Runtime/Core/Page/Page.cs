@@ -9,7 +9,7 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 #if USN_USE_ASYNC_METHODS
 using System;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 #endif
 
 namespace UnityScreenNavigator.Runtime.Core.Page
@@ -48,9 +48,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task Initialize()
+        public virtual UniTask Initialize()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator Initialize()
@@ -60,9 +60,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 #endif
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task WillPushEnter()
+        public virtual UniTask WillPushEnter()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator WillPushEnter()
@@ -76,9 +76,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task WillPushExit()
+        public virtual UniTask WillPushExit()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator WillPushExit()
@@ -92,9 +92,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task WillPopEnter()
+        public virtual UniTask WillPopEnter()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator WillPopEnter()
@@ -108,9 +108,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task WillPopExit()
+        public virtual UniTask WillPopExit()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator WillPopExit()
@@ -124,9 +124,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        public virtual Task Cleanup()
+        public virtual UniTask Cleanup()
         {
-            return Task.CompletedTask;
+            return UniTask.CompletedTask;
         }
 #else
         public virtual IEnumerator Cleanup()
@@ -328,7 +328,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(IEnumerable<Task> targets)
+        private IEnumerator CreateCoroutine(IEnumerable<UniTask> targets)
 #else
         private IEnumerator CreateCoroutine(IEnumerable<IEnumerator> targets)
 #endif
@@ -344,13 +344,13 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 #if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(Task target)
+        private IEnumerator CreateCoroutine(UniTask target)
 #else
         private IEnumerator CreateCoroutine(IEnumerator target)
 #endif
         {
 #if USN_USE_ASYNC_METHODS
-            async void WaitTaskAndCallback(Task task, Action callback)
+            async void WaitTaskAndCallback(UniTask task, Action callback)
             {
                 await task;
                 callback?.Invoke();
