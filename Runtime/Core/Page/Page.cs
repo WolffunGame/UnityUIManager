@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
@@ -15,7 +15,7 @@ using Cysharp.Threading.Tasks;
 namespace UnityScreenNavigator.Runtime.Core.Page
 {
     [DisallowMultipleComponent]
-    public class Page : MonoBehaviour, IPageLifecycleEvent
+    public class Page : ContainerBase, IPageLifecycleEvent
     {
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
@@ -27,13 +27,13 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         [SerializeField]
         private PageTransitionAnimationContainer _animationContainer = new PageTransitionAnimationContainer();
 
-        private CanvasGroup _canvasGroup;
-        private RectTransform _parentTransform;
-        private RectTransform _rectTransform;
+        //private CanvasGroup _canvasGroup;
+        //private RectTransform _parentTransform;
+        //private RectTransform _rectTransform;
 
         private readonly PriorityList<IPageLifecycleEvent> _lifecycleEvents = new PriorityList<IPageLifecycleEvent>();
 
-        public string Identifier
+        public override string Identifier
         {
             get => _identifier;
             set => _identifier = value;
@@ -41,11 +41,11 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
         public PageTransitionAnimationContainer AnimationContainer => _animationContainer;
 
-        public bool Interactable
-        {
-            get => _canvasGroup.interactable;
-            set => _canvasGroup.interactable = value;
-        }
+        // public bool Interactable
+        // {
+        //     get => _canvasGroup.interactable;
+        //     set => _canvasGroup.interactable = value;
+        // }
 
 #if USN_USE_ASYNC_METHODS
         public virtual UniTask Initialize()
@@ -145,20 +145,20 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             _lifecycleEvents.Remove(lifecycleEvent);
         }
 
-        internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
+        internal AsyncProcessHandle AfterLoad(RectTransform rectTransform)
         {
-            _rectTransform = (RectTransform)transform;
-            _canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
+            //_canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
             _lifecycleEvents.Add(this, 0);
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
-            _parentTransform = parentTransform;
-            _rectTransform.FillParent(_parentTransform);
+            //_parentTransform = parentTransform;
+            Parent = rectTransform;
+            RectTransform.FillParent((RectTransform)Parent);
 
             // Set order of rendering.
             var siblingIndex = 0;
-            for (var i = 0; i < _parentTransform.childCount; i++)
+            for (var i = 0; i < Parent.childCount; i++)
             {
-                var child = _parentTransform.GetChild(i);
+                var child = Parent.GetChild(i);
                 var childPage = child.GetComponent<Page>();
                 siblingIndex = i;
                 if (_renderingOrder >= childPage._renderingOrder)
@@ -169,9 +169,10 @@ namespace UnityScreenNavigator.Runtime.Core.Page
                 break;
             }
 
-            _rectTransform.SetSiblingIndex(siblingIndex);
+            RectTransform.SetSiblingIndex(siblingIndex);
 
-            _canvasGroup.alpha = 0.0f;
+            //_canvasGroup.alpha = 0.0f;
+            Alpha = 0.0f;
 
             return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
         }
@@ -185,13 +186,15 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         private IEnumerator BeforeEnterRoutine(bool push, Page partnerPage)
         {
             gameObject.SetActive(true);
-            _rectTransform.FillParent(_parentTransform);
+            RectTransform.FillParent((RectTransform)Parent);
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                _canvasGroup.interactable = false;
+                //_canvasGroup.interactable = false;
+                Interactable = false;
             }
 
-            _canvasGroup.alpha = 0.0f;
+            //_canvasGroup.alpha = 0.0f;
+            Alpha = 0.0f;
 
             var routines = push
                 ? _lifecycleEvents.Select(x => x.WillPushEnter())
@@ -211,7 +214,8 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
         private IEnumerator EnterRoutine(bool push, bool playAnimation, Page partnerPage)
         {
-            _canvasGroup.alpha = 1.0f;
+            //_canvasGroup.alpha = 1.0f;
+            Alpha = 1.0f;
 
             if (playAnimation)
             {
@@ -222,11 +226,11 @@ namespace UnityScreenNavigator.Runtime.Core.Page
                 }
 
                 anim.SetPartner(partnerPage?.transform as RectTransform);
-                anim.Setup(_rectTransform);
+                anim.Setup(RectTransform);
                 yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
             }
 
-            _rectTransform.FillParent(_parentTransform);
+            RectTransform.FillParent((RectTransform)Parent);
         }
 
         internal void AfterEnter(bool push, Page partnerPage)
@@ -248,7 +252,8 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                _canvasGroup.interactable = true;
+                //_canvasGroup.interactable = true;
+                Interactable = true;
             }
         }
 
@@ -260,13 +265,15 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         private IEnumerator BeforeExitRoutine(bool push, Page partnerPage)
         {
             gameObject.SetActive(true);
-            _rectTransform.FillParent(_parentTransform);
+            RectTransform.FillParent((RectTransform)Parent);
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                _canvasGroup.interactable = false;
+                //_canvasGroup.interactable = false;
+                Interactable = false;
             }
 
-            _canvasGroup.alpha = 1.0f;
+            //_canvasGroup.alpha = 1.0f;
+            Alpha = 1.0f;
 
             var routines = push
                 ? _lifecycleEvents.Select(x => x.WillPushExit())
@@ -295,11 +302,12 @@ namespace UnityScreenNavigator.Runtime.Core.Page
                 }
 
                 anim.SetPartner(partnerPage?.transform as RectTransform);
-                anim.Setup(_rectTransform);
+                anim.Setup(RectTransform);
                 yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
             }
 
-            _canvasGroup.alpha = 0.0f;
+            //_canvasGroup.alpha = 0.0f;
+            Alpha = 0.0f;
         }
 
         internal void AfterExit(bool push, Page partnerPage)

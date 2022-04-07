@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
 {
@@ -11,7 +12,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
 
         void SetPercentCompleteFunc(Func<float> percentComplete);
 
-        void SetTask(Task<T> task);
+        void SetTask(UniTask<T> task);
 
         void SetOperationException(Exception ex);
     }

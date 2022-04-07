@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -27,7 +27,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
             }
 
             setter.SetPercentCompleteFunc(() => 1.0f);
-            setter.SetTask(Task.FromResult(result));
+            setter.SetTask(UniTask.FromResult(result));
             return handle;
         }
 
@@ -37,7 +37,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
 
             var handle = new AssetLoadHandle<T>(controlId);
             var setter = (IAssetLoadHandleSetter<T>)handle;
-            var tcs = new TaskCompletionSource<T>();
+            var tcs = new UniTaskCompletionSource<T>();
 
             var req = Resources.LoadAsync<T>(key);
 
@@ -53,7 +53,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
                     setter.SetOperationException(exception);
                 }
 
-                tcs.SetResult(result);
+                tcs.TrySetResult(result);
             };
 
             setter.SetPercentCompleteFunc(() => req.progress);

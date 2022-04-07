@@ -1,53 +1,35 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
-#if USN_USE_ASYNC_METHODS
-using System;
-using Cysharp.Threading.Tasks;
-#endif
 
-namespace UnityScreenNavigator.Runtime.Core.Modal
+namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 {
-    [DisallowMultipleComponent]
-    public class Modal : ContainerBase, IModalLifecycleEvent
+    public class UnorderedModal : Window, IWindowLifeCycleEvent
     {
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
         [SerializeField] [EnabledIf(nameof(_usePrefabNameAsIdentifier), false)]
         private string _identifier;
 
+        private readonly PriorityList<IWindowLifeCycleEvent> _lifecycleEvents =
+            new PriorityList<IWindowLifeCycleEvent>();
+
         [SerializeField]
         private ModalTransitionAnimationContainer _animationContainer = new ModalTransitionAnimationContainer();
 
-        // private CanvasGroup _canvasGroup;
-        // private RectTransform _parentTransform;
-        // private RectTransform _rectTransform;
-
-        private readonly PriorityList<IModalLifecycleEvent> _lifecycleEvents = new PriorityList<IModalLifecycleEvent>();
-
-        public override string Identifier
-        {
-            get => _identifier;
-            set => _identifier = value;
-        }
-        
-
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
 
-        // public bool Interactable
-        // {
-        //     get => _canvasGroup.interactable;
-        //     set => _canvasGroup.interactable = value;
-        // }
-
 #if USN_USE_ASYNC_METHODS
-        public virtual UniTask Initialize()
+        public UniTask Initialize()
         {
             return UniTask.CompletedTask;
         }
@@ -57,73 +39,66 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             yield break;
         }
 #endif
-
 #if USN_USE_ASYNC_METHODS
-        public virtual UniTask WillPushEnter()
+        public virtual UniTask WillShowEnter()
         {
             return UniTask.CompletedTask;
         }
 #else
-        public virtual IEnumerator WillPushEnter()
+        public virtual IEnumerator WillShowEnter()
         {
             yield break;
         }
 #endif
 
-        public virtual void DidPushEnter()
+        public void DidShowEnter()
         {
         }
-
 #if USN_USE_ASYNC_METHODS
-        public virtual UniTask WillPushExit()
+        public UniTask WillShowExit()
         {
             return UniTask.CompletedTask;
         }
 #else
-        public virtual IEnumerator WillPushExit()
+        public virtual IEnumerator WillShowExit()
         {
             yield break;
         }
 #endif
 
-        public virtual void DidPushExit()
+        public void DidShowExit()
         {
         }
-
 #if USN_USE_ASYNC_METHODS
-        public virtual UniTask WillPopEnter()
+        public UniTask WillHideEnter()
         {
             return UniTask.CompletedTask;
         }
 #else
-        public virtual IEnumerator WillPopEnter()
+        public virtual IEnumerator WillHideEnter()
         {
             yield break;
         }
 #endif
-
-        public virtual void DidPopEnter()
+        public void DidHideEnter()
         {
         }
-
 #if USN_USE_ASYNC_METHODS
-        public virtual UniTask WillPopExit()
+        public UniTask WillHideExit()
         {
             return UniTask.CompletedTask;
         }
 #else
-        public virtual IEnumerator WillPopExit()
+        public virtual IEnumerator WillHideExit()
         {
             yield break;
         }
 #endif
-
-        public virtual void DidPopExit()
+        public void DidHideExit()
         {
         }
-
 #if USN_USE_ASYNC_METHODS
-        public virtual UniTask Cleanup()
+        public UniTask Cleanup()
         {
             return UniTask.CompletedTask;
         }
@@ -133,38 +108,26 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             yield break;
         }
 #endif
-
-        public void AddLifecycleEvent(IModalLifecycleEvent lifecycleEvent, int priority = 0)
+        protected override void OnCreate(IBundle bundle)
         {
-            _lifecycleEvents.Add(lifecycleEvent, priority);
-        }
-
-        public void RemoveLifecycleEvent(IModalLifecycleEvent lifecycleEvent)
-        {
-            _lifecycleEvents.Remove(lifecycleEvent);
         }
 
         internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
         {
-            //_rectTransform = (RectTransform)transform;
-            //_canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
             _lifecycleEvents.Add(this, 0);
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
-            //_parentTransform = parentTransform;
             Parent = parentTransform;
-            RectTransform.FillParent((RectTransform)Parent);
-            //_canvasGroup.alpha = 0.0f;
+            RectTransform.FillParent((RectTransform) Parent);
             Alpha = 0.0f;
 
             return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
         }
-
-        internal AsyncProcessHandle BeforeEnter(bool push, Modal partnerModal)
+        internal AsyncProcessHandle BeforeEnter(bool push, UnorderedModal partnerModal)
         {
             return CoroutineManager.Instance.Run(BeforeEnterRoutine(push, partnerModal));
         }
 
-        private IEnumerator BeforeEnterRoutine(bool push, Modal partnerModal)
+        private IEnumerator BeforeEnterRoutine(bool push, UnorderedModal partnerModal)
         {
             if (push)
             {
@@ -181,8 +144,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             var routines = push
-                ? _lifecycleEvents.Select(x => x.WillPushEnter())
-                : _lifecycleEvents.Select(x => x.WillPopEnter());
+                ? _lifecycleEvents.Select(x => x.WillShowEnter())
+                : _lifecycleEvents.Select(x => x.WillHideEnter());
             var handle = CoroutineManager.Instance.Run(CreateCoroutine(routines));
 
             while (!handle.IsTerminated)
@@ -190,13 +153,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 yield return null;
             }
         }
-
-        internal AsyncProcessHandle Enter(bool push, bool playAnimation, Modal partnerModal)
+        internal AsyncProcessHandle Enter(bool push, bool playAnimation, UnorderedModal partnerModal)
         {
             return CoroutineManager.Instance.Run(EnterRoutine(push, playAnimation, partnerModal));
         }
 
-        private IEnumerator EnterRoutine(bool push, bool playAnimation, Modal partnerModal)
+        private IEnumerator EnterRoutine(bool push, bool playAnimation, UnorderedModal partnerModal)
         {
             if (push)
             {
@@ -218,37 +180,33 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 RectTransform.FillParent((RectTransform)Parent);
             }
         }
-
-        internal void AfterEnter(bool push, Modal partnerModal)
+        internal void AfterEnter(bool show, UnorderedModal partnerModal)
         {
-            if (push)
+            if (show)
             {
                 foreach (var lifecycleEvent in _lifecycleEvents)
                 {
-                    lifecycleEvent.DidPushEnter();
+                    lifecycleEvent.DidShowEnter();
                 }
             }
             else
             {
                 foreach (var lifecycleEvent in _lifecycleEvents)
                 {
-                    lifecycleEvent.DidPopEnter();
+                    lifecycleEvent.DidHideEnter();
                 }
             }
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = true;
                 Interactable = true;
             }
         }
-
-        internal AsyncProcessHandle BeforeExit(bool push, Modal partnerModal)
+        internal AsyncProcessHandle BeforeExit(bool push, UnorderedModal partnerModal)
         {
             return CoroutineManager.Instance.Run(BeforeExitRoutine(push, partnerModal));
         }
-
-        private IEnumerator BeforeExitRoutine(bool push, Modal partnerModal)
+        private IEnumerator BeforeExitRoutine(bool push, UnorderedModal partnerModal)
         {
             if (!push)
             {
@@ -265,8 +223,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             var routines = push
-                ? _lifecycleEvents.Select(x => x.WillPushExit())
-                : _lifecycleEvents.Select(x => x.WillPopExit());
+                ? _lifecycleEvents.Select(x => x.WillShowExit())
+                : _lifecycleEvents.Select(x => x.WillHideExit());
             var handle = CoroutineManager.Instance.Run(CreateCoroutine(routines));
 
             while (!handle.IsTerminated)
@@ -274,13 +232,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 yield return null;
             }
         }
-
-        internal AsyncProcessHandle Exit(bool push, bool playAnimation, Modal partnerModal)
+        internal AsyncProcessHandle Exit(bool push, bool playAnimation, UnorderedModal partnerModal)
         {
             return CoroutineManager.Instance.Run(ExitRoutine(push, playAnimation, partnerModal));
         }
 
-        private IEnumerator ExitRoutine(bool push, bool playAnimation, Modal partnerModal)
+        private IEnumerator ExitRoutine(bool push, bool playAnimation, UnorderedModal partnerModal)
         {
             if (!push)
             {
@@ -302,20 +259,20 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
         }
 
-        internal void AfterExit(bool push, Modal partnerModal)
+        internal void AfterExit(bool push, UnorderedModal partnerModal)
         {
             if (push)
             {
                 foreach (var lifecycleEvent in _lifecycleEvents)
                 {
-                    lifecycleEvent.DidPushExit();
+                    lifecycleEvent.DidShowExit();
                 }
             }
             else
             {
                 foreach (var lifecycleEvent in _lifecycleEvents)
                 {
-                    lifecycleEvent.DidPopExit();
+                    lifecycleEvent.DidHideExit();
                 }
             }
         }
@@ -324,7 +281,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Cleanup())));
         }
-
 #if USN_USE_ASYNC_METHODS
         private IEnumerator CreateCoroutine(IEnumerable<UniTask> targets)
 #else
@@ -353,12 +309,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 await task;
                 callback?.Invoke();
             }
-            
+
             var isCompleted = false;
-            WaitTaskAndCallback(target, () =>
-            {
-                isCompleted = true;
-            });
+            WaitTaskAndCallback(target, () => { isCompleted = true; });
             return new WaitUntil(() => isCompleted);
 #else
             return target;

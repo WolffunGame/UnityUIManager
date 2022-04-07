@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
@@ -26,7 +27,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
             var handle = new AssetLoadHandle<T>(controlId);
             var setter = (IAssetLoadHandleSetter<T>)handle;
             setter.SetPercentCompleteFunc(() => addressableHandle.PercentComplete);
-            setter.SetTask(Task.FromResult(addressableHandle.Result));
+            setter.SetTask(UniTask.FromResult(addressableHandle.Result));
             setter.SetResult(addressableHandle.Result);
             var status = addressableHandle.Status == AsyncOperationStatus.Succeeded
                 ? AssetLoadStatus.Success
@@ -46,7 +47,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
             _controlIdToHandles.Add(controlId, addressableHandle);
             var handle = new AssetLoadHandle<T>(controlId);
             var setter = (IAssetLoadHandleSetter<T>)handle;
-            var tcs = new TaskCompletionSource<T>();
+            var tcs = new UniTaskCompletionSource<T>();
             addressableHandle.Completed += x =>
             {
                 setter.SetResult(x.Result);
@@ -55,7 +56,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
                     : AssetLoadStatus.Failed;
                 setter.SetStatus(status);
                 setter.SetOperationException(addressableHandle.OperationException);
-                tcs.SetResult(x.Result);
+                tcs.TrySetResult(x.Result);
             };
 
             setter.SetPercentCompleteFunc(() => addressableHandle.PercentComplete);

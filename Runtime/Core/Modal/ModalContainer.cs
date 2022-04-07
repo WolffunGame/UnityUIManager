@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared;
-using UnityScreenNavigator.Runtime.Foundation;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
     [RequireComponent(typeof(RectMask2D))]
-    public sealed class ModalContainer : MonoBehaviour
+    public sealed class ModalContainer : ContainerBase, IContainerManager
     {
         private static readonly Dictionary<int, ModalContainer> InstanceCacheByTransform =
             new Dictionary<int, ModalContainer>();
@@ -20,6 +20,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             new Dictionary<string, ModalContainer>();
 
         [SerializeField] private string _name;
+
+        public override string Identifier => _name;
 
         [SerializeField] private ModalBackdrop _overrideBackdropPrefab;
 
@@ -37,7 +39,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             new Dictionary<string, AssetLoadHandle<GameObject>>();
 
         private ModalBackdrop _backdropPrefab;
-        private CanvasGroup _canvasGroup;
 
         private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
 
@@ -51,13 +52,38 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// </summary>
         public IReadOnlyList<Modal> Modals => _modals;
 
-        public bool Interactable
+        // public bool Interactable
+        // {
+        //     get => _canvasGroup.interactable;
+        //     set => _canvasGroup.interactable = value;
+        // }
+
+        public ContainerBase Current
         {
-            get => _canvasGroup.interactable;
-            set => _canvasGroup.interactable = value;
+            get { return _modals[_modals.Count - 1]; }
         }
 
-        private void Awake()
+        public int Layer { get; set; }
+        public string LayerName { get; set; }
+        public ContainerLayerType LayerType { get; set; }
+        private IContainerLayerManager _containerLayerManager;
+
+        public IContainerLayerManager ContainerLayerManager
+        {
+            get
+            {
+                return this._containerLayerManager ?? (this._containerLayerManager =
+                    GameObject.FindObjectOfType<GlobalContainerLayerManager>());
+            }
+            set { this._containerLayerManager = value; }
+        }
+
+        public int VisibleElementInLayer
+        {
+            get => Modals.Count;
+        }
+
+        protected override void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IModalContainerCallbackReceiver>());
             if (!string.IsNullOrWhiteSpace(_name))
@@ -69,10 +95,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 ? _overrideBackdropPrefab
                 : UnityScreenNavigatorSettings.Instance.ModalBackdropPrefab;
 
-            _canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
+            //_canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             foreach (var modal in _modals)
             {
@@ -109,7 +135,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// <returns></returns>
         public static ModalContainer Of(Transform transform, bool useCache = true)
         {
-            return Of((RectTransform)transform, useCache);
+            return Of((RectTransform) transform, useCache);
         }
 
         /// <summary>
@@ -151,6 +177,28 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             return null;
         }
 
+        public static ModalContainer Create(string name, string path)
+        {
+            GameObject root = new GameObject(name, typeof(CanvasGroup));
+            RectTransform rectTransform = root.AddComponent<RectTransform>();
+            rectTransform.anchorMin = Vector2.zero;
+            rectTransform.anchorMax = Vector2.one;
+            rectTransform.offsetMax = Vector2.zero;
+            rectTransform.offsetMin = Vector2.zero;
+            rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            rectTransform.localPosition = Vector3.zero;
+
+
+            ModalContainer container = root.AddComponent<ModalContainer>();
+            //container.WindowManager = windowManager;
+            //container.Create();
+
+
+            PushWindowOption option = new PushWindowOption(path, false);
+            container.Push(option);
+            return container;
+        }
+
         /// <summary>
         ///     Add a callback receiver.
         /// </summary>
@@ -170,21 +218,17 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         }
 
         /// <summary>
-        ///     Push new modal.
+        /// Push new modal.
         /// </summary>
-        /// <param name="resourceKey"></param>
-        /// <param name="playAnimation"></param>
-        /// <param name="onLoad"></param>
-        /// <param name="loadAsync"></param>
+        /// <param name="option"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Push(string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
-            bool loadAsync = true)
+        public AsyncProcessHandle Push(PushWindowOption option)
         {
-            return CoroutineManager.Instance.Run(PushRoutine(resourceKey, playAnimation, onLoad, loadAsync));
+            return CoroutineManager.Instance.Run(PushRoutine(option));
         }
 
         /// <summary>
-        ///     Pop current modal.
+        /// Pop current modal.
         /// </summary>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
@@ -193,12 +237,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             return CoroutineManager.Instance.Run(PopRoutine(playAnimation));
         }
 
-        private IEnumerator PushRoutine(string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
-            bool loadAsync = true)
+//string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
+//        bool loadAsync = true
+        private IEnumerator PushRoutine(PushWindowOption option)
         {
-            if (resourceKey == null)
+            if (option.ResourcePath == null)
             {
-                throw new ArgumentNullException(nameof(resourceKey));
+                throw new ArgumentNullException(nameof(option.ResourcePath));
             }
 
             if (IsInTransition)
@@ -209,9 +254,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             IsInTransition = true;
 
-            var assetLoadHandle = loadAsync
-                ? AssetLoader.LoadAsync<GameObject>(resourceKey)
-                : AssetLoader.Load<GameObject>(resourceKey);
+            var assetLoadHandle = option.LoadAsync
+                ? AssetLoader.LoadAsync<GameObject>(option.ResourcePath)
+                : AssetLoader.Load<GameObject>(option.ResourcePath);
             if (!assetLoadHandle.IsDone)
             {
                 yield return new WaitUntil(() => assetLoadHandle.IsDone);
@@ -223,7 +268,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             var backdrop = Instantiate(_backdropPrefab);
-            backdrop.Setup((RectTransform)transform);
+            backdrop.Setup((RectTransform) transform);
             _backdrops.Add(backdrop);
 
             var instance = Instantiate(assetLoadHandle.Result);
@@ -231,13 +276,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             if (enterModal == null)
             {
                 throw new InvalidOperationException(
-                    $"Cannot transition because the \"{nameof(Modal)}\" component is not attached to the specified resource \"{resourceKey}\".");
+                    $"Cannot transition because the \"{nameof(Modal)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
 
             var modalId = enterModal.GetInstanceID();
             _assetLoadHandles.Add(modalId, assetLoadHandle);
-            onLoad?.Invoke(enterModal);
-            var afterLoadHandle = enterModal.AfterLoad((RectTransform)transform);
+            option.OnWindowCreated?.Invoke(enterModal);
+            var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             while (!afterLoadHandle.IsTerminated)
             {
                 yield return null;
@@ -270,14 +315,14 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // Play Animation
             var animationHandles = new List<AsyncProcessHandle>();
-            animationHandles.Add(backdrop.Enter(playAnimation));
+            animationHandles.Add(backdrop.Enter(option.PlayAnimation));
 
             if (exitModal != null)
             {
-                animationHandles.Add(exitModal.Exit(true, playAnimation, enterModal));
+                animationHandles.Add(exitModal.Exit(true, option.PlayAnimation, enterModal));
             }
 
-            animationHandles.Add(enterModal.Enter(true, playAnimation, exitModal));
+            animationHandles.Add(enterModal.Enter(true, option.PlayAnimation, exitModal));
 
             foreach (var coroutineHandle in animationHandles)
             {

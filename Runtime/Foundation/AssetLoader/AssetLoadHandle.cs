@@ -1,5 +1,7 @@
 using System;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+//using System.Threading.Tasks;
 using Object = UnityEngine.Object;
 
 namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
@@ -32,7 +34,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
 
         public T Result { get; private set; }
 
-        public Task<T> Task { get; private set; }
+        public UniTask<T> Task { get; private set; }
 
         void IAssetLoadHandleSetter<T>.SetStatus(AssetLoadStatus status)
         {
@@ -48,8 +50,8 @@ namespace UnityScreenNavigator.Runtime.Foundation.AssetLoader
         {
             PercentCompleteFunc = percentComplete;
         }
-
-        void IAssetLoadHandleSetter<T>.SetTask(Task<T> task)
+        
+        void IAssetLoadHandleSetter<T>.SetTask(UniTask<T> task)
         {
             Task = task;
         }
