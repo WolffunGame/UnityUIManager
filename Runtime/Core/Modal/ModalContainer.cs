@@ -11,17 +11,14 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
     [RequireComponent(typeof(RectMask2D))]
-    public sealed class ModalContainer : ContainerBase, IContainerManager
+    public sealed class ModalContainer : ContainerLayer, IContainerManager
     {
         private static readonly Dictionary<int, ModalContainer> InstanceCacheByTransform =
             new Dictionary<int, ModalContainer>();
 
         private static readonly Dictionary<string, ModalContainer> InstanceCacheByName =
             new Dictionary<string, ModalContainer>();
-
-        [SerializeField] private string _name;
-
-        public override string Identifier => _name;
+        
 
         [SerializeField] private ModalBackdrop _overrideBackdropPrefab;
 
@@ -62,23 +59,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             get { return _modals[_modals.Count - 1]; }
         }
-
-        public int Layer { get; set; }
-        public string LayerName { get; set; }
-        public ContainerLayerType LayerType { get; set; }
-        private IContainerLayerManager _containerLayerManager;
-
-        public IContainerLayerManager ContainerLayerManager
-        {
-            get
-            {
-                return this._containerLayerManager ?? (this._containerLayerManager =
-                    GameObject.FindObjectOfType<GlobalContainerLayerManager>());
-            }
-            set { this._containerLayerManager = value; }
-        }
-
-        public int VisibleElementInLayer
+        
+        public override int VisibleElementInLayer
         {
             get => Modals.Count;
         }
@@ -86,9 +68,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         protected override void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IModalContainerCallbackReceiver>());
-            if (!string.IsNullOrWhiteSpace(_name))
+            if (!string.IsNullOrWhiteSpace(LayerName))
             {
-                InstanceCacheByName.Add(_name, this);
+                InstanceCacheByName.Add(LayerName, this);
             }
 
             _backdropPrefab = _overrideBackdropPrefab
@@ -111,7 +93,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             _assetLoadHandles.Clear();
 
-            InstanceCacheByName.Remove(_name);
+            InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
             {
@@ -177,9 +159,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             return null;
         }
 
-        public static ModalContainer Create(string name, string path)
+        public static ModalContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
-            GameObject root = new GameObject(name, typeof(CanvasGroup));
+            GameObject root = new GameObject(layerName, typeof(CanvasGroup));
             RectTransform rectTransform = root.AddComponent<RectTransform>();
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
@@ -191,14 +173,16 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             ModalContainer container = root.AddComponent<ModalContainer>();
             //container.WindowManager = windowManager;
-            //container.Create();
+            container.CreateLayer(layerName, layer, layerType);
 
 
-            PushWindowOption option = new PushWindowOption(path, false);
-            container.Push(option);
+            //PushWindowOption option = new PushWindowOption(path, false);
+            //container.Push(option);
             return container;
         }
-
+        protected override void OnCreate()
+        {
+        }
         /// <summary>
         ///     Add a callback receiver.
         /// </summary>

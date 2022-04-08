@@ -11,18 +11,14 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 namespace UnityScreenNavigator.Runtime.Core.Page
 {
     [RequireComponent(typeof(RectMask2D))]
-    public sealed class PageContainer : ContainerBase, IContainerManager
+    public sealed class PageContainer : ContainerLayer, IContainerManager
     {
         private static readonly Dictionary<int, PageContainer> InstanceCacheByTransform =
             new Dictionary<int, PageContainer>();
 
         private static readonly Dictionary<string, PageContainer> InstanceCacheByName =
             new Dictionary<string, PageContainer>();
-
-        [SerializeField] private string _name;
-
-        public override string Identifier => _name;
-
+        
         private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
             = new Dictionary<int, AssetLoadHandle<GameObject>>();
 
@@ -49,22 +45,8 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         public IReadOnlyList<Page> Pages => _pages;
 
         public ContainerBase Current => _pages[_pages.Count - 1];
-        public int Layer { get; set; }
-        public string LayerName { get; set; }
-        public ContainerLayerType LayerType { get; set; }
-        private IContainerLayerManager _containerLayerManager;
 
-        public IContainerLayerManager ContainerLayerManager
-        {
-            get
-            {
-                return this._containerLayerManager ?? (this._containerLayerManager =
-                    GameObject.FindObjectOfType<GlobalContainerLayerManager>());
-            }
-            set { this._containerLayerManager = value; }
-        }
-
-        public int VisibleElementInLayer
+        public override int VisibleElementInLayer
         {
             get => Pages.Count;
         }
@@ -72,9 +54,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         protected override void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IPageContainerCallbackReceiver>());
-            if (!string.IsNullOrWhiteSpace(_name))
+            if (!string.IsNullOrWhiteSpace(LayerName))
             {
-                InstanceCacheByName.Add(_name, this);
+                InstanceCacheByName.Add(LayerName, this);
             }
         }
 
@@ -91,7 +73,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
             _assetLoadHandles.Clear();
 
-            InstanceCacheByName.Remove(_name);
+            InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
             {
@@ -159,9 +141,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             return null;
         }
 
-        public static PageContainer Create(string name, string path)
+        public static PageContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
-            GameObject root = new GameObject(name, typeof(CanvasGroup));
+            GameObject root = new GameObject(layerName, typeof(CanvasGroup));
             RectTransform rectTransform = root.AddComponent<RectTransform>();
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
@@ -172,16 +154,18 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
             PageContainer container = root.AddComponent<PageContainer>();
             //container.WindowManager = windowManager;
-            //container.Create();
-            //TODO get layer from settings
-
-
-            PushWindowOption option = new PushWindowOption(path, false);
-            container.Push(option);
+            container.CreateLayer(layerName, layer, layerType);
+            // PushWindowOption option = new PushWindowOption(path, false);
+            // container.Push(option);
             return container;
         }
 
         #endregion
+
+        protected override void OnCreate()
+        {
+            
+        }
 
         /// <summary>
         ///     Add a callback receiver.

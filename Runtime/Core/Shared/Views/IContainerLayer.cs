@@ -10,8 +10,8 @@
         int VisibleElementInLayer { get;}
         
         ContainerLayerType LayerType { get; set; }
-        
         IContainerLayerManager ContainerLayerManager { get; set; }
+        void CreateLayer(string layerName, int layer, ContainerLayerType layerType);
     }
 
     public enum ContainerLayerType

@@ -57,7 +57,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             this.Interactable = this.Activated;
             this.OnCreate(bundle);
             this._created = true;
-            //WindowManager.Add(this);
+            WindowManager.Add(this);
         }
         // public abstract AsyncProcessHandle Show(ShowWindowOption option);
         //

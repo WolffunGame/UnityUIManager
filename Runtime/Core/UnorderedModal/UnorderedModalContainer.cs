@@ -6,44 +6,21 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 {
-    public class UnorderedModalContainer : Window, IWindowManager, IContainerLayer
+    public class UnorderedModalContainer : ContainerLayer, IWindowManager
     {
-        [SerializeField] private string _name;
-        public override string Identifier => _name;
-        
         private IWindowManager _localWindowManager;
         
         private readonly List<IUnorderedModalContainerCallbackReceiver> _callbackReceivers =
             new List<IUnorderedModalContainerCallbackReceiver>();
-
-        public int Layer { get; set; }
-        public string LayerName { get; set; }
-
-        public ContainerLayerType LayerType { get; set; }
-        private IContainerLayerManager _containerLayerManager;
-
-        public IContainerLayerManager ContainerLayerManager
-        {
-            get
-            {
-                return this._containerLayerManager ?? (this._containerLayerManager =
-                    GameObject.FindObjectOfType<GlobalContainerLayerManager>());
-            }
-            set { this._containerLayerManager = value; }
-        }
-        public int VisibleElementInLayer
+        
+        public override int VisibleElementInLayer
         {
             get => _localWindowManager.Count;
         }
         
-        public static UnorderedModalContainer Create(string path, string name)
+        public static UnorderedModalContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
-            return Create(path, name,null);
-        }
-
-        public static UnorderedModalContainer Create(string path, string name, IWindowManager windowManager)
-        {
-            GameObject root = new GameObject(name, typeof(CanvasGroup));
+            GameObject root = new GameObject(layerName, typeof(CanvasGroup));
             RectTransform rectTransform = root.AddComponent<RectTransform>();
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
@@ -54,11 +31,10 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 
             UnorderedModalContainer container = root.GetOrAddComponent<UnorderedModalContainer>();
             //container.WindowManager = windowManager;
-            container.Create();
-            container.Show(new ShowWindowOption(path, false));
+            container.CreateLayer(layerName, layer, layerType);
             return container;
         }
-        protected override void OnCreate(IBundle bundle)
+        protected override void OnCreate()
         {
            _localWindowManager = this.CreateWindowManager();
         }
@@ -159,7 +135,5 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
         {
             _callbackReceivers.Remove(callbackReceiver);
         }
-
-
     }
 }

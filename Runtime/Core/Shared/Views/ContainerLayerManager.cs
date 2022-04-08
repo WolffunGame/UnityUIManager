@@ -8,7 +8,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
     [RequireComponent(typeof(RectTransform), typeof(Canvas))]
     public class ContainerLayerManager : UIView, IContainerLayerManager
     {
-        private List<IContainerLayer> _containerLayers = new List<IContainerLayer>();
+        private readonly List<IContainerLayer> _containerLayers = new List<IContainerLayer>();
 
         public IContainerLayer Current
         {
@@ -55,6 +55,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 return;
 
             this._containerLayers.Add(layer);
+            AddChild(GetTransform(layer));
         }
 
         public bool Remove(IContainerLayer layer)
@@ -126,22 +127,22 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             this._containerLayers.Clear();
         }
         
-        protected virtual Transform GetTransform(IContainerLayer window)
+        protected virtual Transform GetTransform(IContainerLayer layer)
         {
             try
             {
-                if (window == null)
+                if (layer == null)
                     return null;
 
-                if (window is UIView)
-                    return (window as UIView).RectTransform;
+                if (layer is UIView)
+                    return (layer as UIView).RectTransform;
 
-                var propertyInfo = window.GetType().GetProperty("Transform");
+                var propertyInfo = layer.GetType().GetProperty("Transform");
                 if (propertyInfo != null)
-                    return (Transform)propertyInfo.GetGetMethod().Invoke(window, null);
+                    return (Transform)propertyInfo.GetGetMethod().Invoke(layer, null);
 
-                if (window is Component)
-                    return (window as Component).transform;
+                if (layer is Component)
+                    return (layer as Component).transform;
                 return null;
             }
             catch (Exception)
@@ -155,6 +156,15 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 return;
 
             child.SetParent(null, worldPositionStays);
+        }
+        protected virtual void AddChild(Transform child, bool worldPositionStays = false)
+        {
+            if (child == null || this.transform.Equals(child.parent))
+                return;
+
+            child.gameObject.layer = this.gameObject.layer;
+            child.SetParent(this.transform, worldPositionStays);
+            child.SetAsFirstSibling();
         }
 
     }
