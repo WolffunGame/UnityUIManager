@@ -16,5 +16,23 @@ namespace UnityScreenNavigator.Runtime.Foundation
             self.rotation = Quaternion.identity;
             self.localScale = Vector3.one;
         }
+        
+        public static void RemoveChild(this Transform transform, Transform child, bool worldPositionStays = false)
+        {
+            if (child == null || !transform.Equals(child.parent))
+                return;
+
+            child.SetParent(null, worldPositionStays);
+        }
+
+        public static void AddChild(this Transform transform, Transform child, bool worldPositionStays = false)
+        {
+            if (child == null || transform.Equals(child.parent))
+                return;
+
+            child.gameObject.layer = transform.gameObject.layer;
+            child.SetParent(transform, worldPositionStays);
+            child.SetAsLastSibling();
+        }
     }
 }

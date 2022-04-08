@@ -123,7 +123,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
                 if (_defaultAssetLoader == null)
                 {
-                    _defaultAssetLoader = CreateInstance<ResourcesAssetLoaderObject>();
+                    _defaultAssetLoader = CreateInstance<AddressableAssetLoaderObject>();
                 }
 
                 return _defaultAssetLoader;

@@ -25,6 +25,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             LayerName = layerName;
             Layer = layer;
             LayerType = layerType;
+            OnCreate();
             ContainerLayerManager.Add(this);
         }
 

@@ -2,12 +2,12 @@
 {
     public interface IDynamicWindowContainerCallbackReceiver
     {
-        void BeforeShow(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal);
+        void BeforeShow(DynamicWindow enterModal, DynamicWindow exitModal);
 
-        void AfterShow(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal);
+        void AfterShow(DynamicWindow enterModal, DynamicWindow exitModal);
 
-        void BeforeHide(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal);
+        void BeforeHide(DynamicWindow enterModal, DynamicWindow exitModal);
 
-        void AfterHide(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal);
+        void AfterHide(DynamicWindow enterModal, DynamicWindow exitModal);
     }
 }

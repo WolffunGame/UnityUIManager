@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityScreenNavigator.Runtime.Foundation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
@@ -55,7 +56,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 return;
 
             this._containerLayers.Add(layer);
-            AddChild(GetTransform(layer));
+            transform.AddChild(GetTransform(layer));
         }
 
         public bool Remove(IContainerLayer layer)
@@ -73,7 +74,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
             var layer = _containerLayers[index];
 
-            this.RemoveChild(GetTransform(layer));
+            transform.RemoveChild(GetTransform(layer));
             this._containerLayers.RemoveAt(index);
             return layer;
         }
@@ -151,22 +152,22 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             }
         }
 
-        protected virtual void RemoveChild(Transform child, bool worldPositionStays = false)
-        {
-            if (child == null || !this.transform.Equals(child.parent))
-                return;
-
-            child.SetParent(null, worldPositionStays);
-        }
-
-        protected virtual void AddChild(Transform child, bool worldPositionStays = false)
-        {
-            if (child == null || this.transform.Equals(child.parent))
-                return;
-
-            child.gameObject.layer = this.gameObject.layer;
-            child.SetParent(this.transform, worldPositionStays);
-            child.SetAsLastSibling();
-        }
+        // protected virtual void RemoveChild(Transform child, bool worldPositionStays = false)
+        // {
+        //     if (child == null || !this.transform.Equals(child.parent))
+        //         return;
+        //
+        //     child.SetParent(null, worldPositionStays);
+        // }
+        //
+        // protected virtual void AddChild(Transform child, bool worldPositionStays = false)
+        // {
+        //     if (child == null || this.transform.Equals(child.parent))
+        //         return;
+        //
+        //     child.gameObject.layer = this.gameObject.layer;
+        //     child.SetParent(this.transform, worldPositionStays);
+        //     child.SetAsLastSibling();
+        // }
     }
 }
