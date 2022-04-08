@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityScreenNavigator.Runtime.Core.UnorderedModal;
+using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
@@ -33,39 +33,22 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public bool Activated { get; }
 
-        private IWindowManager windowManager;
-        public virtual IWindowManager WindowManager
-        {
-            get
-            {
-                return this.windowManager ??
-                       (this.windowManager = gameObject.AddComponent<UnorderedModalManager>());
-            }
-            set { this.windowManager = value; }
-        }
+
 
         public virtual string Identifier { get; set; }
 
-        protected abstract void OnCreate(IBundle bundle);
+        //protected abstract void OnCreate(IBundle bundle);
 
-        public void Create(IBundle bundle = null)
-        {
-            if (this._created)
-                return;
-
-            this.Visibility = false;
-            this.Interactable = this.Activated;
-            this.OnCreate(bundle);
-            this._created = true;
-            WindowManager.Add(this);
-        }
-        // public abstract AsyncProcessHandle Show(ShowWindowOption option);
-        //
-        // public abstract AsyncProcessHandle Hide(bool playAnimation = true);
-        //
-        // public AsyncProcessHandle Dismiss(bool ignoreAnimation = false)
+        // public void Create(IBundle bundle = null)
         // {
-        //     throw new System.NotImplementedException();
+        //     if (this._created)
+        //         return;
+        //
+        //     this.Visibility = false;
+        //     this.Interactable = this.Activated;
+        //     this.OnCreate(bundle);
+        //     this._created = true;
+        //     WindowManager.Add(this);
         // }
     }
 }

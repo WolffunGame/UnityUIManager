@@ -96,7 +96,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        AsyncProcessHandle Show(ShowWindowOption option);
+        AsyncProcessHandle Show(WindowOption option);
 
         /// <summary>
         /// 
@@ -106,16 +106,16 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         AsyncProcessHandle Hide(bool playAnimation);
     }
 
-    public struct PushWindowOption
+    public struct WindowOption
     {
         private string resourcePath;
         private bool loadAsync;
         private bool playAnimation;
-        private Action<ContainerBase> onWindowCreated;
+        private Action<Window> onWindowCreated;
         private bool stack;
 
-        public PushWindowOption(string resourcePath, bool playAnimation, bool stack = true,
-            Action<ContainerBase> onWindowCreated = null
+        public WindowOption(string resourcePath, bool playAnimation, bool stack = true,
+            Action<Window> onWindowCreated = null
             , bool loadAsync = true)
         {
             this.resourcePath = resourcePath;
@@ -127,30 +127,9 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public bool LoadAsync => loadAsync;
         public bool PlayAnimation => playAnimation;
-        public Action<ContainerBase> OnWindowCreated => onWindowCreated;
+        public Action<Window> OnWindowCreated => onWindowCreated;
         public bool Stack => stack;
         public string ResourcePath => resourcePath;
     }
-
-    public struct ShowWindowOption
-    {
-        private string resourcePath;
-        private bool loadAsync;
-        private bool playAnimation;
-        private Action<IWindow> onWindowCreated;
-        
-        public ShowWindowOption(string resourcePath, bool playAnimation,
-            Action<IWindow> onWindowCreated = null, bool loadAsync = true)
-        {
-            this.resourcePath = resourcePath;
-            this.loadAsync = loadAsync;
-            this.playAnimation = playAnimation;
-            this.onWindowCreated = onWindowCreated;
-        }
-        
-        public bool LoadAsync => loadAsync;
-        public bool PlayAnimation => playAnimation;
-        public Action<IWindow> OnWindowCreated => onWindowCreated;
-        public string ResourcePath => resourcePath;
-    }
+    
 }

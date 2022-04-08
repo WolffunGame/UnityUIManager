@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Modal;
-using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -15,8 +11,7 @@ using UnityEditor;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared
 {
-    //TODO: change access modifier to internal
-    public sealed class UnityScreenNavigatorSettings : ScriptableObject
+    internal sealed class UnityScreenNavigatorSettings : ScriptableObject
     {
         private const string DefaultModalBackdropPrefabKey = "DefaultModalBackdrop";
         private static UnityScreenNavigatorSettings _instance;
@@ -49,19 +44,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         [SerializeField] private bool useBlocksRaycastsInsteadOfInteractable;
 
-        [SerializeField] private ContainerLayerConfiguration[] _containerLayers;
 
         private IAssetLoader _defaultAssetLoader;
         private ModalBackdrop _defaultModalBackdrop;
 
 
-#if UNITY_EDITOR
-        private void OnValidate()
-        {
-            //sort _containerLayers by layer
-            _containerLayers = _containerLayers.OrderBy(x => x.layer).ToArray();
-        }
-#endif
 
         public ITransitionAnimation SheetEnterAnimation => _sheetEnterAnimation != null
             ? Instantiate(_sheetEnterAnimation)
@@ -178,7 +165,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             _instance = this;
         }
 
-        public ITransitionAnimation GetDefaultPageTransitionAnimation(bool push, bool enter)
+        public ITransitionAnimation GetDefaultScreenTransitionAnimation(bool push, bool enter)
         {
             if (push)
             {
@@ -198,10 +185,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             return enter ? SheetEnterAnimation : SheetExitAnimation;
         }
 
-        public ContainerLayerConfiguration[] GetContainerLayers()
-        {
-            return _containerLayers;
-        }
+
 
 #if UNITY_EDITOR
 
@@ -242,12 +226,4 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 #endif
     }
 
-
-    [Serializable]
-    public class ContainerLayerConfiguration
-    {
-        public string name;
-        [Range(0, 10)] public int layer;
-        public ContainerLayerType layerType;
-    }
 }

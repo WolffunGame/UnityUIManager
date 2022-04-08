@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Foundation;
 using Object = UnityEngine.Object;
 
-namespace UnityScreenNavigator.Runtime.Core.Page
+namespace UnityScreenNavigator.Runtime.Core.Screen
 {
     [Serializable]
-    public sealed class PageTransitionAnimationContainer
+    public sealed class ScreenTransitionAnimationContainer
     {
         [SerializeField] private List<TransitionAnimation> _pushEnterAnimations = new List<TransitionAnimation>();
         [SerializeField] private List<TransitionAnimation> _pushExitAnimations = new List<TransitionAnimation>();
@@ -43,7 +44,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         [Serializable]
         public sealed class TransitionAnimation
         {
-            [SerializeField] private string _partnerPageIdentifierRegex;
+            [FormerlySerializedAs("_partnerPageIdentifierRegex")] [SerializeField] private string _partnerScreenIdentifierRegex;
 
             [SerializeField] private AnimationAssetType _assetType;
 
@@ -55,10 +56,10 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
             private Regex _partnerSheetIdentifierRegexCache;
 
-            public string PartnerPageIdentifierRegex
+            public string PartnerScreenIdentifierRegex
             {
-                get => _partnerPageIdentifierRegex;
-                set => _partnerPageIdentifierRegex = value;
+                get => _partnerScreenIdentifierRegex;
+                set => _partnerScreenIdentifierRegex = value;
             }
 
             public AnimationAssetType AssetType
@@ -79,7 +80,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
                 set => _animationObject = value;
             }
 
-            public bool IsValid(string partnerPageIdentifier)
+            public bool IsValid(string partnerScreenIdentifier)
             {
                 if (GetAnimation() == null)
                 {
@@ -87,22 +88,22 @@ namespace UnityScreenNavigator.Runtime.Core.Page
                 }
 
                 // If the partner identifier is not registered, the animation is always valid.
-                if (string.IsNullOrEmpty(_partnerPageIdentifierRegex))
+                if (string.IsNullOrEmpty(_partnerScreenIdentifierRegex))
                 {
                     return true;
                 }
                 
-                if (string.IsNullOrEmpty(partnerPageIdentifier))
+                if (string.IsNullOrEmpty(partnerScreenIdentifier))
                 {
                     return false;
                 }
                 
                 if (_partnerSheetIdentifierRegexCache == null)
                 {
-                    _partnerSheetIdentifierRegexCache = new Regex(_partnerPageIdentifierRegex);
+                    _partnerSheetIdentifierRegexCache = new Regex(_partnerScreenIdentifierRegex);
                 }
 
-                return _partnerSheetIdentifierRegexCache.IsMatch(partnerPageIdentifier);
+                return _partnerSheetIdentifierRegexCache.IsMatch(partnerScreenIdentifier);
             }
 
             public ITransitionAnimation GetAnimation()

@@ -1,11 +1,10 @@
-﻿using System.Collections;
+﻿using Cysharp.Threading.Tasks;
 #if USN_USE_ASYNC_METHODS
-using Cysharp.Threading.Tasks;
 #endif
 
-namespace UnityScreenNavigator.Runtime.Core.Page
+namespace UnityScreenNavigator.Runtime.Core.Screen
 {
-    public interface IPageLifecycleEvent
+    public interface IScreenLifecycleEvent
     {
 #if USN_USE_ASYNC_METHODS
         UniTask Initialize();

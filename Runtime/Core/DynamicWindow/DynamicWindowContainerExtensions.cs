@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityScreenNavigator.Runtime.Core.Shared;
 
-namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
+namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
-    public static class UnorderedModalContainerExtensions
+    public static class DynamicWindowContainerExtensions
     {
-        public static void AddCallbackReceiver(this UnorderedModalContainer self,
-            Action<(UnorderedModal enterModal, UnorderedModal exitModal)> onBeforeShow = null,
-            Action<(UnorderedModal enterModal, UnorderedModal exitModal)> onAfterShow = null,
-            Action<(UnorderedModal enterModal, UnorderedModal exitModal)> onBeforeHide = null,
-            Action<(UnorderedModal enterModal, UnorderedModal exitModal)> onAfterHide = null)
+        public static void AddCallbackReceiver(this DynamicWindowContainer self,
+            Action<(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal)> onBeforeShow = null,
+            Action<(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal)> onAfterShow = null,
+            Action<(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal)> onBeforeHide = null,
+            Action<(DynamicDynamicWindow enterModal, DynamicDynamicWindow exitModal)> onAfterHide = null)
         {
             var callbackReceiver =
-                new AnonymousUnorderedModalContainerCallbackReceiver(onBeforeShow, onAfterShow, onBeforeHide, onAfterHide);
+                new AnonymousDynamicContainerCallbackReceiver(onBeforeShow, onAfterShow, onBeforeHide, onAfterHide);
             self.AddCallbackReceiver(callbackReceiver);
         }
         
-        public static void AddCallbackReceiver(this UnorderedModalContainer self, UnorderedModal modal,
-            Action<UnorderedModal> onBeforePush = null, Action<UnorderedModal> onAfterPush = null,
-            Action<UnorderedModal> onBeforePop = null, Action<UnorderedModal> onAfterPop = null)
+        public static void AddCallbackReceiver(this DynamicWindowContainer self, DynamicDynamicWindow modal,
+            Action<DynamicDynamicWindow> onBeforePush = null, Action<DynamicDynamicWindow> onAfterPush = null,
+            Action<DynamicDynamicWindow> onBeforePop = null, Action<DynamicDynamicWindow> onAfterPop = null)
         {
-            var callbackReceiver = new AnonymousUnorderedModalContainerCallbackReceiver();
+            var callbackReceiver = new AnonymousDynamicContainerCallbackReceiver();
             callbackReceiver.OnBeforeShow += x =>
             {
                 var (enterModal, exitModal) = x;

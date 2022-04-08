@@ -4,21 +4,21 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
-namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
+namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
-    public class UnorderedModalContainer : ContainerLayer, IWindowManager
+    public class DynamicWindowContainer : ContainerLayer, IWindowManager
     {
         private IWindowManager _localWindowManager;
         
-        private readonly List<IUnorderedModalContainerCallbackReceiver> _callbackReceivers =
-            new List<IUnorderedModalContainerCallbackReceiver>();
+        private readonly List<IDynamicWindowContainerCallbackReceiver> _callbackReceivers =
+            new List<IDynamicWindowContainerCallbackReceiver>();
         
         public override int VisibleElementInLayer
         {
             get => _localWindowManager.Count;
         }
         
-        public static UnorderedModalContainer Create(string layerName, int layer, ContainerLayerType layerType)
+        public static DynamicWindowContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
             GameObject root = new GameObject(layerName, typeof(CanvasGroup));
             RectTransform rectTransform = root.AddComponent<RectTransform>();
@@ -29,19 +29,19 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
             rectTransform.localPosition = Vector3.zero;
 
-            UnorderedModalContainer container = root.GetOrAddComponent<UnorderedModalContainer>();
+            DynamicWindowContainer container = root.GetOrAddComponent<DynamicWindowContainer>();
             //container.WindowManager = windowManager;
             container.CreateLayer(layerName, layer, layerType);
             return container;
         }
         protected override void OnCreate()
         {
-           _localWindowManager = this.CreateWindowManager();
+           _localWindowManager = CreateWindowManager();
         }
 
         protected virtual IWindowManager CreateWindowManager()
         {
-            return this.gameObject.AddComponent<UnorderedModalManager>();
+            return gameObject.AddComponent<DynamicWindowManager>();
         }
 
 
@@ -108,7 +108,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
             _localWindowManager.Clear();
         }
 
-        public AsyncProcessHandle Show(ShowWindowOption option)
+        public AsyncProcessHandle Show(WindowOption option)
         {
             return _localWindowManager.Show(option);
         }
@@ -122,7 +122,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
         ///     Add a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
-        public void AddCallbackReceiver(IUnorderedModalContainerCallbackReceiver callbackReceiver)
+        public void AddCallbackReceiver(IDynamicWindowContainerCallbackReceiver callbackReceiver)
         {
             _callbackReceivers.Add(callbackReceiver);
         }
@@ -131,7 +131,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
         ///     Remove a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
-        public void RemoveCallbackReceiver(IUnorderedModalContainerCallbackReceiver callbackReceiver)
+        public void RemoveCallbackReceiver(IDynamicWindowContainerCallbackReceiver callbackReceiver)
         {
             _callbackReceivers.Remove(callbackReceiver);
         }

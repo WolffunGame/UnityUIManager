@@ -1,8 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
+namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
-    public interface IWindowLifeCycleEvent
+    public interface IDynamicWindowLifeCycleEvent
     {
 #if USN_USE_ASYNC_METHODS
         UniTask Initialize();

@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {

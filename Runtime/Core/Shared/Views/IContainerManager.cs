@@ -4,11 +4,11 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
     /// <summary>
-    /// Manage Modals and Pages
+    /// Manage Modals and Screens
     /// </summary>
     public interface IContainerManager : IContainerLayer
     {
-        ContainerBase Current { get; }
+        Window Current { get; }
 
         /// <summary>
         /// Pop a window from WindowManager.
@@ -22,6 +22,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        AsyncProcessHandle Push(PushWindowOption option);
+        AsyncProcessHandle Push(WindowOption option);
     }
 }

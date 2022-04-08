@@ -32,11 +32,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// Returns  "true" if this window activated.
         /// </summary>
         bool Activated { get; }
-
-        /// <summary>
-        /// The WindowManager of the window.
-        /// </summary>
-        IWindowManager WindowManager { get; set; }
+        //
+        // /// <summary>
+        // /// The WindowManager of the window.
+        // /// </summary>
+        // IWindowManager WindowManager { get; set; }
         
         //TODO Create a WindowType enum?
         //for example: 
@@ -47,11 +47,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// </summary>
         int WindowPriority { get; set; }
 
-        /// <summary>
-        /// Create window
-        /// </summary>
-        /// <param name="bundle"></param>
-        void Create(IBundle bundle = null);
+        // /// <summary>
+        // /// Create window
+        // /// </summary>
+        // /// <param name="bundle"></param>
+        // void Create(IBundle bundle = null);
 
         // /// <summary>
         // /// 

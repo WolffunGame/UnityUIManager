@@ -1,9 +1,9 @@
 using System;
 using UnityScreenNavigator.Runtime.Core.Shared;
 
-namespace UnityScreenNavigator.Runtime.Core.Page
+namespace UnityScreenNavigator.Runtime.Core.Screen
 {
-    public static class PageContainerExtensions
+    public static class ScreenContainerExtensions
     {
         /// <summary>
         ///     Add callbacks.
@@ -13,14 +13,14 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         /// <param name="onAfterPush"></param>
         /// <param name="onBeforePop"></param>
         /// <param name="onAfterPop"></param>
-        public static void AddCallbackReceiver(this PageContainer self,
-            Action<(Page enterPage, Page exitPage)> onBeforePush = null,
-            Action<(Page enterPage, Page exitPage)> onAfterPush = null,
-            Action<(Page enterPage, Page exitPage)> onBeforePop = null,
-            Action<(Page enterPage, Page exitPage)> onAfterPop = null)
+        public static void AddCallbackReceiver(this ScreenContainer self,
+            Action<(Screen enterScreen, Screen exitScreen)> onBeforePush = null,
+            Action<(Screen enterScreen, Screen exitScreen)> onAfterPush = null,
+            Action<(Screen enterScreen, Screen exitScreen)> onBeforePop = null,
+            Action<(Screen enterScreen, Screen exitScreen)> onAfterPop = null)
         {
             var callbackReceiver =
-                new AnonymousPageContainerCallbackReceiver(onBeforePush, onAfterPush, onBeforePop, onAfterPop);
+                new AnonymousScreenContainerCallbackReceiver(onBeforePush, onAfterPush, onBeforePop, onAfterPop);
             self.AddCallbackReceiver(callbackReceiver);
         }
 
@@ -28,46 +28,46 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         ///     Add callbacks.
         /// </summary>
         /// <param name="self"></param>
-        /// <param name="page"></param>
+        /// <param name="screen"></param>
         /// <param name="onBeforePush"></param>
         /// <param name="onAfterPush"></param>
         /// <param name="onBeforePop"></param>
         /// <param name="onAfterPop"></param>
-        public static void AddCallbackReceiver(this PageContainer self, Page page,
-            Action<Page> onBeforePush = null, Action<Page> onAfterPush = null,
-            Action<Page> onBeforePop = null, Action<Page> onAfterPop = null)
+        public static void AddCallbackReceiver(this ScreenContainer self, Screen screen,
+            Action<Screen> onBeforePush = null, Action<Screen> onAfterPush = null,
+            Action<Screen> onBeforePop = null, Action<Screen> onAfterPop = null)
         {
-            var callbackReceiver = new AnonymousPageContainerCallbackReceiver();
+            var callbackReceiver = new AnonymousScreenContainerCallbackReceiver();
             callbackReceiver.OnBeforePush += x =>
             {
-                var (enterPage, exitPage) = x;
-                if (enterPage.Equals(page))
+                var (enterScreen, exitScreen) = x;
+                if (enterScreen.Equals(screen))
                 {
-                    onBeforePush?.Invoke(exitPage);
+                    onBeforePush?.Invoke(exitScreen);
                 }
             };
             callbackReceiver.OnAfterPush += x =>
             {
-                var (enterPage, exitPage) = x;
-                if (enterPage.Equals(page))
+                var (enterScreen, exitScreen) = x;
+                if (enterScreen.Equals(screen))
                 {
-                    onAfterPush?.Invoke(exitPage);
+                    onAfterPush?.Invoke(exitScreen);
                 }
             };
             callbackReceiver.OnBeforePop += x =>
             {
-                var (enterPage, exitPage) = x;
-                if (exitPage.Equals(page))
+                var (enterScreen, exitScreen) = x;
+                if (exitScreen.Equals(screen))
                 {
-                    onBeforePop?.Invoke(enterPage);
+                    onBeforePop?.Invoke(enterScreen);
                 }
             };
             callbackReceiver.OnAfterPop += x =>
             {
-                var (enterPage, exitPage) = x;
-                if (exitPage.Equals(page))
+                var (enterScreen, exitScreen) = x;
+                if (exitScreen.Equals(screen))
                 {
-                    onAfterPop?.Invoke(enterPage);
+                    onAfterPop?.Invoke(enterScreen);
                 }
             };
 

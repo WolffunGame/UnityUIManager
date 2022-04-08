@@ -15,7 +15,7 @@ using Cysharp.Threading.Tasks;
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
     [DisallowMultipleComponent]
-    public class Modal : ContainerBase, IModalLifecycleEvent
+    public class Modal : Window, IModalLifecycleEvent
     {
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
@@ -25,10 +25,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         [SerializeField]
         private ModalTransitionAnimationContainer _animationContainer = new ModalTransitionAnimationContainer();
 
-        // private CanvasGroup _canvasGroup;
-        // private RectTransform _parentTransform;
-        // private RectTransform _rectTransform;
-
         private readonly PriorityList<IModalLifecycleEvent> _lifecycleEvents = new PriorityList<IModalLifecycleEvent>();
 
         public override string Identifier
@@ -37,14 +33,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             set => _identifier = value;
         }
         
-
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
 
-        // public bool Interactable
-        // {
-        //     get => _canvasGroup.interactable;
-        //     set => _canvasGroup.interactable = value;
-        // }
 
 #if USN_USE_ASYNC_METHODS
         public virtual UniTask Initialize()
@@ -146,14 +136,11 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
         {
-            //_rectTransform = (RectTransform)transform;
-            //_canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
             _lifecycleEvents.Add(this, 0);
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
-            //_parentTransform = parentTransform;
             Parent = parentTransform;
             RectTransform.FillParent((RectTransform)Parent);
-            //_canvasGroup.alpha = 0.0f;
+
             Alpha = 0.0f;
 
             return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
@@ -170,13 +157,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 gameObject.SetActive(true);
                 RectTransform.FillParent((RectTransform)Parent);
-                //_canvasGroup.alpha = 0.0f;
+
                 Alpha = 0.0f;
             }
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = false;
                 Interactable = false;
             }
 
@@ -238,7 +224,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = true;
                 Interactable = true;
             }
         }
@@ -254,13 +239,11 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 gameObject.SetActive(true);
                 RectTransform.FillParent((RectTransform)Parent);
-                //_canvasGroup.alpha = 1.0f;
                 Alpha = 1.0f;
             }
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = false;
                 Interactable = false;
             }
 
@@ -296,8 +279,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     anim.Setup(RectTransform);
                     yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
                 }
-
-                //_canvasGroup.alpha = 0.0f;
+                
                 Alpha = 0.0f;
             }
         }

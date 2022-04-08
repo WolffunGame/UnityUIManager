@@ -11,22 +11,32 @@ using UnityScreenNavigator.Runtime.Foundation.Animation;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 
-namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
+namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
-    public class UnorderedModal : Window, IWindowLifeCycleEvent
+    public class DynamicDynamicWindow : Window, IDynamicWindowLifeCycleEvent
     {
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
         [SerializeField] [EnabledIf(nameof(_usePrefabNameAsIdentifier), false)]
         private string _identifier;
 
-        private readonly PriorityList<IWindowLifeCycleEvent> _lifecycleEvents =
-            new PriorityList<IWindowLifeCycleEvent>();
+        private readonly PriorityList<IDynamicWindowLifeCycleEvent> _lifecycleEvents =
+            new PriorityList<IDynamicWindowLifeCycleEvent>();
 
         [SerializeField]
         private ModalTransitionAnimationContainer _animationContainer = new ModalTransitionAnimationContainer();
 
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
+        private IWindowManager _windowManager;
+        public virtual IWindowManager WindowManager
+        {
+            get
+            {
+                return this._windowManager ??
+                       (this._windowManager = gameObject.AddComponent<DynamicWindowManager>());
+            }
+            set { this._windowManager = value; }
+        }
 
 #if USN_USE_ASYNC_METHODS
         public UniTask Initialize()
@@ -108,9 +118,6 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
             yield break;
         }
 #endif
-        protected override void OnCreate(IBundle bundle)
-        {
-        }
 
         internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
         {
@@ -122,12 +129,12 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 
             return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
         }
-        internal AsyncProcessHandle BeforeEnter(bool push, UnorderedModal partnerModal)
+        internal AsyncProcessHandle BeforeEnter(bool push, DynamicDynamicWindow partnerModal)
         {
             return CoroutineManager.Instance.Run(BeforeEnterRoutine(push, partnerModal));
         }
 
-        private IEnumerator BeforeEnterRoutine(bool push, UnorderedModal partnerModal)
+        private IEnumerator BeforeEnterRoutine(bool push, DynamicDynamicWindow partnerModal)
         {
             if (push)
             {
@@ -153,12 +160,12 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
                 yield return null;
             }
         }
-        internal AsyncProcessHandle Enter(bool push, bool playAnimation, UnorderedModal partnerModal)
+        internal AsyncProcessHandle Enter(bool push, bool playAnimation, DynamicDynamicWindow partnerModal)
         {
             return CoroutineManager.Instance.Run(EnterRoutine(push, playAnimation, partnerModal));
         }
 
-        private IEnumerator EnterRoutine(bool push, bool playAnimation, UnorderedModal partnerModal)
+        private IEnumerator EnterRoutine(bool push, bool playAnimation, DynamicDynamicWindow partnerModal)
         {
             if (push)
             {
@@ -180,7 +187,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
                 RectTransform.FillParent((RectTransform)Parent);
             }
         }
-        internal void AfterEnter(bool show, UnorderedModal partnerModal)
+        internal void AfterEnter(bool show, DynamicDynamicWindow partnerModal)
         {
             if (show)
             {
@@ -202,11 +209,11 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
                 Interactable = true;
             }
         }
-        internal AsyncProcessHandle BeforeExit(bool push, UnorderedModal partnerModal)
+        internal AsyncProcessHandle BeforeExit(bool push, DynamicDynamicWindow partnerModal)
         {
             return CoroutineManager.Instance.Run(BeforeExitRoutine(push, partnerModal));
         }
-        private IEnumerator BeforeExitRoutine(bool push, UnorderedModal partnerModal)
+        private IEnumerator BeforeExitRoutine(bool push, DynamicDynamicWindow partnerModal)
         {
             if (!push)
             {
@@ -232,12 +239,12 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
                 yield return null;
             }
         }
-        internal AsyncProcessHandle Exit(bool push, bool playAnimation, UnorderedModal partnerModal)
+        internal AsyncProcessHandle Exit(bool push, bool playAnimation, DynamicDynamicWindow partnerModal)
         {
             return CoroutineManager.Instance.Run(ExitRoutine(push, playAnimation, partnerModal));
         }
 
-        private IEnumerator ExitRoutine(bool push, bool playAnimation, UnorderedModal partnerModal)
+        private IEnumerator ExitRoutine(bool push, bool playAnimation, DynamicDynamicWindow partnerModal)
         {
             if (!push)
             {
@@ -259,7 +266,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
             }
         }
 
-        internal void AfterExit(bool push, UnorderedModal partnerModal)
+        internal void AfterExit(bool push, DynamicDynamicWindow partnerModal)
         {
             if (push)
             {

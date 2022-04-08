@@ -7,19 +7,19 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
-namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
+namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
     [DisallowMultipleComponent]
-    public class UnorderedModalManager : MonoBehaviour, IWindowManager
+    public class DynamicWindowManager : MonoBehaviour, IWindowManager
     {
         public virtual IWindow Current
         {
             get
             {
-                if (this._modals == null || this._modals.Count <= 0)
+                if (_modals == null || _modals.Count <= 0)
                     return null;
 
-                IWindow window = this._modals[0];
+                IWindow window = _modals[0];
                 return window != null && window.Visibility ? window : null;
             }
         }
@@ -28,19 +28,19 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 
         public bool Activated
         {
-            get { return this._activated; }
+            get { return _activated; }
             set
             {
-                if (this._activated == value)
+                if (_activated == value)
                     return;
 
-                this._activated = value;
+                _activated = value;
             }
         }
 
         public int Count
         {
-            get { return this._modals.Count; }
+            get { return _modals.Count; }
         }
 
         private readonly Dictionary<string, AssetLoadHandle<GameObject>> _preloadedResourceHandles =
@@ -49,92 +49,92 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
         private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
             = new Dictionary<int, AssetLoadHandle<GameObject>>();
 
-        private readonly List<IUnorderedModalContainerCallbackReceiver> _callbackReceivers =
-            new List<IUnorderedModalContainerCallbackReceiver>();
+        private readonly List<IDynamicWindowContainerCallbackReceiver> _callbackReceivers =
+            new List<IDynamicWindowContainerCallbackReceiver>();
 
 
         private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
 
 
-        private List<UnorderedModal> _modals = new List<UnorderedModal>();
+        private List<DynamicDynamicWindow> _modals = new List<DynamicDynamicWindow>();
 
         public IEnumerator<IWindow> Visibles()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public IWindow Get(int index)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Add(IWindow window)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public bool Remove(IWindow window)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public IWindow RemoveAt(int index)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public bool Contains(IWindow window)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public int IndexOf(IWindow window)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public List<IWindow> Find(bool visible)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public T Find<T>() where T : IWindow
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public T Find<T>(string windowName) where T : IWindow
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public List<T> FindAll<T>() where T : IWindow
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Clear()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        protected virtual void MoveToIndex(UnorderedModal window, int index)
+        protected virtual void MoveToIndex(DynamicDynamicWindow dynamicWindow, int index)
         {
-            if (window == null)
-                throw new ArgumentNullException("window");
+            if (dynamicWindow == null)
+                throw new ArgumentNullException("dynamicWindow");
 
-            int oldIndex = this.IndexOf(window);
+            int oldIndex = IndexOf(dynamicWindow);
             try
             {
                 if (oldIndex < 0 || oldIndex == index)
                     return;
 
-                this._modals.RemoveAt(oldIndex);
-                this._modals.Insert(index, window);
+                _modals.RemoveAt(oldIndex);
+                _modals.Insert(index, dynamicWindow);
             }
             finally
             {
-                Transform t = GetTransform(window);
+                Transform t = GetTransform(dynamicWindow);
                 if (t != null)
                 {
                     if (index == 0)
@@ -143,7 +143,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
                     }
                     else
                     {
-                        IWindow preWindow = this._modals[index - 1];
+                        IWindow preWindow = _modals[index - 1];
                         int preWindowPosition = GetChildIndex(GetTransform(preWindow));
                         int currWindowPosition = oldIndex >= index ? preWindowPosition - 1 : preWindowPosition;
                         t.SetSiblingIndex(currWindowPosition);
@@ -178,7 +178,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 
         protected virtual int GetChildIndex(Transform child)
         {
-            Transform transform1 = this.transform;
+            Transform transform1 = transform;
             int count = transform1.childCount;
             for (int i = count - 1; i >= 0; i--)
             {
@@ -189,12 +189,12 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
             return -1;
         }
 
-        public AsyncProcessHandle Show(ShowWindowOption option)
+        public AsyncProcessHandle Show(WindowOption option)
         {
             return CoroutineManager.Instance.Run(ShowRoutine(option));
         }
 
-        private IEnumerator ShowRoutine(ShowWindowOption option)
+        private IEnumerator ShowRoutine(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
@@ -215,11 +215,11 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
             }
 
             var instance = Instantiate(assetLoadHandle.Result);
-            var enterModal = instance.GetComponent<UnorderedModal>();
+            var enterModal = instance.GetComponent<DynamicDynamicWindow>();
             if (enterModal == null)
             {
                 throw new InvalidOperationException(
-                    $"Cannot transition because the \"{nameof(UnorderedModal)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
+                    $"Cannot transition because the \"{nameof(DynamicDynamicWindow)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
 
             var modalId = enterModal.GetInstanceID();
@@ -367,7 +367,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
                 callbackReceiver.AfterHide(enterModal, exitModal);
             }
 
-            // Unload Unused Page
+            // Unload Unused Screen
             var beforeReleaseHandle = exitModal.BeforeRelease();
             while (!beforeReleaseHandle.IsTerminated)
             {
@@ -416,34 +416,34 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 
             public InternalVisibleEnumerator(List<IWindow> list)
             {
-                this.windows = list;
+                windows = list;
             }
 
             public IWindow Current
             {
-                get { return this.index < 0 || this.index >= this.windows.Count ? null : this.windows[index]; }
+                get { return index < 0 || index >= windows.Count ? null : windows[index]; }
             }
 
             object IEnumerator.Current
             {
-                get { return this.Current; }
+                get { return Current; }
             }
 
             public void Dispose()
             {
-                this.index = -1;
-                this.windows.Clear();
+                index = -1;
+                windows.Clear();
             }
 
             public bool MoveNext()
             {
-                if (index >= this.windows.Count - 1)
+                if (index >= windows.Count - 1)
                     return false;
 
                 index++;
-                for (; index < this.windows.Count; index++)
+                for (; index < windows.Count; index++)
                 {
-                    IWindow window = this.windows[index];
+                    IWindow window = windows[index];
                     if (window != null && window.Visibility)
                         return true;
                 }
@@ -453,7 +453,7 @@ namespace UnityScreenNavigator.Runtime.Core.UnorderedModal
 
             public void Reset()
             {
-                this.index = -1;
+                index = -1;
             }
         }
 

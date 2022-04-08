@@ -8,29 +8,29 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
-namespace UnityScreenNavigator.Runtime.Core.Page
+namespace UnityScreenNavigator.Runtime.Core.Screen
 {
     [RequireComponent(typeof(RectMask2D))]
-    public sealed class PageContainer : ContainerLayer, IContainerManager
+    public sealed class ScreenContainer : ContainerLayer, IContainerManager
     {
-        private static readonly Dictionary<int, PageContainer> InstanceCacheByTransform =
-            new Dictionary<int, PageContainer>();
+        private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform =
+            new Dictionary<int, ScreenContainer>();
 
-        private static readonly Dictionary<string, PageContainer> InstanceCacheByName =
-            new Dictionary<string, PageContainer>();
+        private static readonly Dictionary<string, ScreenContainer> InstanceCacheByName =
+            new Dictionary<string, ScreenContainer>();
         
         private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
             = new Dictionary<int, AssetLoadHandle<GameObject>>();
 
-        private readonly List<IPageContainerCallbackReceiver> _callbackReceivers =
-            new List<IPageContainerCallbackReceiver>();
+        private readonly List<IScreenContainerCallbackReceiver> _callbackReceivers =
+            new List<IScreenContainerCallbackReceiver>();
 
-        private readonly List<Page> _pages = new List<Page>();
+        private readonly List<Screen> _screens = new List<Screen>();
 
         private readonly Dictionary<string, AssetLoadHandle<GameObject>> _preloadedResourceHandles =
             new Dictionary<string, AssetLoadHandle<GameObject>>();
 
-        private bool _isActivePageStacked;
+        private bool _isActiveScreenStacked;
 
         private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
 
@@ -40,34 +40,31 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         public bool IsInTransition { get; private set; }
 
         /// <summary>
-        /// Stacked pages.
+        /// Stacked screens.
         /// </summary>
-        public IReadOnlyList<Page> Pages => _pages;
+        public IReadOnlyList<Screen> Screens => _screens;
 
-        public ContainerBase Current => _pages[_pages.Count - 1];
+        public Window Current => _screens[_screens.Count - 1];
 
         public override int VisibleElementInLayer
         {
-            get => Pages.Count;
+            get => Screens.Count;
         }
 
         protected override void Awake()
         {
-            _callbackReceivers.AddRange(GetComponents<IPageContainerCallbackReceiver>());
-            if (!string.IsNullOrWhiteSpace(LayerName))
-            {
-                InstanceCacheByName.Add(LayerName, this);
-            }
+            _callbackReceivers.AddRange(GetComponents<IScreenContainerCallbackReceiver>());
+
         }
 
         protected override void OnDestroy()
         {
-            foreach (var page in _pages)
+            foreach (var screen in _screens)
             {
-                var pageId = page.GetInstanceID();
-                var assetLoadHandle = _assetLoadHandles[pageId];
+                var screenId = screen.GetInstanceID();
+                var assetLoadHandle = _assetLoadHandles[screenId];
 
-                Destroy(page.gameObject);
+                Destroy(screen.gameObject);
                 AssetLoader.Release(assetLoadHandle);
             }
 
@@ -92,23 +89,23 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         #region STATIC_METHODS
 
         /// <summary>
-        ///     Get the <see cref="PageContainer" /> that manages the page to which <see cref="transform" /> belongs.
+        ///     Get the <see cref="ScreenContainer" /> that manages the screen to which <see cref="transform" /> belongs.
         /// </summary>
         /// <param name="transform"></param>
         /// <param name="useCache">Use the previous result for the <see cref="transform" />.</param>
         /// <returns></returns>
-        public static PageContainer Of(Transform transform, bool useCache = true)
+        public static ScreenContainer Of(Transform transform, bool useCache = true)
         {
             return Of((RectTransform) transform, useCache);
         }
 
         /// <summary>
-        ///     Get the <see cref="PageContainer" /> that manages the page to which <see cref="rectTransform" /> belongs.
+        ///     Get the <see cref="ScreenContainer" /> that manages the screen to which <see cref="rectTransform" /> belongs.
         /// </summary>
         /// <param name="rectTransform"></param>
         /// <param name="useCache">Use the previous result for the <see cref="rectTransform" />.</param>
         /// <returns></returns>
-        public static PageContainer Of(RectTransform rectTransform, bool useCache = true)
+        public static ScreenContainer Of(RectTransform rectTransform, bool useCache = true)
         {
             var id = rectTransform.GetInstanceID();
             if (useCache && InstanceCacheByTransform.TryGetValue(id, out var container))
@@ -116,7 +113,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
                 return container;
             }
 
-            container = rectTransform.GetComponentInParent<PageContainer>();
+            container = rectTransform.GetComponentInParent<ScreenContainer>();
             if (container != null)
             {
                 InstanceCacheByTransform.Add(id, container);
@@ -127,11 +124,11 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
         /// <summary>
-        ///     Find the <see cref="PageContainer" /> of <see cref="containerName" />.
+        ///     Find the <see cref="ScreenContainer" /> of <see cref="containerName" />.
         /// </summary>
         /// <param name="containerName"></param>
         /// <returns></returns>
-        public static PageContainer Find(string containerName)
+        public static ScreenContainer Find(string containerName)
         {
             if (InstanceCacheByName.TryGetValue(containerName, out var instance))
             {
@@ -141,7 +138,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             return null;
         }
 
-        public static PageContainer Create(string layerName, int layer, ContainerLayerType layerType)
+        public static ScreenContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
             GameObject root = new GameObject(layerName, typeof(CanvasGroup));
             RectTransform rectTransform = root.AddComponent<RectTransform>();
@@ -152,11 +149,14 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
             rectTransform.localPosition = Vector3.zero;
 
-            PageContainer container = root.AddComponent<PageContainer>();
+            ScreenContainer container = root.AddComponent<ScreenContainer>();
             //container.WindowManager = windowManager;
             container.CreateLayer(layerName, layer, layerType);
-            // PushWindowOption option = new PushWindowOption(path, false);
-            // container.Push(option);
+            
+            if (!string.IsNullOrWhiteSpace(layerName))
+            {
+                InstanceCacheByName.Add(layerName, container);
+            }
             return container;
         }
 
@@ -171,7 +171,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         ///     Add a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
-        public void AddCallbackReceiver(IPageContainerCallbackReceiver callbackReceiver)
+        public void AddCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
         {
             _callbackReceivers.Add(callbackReceiver);
         }
@@ -180,23 +180,23 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         ///     Remove a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
-        public void RemoveCallbackReceiver(IPageContainerCallbackReceiver callbackReceiver)
+        public void RemoveCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
         {
             _callbackReceivers.Remove(callbackReceiver);
         }
 
         /// <summary>
-        ///     Push new page.
+        ///     Push new screen.
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Push(PushWindowOption option)
+        public AsyncProcessHandle Push(WindowOption option)
         {
             return CoroutineManager.Instance.Run(PushRoutine(option));
         }
 
         /// <summary>
-        ///     Pop current page.
+        ///     Pop current screen.
         /// </summary>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
@@ -205,7 +205,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             return CoroutineManager.Instance.Run(PopRoutine(playAnimation));
         }
 
-        private IEnumerator PushRoutine(PushWindowOption option)
+        private IEnumerator PushRoutine(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
@@ -235,38 +235,38 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             }
 
             var instance = Instantiate(assetLoadHandle.Result);
-            var enterPage = instance.GetComponent<Page>();
-            if (enterPage == null)
+            var enterScreen = instance.GetComponent<Screen>();
+            if (enterScreen == null)
             {
                 throw new InvalidOperationException(
-                    $"Cannot transition because the \"{nameof(Page)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
+                    $"Cannot transition because the \"{nameof(Screen)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
 
-            var pageId = enterPage.GetInstanceID();
-            _assetLoadHandles.Add(pageId, assetLoadHandle);
-            option.OnWindowCreated?.Invoke(enterPage);
-            var afterLoadHandle = enterPage.AfterLoad((RectTransform) transform);
+            var screenId = enterScreen.GetInstanceID();
+            _assetLoadHandles.Add(screenId, assetLoadHandle);
+            option.OnWindowCreated?.Invoke(enterScreen);
+            var afterLoadHandle = enterScreen.AfterLoad((RectTransform) transform);
             while (!afterLoadHandle.IsTerminated)
             {
                 yield return null;
             }
 
-            var exitPage = _pages.Count == 0 ? null : _pages[_pages.Count - 1];
-            var exitPageId = exitPage == null ? (int?) null : exitPage.GetInstanceID();
+            var exitScreen = _screens.Count == 0 ? null : _screens[_screens.Count - 1];
+            var exitScreenId = exitScreen == null ? (int?) null : exitScreen.GetInstanceID();
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.BeforePush(enterPage, exitPage);
+                callbackReceiver.BeforePush(enterScreen, exitScreen);
             }
 
             var preprocessHandles = new List<AsyncProcessHandle>();
-            if (exitPage != null)
+            if (exitScreen != null)
             {
-                preprocessHandles.Add(exitPage.BeforeExit(true, enterPage));
+                preprocessHandles.Add(exitScreen.BeforeExit(true, enterScreen));
             }
 
-            preprocessHandles.Add(enterPage.BeforeEnter(true, exitPage));
+            preprocessHandles.Add(enterScreen.BeforeEnter(true, exitScreen));
 
             foreach (var coroutineHandle in preprocessHandles)
             {
@@ -278,12 +278,12 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
             // Play Animations
             var animationHandles = new List<AsyncProcessHandle>();
-            if (exitPage != null)
+            if (exitScreen != null)
             {
-                animationHandles.Add(exitPage.Exit(true, option.PlayAnimation, enterPage));
+                animationHandles.Add(exitScreen.Exit(true, option.PlayAnimation, enterScreen));
             }
 
-            animationHandles.Add(enterPage.Enter(true, option.PlayAnimation, exitPage));
+            animationHandles.Add(enterScreen.Enter(true, option.PlayAnimation, exitScreen));
 
             foreach (var coroutineHandle in animationHandles)
             {
@@ -294,52 +294,52 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             }
 
             // End Transition
-            if (!_isActivePageStacked && exitPageId.HasValue)
+            if (!_isActiveScreenStacked && exitScreenId.HasValue)
             {
-                _pages.RemoveAt(_pages.Count - 1);
+                _screens.RemoveAt(_screens.Count - 1);
             }
 
-            _pages.Add(enterPage);
+            _screens.Add(enterScreen);
             IsInTransition = false;
 
             // Postprocess
-            if (exitPage != null)
+            if (exitScreen != null)
             {
-                exitPage.AfterExit(true, enterPage);
+                exitScreen.AfterExit(true, enterScreen);
             }
 
-            enterPage.AfterEnter(true, exitPage);
+            enterScreen.AfterEnter(true, exitScreen);
 
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.AfterPush(enterPage, exitPage);
+                callbackReceiver.AfterPush(enterScreen, exitScreen);
             }
 
-            // Unload Unused Page
-            if (!_isActivePageStacked && exitPageId.HasValue)
+            // Unload Unused Screen
+            if (!_isActiveScreenStacked && exitScreenId.HasValue)
             {
-                var beforeReleaseHandle = exitPage.BeforeRelease();
+                var beforeReleaseHandle = exitScreen.BeforeRelease();
                 while (!beforeReleaseHandle.IsTerminated)
                 {
                     yield return null;
                 }
 
-                var handle = _assetLoadHandles[exitPageId.Value];
+                var handle = _assetLoadHandles[exitScreenId.Value];
                 AssetLoader.Release(handle);
 
-                Destroy(exitPage.gameObject);
-                _assetLoadHandles.Remove(exitPageId.Value);
+                Destroy(exitScreen.gameObject);
+                _assetLoadHandles.Remove(exitScreenId.Value);
             }
 
-            _isActivePageStacked = option.Stack;
+            _isActiveScreenStacked = option.Stack;
         }
 
         private IEnumerator PopRoutine(bool playAnimation)
         {
-            if (_pages.Count == 0)
+            if (_screens.Count == 0)
             {
                 throw new InvalidOperationException(
-                    "Cannot transition because there are no pages loaded on the stack.");
+                    "Cannot transition because there are no screens loaded on the stack.");
             }
 
             if (IsInTransition)
@@ -350,23 +350,23 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
             IsInTransition = true;
 
-            var exitPage = _pages[_pages.Count - 1];
-            var exitPageId = exitPage.GetInstanceID();
-            var enterPage = _pages.Count == 1 ? null : _pages[_pages.Count - 2];
+            var exitScreen = _screens[_screens.Count - 1];
+            var exitScreenId = exitScreen.GetInstanceID();
+            var enterScreen = _screens.Count == 1 ? null : _screens[_screens.Count - 2];
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.BeforePop(enterPage, exitPage);
+                callbackReceiver.BeforePop(enterScreen, exitScreen);
             }
 
             var preprocessHandles = new List<AsyncProcessHandle>
             {
-                exitPage.BeforeExit(false, enterPage)
+                exitScreen.BeforeExit(false, enterScreen)
             };
-            if (enterPage != null)
+            if (enterScreen != null)
             {
-                preprocessHandles.Add(enterPage.BeforeEnter(false, exitPage));
+                preprocessHandles.Add(enterScreen.BeforeEnter(false, exitScreen));
             }
 
             foreach (var coroutineHandle in preprocessHandles)
@@ -380,11 +380,11 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             // Play Animations
             var animationHandles = new List<AsyncProcessHandle>
             {
-                exitPage.Exit(false, playAnimation, enterPage)
+                exitScreen.Exit(false, playAnimation, enterScreen)
             };
-            if (enterPage != null)
+            if (enterScreen != null)
             {
-                animationHandles.Add(enterPage.Enter(false, playAnimation, exitPage));
+                animationHandles.Add(enterScreen.Enter(false, playAnimation, exitScreen));
             }
 
             foreach (var coroutineHandle in animationHandles)
@@ -396,34 +396,34 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             }
 
             // End Transition
-            _pages.RemoveAt(_pages.Count - 1);
+            _screens.RemoveAt(_screens.Count - 1);
             IsInTransition = false;
 
             // Postprocess
-            exitPage.AfterExit(false, enterPage);
-            if (enterPage != null)
+            exitScreen.AfterExit(false, enterScreen);
+            if (enterScreen != null)
             {
-                enterPage.AfterEnter(false, exitPage);
+                enterScreen.AfterEnter(false, exitScreen);
             }
 
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.AfterPop(enterPage, exitPage);
+                callbackReceiver.AfterPop(enterScreen, exitScreen);
             }
 
-            // Unload Unused Page
-            var beforeReleaseHandle = exitPage.BeforeRelease();
+            // Unload Unused Screen
+            var beforeReleaseHandle = exitScreen.BeforeRelease();
             while (!beforeReleaseHandle.IsTerminated)
             {
                 yield return null;
             }
 
-            var loadHandle = _assetLoadHandles[exitPageId];
-            Destroy(exitPage.gameObject);
+            var loadHandle = _assetLoadHandles[exitScreenId];
+            Destroy(exitScreen.gameObject);
             AssetLoader.Release(loadHandle);
-            _assetLoadHandles.Remove(exitPageId);
+            _assetLoadHandles.Remove(exitScreenId);
 
-            _isActivePageStacked = true;
+            _isActiveScreenStacked = true;
         }
 
         public AsyncProcessHandle Preload(string resourceKey, bool loadAsync = true)

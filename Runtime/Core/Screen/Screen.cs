@@ -12,10 +12,10 @@ using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 #if USN_USE_ASYNC_METHODS
 #endif
 
-namespace UnityScreenNavigator.Runtime.Core.Page
+namespace UnityScreenNavigator.Runtime.Core.Screen
 {
     [DisallowMultipleComponent]
-    public class Page : ContainerBase, IPageLifecycleEvent
+    public class Screen : Window, IScreenLifecycleEvent
     {
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
@@ -25,13 +25,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         [SerializeField] private int _renderingOrder;
 
         [SerializeField]
-        private PageTransitionAnimationContainer _animationContainer = new PageTransitionAnimationContainer();
+        private ScreenTransitionAnimationContainer _animationContainer = new ScreenTransitionAnimationContainer();
 
-        //private CanvasGroup _canvasGroup;
-        //private RectTransform _parentTransform;
-        //private RectTransform _rectTransform;
-
-        private readonly PriorityList<IPageLifecycleEvent> _lifecycleEvents = new PriorityList<IPageLifecycleEvent>();
+        private readonly PriorityList<IScreenLifecycleEvent> _lifecycleEvents = new PriorityList<IScreenLifecycleEvent>();
 
         public override string Identifier
         {
@@ -39,13 +35,8 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             set => _identifier = value;
         }
 
-        public PageTransitionAnimationContainer AnimationContainer => _animationContainer;
+        public ScreenTransitionAnimationContainer AnimationContainer => _animationContainer;
 
-        // public bool Interactable
-        // {
-        //     get => _canvasGroup.interactable;
-        //     set => _canvasGroup.interactable = value;
-        // }
 
 #if USN_USE_ASYNC_METHODS
         public virtual UniTask Initialize()
@@ -135,12 +126,12 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 #endif
 
-        public void AddLifecycleEvent(IPageLifecycleEvent lifecycleEvent, int priority = 0)
+        public void AddLifecycleEvent(IScreenLifecycleEvent lifecycleEvent, int priority = 0)
         {
             _lifecycleEvents.Add(lifecycleEvent, priority);
         }
 
-        public void RemoveLifecycleEvent(IPageLifecycleEvent lifecycleEvent)
+        public void RemoveLifecycleEvent(IScreenLifecycleEvent lifecycleEvent)
         {
             _lifecycleEvents.Remove(lifecycleEvent);
         }
@@ -159,9 +150,9 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             for (var i = 0; i < Parent.childCount; i++)
             {
                 var child = Parent.GetChild(i);
-                var childPage = child.GetComponent<Page>();
+                var childScreen = child.GetComponent<Screen>();
                 siblingIndex = i;
-                if (_renderingOrder >= childPage._renderingOrder)
+                if (_renderingOrder >= childScreen._renderingOrder)
                 {
                     continue;
                 }
@@ -178,12 +169,12 @@ namespace UnityScreenNavigator.Runtime.Core.Page
         }
 
 
-        internal AsyncProcessHandle BeforeEnter(bool push, Page partnerPage)
+        internal AsyncProcessHandle BeforeEnter(bool push, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(BeforeEnterRoutine(push, partnerPage));
+            return CoroutineManager.Instance.Run(BeforeEnterRoutine(push, partnerScreen));
         }
 
-        private IEnumerator BeforeEnterRoutine(bool push, Page partnerPage)
+        private IEnumerator BeforeEnterRoutine(bool push, Screen partnerScreen)
         {
             gameObject.SetActive(true);
             RectTransform.FillParent((RectTransform)Parent);
@@ -207,25 +198,25 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             }
         }
 
-        internal AsyncProcessHandle Enter(bool push, bool playAnimation, Page partnerPage)
+        internal AsyncProcessHandle Enter(bool push, bool playAnimation, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(EnterRoutine(push, playAnimation, partnerPage));
+            return CoroutineManager.Instance.Run(EnterRoutine(push, playAnimation, partnerScreen));
         }
 
-        private IEnumerator EnterRoutine(bool push, bool playAnimation, Page partnerPage)
+        private IEnumerator EnterRoutine(bool push, bool playAnimation, Screen partnerScreen)
         {
             //_canvasGroup.alpha = 1.0f;
             Alpha = 1.0f;
 
             if (playAnimation)
             {
-                var anim = _animationContainer.GetAnimation(push, true, partnerPage?.Identifier);
+                var anim = _animationContainer.GetAnimation(push, true, partnerScreen?.Identifier);
                 if (anim == null)
                 {
-                    anim = UnityScreenNavigatorSettings.Instance.GetDefaultPageTransitionAnimation(push, true);
+                    anim = UnityScreenNavigatorSettings.Instance.GetDefaultScreenTransitionAnimation(push, true);
                 }
 
-                anim.SetPartner(partnerPage?.transform as RectTransform);
+                anim.SetPartner(partnerScreen?.transform as RectTransform);
                 anim.Setup(RectTransform);
                 yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
             }
@@ -233,7 +224,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             RectTransform.FillParent((RectTransform)Parent);
         }
 
-        internal void AfterEnter(bool push, Page partnerPage)
+        internal void AfterEnter(bool push, Screen partnerScreen)
         {
             if (push)
             {
@@ -257,12 +248,12 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             }
         }
 
-        internal AsyncProcessHandle BeforeExit(bool push, Page partnerPage)
+        internal AsyncProcessHandle BeforeExit(bool push, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(BeforeExitRoutine(push, partnerPage));
+            return CoroutineManager.Instance.Run(BeforeExitRoutine(push, partnerScreen));
         }
 
-        private IEnumerator BeforeExitRoutine(bool push, Page partnerPage)
+        private IEnumerator BeforeExitRoutine(bool push, Screen partnerScreen)
         {
             gameObject.SetActive(true);
             RectTransform.FillParent((RectTransform)Parent);
@@ -286,22 +277,22 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             }
         }
 
-        internal AsyncProcessHandle Exit(bool push, bool playAnimation, Page partnerPage)
+        internal AsyncProcessHandle Exit(bool push, bool playAnimation, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(ExitRoutine(push, playAnimation, partnerPage));
+            return CoroutineManager.Instance.Run(ExitRoutine(push, playAnimation, partnerScreen));
         }
 
-        private IEnumerator ExitRoutine(bool push, bool playAnimation, Page partnerPage)
+        private IEnumerator ExitRoutine(bool push, bool playAnimation, Screen partnerScreen)
         {
             if (playAnimation)
             {
-                var anim = _animationContainer.GetAnimation(push, false, partnerPage?.Identifier);
+                var anim = _animationContainer.GetAnimation(push, false, partnerScreen?.Identifier);
                 if (anim == null)
                 {
-                    anim = UnityScreenNavigatorSettings.Instance.GetDefaultPageTransitionAnimation(push, false);
+                    anim = UnityScreenNavigatorSettings.Instance.GetDefaultScreenTransitionAnimation(push, false);
                 }
 
-                anim.SetPartner(partnerPage?.transform as RectTransform);
+                anim.SetPartner(partnerScreen?.transform as RectTransform);
                 anim.Setup(RectTransform);
                 yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
             }
@@ -310,7 +301,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
             Alpha = 0.0f;
         }
 
-        internal void AfterExit(bool push, Page partnerPage)
+        internal void AfterExit(bool push, Screen partnerScreen)
         {
             if (push)
             {

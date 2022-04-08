@@ -16,6 +16,6 @@
 
     public enum ContainerLayerType
     {
-        Modal, Page, UnorderedModal
+        Modal, Screen, Dynamic
     }
 }

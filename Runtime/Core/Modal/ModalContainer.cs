@@ -55,7 +55,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         //     set => _canvasGroup.interactable = value;
         // }
 
-        public ContainerBase Current
+        public Window Current
         {
             get { return _modals[_modals.Count - 1]; }
         }
@@ -68,10 +68,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         protected override void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IModalContainerCallbackReceiver>());
-            if (!string.IsNullOrWhiteSpace(LayerName))
-            {
-                InstanceCacheByName.Add(LayerName, this);
-            }
 
             _backdropPrefab = _overrideBackdropPrefab
                 ? _overrideBackdropPrefab
@@ -145,7 +141,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         }
 
         /// <summary>
-        ///     Find the <see cref="ModalContainer" /> of <see cref="containerName" />.
+        /// Find the <see cref="ModalContainer" /> of <see cref="containerName" />.
         /// </summary>
         /// <param name="containerName"></param>
         /// <returns></returns>
@@ -171,13 +167,16 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             rectTransform.localPosition = Vector3.zero;
 
 
+
             ModalContainer container = root.AddComponent<ModalContainer>();
             //container.WindowManager = windowManager;
             container.CreateLayer(layerName, layer, layerType);
 
-
-            //PushWindowOption option = new PushWindowOption(path, false);
-            //container.Push(option);
+            if (!string.IsNullOrWhiteSpace(layerName))
+            {
+                InstanceCacheByName.Add(layerName, container);
+            }
+            
             return container;
         }
         protected override void OnCreate()
@@ -206,7 +205,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Push(PushWindowOption option)
+        public AsyncProcessHandle Push(WindowOption option)
         {
             return CoroutineManager.Instance.Run(PushRoutine(option));
         }
@@ -223,7 +222,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
 //string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
 //        bool loadAsync = true
-        private IEnumerator PushRoutine(PushWindowOption option)
+        private IEnumerator PushRoutine(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
@@ -415,7 +414,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 callbackReceiver.AfterPop(enterModal, exitModal);
             }
 
-            // Unload Unused Page
+            // Unload Unused Screen
             var beforeReleaseHandle = exitModal.BeforeRelease();
             while (!beforeReleaseHandle.IsTerminated)
             {

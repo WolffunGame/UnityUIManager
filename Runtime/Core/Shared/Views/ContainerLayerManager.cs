@@ -18,7 +18,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                     return null;
 
                 IContainerLayer layer = this._containerLayers[this._containerLayers.Count - 1];
-                return layer != null && layer.VisibleElementInLayer>0 ? layer : null;
+                return layer != null && layer.VisibleElementInLayer > 0 ? layer : null;
             }
         }
 
@@ -72,12 +72,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 throw new IndexOutOfRangeException();
 
             var layer = _containerLayers[index];
-            
+
             this.RemoveChild(GetTransform(layer));
             this._containerLayers.RemoveAt(index);
             return layer;
         }
-        
+
 
         public bool Contains(IContainerLayer layer)
         {
@@ -100,7 +100,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             List<IContainerLayer> result = new List<IContainerLayer>();
             foreach (var layer in _containerLayers)
             {
-                if (layer.VisibleElementInLayer>0 == visible)
+                if (layer.VisibleElementInLayer > 0 == visible)
                     result.Add(layer);
             }
 
@@ -109,12 +109,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public T Find<T>() where T : IContainerLayer
         {
-            return (T)_containerLayers.Find(x => x is T);
+            return (T) _containerLayers.Find(x => x is T);
         }
 
         public T Find<T>(string layerName) where T : IContainerLayer
         {
-            return (T)_containerLayers.Find(x => x is T && x.LayerName == layerName);
+            return (T) _containerLayers.Find(x => x is T && x.LayerName == layerName);
         }
 
         public List<T> FindAll<T>() where T : IContainerLayer
@@ -126,7 +126,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         {
             this._containerLayers.Clear();
         }
-        
+
         protected virtual Transform GetTransform(IContainerLayer layer)
         {
             try
@@ -139,7 +139,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
                 var propertyInfo = layer.GetType().GetProperty("Transform");
                 if (propertyInfo != null)
-                    return (Transform)propertyInfo.GetGetMethod().Invoke(layer, null);
+                    return (Transform) propertyInfo.GetGetMethod().Invoke(layer, null);
 
                 if (layer is Component)
                     return (layer as Component).transform;
@@ -150,6 +150,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 return null;
             }
         }
+
         protected virtual void RemoveChild(Transform child, bool worldPositionStays = false)
         {
             if (child == null || !this.transform.Equals(child.parent))
@@ -157,6 +158,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
             child.SetParent(null, worldPositionStays);
         }
+
         protected virtual void AddChild(Transform child, bool worldPositionStays = false)
         {
             if (child == null || this.transform.Equals(child.parent))
@@ -164,8 +166,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
             child.gameObject.layer = this.gameObject.layer;
             child.SetParent(this.transform, worldPositionStays);
-            child.SetAsFirstSibling();
+            child.SetAsLastSibling();
         }
-
     }
 }
