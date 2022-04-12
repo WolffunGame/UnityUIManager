@@ -15,10 +15,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         {
             get
             {
-                if (this._containerLayers == null || this._containerLayers.Count <= 0)
+                if (_containerLayers == null || _containerLayers.Count <= 0)
                     return null;
 
-                IContainerLayer layer = this._containerLayers[this._containerLayers.Count - 1];
+                IContainerLayer layer = _containerLayers[_containerLayers.Count - 1];
                 return layer != null && layer.VisibleElementInLayer > 0 ? layer : null;
             }
         }
@@ -41,10 +41,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public IContainerLayer Get(int index)
         {
-            if (index < 0 || index > this._containerLayers.Count - 1)
+            if (index < 0 || index > _containerLayers.Count - 1)
                 throw new IndexOutOfRangeException();
 
-            return this._containerLayers[index];
+            return _containerLayers[index];
         }
 
         public void Add(IContainerLayer layer)
@@ -52,10 +52,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             if (layer == null)
                 throw new ArgumentNullException(nameof(layer));
 
-            if (this._containerLayers.Contains(layer))
+            if (_containerLayers.Contains(layer))
                 return;
 
-            this._containerLayers.Add(layer);
+            _containerLayers.Add(layer);
             transform.AddChild(GetTransform(layer));
         }
 
@@ -64,18 +64,18 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             if (layer == null)
                 throw new ArgumentNullException(nameof(layer));
 
-            return this._containerLayers.Remove(layer);
+            return _containerLayers.Remove(layer);
         }
 
         public IContainerLayer RemoveAt(int index)
         {
-            if (index < 0 || index > this._containerLayers.Count - 1)
+            if (index < 0 || index > _containerLayers.Count - 1)
                 throw new IndexOutOfRangeException();
 
             var layer = _containerLayers[index];
 
             transform.RemoveChild(GetTransform(layer));
-            this._containerLayers.RemoveAt(index);
+            _containerLayers.RemoveAt(index);
             return layer;
         }
 
@@ -85,7 +85,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             if (layer == null)
                 throw new ArgumentNullException(nameof(layer));
 
-            return this._containerLayers.Contains(layer);
+            return _containerLayers.Contains(layer);
         }
 
         public int IndexOf(IContainerLayer window)
@@ -93,7 +93,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             if (window == null)
                 throw new ArgumentNullException(nameof(window));
 
-            return this._containerLayers.IndexOf(window);
+            return _containerLayers.IndexOf(window);
         }
 
         public List<IContainerLayer> Find(bool visible)
@@ -120,12 +120,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public List<T> FindAll<T>() where T : IContainerLayer
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Clear()
         {
-            this._containerLayers.Clear();
+            _containerLayers.Clear();
         }
 
         protected virtual Transform GetTransform(IContainerLayer layer)
@@ -151,23 +151,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 return null;
             }
         }
-
-        // protected virtual void RemoveChild(Transform child, bool worldPositionStays = false)
-        // {
-        //     if (child == null || !this.transform.Equals(child.parent))
-        //         return;
-        //
-        //     child.SetParent(null, worldPositionStays);
-        // }
-        //
-        // protected virtual void AddChild(Transform child, bool worldPositionStays = false)
-        // {
-        //     if (child == null || this.transform.Equals(child.parent))
-        //         return;
-        //
-        //     child.gameObject.layer = this.gameObject.layer;
-        //     child.SetParent(this.transform, worldPositionStays);
-        //     child.SetAsLastSibling();
-        // }
+        
     }
 }

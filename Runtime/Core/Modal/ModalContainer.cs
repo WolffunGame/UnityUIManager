@@ -50,11 +50,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// </summary>
         public IReadOnlyList<Modal> Modals => _modals;
 
-        // public bool Interactable
-        // {
-        //     get => _canvasGroup.interactable;
-        //     set => _canvasGroup.interactable = value;
-        // }
 
         public Window Current
         {
@@ -73,8 +68,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             _backdropPrefab = _overrideBackdropPrefab
                 ? _overrideBackdropPrefab
                 : UnityScreenNavigatorSettings.Instance.ModalBackdropPrefab;
-
-            //_canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
         }
 
         protected override void OnDestroy()
@@ -155,7 +148,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             return null;
         }
-
+        /// <summary>
+        /// Create a new <see cref="ModalContainer" /> as a layer
+        /// </summary>
+        /// <param name="layerName"></param>
+        /// <param name="layer"></param>
+        /// <param name="layerType"></param>
+        /// <returns></returns>
         public static ModalContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
             GameObject root = new GameObject(layerName, typeof(CanvasGroup));

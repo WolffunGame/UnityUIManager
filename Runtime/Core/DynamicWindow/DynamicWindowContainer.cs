@@ -1,23 +1,32 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
+    [RequireComponent(typeof(RectMask2D))]
     public class DynamicWindowContainer : ContainerLayer, IDynamicWindowManager
     {
         private IDynamicWindowManager _localDynamicWindowManager;
-        
+
         private readonly List<IDynamicWindowContainerCallbackReceiver> _callbackReceivers =
             new List<IDynamicWindowContainerCallbackReceiver>();
-        
+
         public override int VisibleElementInLayer
         {
             get => _localDynamicWindowManager.Count;
         }
-        
+
+        /// <summary>
+        /// Create a new instance of <see cref="DynamicWindowContainer"/> as a layer
+        /// </summary>
+        /// <param name="layerName"></param>
+        /// <param name="layer"></param>
+        /// <param name="layerType"></param>
+        /// <returns></returns>
         public static DynamicWindowContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
             GameObject root = new GameObject(layerName, typeof(CanvasGroup));
@@ -30,13 +39,14 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             rectTransform.localPosition = Vector3.zero;
 
             DynamicWindowContainer container = root.GetOrAddComponent<DynamicWindowContainer>();
-            //container.DynamicWindowManager = windowManager;
+
             container.CreateLayer(layerName, layer, layerType);
             return container;
         }
+
         protected override void OnCreate()
         {
-           _localDynamicWindowManager = CreateWindowManager();
+            _localDynamicWindowManager = CreateWindowManager();
         }
 
         protected virtual IDynamicWindowManager CreateWindowManager()
@@ -45,9 +55,16 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         }
 
 
-        public DynamicWindow Current { get=>_localDynamicWindowManager.Current; }
-        
-        public int Count { get=>_localDynamicWindowManager.Count; }
+        public DynamicWindow Current
+        {
+            get => _localDynamicWindowManager.Current;
+        }
+
+        public int Count
+        {
+            get => _localDynamicWindowManager.Count;
+        }
+
         public IEnumerator<DynamicWindow> Visibles()
         {
             return _localDynamicWindowManager.Visibles();
@@ -115,7 +132,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 
         public AsyncProcessHandle Hide(string identifier, bool playAnimation = true)
         {
-            return _localDynamicWindowManager.Hide(identifier ,playAnimation);
+            return _localDynamicWindowManager.Hide(identifier, playAnimation);
         }
 
         public void HideAll(bool playAnimation)
@@ -124,7 +141,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         }
 
         /// <summary>
-        ///     Add a callback receiver.
+        /// Add a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
         public void AddCallbackReceiver(IDynamicWindowContainerCallbackReceiver callbackReceiver)
@@ -133,7 +150,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         }
 
         /// <summary>
-        ///     Remove a callback receiver.
+        /// Remove a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
         public void RemoveCallbackReceiver(IDynamicWindowContainerCallbackReceiver callbackReceiver)

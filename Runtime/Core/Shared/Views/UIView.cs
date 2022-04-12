@@ -10,13 +10,13 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
     {
         public virtual string Name
         {
-            get { return !this.IsDestroyed() && this.gameObject != null ? this.gameObject.name : null; }
+            get { return !IsDestroyed() && gameObject != null ? gameObject.name : null; }
             set
             {
-                if (this.IsDestroyed() || this.gameObject == null)
+                if (IsDestroyed() || gameObject == null)
                     return;
 
-                this.gameObject.name = value;
+                gameObject.name = value;
             }
         }
 
@@ -50,7 +50,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
     
         public virtual GameObject Owner
         {
-            get { return this.IsDestroyed() ? null : this.gameObject; }
+            get { return IsDestroyed() ? null : gameObject; }
         }
 
         public virtual bool Visibility
@@ -58,17 +58,17 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             get
             {
                 GameObject o;
-                return !this.IsDestroyed() && (o = gameObject) != null && o.activeSelf;
+                return !IsDestroyed() && (o = gameObject) != null && o.activeSelf;
             }
             set
             {
-                if (this.IsDestroyed() || this.gameObject == null)
+                if (IsDestroyed() || gameObject == null)
                     return;
 
-                if (this.gameObject.activeSelf == value)
+                if (gameObject.activeSelf == value)
                     return;
 
-                this.gameObject.SetActive(value);
+                gameObject.SetActive(value);
             }
         }
 

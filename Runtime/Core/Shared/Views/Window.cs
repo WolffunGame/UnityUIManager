@@ -10,15 +10,15 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public virtual int WindowPriority
         {
-            get { return this.windowPriority; }
+            get { return windowPriority; }
             set
             {
                 if (value < 0)
-                    this.windowPriority = 0;
+                    windowPriority = 0;
                 else if (value > 10)
-                    this.windowPriority = 10;
+                    windowPriority = 10;
                 else
-                    this.windowPriority = value;
+                    windowPriority = value;
             }
         }
 
@@ -26,7 +26,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public bool Created
         {
-            get { return this._created; }
+            get { return _created; }
         }
 
         public bool Dismissed { get; }

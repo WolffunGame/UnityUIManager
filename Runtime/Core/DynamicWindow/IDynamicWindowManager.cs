@@ -5,6 +5,9 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
+    /// <summary>
+    /// Manages the dynamic window.
+    /// </summary>
     public interface IDynamicWindowManager
     {
         DynamicWindow Current { get; }
@@ -95,7 +98,6 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="identifier"></param>
         /// <param name="option"></param>
         /// <returns></returns>
         AsyncProcessHandle Show(WindowOption option);
@@ -117,11 +119,11 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             Action<Window> onWindowCreated = null
             , bool loadAsync = true)
         {
-            this.ResourcePath = resourcePath;
-            this.LoadAsync = loadAsync;
-            this.PlayAnimation = playAnimation;
-            this.WindowCreated = onWindowCreated;
-            this.Stack = stack;
+            ResourcePath = resourcePath;
+            LoadAsync = loadAsync;
+            PlayAnimation = playAnimation;
+            WindowCreated = onWindowCreated;
+            Stack = stack;
         }
 
         public bool LoadAsync { get; }

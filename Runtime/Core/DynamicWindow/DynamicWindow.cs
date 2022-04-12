@@ -48,10 +48,9 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         {
             get
             {
-                return this._dynamicWindowManager ??
-                       (this._dynamicWindowManager = gameObject.AddComponent<DynamicWindowManager>());
+                return _dynamicWindowManager ??= gameObject.AddComponent<DynamicWindowManager>();
             }
-            set { this._dynamicWindowManager = value; }
+            set { _dynamicWindowManager = value; }
         }
 
 #if USN_USE_ASYNC_METHODS
@@ -155,13 +154,11 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             {
                 gameObject.SetActive(true);
                 RectTransform.FillParent((RectTransform)Parent);
-                //_canvasGroup.alpha = 0.0f;
                 Alpha = 0.0f;
             }
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = false;
                 Interactable = false;
             }
 
@@ -234,13 +231,11 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             {
                 gameObject.SetActive(true);
                 RectTransform.FillParent((RectTransform)Parent);
-                //_canvasGroup.alpha = 1.0f;
                 Alpha = 1.0f;
             }
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = false;
                 Interactable = false;
             }
 
@@ -275,8 +270,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                     anim.Setup(RectTransform);
                     yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
                 }
-
-                //_canvasGroup.alpha = 0.0f;
+                
                 Alpha = 0.0f;
             }
         }

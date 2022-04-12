@@ -90,7 +90,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         #region STATIC_METHODS
 
         /// <summary>
-        ///     Get the <see cref="ScreenContainer" /> that manages the screen to which <see cref="transform" /> belongs.
+        /// Get the <see cref="ScreenContainer" /> that manages the screen to which <see cref="transform" /> belongs.
         /// </summary>
         /// <param name="transform"></param>
         /// <param name="useCache">Use the previous result for the <see cref="transform" />.</param>
@@ -101,7 +101,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         }
 
         /// <summary>
-        ///     Get the <see cref="ScreenContainer" /> that manages the screen to which <see cref="rectTransform" /> belongs.
+        /// Get the <see cref="ScreenContainer" /> that manages the screen to which <see cref="rectTransform" /> belongs.
         /// </summary>
         /// <param name="rectTransform"></param>
         /// <param name="useCache">Use the previous result for the <see cref="rectTransform" />.</param>
@@ -125,7 +125,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         }
 
         /// <summary>
-        ///     Find the <see cref="ScreenContainer" /> of <see cref="containerName" />.
+        /// Find the <see cref="ScreenContainer" /> of <see cref="containerName" />.
         /// </summary>
         /// <param name="containerName"></param>
         /// <returns></returns>
@@ -138,7 +138,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             return null;
         }
-
+        /// <summary>
+        /// Create a new <see cref="ScreenContainer"/> as a layer.
+        /// </summary>
+        /// <param name="layerName"></param>
+        /// <param name="layer"></param>
+        /// <param name="layerType"></param>
+        /// <returns></returns>
         public static ScreenContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
             GameObject root = new GameObject(layerName, typeof(CanvasGroup));
@@ -151,7 +157,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             rectTransform.localPosition = Vector3.zero;
 
             ScreenContainer container = root.AddComponent<ScreenContainer>();
-            //container.DynamicWindowManager = windowManager;
+
             container.CreateLayer(layerName, layer, layerType);
             
             if (!string.IsNullOrWhiteSpace(layerName))
@@ -169,7 +175,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         }
 
         /// <summary>
-        ///     Add a callback receiver.
+        /// Add a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
         public void AddCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
@@ -187,7 +193,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         }
 
         /// <summary>
-        ///     Push new screen.
+        /// Push new screen.
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
@@ -197,7 +203,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         }
 
         /// <summary>
-        ///     Pop current screen.
+        /// Pop current screen.
         /// </summary>
         /// <param name="playAnimation"></param>
         /// <returns></returns>

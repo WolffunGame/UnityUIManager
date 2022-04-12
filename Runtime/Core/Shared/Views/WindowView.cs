@@ -10,10 +10,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             get
             {
                 List<IUIView> views = new List<IUIView>();
-                int childCount = this.transform.childCount;
+                int childCount = transform.childCount;
                 for (int i = 0; i < childCount; i++)
                 {
-                    var view = this.transform.GetChild(i).GetComponent<IUIView>();
+                    var view = transform.GetChild(i).GetComponent<IUIView>();
                     if (view != null)
                     {
                         views.Add(view);
@@ -26,16 +26,16 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public IUIView GetView(string viewName)
         {
-            return this.Views.Find(v => v.Name.Equals(viewName));
+            return Views.Find(v => v.Name.Equals(viewName));
         }
 
         public void AddView(IUIView view, bool worldPositionStays = false)
         {
             if (view == null) return;
             var t = view.RectTransform;
-            if (t == null || t.parent == this.transform) return;
-            view.Owner.layer = this.gameObject.layer;
-            t.SetParent(this.transform, worldPositionStays);
+            if (t == null || t.parent == transform) return;
+            view.Owner.layer = gameObject.layer;
+            t.SetParent(transform, worldPositionStays);
         }
 
         public virtual void AddView(IUIView view, UILayout layout)
@@ -47,15 +47,15 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
             if (t == null)
                 return;
 
-            if (t.parent == this.transform)
+            if (t.parent == transform)
             {
                 if (layout != null)
                     layout(view.RectTransform);
                 return;
             }
 
-            view.Owner.layer = this.gameObject.layer;
-            t.SetParent(this.transform, false);
+            view.Owner.layer = gameObject.layer;
+            t.SetParent(transform, false);
             if (layout != null)
                 layout(view.RectTransform);
         }
@@ -64,7 +64,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         {
             if (view == null) return;
             var t = view.RectTransform;
-            if (t == null || t.parent != this.transform) return;
+            if (t == null || t.parent != transform) return;
             t.SetParent(null, worldPositionStays);
         }
     }

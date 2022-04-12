@@ -28,26 +28,26 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public virtual void Add(Type type, object target)
         {
-            if (this.attributes == null)
-                this.attributes = new Dictionary<Type, object>();
+            if (attributes == null)
+                attributes = new Dictionary<Type, object>();
 
             if (type == null || target == null)
                 return;
 
-            this.attributes[type] = target;
+            attributes[type] = target;
         }
 
         public virtual void Add<T>(T target)
         {
-            this.Add(typeof(T), target);
+            Add(typeof(T), target);
         }
 
         public virtual object Get(Type type)
         {
-            if (type == null || this.attributes == null || !this.attributes.ContainsKey(type))
+            if (type == null || attributes == null || !attributes.ContainsKey(type))
                 return null;
 
-            return this.attributes[type];
+            return attributes[type];
         }
 
         public virtual T Get<T>()
@@ -57,25 +57,25 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public virtual object Remove(Type type)
         {
-            if (type == null || this.attributes == null || !this.attributes.ContainsKey(type))
+            if (type == null || attributes == null || !attributes.ContainsKey(type))
                 return null;
 
-            object target = this.attributes[type];
-            this.attributes.Remove(type);
+            object target = attributes[type];
+            attributes.Remove(type);
             return target;
         }
 
         public virtual T Remove<T>()
         {
-            return (T) this.Remove(typeof(T));
+            return (T) Remove(typeof(T));
         }
 
         public virtual IEnumerator GetEnumerator()
         {
-            if (this.attributes == null)
+            if (attributes == null)
                 return new EmptyEnumerator();
 
-            return this.attributes.GetEnumerator();
+            return attributes.GetEnumerator();
         }
 
         class EmptyEnumerator : IEnumerator

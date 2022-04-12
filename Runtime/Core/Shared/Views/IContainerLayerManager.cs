@@ -2,6 +2,9 @@
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
+    /// <summary>
+    /// Manages layers of UI views.
+    /// </summary>
     public interface IContainerLayerManager
     {
         IContainerLayer Current { get; }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityScreenNavigator.Runtime.Core.DynamicWindow;
+﻿using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views

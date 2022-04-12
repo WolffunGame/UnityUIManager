@@ -138,10 +138,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         internal AsyncProcessHandle AfterLoad(RectTransform rectTransform)
         {
-            //_canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
             _lifecycleEvents.Add(this, 0);
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
-            //_parentTransform = parentTransform;
             Parent = rectTransform;
             RectTransform.FillParent((RectTransform)Parent);
 
@@ -161,8 +159,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             }
 
             RectTransform.SetSiblingIndex(siblingIndex);
-
-            //_canvasGroup.alpha = 0.0f;
+            
             Alpha = 0.0f;
 
             return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
@@ -180,11 +177,9 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             RectTransform.FillParent((RectTransform)Parent);
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = false;
                 Interactable = false;
             }
-
-            //_canvasGroup.alpha = 0.0f;
+            
             Alpha = 0.0f;
 
             var routines = push
@@ -205,7 +200,6 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         private IEnumerator EnterRoutine(bool push, bool playAnimation, Screen partnerScreen)
         {
-            //_canvasGroup.alpha = 1.0f;
             Alpha = 1.0f;
 
             if (playAnimation)
@@ -243,7 +237,6 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = true;
                 Interactable = true;
             }
         }
@@ -259,11 +252,9 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             RectTransform.FillParent((RectTransform)Parent);
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
-                //_canvasGroup.interactable = false;
                 Interactable = false;
             }
-
-            //_canvasGroup.alpha = 1.0f;
+            
             Alpha = 1.0f;
 
             var routines = push
@@ -296,8 +287,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 anim.Setup(RectTransform);
                 yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
             }
-
-            //_canvasGroup.alpha = 0.0f;
+            
             Alpha = 0.0f;
         }
 

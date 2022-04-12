@@ -20,7 +20,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 if (_dynamicWindows == null || _dynamicWindows.Count <= 0)
                     return null;
 
-                DynamicWindow window = _dynamicWindows[0];
+                DynamicWindow window = _dynamicWindows[_dynamicWindows.Count - 1];
                 return window != null && window.Visibility ? window : null;
             }
         }
@@ -66,10 +66,10 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 
         public DynamicWindow Get(int index)
         {
-            if (index < 0 || index > this._dynamicWindows.Count - 1)
+            if (index < 0 || index > _dynamicWindows.Count - 1)
                 throw new IndexOutOfRangeException();
 
-            return this._dynamicWindows[index];
+            return _dynamicWindows[index];
         }
 
         public void Add(DynamicWindow window)
@@ -77,10 +77,10 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             if (window == null)
                 throw new ArgumentNullException("window");
 
-            if (this._dynamicWindows.Contains(window as DynamicWindow))
+            if (_dynamicWindows.Contains(window))
                 return;
 
-            this._dynamicWindows.Add(window as DynamicWindow);
+            _dynamicWindows.Add(window);
             transform.AddChild(GetTransform(window));
         }
 
@@ -90,12 +90,12 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 throw new ArgumentNullException("window");
 
             transform.RemoveChild(GetTransform(window));
-            return this._dynamicWindows.Remove(window as DynamicWindow);
+            return _dynamicWindows.Remove(window);
         }
 
         public DynamicWindow RemoveAt(int index)
         {
-            if (index < 0 || index > this._dynamicWindows.Count - 1)
+            if (index < 0 || index > _dynamicWindows.Count - 1)
                 throw new IndexOutOfRangeException();
 
             var window = _dynamicWindows[index];
@@ -110,7 +110,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             if (window == null)
                 throw new ArgumentNullException("window");
 
-            return this._dynamicWindows.Contains(window as DynamicWindow);
+            return _dynamicWindows.Contains(window);
         }
 
         public int IndexOf(DynamicWindow window)
@@ -118,14 +118,14 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             if (window == null)
                 throw new ArgumentNullException("window");
 
-            return this._dynamicWindows.IndexOf(window as DynamicWindow);
+            return _dynamicWindows.IndexOf(window);
         }
 
         public List<DynamicWindow> Find(bool visible)
         {
             var result = new List<DynamicWindow>();
 
-            foreach (var window in this._dynamicWindows)
+            foreach (var window in _dynamicWindows)
             {
                 if (window.Visibility == visible)
                     result.Add(window);
@@ -148,7 +148,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         {
             var result = new List<T>();
 
-            foreach (var window in this._dynamicWindows)
+            foreach (var window in _dynamicWindows)
             {
                 if (window is T)
                     result.Add((T) window);
@@ -267,11 +267,11 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(DynamicWindow)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
-            
+
             var dynamicWindowId = enterModal.GetInstanceID();
             enterModal.Identifier = string.Concat(gameObject.name, dynamicWindowId.ToString());
             _assetLoadHandles.Add(dynamicWindowId, assetLoadHandle);
-            
+
             option.WindowCreated?.Invoke(enterModal);
 
             MoveToIndex(enterModal, _dynamicWindows.Count);

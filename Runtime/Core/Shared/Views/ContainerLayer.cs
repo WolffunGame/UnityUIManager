@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
     public abstract class ContainerLayer : WindowView, IContainerLayer
@@ -14,10 +13,9 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         {
             get
             {
-                return this._containerLayerManager ?? (this._containerLayerManager =
-                    GameObject.FindObjectOfType<GlobalContainerLayerManager>());
+                return _containerLayerManager ??= FindObjectOfType<GlobalContainerLayerManager>();
             }
-            set { this._containerLayerManager = value; }
+            set { _containerLayerManager = value; }
         }
 
         public void CreateLayer(string layerName, int layer, ContainerLayerType layerType)
