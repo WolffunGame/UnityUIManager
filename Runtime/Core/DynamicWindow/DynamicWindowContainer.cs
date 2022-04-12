@@ -6,7 +6,7 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
-    public class DynamicDynamicWindowContainer : ContainerLayer, IDynamicWindowManager
+    public class DynamicWindowContainer : ContainerLayer, IDynamicWindowManager
     {
         private IDynamicWindowManager _localDynamicWindowManager;
         
@@ -18,7 +18,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             get => _localDynamicWindowManager.Count;
         }
         
-        public static DynamicDynamicWindowContainer Create(string layerName, int layer, ContainerLayerType layerType)
+        public static DynamicWindowContainer Create(string layerName, int layer, ContainerLayerType layerType)
         {
             GameObject root = new GameObject(layerName, typeof(CanvasGroup));
             RectTransform rectTransform = root.AddComponent<RectTransform>();
@@ -29,7 +29,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
             rectTransform.localPosition = Vector3.zero;
 
-            DynamicDynamicWindowContainer container = root.GetOrAddComponent<DynamicDynamicWindowContainer>();
+            DynamicWindowContainer container = root.GetOrAddComponent<DynamicWindowContainer>();
             //container.DynamicWindowManager = windowManager;
             container.CreateLayer(layerName, layer, layerType);
             return container;
