@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
-namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
-    public interface IWindowManager 
+    public interface IDynamicWindowManager
     {
-        IWindow Current { get; }
+        DynamicWindow Current { get; }
 
         int Count { get; }
 
@@ -14,62 +15,62 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// 
         /// </summary>
         /// <returns></returns>
-        IEnumerator<IWindow> Visibles();
+        IEnumerator<DynamicWindow> Visibles();
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        IWindow Get(int index);
+        DynamicWindow Get(int index);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="window"></param>
-        void Add(IWindow window);
+        void Add(DynamicWindow window);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="window"></param>
         /// <returns></returns>
-        bool Remove(IWindow window);
+        bool Remove(DynamicWindow window);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        IWindow RemoveAt(int index);
+        DynamicWindow RemoveAt(int index);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="window"></param>
         /// <returns></returns>
-        bool Contains(IWindow window);
+        bool Contains(DynamicWindow window);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="window"></param>
         /// <returns></returns>
-        int IndexOf(IWindow window);
+        int IndexOf(DynamicWindow window);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="visible"></param>
         /// <returns></returns>
-        List<IWindow> Find(bool visible);
+        List<DynamicWindow> Find(bool visible);
 
         /// <summary>
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        T Find<T>() where T : IWindow;
+        T Find<T>() where T : DynamicWindow;
 
         /// <summary>
         /// 
@@ -77,23 +78,24 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// <typeparam name="T"></typeparam>
         /// <param name="windowName"></param>
         /// <returns></returns>
-        T Find<T>(string windowName) where T : IWindow;
+        T Find<T>(string windowName) where T : DynamicWindow;
 
         /// <summary>
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        List<T> FindAll<T>() where T : IWindow;
+        List<T> FindAll<T>() where T : DynamicWindow;
 
         /// <summary>
         /// 
         /// </summary>
         void Clear();
-        
+
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="identifier"></param>
         /// <param name="option"></param>
         /// <returns></returns>
         AsyncProcessHandle Show(WindowOption option);
@@ -101,35 +103,35 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="identifier"></param>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
-        AsyncProcessHandle Hide(bool playAnimation);
+        AsyncProcessHandle Hide(string identifier, bool playAnimation);
+        
+        void HideAll(bool playAnimation);
     }
 
     public struct WindowOption
     {
-        private string resourcePath;
-        private bool loadAsync;
-        private bool playAnimation;
-        private Action<Window> onWindowCreated;
-        private bool stack;
-
         public WindowOption(string resourcePath, bool playAnimation, bool stack = true,
             Action<Window> onWindowCreated = null
             , bool loadAsync = true)
         {
-            this.resourcePath = resourcePath;
-            this.loadAsync = loadAsync;
-            this.playAnimation = playAnimation;
-            this.onWindowCreated = onWindowCreated;
-            this.stack = stack;
+            this.ResourcePath = resourcePath;
+            this.LoadAsync = loadAsync;
+            this.PlayAnimation = playAnimation;
+            this.WindowCreated = onWindowCreated;
+            this.Stack = stack;
         }
 
-        public bool LoadAsync => loadAsync;
-        public bool PlayAnimation => playAnimation;
-        public Action<Window> OnWindowCreated => onWindowCreated;
-        public bool Stack => stack;
-        public string ResourcePath => resourcePath;
+        public bool LoadAsync { get; }
+
+        public bool PlayAnimation { get; }
+
+        public Action<Window> WindowCreated { get; }
+
+        public bool Stack { get; }
+
+        public string ResourcePath { get; }
     }
-    
 }

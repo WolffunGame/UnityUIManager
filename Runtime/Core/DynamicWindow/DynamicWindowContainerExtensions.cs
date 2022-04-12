@@ -5,7 +5,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
     public static class DynamicWindowContainerExtensions
     {
-        public static void AddCallbackReceiver(this DynamicWindowContainer self,
+        public static void AddCallbackReceiver(this DynamicDynamicWindowContainer self,
             Action<(DynamicWindow enterModal, DynamicWindow exitModal)> onBeforeShow = null,
             Action<(DynamicWindow enterModal, DynamicWindow exitModal)> onAfterShow = null,
             Action<(DynamicWindow enterModal, DynamicWindow exitModal)> onBeforeHide = null,
@@ -16,7 +16,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             self.AddCallbackReceiver(callbackReceiver);
         }
         
-        public static void AddCallbackReceiver(this DynamicWindowContainer self, DynamicWindow modal,
+        public static void AddCallbackReceiver(this DynamicDynamicWindowContainer self, DynamicWindow modal,
             Action<DynamicWindow> onBeforePush = null, Action<DynamicWindow> onAfterPush = null,
             Action<DynamicWindow> onBeforePop = null, Action<DynamicWindow> onAfterPop = null)
         {

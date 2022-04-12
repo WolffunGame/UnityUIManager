@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
@@ -150,7 +151,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             rectTransform.localPosition = Vector3.zero;
 
             ScreenContainer container = root.AddComponent<ScreenContainer>();
-            //container.WindowManager = windowManager;
+            //container.DynamicWindowManager = windowManager;
             container.CreateLayer(layerName, layer, layerType);
             
             if (!string.IsNullOrWhiteSpace(layerName))
@@ -244,7 +245,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             var screenId = enterScreen.GetInstanceID();
             _assetLoadHandles.Add(screenId, assetLoadHandle);
-            option.OnWindowCreated?.Invoke(enterScreen);
+            option.WindowCreated?.Invoke(enterScreen);
             var afterLoadHandle = enterScreen.AfterLoad((RectTransform) transform);
             while (!afterLoadHandle.IsTerminated)
             {

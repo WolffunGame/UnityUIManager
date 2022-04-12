@@ -34,9 +34,9 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         bool Activated { get; }
         //
         // /// <summary>
-        // /// The WindowManager of the window.
+        // /// The DynamicWindowManager of the window.
         // /// </summary>
-        // IWindowManager WindowManager { get; set; }
+        // IDynamicWindowManager DynamicWindowManager { get; set; }
         
         //TODO Create a WindowType enum?
         //for example: 

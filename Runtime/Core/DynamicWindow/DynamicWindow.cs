@@ -13,12 +13,28 @@ using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
+    [DisallowMultipleComponent]
     public class DynamicWindow : Window, IDynamicWindowLifeCycleEvent
     {
-        [SerializeField] private bool _usePrefabNameAsIdentifier = true;
-
-        [SerializeField] [EnabledIf(nameof(_usePrefabNameAsIdentifier), false)]
+        [SerializeField]
         private string _identifier;
+
+        public override string Identifier
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_identifier))
+                {
+                    _identifier = gameObject.name;
+                }
+
+                return _identifier;
+            }
+            set
+            {
+                _identifier = value;
+            }
+        }
 
         private readonly PriorityList<IDynamicWindowLifeCycleEvent> _lifecycleEvents =
             new PriorityList<IDynamicWindowLifeCycleEvent>();
@@ -27,15 +43,15 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         private ModalTransitionAnimationContainer _animationContainer = new ModalTransitionAnimationContainer();
 
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
-        private IWindowManager _windowManager;
-        public virtual IWindowManager WindowManager
+        private IDynamicWindowManager _dynamicWindowManager;
+        public virtual IDynamicWindowManager DynamicWindowManager
         {
             get
             {
-                return this._windowManager ??
-                       (this._windowManager = gameObject.AddComponent<DynamicWindowManager>());
+                return this._dynamicWindowManager ??
+                       (this._dynamicWindowManager = gameObject.AddComponent<DynamicWindowManager>());
             }
-            set { this._windowManager = value; }
+            set { this._dynamicWindowManager = value; }
         }
 
 #if USN_USE_ASYNC_METHODS
@@ -122,7 +138,6 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
         {
             _lifecycleEvents.Add(this, 0);
-            _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
             Parent = parentTransform;
             RectTransform.FillParent((RectTransform) Parent);
             Alpha = 0.0f;
@@ -250,7 +265,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             {
                 if (playAnimation)
                 {
-                    var anim = _animationContainer.GetAnimation(false, partnerModal?._identifier);
+                    var anim = _animationContainer.GetAnimation(false, partnerModal?.Identifier);
                     if (anim == null)
                     {
                         anim = UnityScreenNavigatorSettings.Instance.GetDefaultModalTransitionAnimation(false);

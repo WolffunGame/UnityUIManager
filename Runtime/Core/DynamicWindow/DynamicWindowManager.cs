@@ -11,16 +11,16 @@ using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
     [DisallowMultipleComponent]
-    public class DynamicWindowManager : MonoBehaviour, IWindowManager
+    public class DynamicWindowManager : MonoBehaviour, IDynamicWindowManager
     {
-        public virtual IWindow Current
+        public virtual DynamicWindow Current
         {
             get
             {
                 if (_dynamicWindows == null || _dynamicWindows.Count <= 0)
                     return null;
 
-                IWindow window = _dynamicWindows[0];
+                DynamicWindow window = _dynamicWindows[0];
                 return window != null && window.Visibility ? window : null;
             }
         }
@@ -59,12 +59,12 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 
         private List<DynamicWindow> _dynamicWindows = new List<DynamicWindow>();
 
-        public IEnumerator<IWindow> Visibles()
+        public IEnumerator<DynamicWindow> Visibles()
         {
             return new InternalVisibleEnumerator(_dynamicWindows);
         }
 
-        public IWindow Get(int index)
+        public DynamicWindow Get(int index)
         {
             if (index < 0 || index > this._dynamicWindows.Count - 1)
                 throw new IndexOutOfRangeException();
@@ -72,7 +72,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return this._dynamicWindows[index];
         }
 
-        public void Add(IWindow window)
+        public void Add(DynamicWindow window)
         {
             if (window == null)
                 throw new ArgumentNullException("window");
@@ -84,7 +84,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             transform.AddChild(GetTransform(window));
         }
 
-        public bool Remove(IWindow window)
+        public bool Remove(DynamicWindow window)
         {
             if (window == null)
                 throw new ArgumentNullException("window");
@@ -93,7 +93,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return this._dynamicWindows.Remove(window as DynamicWindow);
         }
 
-        public IWindow RemoveAt(int index)
+        public DynamicWindow RemoveAt(int index)
         {
             if (index < 0 || index > this._dynamicWindows.Count - 1)
                 throw new IndexOutOfRangeException();
@@ -105,7 +105,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return window;
         }
 
-        public bool Contains(IWindow window)
+        public bool Contains(DynamicWindow window)
         {
             if (window == null)
                 throw new ArgumentNullException("window");
@@ -113,7 +113,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return this._dynamicWindows.Contains(window as DynamicWindow);
         }
 
-        public int IndexOf(IWindow window)
+        public int IndexOf(DynamicWindow window)
         {
             if (window == null)
                 throw new ArgumentNullException("window");
@@ -121,9 +121,9 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return this._dynamicWindows.IndexOf(window as DynamicWindow);
         }
 
-        public List<IWindow> Find(bool visible)
+        public List<DynamicWindow> Find(bool visible)
         {
-            var result = new List<IWindow>();
+            var result = new List<DynamicWindow>();
 
             foreach (var window in this._dynamicWindows)
             {
@@ -134,20 +134,29 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return result;
         }
 
-        public T Find<T>() where T : IWindow
+        public T Find<T>() where T : DynamicWindow
         {
-            throw new NotImplementedException();
+            return (T) _dynamicWindows.Find(x => x is T);
         }
 
-        public T Find<T>(string windowName) where T : IWindow
+        public T Find<T>(string windowName) where T : DynamicWindow
         {
-            throw new NotImplementedException();
+            return (T) _dynamicWindows.Find(x => x is T && x.Name == windowName);
         }
 
-        public List<T> FindAll<T>() where T : IWindow
+        public List<T> FindAll<T>() where T : DynamicWindow
         {
-            throw new NotImplementedException();
+            var result = new List<T>();
+
+            foreach (var window in this._dynamicWindows)
+            {
+                if (window is T)
+                    result.Add((T) window);
+            }
+
+            return result;
         }
+
 
         public void Clear()
         {
@@ -258,10 +267,12 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(DynamicWindow)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
-
-            var modalId = enterModal.GetInstanceID();
-            _assetLoadHandles.Add(modalId, assetLoadHandle);
-            option.OnWindowCreated?.Invoke(enterModal);
+            
+            var dynamicWindowId = enterModal.GetInstanceID();
+            enterModal.Identifier = string.Concat(gameObject.name, dynamicWindowId.ToString());
+            _assetLoadHandles.Add(dynamicWindowId, assetLoadHandle);
+            
+            option.WindowCreated?.Invoke(enterModal);
 
             MoveToIndex(enterModal, _dynamicWindows.Count);
 
@@ -331,12 +342,20 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             }
         }
 
-        public AsyncProcessHandle Hide(bool playAnimation)
+        public AsyncProcessHandle Hide(string identifier, bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(HideRoutine(playAnimation));
+            return CoroutineManager.Instance.Run(HideRoutine(identifier, playAnimation));
         }
 
-        private IEnumerator HideRoutine(bool playAnimation)
+        public void HideAll(bool playAnimation)
+        {
+            foreach (var dynamicWindow in _dynamicWindows)
+            {
+                dynamicWindow.Exit(false, playAnimation, dynamicWindow);
+            }
+        }
+
+        private IEnumerator HideRoutine(string identifier, bool playAnimation)
         {
             if (_dynamicWindows.Count == 0)
             {
@@ -344,7 +363,8 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                     "Cannot transition because there are no modals loaded on the stack.");
             }
 
-            var exitModal = _dynamicWindows[_dynamicWindows.Count - 1];
+            //var exitModal = _dynamicWindows[_dynamicWindows.Count - 1];
+            var exitModal = _dynamicWindows.Find(x => x.Identifier == identifier);
             var exitModalId = exitModal.GetInstanceID();
             var enterModal = _dynamicWindows.Count == 1 ? null : _dynamicWindows[_dynamicWindows.Count - 2];
 
@@ -390,7 +410,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             }
 
             // End Transition
-            _dynamicWindows.RemoveAt(_dynamicWindows.Count - 1);
+            _dynamicWindows.Remove(exitModal);
 
             // Postprocess
             exitModal.AfterExit(false, enterModal);

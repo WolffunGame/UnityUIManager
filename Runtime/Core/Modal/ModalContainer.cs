@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
@@ -169,7 +170,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
 
             ModalContainer container = root.AddComponent<ModalContainer>();
-            //container.WindowManager = windowManager;
+
             container.CreateLayer(layerName, layer, layerType);
 
             if (!string.IsNullOrWhiteSpace(layerName))
@@ -264,7 +265,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             var modalId = enterModal.GetInstanceID();
             _assetLoadHandles.Add(modalId, assetLoadHandle);
-            option.OnWindowCreated?.Invoke(enterModal);
+            option.WindowCreated?.Invoke(enterModal);
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             while (!afterLoadHandle.IsTerminated)
             {
