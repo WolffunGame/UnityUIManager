@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
@@ -14,14 +15,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         {
             return containerLayers;
         }
-#if UNITY_EDITOR
-        private void OnValidate()
+        [Button]
+        private void AutoSortLayers()
         {
             //sort containerLayers by layer
             containerLayers = containerLayers.OrderBy(x => x.layer).ToArray();
         }
-#endif
-
     }
     
 
