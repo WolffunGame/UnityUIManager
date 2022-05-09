@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(RectTransform), typeof(Canvas))]
     public class GlobalContainerLayerManager : ContainerLayerManager
     {
         public static GlobalContainerLayerManager Root;

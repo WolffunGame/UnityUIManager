@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Coroutine;
@@ -38,6 +39,16 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
             rectTransform.localPosition = Vector3.zero;
 
+            var canvas = root.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            
+            var canvasScaler = root.AddComponent<CanvasScaler>();
+            canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            canvasScaler.referenceResolution = new Vector2(UnityEngine.Screen.width, UnityEngine.Screen.height);
+            canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            
+            root.AddComponent<GraphicRaycaster>();
+            
             DynamicWindowContainer container = root.GetOrAddComponent<DynamicWindowContainer>();
 
             container.CreateLayer(layerName, layer, layerType);

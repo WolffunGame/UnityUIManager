@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 
-namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(RectTransform), typeof(Canvas))]
     public class ContainerLayerManager : UIView, IContainerLayerManager
     {
         private readonly List<IContainerLayer> _containerLayers = new List<IContainerLayer>();

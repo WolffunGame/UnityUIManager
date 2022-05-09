@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     /// <summary>
     /// Manages layers of UI views.

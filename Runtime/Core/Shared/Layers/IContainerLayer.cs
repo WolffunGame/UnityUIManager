@@ -1,4 +1,5 @@
-﻿namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+﻿
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     /// <summary>
     /// Layer for each container

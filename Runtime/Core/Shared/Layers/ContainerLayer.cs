@@ -1,5 +1,7 @@
 ﻿
-namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
+
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     public abstract class ContainerLayer : WindowView, IContainerLayer
     {

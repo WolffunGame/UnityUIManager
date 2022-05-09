@@ -2,9 +2,8 @@
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
-namespace UnityScreenNavigator.Runtime.Core.Shared
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     [CreateAssetMenu(fileName = "Container Layer Setting New", menuName = "Screen Navigator/Container Layer Setting", order = 0)]
     public class ContainerLayerSettings : ScriptableObject

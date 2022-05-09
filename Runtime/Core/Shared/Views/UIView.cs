@@ -5,7 +5,7 @@ using UnityScreenNavigator.Runtime.Foundation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
-    [RequireComponent(typeof(RectTransform), typeof(CanvasGroup))]
+    //[RequireComponent(typeof(RectTransform), typeof(CanvasGroup))]
     public class UIView : UIBehaviour, IUIView
     {
         public virtual string Name
