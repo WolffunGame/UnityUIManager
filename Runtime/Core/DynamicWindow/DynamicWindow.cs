@@ -8,7 +8,6 @@ using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
@@ -134,21 +133,22 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         }
 #endif
 
-        internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
+        internal UniTask AfterLoad(RectTransform parentTransform)
         {
             _lifecycleEvents.Add(this, 0);
             Parent = parentTransform;
             RectTransform.FillParent((RectTransform) Parent);
             Alpha = 0.0f;
 
-            return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
+            var tasks = _lifecycleEvents.Select(x => x.Initialize());
+            return UniTask.WhenAll(tasks);
         }
-        internal AsyncProcessHandle BeforeEnter(bool push, DynamicWindow partnerModal)
+        internal UniTask BeforeEnter(bool push, DynamicWindow partnerModal)
         {
-            return CoroutineManager.Instance.Run(BeforeEnterRoutine(push, partnerModal));
+            return BeforeEnterRoutine(push, partnerModal);
         }
 
-        private IEnumerator BeforeEnterRoutine(bool push, DynamicWindow partnerModal)
+        private UniTask BeforeEnterRoutine(bool push, DynamicWindow partnerModal)
         {
             if (push)
             {
@@ -162,22 +162,17 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 Interactable = false;
             }
 
-            var routines = push
+            var tasks = push
                 ? _lifecycleEvents.Select(x => x.WillShowEnter())
                 : _lifecycleEvents.Select(x => x.WillHideEnter());
-            var handle = CoroutineManager.Instance.Run(CreateCoroutine(routines));
-
-            while (!handle.IsTerminated)
-            {
-                yield return null;
-            }
+            return UniTask.WhenAll(tasks);
         }
-        internal AsyncProcessHandle Enter(bool push, bool playAnimation, DynamicWindow partnerModal)
+        internal UniTask Enter(bool push, bool playAnimation, DynamicWindow partnerModal)
         {
-            return CoroutineManager.Instance.Run(EnterRoutine(push, playAnimation, partnerModal));
+            return EnterRoutine(push, playAnimation, partnerModal);
         }
 
-        private IEnumerator EnterRoutine(bool push, bool playAnimation, DynamicWindow partnerModal)
+        private UniTask EnterRoutine(bool push, bool playAnimation, DynamicWindow partnerModal)
         {
             if (push)
             {
@@ -193,11 +188,12 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 
                     anim.SetPartner(partnerModal?.transform as RectTransform);
                     anim.Setup(RectTransform);
-                    yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                    return anim.CreatePlayRoutine();
                 }
 
                 RectTransform.FillParent((RectTransform)Parent);
             }
+            return UniTask.CompletedTask;
         }
         internal void AfterEnter(bool show, DynamicWindow partnerModal)
         {
@@ -221,11 +217,11 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 Interactable = true;
             }
         }
-        internal AsyncProcessHandle BeforeExit(bool push, DynamicWindow partnerModal)
+        internal UniTask BeforeExit(bool push, DynamicWindow partnerModal)
         {
-            return CoroutineManager.Instance.Run(BeforeExitRoutine(push, partnerModal));
+            return BeforeExitRoutine(push, partnerModal);
         }
-        private IEnumerator BeforeExitRoutine(bool push, DynamicWindow partnerModal)
+        private UniTask BeforeExitRoutine(bool push, DynamicWindow partnerModal)
         {
             if (!push)
             {
@@ -239,22 +235,17 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
                 Interactable = false;
             }
 
-            var routines = push
+            var tasks = push
                 ? _lifecycleEvents.Select(x => x.WillShowExit())
                 : _lifecycleEvents.Select(x => x.WillHideExit());
-            var handle = CoroutineManager.Instance.Run(CreateCoroutine(routines));
-
-            while (!handle.IsTerminated)
-            {
-                yield return null;
-            }
+            return UniTask.WhenAll(tasks);
         }
-        internal AsyncProcessHandle Exit(bool push, bool playAnimation, DynamicWindow partnerModal)
+        internal UniTask Exit(bool push, bool playAnimation, DynamicWindow partnerModal)
         {
-            return CoroutineManager.Instance.Run(ExitRoutine(push, playAnimation, partnerModal));
+            return ExitRoutine(push, playAnimation, partnerModal);
         }
 
-        private IEnumerator ExitRoutine(bool push, bool playAnimation, DynamicWindow partnerModal)
+        private UniTask ExitRoutine(bool push, bool playAnimation, DynamicWindow partnerModal)
         {
             if (!push)
             {
@@ -268,11 +259,12 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 
                     anim.SetPartner(partnerModal?.transform as RectTransform);
                     anim.Setup(RectTransform);
-                    yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                    return anim.CreatePlayRoutine();
                 }
                 
                 Alpha = 0.0f;
             }
+            return UniTask.CompletedTask;
         }
 
         internal void AfterExit(bool push, DynamicWindow partnerModal)
@@ -293,45 +285,11 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             }
         }
 
-        internal AsyncProcessHandle BeforeRelease()
+        internal UniTask BeforeRelease()
         {
-            return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Cleanup())));
-        }
-#if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(IEnumerable<UniTask> targets)
-#else
-        private IEnumerator CreateCoroutine(IEnumerable<IEnumerator> targets)
-#endif
-        {
-            foreach (var target in targets)
-            {
-                var handle = CoroutineManager.Instance.Run(CreateCoroutine(target));
-                if (!handle.IsTerminated)
-                {
-                    yield return handle;
-                }
-            }
+            var tasks = _lifecycleEvents.Select(x => x.Cleanup());
+            return UniTask.WhenAll(tasks);
         }
 
-#if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(UniTask target)
-#else
-        private IEnumerator CreateCoroutine(IEnumerator target)
-#endif
-        {
-#if USN_USE_ASYNC_METHODS
-            async void WaitTaskAndCallback(UniTask task, Action callback)
-            {
-                await task;
-                callback?.Invoke();
-            }
-
-            var isCompleted = false;
-            WaitTaskAndCallback(target, () => { isCompleted = true; });
-            return new WaitUntil(() => isCompleted);
-#else
-            return target;
-#endif
-        }
     }
 }

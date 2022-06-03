@@ -1,6 +1,6 @@
-﻿using UnityScreenNavigator.Runtime.Core.DynamicWindow;
+﻿using Cysharp.Threading.Tasks;
+using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
@@ -16,13 +16,13 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
         /// </summary>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
-        AsyncProcessHandle Pop(bool playAnimation);
+        UniTask Pop(bool playAnimation);
 
         /// <summary>
         /// Push a window to DynamicWindowManager.
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        AsyncProcessHandle Push(WindowOption option);
+        UniTask Push(WindowOption option);
     }
 }

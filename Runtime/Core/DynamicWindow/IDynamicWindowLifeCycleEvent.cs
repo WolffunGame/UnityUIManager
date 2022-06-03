@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Collections;
+using Cysharp.Threading.Tasks;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
+using System.Linq;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 #if USN_USE_ASYNC_METHODS
+using System;
+using Cysharp.Threading.Tasks;
 #endif
 
 namespace UnityScreenNavigator.Runtime.Core.Screen
@@ -136,7 +136,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             _lifecycleEvents.Remove(lifecycleEvent);
         }
 
-        internal AsyncProcessHandle AfterLoad(RectTransform rectTransform)
+        internal UniTask AfterLoad(RectTransform rectTransform)
         {
             _lifecycleEvents.Add(this, 0);
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
@@ -161,17 +161,17 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             RectTransform.SetSiblingIndex(siblingIndex);
             
             Alpha = 0.0f;
-
-            return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
+            var tasks = _lifecycleEvents.Select(x =>  x.Initialize());
+            return UniTask.WhenAll(tasks);
         }
 
 
-        internal AsyncProcessHandle BeforeEnter(bool push, Screen partnerScreen)
+        internal UniTask BeforeEnter(bool push, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(BeforeEnterRoutine(push, partnerScreen));
+            return BeforeEnterRoutine(push, partnerScreen);
         }
 
-        private IEnumerator BeforeEnterRoutine(bool push, Screen partnerScreen)
+        private UniTask BeforeEnterRoutine(bool push, Screen partnerScreen)
         {
             gameObject.SetActive(true);
             RectTransform.FillParent((RectTransform)Parent);
@@ -182,23 +182,18 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             
             Alpha = 0.0f;
 
-            var routines = push
+            var tasks = push
                 ? _lifecycleEvents.Select(x => x.WillPushEnter())
                 : _lifecycleEvents.Select(x => x.WillPopEnter());
-            var handle = CoroutineManager.Instance.Run(CreateCoroutine(routines));
-
-            while (!handle.IsTerminated)
-            {
-                yield return null;
-            }
+            return UniTask.WhenAll(tasks);
         }
 
-        internal AsyncProcessHandle Enter(bool push, bool playAnimation, Screen partnerScreen)
+        internal UniTask Enter(bool push, bool playAnimation, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(EnterRoutine(push, playAnimation, partnerScreen));
+            return EnterTask(push, playAnimation, partnerScreen);
         }
 
-        private IEnumerator EnterRoutine(bool push, bool playAnimation, Screen partnerScreen)
+        private UniTask EnterTask(bool push, bool playAnimation, Screen partnerScreen)
         {
             Alpha = 1.0f;
 
@@ -212,10 +207,11 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
                 anim.SetPartner(partnerScreen?.transform as RectTransform);
                 anim.Setup(RectTransform);
-                yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                return anim.CreatePlayRoutine();
             }
 
             RectTransform.FillParent((RectTransform)Parent);
+            return UniTask.CompletedTask;
         }
 
         internal void AfterEnter(bool push, Screen partnerScreen)
@@ -241,12 +237,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             }
         }
 
-        internal AsyncProcessHandle BeforeExit(bool push, Screen partnerScreen)
+        internal UniTask BeforeExit(bool push, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(BeforeExitRoutine(push, partnerScreen));
+            return BeforeExitTask(push, partnerScreen);
         }
 
-        private IEnumerator BeforeExitRoutine(bool push, Screen partnerScreen)
+        private UniTask BeforeExitTask(bool push, Screen partnerScreen)
         {
             gameObject.SetActive(true);
             RectTransform.FillParent((RectTransform)Parent);
@@ -260,20 +256,16 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             var routines = push
                 ? _lifecycleEvents.Select(x => x.WillPushExit())
                 : _lifecycleEvents.Select(x => x.WillPopExit());
-            var handle = CoroutineManager.Instance.Run(CreateCoroutine(routines));
-
-            while (!handle.IsTerminated)
-            {
-                yield return null;
-            }
+            
+            return UniTask.WhenAll(routines);
         }
 
-        internal AsyncProcessHandle Exit(bool push, bool playAnimation, Screen partnerScreen)
+        internal UniTask Exit(bool push, bool playAnimation, Screen partnerScreen)
         {
-            return CoroutineManager.Instance.Run(ExitRoutine(push, playAnimation, partnerScreen));
+            return ExitRoutine(push, playAnimation, partnerScreen);
         }
 
-        private IEnumerator ExitRoutine(bool push, bool playAnimation, Screen partnerScreen)
+        private UniTask ExitRoutine(bool push, bool playAnimation, Screen partnerScreen)
         {
             if (playAnimation)
             {
@@ -285,10 +277,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
                 anim.SetPartner(partnerScreen?.transform as RectTransform);
                 anim.Setup(RectTransform);
-                yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                //yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                return anim.CreatePlayRoutine();
             }
             
             Alpha = 0.0f;
+            return UniTask.CompletedTask;
         }
 
         internal void AfterExit(bool push, Screen partnerScreen)
@@ -311,49 +305,10 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             gameObject.SetActive(false);
         }
 
-        internal AsyncProcessHandle BeforeRelease()
+        internal UniTask BeforeRelease()
         {
-            return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Cleanup())));
-        }
-
-#if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(IEnumerable<UniTask> targets)
-#else
-        private IEnumerator CreateCoroutine(IEnumerable<IEnumerator> targets)
-#endif
-        {
-            foreach (var target in targets)
-            {
-                var handle = CoroutineManager.Instance.Run(CreateCoroutine(target));
-                if (!handle.IsTerminated)
-                {
-                    yield return handle;
-                }
-            }
-        }
-
-#if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(UniTask target)
-#else
-        private IEnumerator CreateCoroutine(IEnumerator target)
-#endif
-        {
-#if USN_USE_ASYNC_METHODS
-            async void WaitTaskAndCallback(UniTask task, Action callback)
-            {
-                await task;
-                callback?.Invoke();
-            }
-            
-            var isCompleted = false;
-            WaitTaskAndCallback(target, () =>
-            {
-                isCompleted = true;
-            });
-            return new WaitUntil(() => isCompleted);
-#else
-            return target;
-#endif
+            var tasks = _lifecycleEvents.Select(x => x.Cleanup());
+            return UniTask.WhenAll(tasks);
         }
     }
 }

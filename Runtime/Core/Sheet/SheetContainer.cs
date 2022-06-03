@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Foundation;
-using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.Sheet
 {
@@ -21,8 +21,10 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
         [SerializeField] private string _name;
 
-        private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
-            = new Dictionary<int, AssetLoadHandle<GameObject>>();
+        //controls load and unload of resources
+        private readonly List<CacheWindowItem> _sheetItems = new List<CacheWindowItem>();
+        // private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
+        //     = new Dictionary<int, AssetLoadHandle<GameObject>>();
 
         private readonly List<ISheetContainerCallbackReceiver> _callbackReceivers =
             new List<ISheetContainerCallbackReceiver>();
@@ -33,7 +35,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         private int? _activeSheetId;
         private CanvasGroup _canvasGroup;
 
-        private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
+        //private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
 
         public int? ActiveSheetId => _activeSheetId;
 
@@ -74,6 +76,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             {
                 InstanceCacheByName.Add(_name, this);
             }
+
             _canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
         }
 
@@ -84,12 +87,12 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                 Destroy(sheet.gameObject);
             }
 
-            foreach (var assetLoadHandle in _assetLoadHandles.Values)
+            foreach (var item in _sheetItems)
             {
-                AssetLoader.Release(assetLoadHandle);
+                AddressablesManager.ReleaseAsset(item.Key);
             }
 
-            _assetLoadHandles.Clear();
+            _sheetItems.Clear();
 
             InstanceCacheByName.Remove(_name);
             var keysToRemove = new List<int>();
@@ -115,7 +118,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         /// <returns></returns>
         public static SheetContainer Of(Transform transform, bool useCache = true)
         {
-            return Of((RectTransform)transform, useCache);
+            return Of((RectTransform) transform, useCache);
         }
 
         /// <summary>
@@ -182,9 +185,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         /// <param name="resourceKey"></param>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Show(string resourceKey, bool playAnimation)
+        public UniTask Show(string resourceKey, bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(ShowRoutine(resourceKey, playAnimation));
+            return ShowRoutine(resourceKey, playAnimation);
         }
 
         /// <summary>
@@ -193,18 +196,18 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         /// <param name="sheetId"></param>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Show(int sheetId, bool playAnimation)
+        public UniTask Show(int sheetId, bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(ShowRoutine(sheetId, playAnimation));
+            return ShowRoutine(sheetId, playAnimation);
         }
 
         /// <summary>
         ///     Hide a sheet.
         /// </summary>
         /// <param name="playAnimation"></param>
-        public AsyncProcessHandle Hide(bool playAnimation)
+        public UniTask Hide(bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(HideRoutine(playAnimation));
+            return HideTask(playAnimation);
         }
 
         /// <summary>
@@ -215,13 +218,13 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         /// <param name="loadAsync"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public AsyncProcessHandle Register(string resourceKey,
+        public UniTask Register(string resourceKey,
             Action<(int sheetId, Sheet instance)> onLoad = null, bool loadAsync = true)
         {
-            return CoroutineManager.Instance.Run(RegisterRoutine(resourceKey, onLoad, loadAsync));
+            return RegisterTask(resourceKey, onLoad, loadAsync);
         }
 
-        private IEnumerator RegisterRoutine(string resourceKey,
+        private async UniTask RegisterTask(string resourceKey,
             Action<(int sheetId, Sheet instance)> onLoad = null, bool loadAsync = true)
         {
             if (resourceKey == null)
@@ -229,20 +232,10 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                 throw new ArgumentNullException(nameof(resourceKey));
             }
 
-            var assetLoadHandle = loadAsync
-                ? AssetLoader.LoadAsync<GameObject>(resourceKey)
-                : AssetLoader.Load<GameObject>(resourceKey);
-            while (!assetLoadHandle.IsDone)
-            {
-                yield return null;
-            }
+            var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(resourceKey);
 
-            if (assetLoadHandle.Status == AssetLoadStatus.Failed)
-            {
-                throw assetLoadHandle.OperationException;
-            }
 
-            var instance = Instantiate(assetLoadHandle.Result);
+            var instance = Instantiate(operationResult.Value);
             var sheet = instance.GetComponent<Sheet>();
             if (sheet == null)
             {
@@ -250,27 +243,23 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                     $"Cannot register because the \"{nameof(Sheet)}\" component is not attached to the specified resource \"{resourceKey}\".");
             }
 
+            _sheetItems.Add(new CacheWindowItem(instance, resourceKey));
             var sheetId = sheet.GetInstanceID();
             _sheets.Add(sheetId, sheet);
             _sheetNameToId[resourceKey] = sheetId;
-            _assetLoadHandles.Add(sheetId, assetLoadHandle);
-            onLoad?.Invoke((sheetId, sheet));
-            var afterLoadHandle = sheet.AfterLoad((RectTransform)transform);
-            while (!afterLoadHandle.IsTerminated)
-            {
-                yield return null;
-            }
 
-            yield return sheetId;
+            onLoad?.Invoke((sheetId, sheet));
+            var afterLoadHandle = sheet.AfterLoad((RectTransform) transform);
+            await afterLoadHandle;
         }
 
-        private IEnumerator ShowRoutine(string resourceKey, bool playAnimation)
+        private UniTask ShowRoutine(string resourceKey, bool playAnimation)
         {
             var sheetId = _sheetNameToId[resourceKey];
-            yield return ShowRoutine(sheetId, playAnimation);
+            return ShowRoutine(sheetId, playAnimation);
         }
 
-        private IEnumerator ShowRoutine(int sheetId, bool playAnimation)
+        private async UniTask ShowRoutine(int sheetId, bool playAnimation)
         {
             if (IsInTransition)
             {
@@ -295,37 +284,15 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                 callbackReceiver.BeforeShow(enterSheet, exitSheet);
             }
 
-            var preprocessHandles = new List<AsyncProcessHandle>();
-            if (exitSheet != null)
-            {
-                preprocessHandles.Add(exitSheet.BeforeExit(enterSheet));
-            }
 
-            preprocessHandles.Add(enterSheet.BeforeEnter(exitSheet));
-            foreach (var coroutineHandle in preprocessHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return null;
-                }
-            }
+            await exitSheet.BeforeExit(enterSheet);
+
+
+            await enterSheet.BeforeEnter(exitSheet);
 
             // Play Animation
-            var animationHandles = new List<AsyncProcessHandle>();
-            if (exitSheet != null)
-            {
-                animationHandles.Add(exitSheet.Exit(playAnimation, enterSheet));
-            }
-
-            animationHandles.Add(enterSheet.Enter(playAnimation, exitSheet));
-
-            foreach (var handle in animationHandles)
-            {
-                while (!handle.IsTerminated)
-                {
-                    yield return null;
-                }
-            }
+            await exitSheet.Exit(playAnimation, enterSheet);
+            await enterSheet.Enter(playAnimation, exitSheet);
 
             // End Transition
             _activeSheetId = sheetId;
@@ -345,7 +312,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             }
         }
 
-        private IEnumerator HideRoutine(bool playAnimation)
+        private async UniTask HideTask(bool playAnimation)
         {
             if (IsInTransition)
             {
@@ -370,17 +337,11 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             }
 
             var preprocessHandle = exitSheet.BeforeExit(null);
-            while (!preprocessHandle.IsTerminated)
-            {
-                yield return preprocessHandle;
-            }
+            await preprocessHandle;
 
             // Play Animation
             var animationHandle = exitSheet.Exit(playAnimation, null);
-            while (!animationHandle.IsTerminated)
-            {
-                yield return null;
-            }
+            await animationHandle;
 
             // End Transition
             _activeSheetId = null;

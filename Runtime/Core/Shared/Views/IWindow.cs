@@ -1,5 +1,4 @@
-﻿using UnityScreenNavigator.Runtime.Foundation.Coroutine;
-
+﻿
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
     /// <summary>

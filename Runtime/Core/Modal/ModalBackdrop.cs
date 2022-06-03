@@ -1,10 +1,8 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
-
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
     public sealed class ModalBackdrop : MonoBehaviour
@@ -31,12 +29,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             gameObject.SetActive(false);
         }
 
-        internal AsyncProcessHandle Enter(bool playAnimation)
+        internal UniTask Enter(bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(EnterRoutine(playAnimation));
+            return EnterRoutine(playAnimation);
         }
 
-        private IEnumerator EnterRoutine(bool playAnimation)
+        private UniTask EnterRoutine(bool playAnimation)
         {
             gameObject.SetActive(true);
             _rectTransform.FillParent(_parentTransform);
@@ -51,18 +49,19 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 }
 
                 anim.Setup(_rectTransform);
-                yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                return anim.CreatePlayRoutine();
             }
 
             _rectTransform.FillParent(_parentTransform);
+            return UniTask.CompletedTask;
         }
 
-        internal AsyncProcessHandle Exit(bool playAnimation)
+        internal UniTask Exit(bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(ExitRoutine(playAnimation));
+            return ExitRoutine(playAnimation);
         }
 
-        private IEnumerator ExitRoutine(bool playAnimation)
+        private UniTask ExitRoutine(bool playAnimation)
         {
             gameObject.SetActive(true);
             _rectTransform.FillParent(_parentTransform);
@@ -77,11 +76,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 }
 
                 anim.Setup(_rectTransform);
-                yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                return anim.CreatePlayRoutine();
             }
 
             _canvasGroup.alpha = 0;
             gameObject.SetActive(false);
+            return UniTask.CompletedTask;
         }
     }
 }

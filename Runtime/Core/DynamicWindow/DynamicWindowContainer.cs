@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
@@ -136,12 +136,12 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             _localDynamicWindowManager.Clear();
         }
 
-        public AsyncProcessHandle Show(WindowOption option)
+        public UniTask Show(WindowOption option)
         {
             return _localDynamicWindowManager.Show(option);
         }
 
-        public AsyncProcessHandle Hide(string identifier, bool playAnimation = true)
+        public UniTask Hide(string identifier, bool playAnimation = true)
         {
             return _localDynamicWindowManager.Hide(identifier, playAnimation);
         }

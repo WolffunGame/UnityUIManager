@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
@@ -100,7 +100,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        AsyncProcessHandle Show(WindowOption option);
+        UniTask Show(WindowOption option);
 
         /// <summary>
         /// 
@@ -108,7 +108,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         /// <param name="identifier"></param>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
-        AsyncProcessHandle Hide(string identifier, bool playAnimation);
+        UniTask Hide(string identifier, bool playAnimation);
         
         void HideAll(bool playAnimation);
     }

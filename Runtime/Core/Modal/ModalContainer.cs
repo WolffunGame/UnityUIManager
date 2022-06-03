@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
-using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
@@ -23,24 +23,21 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         
 
         [SerializeField] private ModalBackdrop _overrideBackdropPrefab;
-
-        private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
-            = new Dictionary<int, AssetLoadHandle<GameObject>>();
-
+        
         private readonly List<ModalBackdrop> _backdrops = new List<ModalBackdrop>();
 
         private readonly List<IModalContainerCallbackReceiver> _callbackReceivers =
             new List<IModalContainerCallbackReceiver>();
-
+        //Controls the visibility of the modals
         private readonly List<Modal> _modals = new List<Modal>();
-
-        private readonly Dictionary<string, AssetLoadHandle<GameObject>> _preloadedResourceHandles =
-            new Dictionary<string, AssetLoadHandle<GameObject>>();
-
+        
+        //controls load and unload of resources
+        private readonly List<CacheWindowItem> _modalItems = new List<CacheWindowItem>();
+        
+        private readonly List<string> _preloadAssetKeys = new List<string>();
+        
         private ModalBackdrop _backdropPrefab;
-
-        private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
-
+        
         /// <summary>
         ///     True if in transition.
         /// </summary>
@@ -73,17 +70,18 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         protected override void OnDestroy()
         {
-            foreach (var modal in _modals)
+            foreach (var preloadAssetKey in _preloadAssetKeys)
             {
-                var modalId = modal.GetInstanceID();
-                var assetLoadHandle = _assetLoadHandles[modalId];
-
-                Destroy(modal.gameObject);
-                AssetLoader.Release(assetLoadHandle);
+                AddressablesManager.ReleaseAsset(preloadAssetKey);
             }
-
-            _assetLoadHandles.Clear();
-
+            _preloadAssetKeys.Clear();
+            
+            foreach (var item in _modalItems)
+            {
+                AddressablesManager.ReleaseAsset(item.Key);
+            }
+            _modalItems.Clear();
+            
             InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
@@ -214,9 +212,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Push(WindowOption option)
+        public UniTask Push(WindowOption option)
         {
-            return CoroutineManager.Instance.Run(PushRoutine(option));
+            return PushTask(option);
         }
 
         /// <summary>
@@ -224,14 +222,14 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// </summary>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
-        public AsyncProcessHandle Pop(bool playAnimation)
+        public UniTask Pop(bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(PopRoutine(playAnimation));
+            return PopTask(playAnimation);
         }
 
 //string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
 //        bool loadAsync = true
-        private IEnumerator PushRoutine(WindowOption option)
+        private async UniTask PushTask(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
@@ -246,24 +244,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             IsInTransition = true;
 
-            var assetLoadHandle = option.LoadAsync
-                ? AssetLoader.LoadAsync<GameObject>(option.ResourcePath)
-                : AssetLoader.Load<GameObject>(option.ResourcePath);
-            if (!assetLoadHandle.IsDone)
-            {
-                yield return new WaitUntil(() => assetLoadHandle.IsDone);
-            }
-
-            if (assetLoadHandle.Status == AssetLoadStatus.Failed)
-            {
-                throw assetLoadHandle.OperationException;
-            }
-
+            var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
+            
             var backdrop = Instantiate(_backdropPrefab);
             backdrop.Setup((RectTransform) transform);
             _backdrops.Add(backdrop);
 
-            var instance = Instantiate(assetLoadHandle.Result);
+            var instance = Instantiate(operationResult.Value);
             var enterModal = instance.GetComponent<Modal>();
             if (enterModal == null)
             {
@@ -271,14 +258,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     $"Cannot transition because the \"{nameof(Modal)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
 
-            var modalId = enterModal.GetInstanceID();
-            _assetLoadHandles.Add(modalId, assetLoadHandle);
+            _modalItems.Add(new CacheWindowItem(instance, option.ResourcePath));
             option.WindowCreated?.Invoke(enterModal);
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
-            while (!afterLoadHandle.IsTerminated)
-            {
-                yield return null;
-            }
+            await afterLoadHandle;
 
             var exitModal = _modals.Count == 0 ? null : _modals[_modals.Count - 1];
 
@@ -287,42 +270,24 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.BeforePush(enterModal, exitModal);
             }
-
-
-            var preprocessHandles = new List<AsyncProcessHandle>();
+            
             if (exitModal != null)
             {
-                preprocessHandles.Add(exitModal.BeforeExit(true, enterModal));
+               await  exitModal.BeforeExit(true, enterModal);
             }
 
-            preprocessHandles.Add(enterModal.BeforeEnter(true, exitModal));
-
-            foreach (var coroutineHandle in preprocessHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
-            }
+            await enterModal.BeforeEnter(true, exitModal);
 
             // Play Animation
-            var animationHandles = new List<AsyncProcessHandle>();
-            animationHandles.Add(backdrop.Enter(option.PlayAnimation));
+
+            await backdrop.Enter(option.PlayAnimation);
 
             if (exitModal != null)
             {
-                animationHandles.Add(exitModal.Exit(true, option.PlayAnimation, enterModal));
+               await exitModal.Exit(true, option.PlayAnimation, enterModal);
             }
 
-            animationHandles.Add(enterModal.Enter(true, option.PlayAnimation, exitModal));
-
-            foreach (var coroutineHandle in animationHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
-            }
+            await enterModal.Enter(true, option.PlayAnimation, exitModal);
 
             // End Transition
             _modals.Add(enterModal);
@@ -342,7 +307,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
         }
 
-        private IEnumerator PopRoutine(bool playAnimation)
+        private async UniTask PopTask(bool playAnimation)
         {
             if (_modals.Count == 0)
             {
@@ -370,42 +335,22 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 callbackReceiver.BeforePop(enterModal, exitModal);
             }
 
-            var preprocessHandles = new List<AsyncProcessHandle>
-            {
-                exitModal.BeforeExit(false, enterModal)
-            };
+
+            await exitModal.BeforeExit(false, enterModal);
+            
             if (enterModal != null)
             {
-                preprocessHandles.Add(enterModal.BeforeEnter(false, exitModal));
-            }
-
-            foreach (var coroutineHandle in preprocessHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
+                await enterModal.BeforeEnter(false, exitModal);
             }
 
             // Play Animation
-            var animationHandles = new List<AsyncProcessHandle>
-            {
-                exitModal.Exit(false, playAnimation, enterModal)
-            };
+            await exitModal.Exit(false, playAnimation, enterModal);
             if (enterModal != null)
             {
-                animationHandles.Add(enterModal.Enter(false, playAnimation, exitModal));
+               await enterModal.Enter(false, playAnimation, exitModal);
             }
 
-            animationHandles.Add(backdrop.Exit(playAnimation));
-
-            foreach (var coroutineHandle in animationHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
-            }
+            await backdrop.Exit(playAnimation);
 
             // End Transition
             _modals.RemoveAt(_modals.Count - 1);
@@ -425,71 +370,30 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // Unload Unused Screen
             var beforeReleaseHandle = exitModal.BeforeRelease();
-            while (!beforeReleaseHandle.IsTerminated)
-            {
-                yield return null;
-            }
+            await beforeReleaseHandle;
 
-            var loadHandle = _assetLoadHandles[exitModalId];
+
+            AddressablesManager.ReleaseAsset(_modalItems[_modalItems.Count - 1].Key);
+            _modalItems.RemoveAt(_modalItems.Count - 1);
             Destroy(exitModal.gameObject);
             Destroy(backdrop.gameObject);
-            AssetLoader.Release(loadHandle);
-            _assetLoadHandles.Remove(exitModalId);
         }
 
-        public AsyncProcessHandle Preload(string resourceKey, bool loadAsync = true)
+        public UniTask Preload(string resourceKey)
         {
-            return CoroutineManager.Instance.Run(PreloadRoutine(resourceKey, loadAsync));
+            _preloadAssetKeys.Add(resourceKey);
+            return PreloadTask(resourceKey);
         }
 
-        private IEnumerator PreloadRoutine(string resourceKey, bool loadAsync = true)
+        private UniTask PreloadTask(string resourceKey)
         {
-            if (_preloadedResourceHandles.ContainsKey(resourceKey))
-            {
-                throw new InvalidOperationException(
-                    $"The resource with key \"${resourceKey}\" has already been preloaded.");
-            }
-
-            var assetLoadHandle = loadAsync
-                ? AssetLoader.LoadAsync<GameObject>(resourceKey)
-                : AssetLoader.Load<GameObject>(resourceKey);
-            _preloadedResourceHandles.Add(resourceKey, assetLoadHandle);
-
-            if (!assetLoadHandle.IsDone)
-            {
-                yield return new WaitUntil(() => assetLoadHandle.IsDone);
-            }
-
-            if (assetLoadHandle.Status == AssetLoadStatus.Failed)
-            {
-                throw assetLoadHandle.OperationException;
-            }
-        }
-
-        public bool IsPreloadRequested(string resourceKey)
-        {
-            return _preloadedResourceHandles.ContainsKey(resourceKey);
-        }
-
-        public bool IsPreloaded(string resourceKey)
-        {
-            if (!_preloadedResourceHandles.TryGetValue(resourceKey, out var handle))
-            {
-                return false;
-            }
-
-            return handle.Status == AssetLoadStatus.Success;
+            return AddressablesManager.LoadAssetAsync<GameObject>(resourceKey);
         }
 
         public void ReleasePreloaded(string resourceKey)
         {
-            if (!_preloadedResourceHandles.ContainsKey(resourceKey))
-            {
-                throw new InvalidOperationException($"The resource with key \"${resourceKey}\" is not preloaded.");
-            }
-
-            var handle = _preloadedResourceHandles[resourceKey];
-            AssetLoader.Release(handle);
+            _preloadAssetKeys.Remove(resourceKey);
+            AddressablesManager.ReleaseAsset(resourceKey);
         }
     }
 }

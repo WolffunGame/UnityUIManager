@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
-using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 
 namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
 {
@@ -43,21 +43,15 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
         {
             get { return _dynamicWindows.Count; }
         }
-
-        private readonly Dictionary<string, AssetLoadHandle<GameObject>> _preloadedResourceHandles =
-            new Dictionary<string, AssetLoadHandle<GameObject>>();
-
-        private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
-            = new Dictionary<int, AssetLoadHandle<GameObject>>();
-
+        
         private readonly List<IDynamicWindowContainerCallbackReceiver> _callbackReceivers =
             new List<IDynamicWindowContainerCallbackReceiver>();
-
-
-        private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
-
-
+        
         private List<DynamicWindow> _dynamicWindows = new List<DynamicWindow>();
+
+        private readonly List<CacheWindowItem> _windowItems = new List<CacheWindowItem>();
+
+        private readonly List<string> _preloadAssetKeys = new List<string>();
 
         public IEnumerator<DynamicWindow> Visibles()
         {
@@ -235,116 +229,81 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             return -1;
         }
 
-        public AsyncProcessHandle Show(WindowOption option)
+        public UniTask Show(WindowOption option)
         {
-            return CoroutineManager.Instance.Run(ShowRoutine(option));
+            return ShowTask(option);
         }
 
-        private IEnumerator ShowRoutine(WindowOption option)
+        private async UniTask ShowTask(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
                 throw new ArgumentNullException(nameof(option.ResourcePath));
             }
 
-            var assetLoadHandle = option.LoadAsync
-                ? AssetLoader.LoadAsync<GameObject>(option.ResourcePath)
-                : AssetLoader.Load<GameObject>(option.ResourcePath);
-            if (!assetLoadHandle.IsDone)
-            {
-                yield return new WaitUntil(() => assetLoadHandle.IsDone);
-            }
+            var assetLoadHandle = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
 
-            if (assetLoadHandle.Status == AssetLoadStatus.Failed)
-            {
-                throw assetLoadHandle.OperationException;
-            }
-
-            var instance = Instantiate(assetLoadHandle.Result);
-            var enterModal = instance.GetComponent<DynamicWindow>();
-            if (enterModal == null)
+            var instance = Instantiate(assetLoadHandle.Value);
+            var enterWindow = instance.GetComponent<DynamicWindow>();
+            if (enterWindow == null)
             {
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(DynamicWindow)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
 
-            var dynamicWindowId = enterModal.GetInstanceID();
-            enterModal.Identifier = string.Concat(gameObject.name, dynamicWindowId.ToString());
-            _assetLoadHandles.Add(dynamicWindowId, assetLoadHandle);
+            var dynamicWindowId = enterWindow.GetInstanceID();
+            enterWindow.Identifier = string.Concat(gameObject.name, dynamicWindowId.ToString());
+            _windowItems.Add(new CacheWindowItem(instance, option.ResourcePath));
+            option.WindowCreated?.Invoke(enterWindow);
 
-            option.WindowCreated?.Invoke(enterModal);
+            MoveToIndex(enterWindow, _dynamicWindows.Count);
 
-            MoveToIndex(enterModal, _dynamicWindows.Count);
+            await enterWindow.AfterLoad((RectTransform) transform);
 
-            var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
-            while (!afterLoadHandle.IsTerminated)
-            {
-                yield return null;
-            }
 
             var exitModal = _dynamicWindows.Count == 0 ? null : _dynamicWindows[_dynamicWindows.Count - 1];
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.BeforeShow(enterModal, exitModal);
+                callbackReceiver.BeforeShow(enterWindow, exitModal);
             }
 
-            var preprocessHandles = new List<AsyncProcessHandle>();
-            if (exitModal != null)
-            {
-                preprocessHandles.Add(exitModal.BeforeExit(true, enterModal));
-            }
 
-            preprocessHandles.Add(enterModal.BeforeEnter(true, exitModal));
+            await exitModal.BeforeExit(true, enterWindow);
 
-            foreach (var coroutineHandle in preprocessHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
-            }
+
+            await enterWindow.BeforeEnter(true, exitModal);
 
             // Play Animation
-            var animationHandles = new List<AsyncProcessHandle>();
-
             if (exitModal != null)
             {
-                animationHandles.Add(exitModal.Exit(true, option.PlayAnimation, enterModal));
+                await exitModal.Exit(true, option.PlayAnimation, enterWindow);
             }
 
-            animationHandles.Add(enterModal.Enter(true, option.PlayAnimation, exitModal));
-
-            foreach (var coroutineHandle in animationHandles)
-            {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
-            }
+            await enterWindow.Enter(true, option.PlayAnimation, exitModal);
 
             // End Transition
-            _dynamicWindows.Add(enterModal);
+            _dynamicWindows.Add(enterWindow);
 
 
             // Postprocess
             if (exitModal != null)
             {
-                exitModal.AfterExit(true, enterModal);
+                exitModal.AfterExit(true, enterWindow);
             }
 
-            enterModal.AfterEnter(true, exitModal);
+            enterWindow.AfterEnter(true, exitModal);
 
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.AfterShow(enterModal, exitModal);
+                callbackReceiver.AfterShow(enterWindow, exitModal);
             }
         }
 
-        public AsyncProcessHandle Hide(string identifier, bool playAnimation)
+        public UniTask Hide(string identifier, bool playAnimation)
         {
-            return CoroutineManager.Instance.Run(HideRoutine(identifier, playAnimation));
+            return HideTask(identifier, playAnimation);
         }
 
         public void HideAll(bool playAnimation)
@@ -355,7 +314,7 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             }
         }
 
-        private IEnumerator HideRoutine(string identifier, bool playAnimation)
+        private async UniTask HideTask(string identifier, bool playAnimation)
         {
             if (_dynamicWindows.Count == 0)
             {
@@ -364,107 +323,75 @@ namespace UnityScreenNavigator.Runtime.Core.DynamicWindow
             }
 
             //var exitModal = _dynamicWindows[_dynamicWindows.Count - 1];
-            var exitModal = _dynamicWindows.Find(x => x.Identifier == identifier);
-            var exitModalId = exitModal.GetInstanceID();
-            var enterModal = _dynamicWindows.Count == 1 ? null : _dynamicWindows[_dynamicWindows.Count - 2];
+            var exitWindow = _dynamicWindows.Find(x => x.Identifier == identifier);
+            var enterWindow = _dynamicWindows.Count == 1 ? null : _dynamicWindows[_dynamicWindows.Count - 2];
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.BeforeHide(enterModal, exitModal);
+                callbackReceiver.BeforeHide(enterWindow, exitWindow);
             }
 
-            var preprocessHandles = new List<AsyncProcessHandle>
-            {
-                exitModal.BeforeExit(false, enterModal)
-            };
-            if (enterModal != null)
-            {
-                preprocessHandles.Add(enterModal.BeforeEnter(false, exitModal));
-            }
 
-            foreach (var coroutineHandle in preprocessHandles)
+            await exitWindow.BeforeExit(false, enterWindow);
+
+            if (enterWindow != null)
             {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
+                await enterWindow.BeforeEnter(false, exitWindow);
             }
 
             // Play Animation
-            var animationHandles = new List<AsyncProcessHandle>
-            {
-                exitModal.Exit(false, playAnimation, enterModal)
-            };
-            if (enterModal != null)
-            {
-                animationHandles.Add(enterModal.Enter(false, playAnimation, exitModal));
-            }
+            await exitWindow.Exit(false, playAnimation, enterWindow);
 
-            foreach (var coroutineHandle in animationHandles)
+            if (enterWindow != null)
             {
-                while (!coroutineHandle.IsTerminated)
-                {
-                    yield return coroutineHandle;
-                }
+                await enterWindow.Enter(false, playAnimation, exitWindow);
             }
 
             // End Transition
-            _dynamicWindows.Remove(exitModal);
+            _dynamicWindows.Remove(exitWindow);
 
             // Postprocess
-            exitModal.AfterExit(false, enterModal);
-            if (enterModal != null)
+            exitWindow.AfterExit(false, enterWindow);
+            if (enterWindow != null)
             {
-                enterModal.AfterEnter(false, exitModal);
+                enterWindow.AfterEnter(false, exitWindow);
             }
 
             foreach (var callbackReceiver in _callbackReceivers)
             {
-                callbackReceiver.AfterHide(enterModal, exitModal);
+                callbackReceiver.AfterHide(enterWindow, exitWindow);
             }
 
             // Unload Unused Screen
-            var beforeReleaseHandle = exitModal.BeforeRelease();
-            while (!beforeReleaseHandle.IsTerminated)
-            {
-                yield return null;
-            }
-
-            var loadHandle = _assetLoadHandles[exitModalId];
-            Destroy(exitModal.gameObject);
-            AssetLoader.Release(loadHandle);
-            _assetLoadHandles.Remove(exitModalId);
+            var beforeReleaseHandle = exitWindow.BeforeRelease();
+            await beforeReleaseHandle;
+            
+            AddressablesManager.ReleaseAsset(_windowItems[_windowItems.Count - 2].Key);
+            Destroy(exitWindow.gameObject);
         }
 
-        public AsyncProcessHandle Preload(string resourceKey, bool loadAsync = true)
+        #region PRELOAD
+
+        public UniTask Preload(string resourceKey)
         {
-            return CoroutineManager.Instance.Run(PreloadRoutine(resourceKey, loadAsync));
+            _preloadAssetKeys.Add(resourceKey);
+            return PreloadTask(resourceKey);
         }
 
-        private IEnumerator PreloadRoutine(string resourceKey, bool loadAsync = true)
+        private UniTask PreloadTask(string resourceKey)
         {
-            if (_preloadedResourceHandles.ContainsKey(resourceKey))
-            {
-                throw new InvalidOperationException(
-                    $"The resource with key \"${resourceKey}\" has already been preloaded.");
-            }
-
-            var assetLoadHandle = loadAsync
-                ? AssetLoader.LoadAsync<GameObject>(resourceKey)
-                : AssetLoader.Load<GameObject>(resourceKey);
-            _preloadedResourceHandles.Add(resourceKey, assetLoadHandle);
-
-            if (!assetLoadHandle.IsDone)
-            {
-                yield return new WaitUntil(() => assetLoadHandle.IsDone);
-            }
-
-            if (assetLoadHandle.Status == AssetLoadStatus.Failed)
-            {
-                throw assetLoadHandle.OperationException;
-            }
+            return AddressablesManager.LoadAssetAsync<GameObject>(resourceKey);
         }
+
+        public void ReleasePreloaded(string resourceKey)
+        {
+            _preloadAssetKeys.Remove(resourceKey);
+            AddressablesManager.ReleaseAsset(resourceKey);
+        }
+
+        #endregion
+
 
         class InternalVisibleEnumerator : IEnumerator<DynamicWindow>
         {

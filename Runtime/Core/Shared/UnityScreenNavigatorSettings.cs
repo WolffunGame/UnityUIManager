@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Modal;
-using UnityScreenNavigator.Runtime.Foundation.AssetLoader;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -38,14 +37,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         [SerializeField] private ModalBackdrop _modalBackdropPrefab;
 
-        [SerializeField] private AssetLoaderObject _assetLoader;
 
         [SerializeField] private bool _enableInteractionInTransition;
 
         [SerializeField] private bool useBlocksRaycastsInsteadOfInteractable;
 
 
-        private IAssetLoader _defaultAssetLoader;
         private ModalBackdrop _defaultModalBackdrop;
 
 
@@ -109,24 +106,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
                 }
 
                 return _defaultModalBackdrop;
-            }
-        }
-
-        public IAssetLoader AssetLoader
-        {
-            get
-            {
-                if (_assetLoader != null)
-                {
-                    return _assetLoader;
-                }
-
-                if (_defaultAssetLoader == null)
-                {
-                    _defaultAssetLoader = CreateInstance<AddressableAssetLoaderObject>();
-                }
-
-                return _defaultAssetLoader;
             }
         }
 

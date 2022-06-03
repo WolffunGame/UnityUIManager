@@ -1,4 +1,5 @@
-﻿#if USN_USE_ASYNC_METHODS
+﻿using System.Collections;
+#if USN_USE_ASYNC_METHODS
 using Cysharp.Threading.Tasks;
 #endif
 

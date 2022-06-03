@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
-using UnityScreenNavigator.Runtime.Foundation.Coroutine;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
 #if USN_USE_ASYNC_METHODS
 using System;
@@ -110,7 +109,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             _lifecycleEvents.Remove(lifecycleEvent);
         }
 
-        internal AsyncProcessHandle AfterLoad(RectTransform parentTransform)
+        internal UniTask AfterLoad(RectTransform parentTransform)
         {
             _rectTransform = (RectTransform)transform;
             _canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
@@ -137,15 +136,16 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
             gameObject.SetActive(false);
 
-            return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Initialize())));
+            var tasks = _lifecycleEvents.Select(x => x.Initialize());
+            return UniTask.WhenAll(tasks);
         }
 
-        internal AsyncProcessHandle BeforeEnter(Sheet partnerSheet)
+        internal UniTask BeforeEnter(Sheet partnerSheet)
         {
-            return CoroutineManager.Instance.Run(BeforeEnterRoutine(partnerSheet));
+            return BeforeEnterRoutine(partnerSheet);
         }
 
-        private IEnumerator BeforeEnterRoutine(Sheet partnerSheet)
+        private UniTask BeforeEnterRoutine(Sheet partnerSheet)
         {
             gameObject.SetActive(true);
             _rectTransform.FillParent(_parentTransform);
@@ -157,19 +157,16 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
             _canvasGroup.alpha = 0.0f;
 
-            var handle = CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.WillEnter())));
-            while (!handle.IsTerminated)
-            {
-                yield return null;
-            }
+            var tasks = _lifecycleEvents.Select(x => x.WillEnter());
+            return UniTask.WhenAll(tasks);
         }
 
-        internal AsyncProcessHandle Enter(bool playAnimation, Sheet partnerSheet)
+        internal UniTask Enter(bool playAnimation, Sheet partnerSheet)
         {
-            return CoroutineManager.Instance.Run(EnterRoutine(playAnimation, partnerSheet));
+            return EnterTask(playAnimation, partnerSheet);
         }
 
-        private IEnumerator EnterRoutine(bool playAnimation, Sheet partnerSheet)
+        private UniTask EnterTask(bool playAnimation, Sheet partnerSheet)
         {
             _canvasGroup.alpha = 1.0f;
 
@@ -183,10 +180,11 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
                 anim.SetPartner(partnerSheet?.transform as RectTransform);
                 anim.Setup(_rectTransform);
-                yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                return anim.CreatePlayRoutine();
             }
 
             _rectTransform.FillParent(_parentTransform);
+            return UniTask.CompletedTask;
         }
 
         internal void AfterEnter(Sheet partnerSheet)
@@ -202,12 +200,12 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             }
         }
 
-        internal AsyncProcessHandle BeforeExit(Sheet partnerSheet)
+        internal UniTask BeforeExit(Sheet partnerSheet)
         {
-            return CoroutineManager.Instance.Run(BeforeExitRoutine(partnerSheet));
+            return BeforeExitTask(partnerSheet);
         }
 
-        private IEnumerator BeforeExitRoutine(Sheet partnerSheet)
+        private UniTask BeforeExitTask(Sheet partnerSheet)
         {
             gameObject.SetActive(true);
             _rectTransform.FillParent(_parentTransform);
@@ -218,19 +216,16 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
             _canvasGroup.alpha = 1.0f;
 
-            var handle = CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.WillExit())));
-            while (!handle.IsTerminated)
-            {
-                yield return null;
-            }
+            var tasks = _lifecycleEvents.Select(x => x.WillExit());
+            return UniTask.WhenAll(tasks);
         }
 
-        internal AsyncProcessHandle Exit(bool playAnimation, Sheet partnerSheet)
+        internal UniTask Exit(bool playAnimation, Sheet partnerSheet)
         {
-            return CoroutineManager.Instance.Run(ExitRoutine(playAnimation, partnerSheet));
+            return ExitTask(playAnimation, partnerSheet);
         }
 
-        private IEnumerator ExitRoutine(bool playAnimation, Sheet partnerSheet)
+        private UniTask ExitTask(bool playAnimation, Sheet partnerSheet)
         {
             if (playAnimation)
             {
@@ -242,10 +237,11 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
                 anim.SetPartner(partnerSheet?.transform as RectTransform);
                 anim.Setup(_rectTransform);
-                yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
+                return anim.CreatePlayRoutine();
             }
 
             _canvasGroup.alpha = 0.0f;
+            return UniTask.CompletedTask;
         }
 
         internal void AfterExit(Sheet partnerSheet)
@@ -258,49 +254,10 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             gameObject.SetActive(false);
         }
 
-        internal AsyncProcessHandle BeforeRelease()
+        internal UniTask BeforeRelease()
         {
-            return CoroutineManager.Instance.Run(CreateCoroutine(_lifecycleEvents.Select(x => x.Cleanup())));
-        }
-
-#if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(IEnumerable<UniTask> targets)
-#else
-        private IEnumerator CreateCoroutine(IEnumerable<IEnumerator> targets)
-#endif
-        {
-            foreach (var target in targets)
-            {
-                var handle = CoroutineManager.Instance.Run(CreateCoroutine(target));
-                if (!handle.IsTerminated)
-                {
-                    yield return handle;
-                }
-            }
-        }
-
-#if USN_USE_ASYNC_METHODS
-        private IEnumerator CreateCoroutine(UniTask target)
-#else
-        private IEnumerator CreateCoroutine(IEnumerator target)
-#endif
-        {
-#if USN_USE_ASYNC_METHODS
-            async void WaitTaskAndCallback(UniTask task, Action callback)
-            {
-                await task;
-                callback?.Invoke();
-            }
-            
-            var isCompleted = false;
-            WaitTaskAndCallback(target, () =>
-            {
-                isCompleted = true;
-            });
-            return new WaitUntil(() => isCompleted);
-#else
-            return target;
-#endif
+            var tasks = _lifecycleEvents.Select(x => x.Cleanup());
+            return UniTask.WhenAll(tasks);
         }
     }
 }

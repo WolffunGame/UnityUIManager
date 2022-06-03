@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Linq;
+using UnityEditor;
+
+#if ODIN_INSPECTOR_3 || ODIN_INSPECTOR
 using Sirenix.OdinInspector;
+#endif
+
 using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
@@ -14,8 +19,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         {
             return containerLayers;
         }
+#if ODIN_INSPECTOR_3 || ODIN_INSPECTOR
         [Button]
-        private void AutoSortLayers()
+#endif
+
+        public void AutoSortLayers()
         {
             //sort containerLayers by layer
             containerLayers = containerLayers.OrderBy(x => x.layer).ToArray();
@@ -30,4 +38,25 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         [Range(0, 10)] public int layer;
         public ContainerLayerType layerType;
     }
+    
+    #if UNITY_EDITOR
+    [CustomEditor(typeof(ContainerLayerSettings))]
+    public class ContainerLayerSettingsEditor : Editor
+    {
+        private ContainerLayerSettings _containerLayerSettings;
+        private void OnEnable()
+        {
+            _containerLayerSettings = (ContainerLayerSettings) target;
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Auto Sort Layers"))
+            {
+                _containerLayerSettings.AutoSortLayers();
+            }
+        }
+    }
+#endif
 }
