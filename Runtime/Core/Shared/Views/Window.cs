@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {

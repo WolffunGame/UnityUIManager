@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
-using UnityScreenNavigator.Runtime.Core.DynamicWindow;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
@@ -324,7 +323,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             IsInTransition = true;
 
             var exitModal = _modals[_modals.Count - 1];
-            var exitModalId = exitModal.GetInstanceID();
             var enterModal = _modals.Count == 1 ? null : _modals[_modals.Count - 2];
             var backdrop = _backdrops[_backdrops.Count - 1];
             _backdrops.RemoveAt(_backdrops.Count - 1);

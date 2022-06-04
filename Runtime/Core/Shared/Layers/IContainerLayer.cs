@@ -17,6 +17,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
     public enum ContainerLayerType
     {
-        Modal, Screen, Dynamic
+        Modal, Screen
     }
 }

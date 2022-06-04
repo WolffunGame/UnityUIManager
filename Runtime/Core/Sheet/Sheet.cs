@@ -142,10 +142,10 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
         internal UniTask BeforeEnter(Sheet partnerSheet)
         {
-            return BeforeEnterRoutine(partnerSheet);
+            return BeforeEnterTask(partnerSheet);
         }
 
-        private UniTask BeforeEnterRoutine(Sheet partnerSheet)
+        private UniTask BeforeEnterTask(Sheet partnerSheet)
         {
             gameObject.SetActive(true);
             _rectTransform.FillParent(_parentTransform);
