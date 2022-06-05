@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Foundation
 {
-    public static class GameObjectExtensions
+    internal static class GameObjectExtensions
     {
         public static T GetOrAddComponent<T>(this GameObject self) where T : Component
         {

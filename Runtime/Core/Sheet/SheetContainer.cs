@@ -284,14 +284,15 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                 callbackReceiver.BeforeShow(enterSheet, exitSheet);
             }
 
-
-            await exitSheet.BeforeExit(enterSheet);
+            if (exitSheet != null)
+                await exitSheet.BeforeExit(enterSheet);
 
 
             await enterSheet.BeforeEnter(exitSheet);
 
             // Play Animation
-            await exitSheet.Exit(playAnimation, enterSheet);
+            if (exitSheet != null)
+                await exitSheet.Exit(playAnimation, enterSheet);
             await enterSheet.Enter(playAnimation, exitSheet);
 
             // End Transition

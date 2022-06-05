@@ -10,24 +10,27 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
     public class ContainerLayerManager : UIView, IContainerLayerManager
     {
         private readonly List<IContainerLayer> _containerLayers = new List<IContainerLayer>();
-
-        public IContainerLayer Current
-        {
-            get
-            {
-                if (_containerLayers == null || _containerLayers.Count <= 0)
-                    return null;
-
-                IContainerLayer layer = _containerLayers[_containerLayers.Count - 1];
-                return layer != null && layer.VisibleElementInLayer > 0 ? layer : null;
-            }
-        }
+        
+        private IContainerLayer _currentContainerLayer;
 
         public bool Activated { get; set; }
 
         public int Count
         {
             get => _containerLayers.Count;
+        }
+
+        public IContainerLayer GetTopVisibilityLayer()
+        {
+            if (_containerLayers == null || _containerLayers.Count <= 0)
+                return null;
+            //current layer is the highest layer which is visible (VisibleElementInLayer > 0)
+            for (int i = _containerLayers.Count - 1; i >= 0; i--)
+            {
+                if (_containerLayers[i].VisibleElementInLayer > 0)
+                    return _containerLayers[i];
+            }
+            return null;
         }
 
         public IEnumerator<IContainerLayer> Visibles()

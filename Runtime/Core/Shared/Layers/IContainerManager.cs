@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
-using UnityScreenNavigator.Runtime.Core.Shared.Layers;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
-namespace UnityScreenNavigator.Runtime.Core.Shared.Views
+namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     /// <summary>
     /// Manage Modals and Screens

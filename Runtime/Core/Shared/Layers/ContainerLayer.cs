@@ -1,5 +1,4 @@
-﻿
-using UnityScreenNavigator.Runtime.Core.Shared.Views;
+﻿using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
@@ -15,7 +14,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         {
             get
             {
-                return _containerLayerManager ??= FindObjectOfType<GlobalContainerLayerManager>();
+                return _containerLayerManager ??= FindObjectOfType<ContainerLayerManager>();
             }
             set { _containerLayerManager = value; }
         }
@@ -28,6 +27,8 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             OnCreate();
             ContainerLayerManager.Add(this);
         }
+
+        public abstract void OnBackButtonPressed();
 
         protected abstract void OnCreate();
     }

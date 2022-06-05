@@ -185,9 +185,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             
             return container;
         }
-        protected override void OnCreate()
-        {
-        }
+        
         /// <summary>
         ///     Add a callback receiver.
         /// </summary>
@@ -392,6 +390,18 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             _preloadAssetKeys.Remove(resourceKey);
             AddressablesManager.ReleaseAsset(resourceKey);
+        }
+
+        public override void OnBackButtonPressed()
+        {
+            if (_modals.Count > 0)
+            {
+                Pop(true).Forget();
+            }
+        }
+
+        protected override void OnCreate()
+        {
         }
     }
 }

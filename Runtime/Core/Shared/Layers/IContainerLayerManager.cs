@@ -7,10 +7,15 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
     /// </summary>
     public interface IContainerLayerManager
     {
-        IContainerLayer Current { get; }
         bool Activated { get; set; }
 
         int Count { get; }
+        
+        /// <summary>
+        /// Gets the current top visible layer.
+        /// </summary>
+        /// <returns></returns>
+        IContainerLayer GetTopVisibilityLayer();
 
         /// <summary>
         /// 

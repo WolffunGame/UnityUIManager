@@ -26,7 +26,14 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         public void AutoSortLayers()
         {
             //sort containerLayers by layer
-            containerLayers = containerLayers.OrderBy(x => x.layer).ToArray();
+            var layers = containerLayers.OrderBy(x => x.layer).ToArray();
+            //simplify layer from 0
+            for (var i = 0; i < layers.Length; i++)
+            {
+                layers[i].layer = i;
+            }
+            //set new containerLayers
+            containerLayers = layers;
         }
     }
     

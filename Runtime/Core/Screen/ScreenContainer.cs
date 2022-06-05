@@ -18,7 +18,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         private static readonly Dictionary<string, ScreenContainer> InstanceCacheByName =
             new Dictionary<string, ScreenContainer>();
-        
+
         private readonly List<IScreenContainerCallbackReceiver> _callbackReceivers =
             new List<IScreenContainerCallbackReceiver>();
 
@@ -59,6 +59,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             {
                 AddressablesManager.ReleaseAsset(item.Key);
             }
+
             _screenItems.Clear();
 
             if (LayerName != null)
@@ -92,11 +93,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// <returns></returns>
         public UniTask Pop(bool playAnimation)
         {
-            return PopRoutine(playAnimation);
-        }
-
-        protected override void OnCreate()
-        {
+            return PopTask(playAnimation);
         }
 
         /// <summary>
@@ -154,6 +151,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             {
                 await exitScreen.BeforeExit(true, enterScreen);
             }
+
             await enterScreen.BeforeEnter(true, exitScreen);
 
             // Play Animations
@@ -192,7 +190,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             _isActiveScreenStacked = option.Stack;
         }
 
-        private async UniTask PopRoutine(bool playAnimation)
+        private async UniTask PopTask(bool playAnimation)
         {
             if (_screenList.Count == 0)
                 throw new InvalidOperationException(
@@ -321,6 +319,10 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             return container;
         }
 
+        #endregion
+
+        #region PRELOAD
+
         public UniTask Preload(string resourceKey)
         {
             _preloadAssetKeys.Add(resourceKey);
@@ -339,5 +341,19 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         }
 
         #endregion
+
+
+        public override void OnBackButtonPressed()
+        {
+            if (IsInTransition) return;
+                if (_screenList.Count > 1)
+            {
+                Pop(true).Forget();
+            }
+        }
+
+        protected override void OnCreate()
+        {
+        }
     }
 }
