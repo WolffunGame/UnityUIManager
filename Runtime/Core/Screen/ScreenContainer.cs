@@ -11,7 +11,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 namespace UnityScreenNavigator.Runtime.Core.Screen
 {
     [RequireComponent(typeof(RectMask2D))]
-    public sealed class ScreenContainer : ContainerLayer, IContainerManager
+    public sealed class ScreenContainer : ContainerLayer, IContainerManager<Screen>
     {
         private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform =
             new Dictionary<int, ScreenContainer>();
@@ -81,7 +81,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        public UniTask Push(WindowOption option)
+        public UniTask<Screen> Push(WindowOption option)
         {
             return PushTask(option);
         }
@@ -114,7 +114,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             _callbackReceivers.Remove(callbackReceiver);
         }
 
-        private async UniTask PushTask(WindowOption option)
+        private async UniTask<Screen> PushTask(WindowOption option)
         {
             if (option.ResourcePath == null) throw new ArgumentNullException(nameof(option.ResourcePath));
 
@@ -188,6 +188,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             }
 
             _isActiveScreenStacked = option.Stack;
+            
+            return enterScreen;
         }
 
         private async UniTask PopTask(bool playAnimation)

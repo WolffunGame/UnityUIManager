@@ -6,22 +6,22 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
     /// <summary>
     /// Manage Modals and Screens
     /// </summary>
-    public interface IContainerManager : IContainerLayer
+    public interface IContainerManager<TWindow> : IContainerLayer where  TWindow: Window
     {
         Window Current { get; }
 
         /// <summary>
-        /// Pop a window from DynamicWindowManager.
+        /// Pop a window.
         /// </summary>
         /// <param name="playAnimation"></param>
         /// <returns></returns>
         UniTask Pop(bool playAnimation);
 
         /// <summary>
-        /// Push a window to DynamicWindowManager.
+        /// Push a window.
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        UniTask Push(WindowOption option);
+        UniTask<TWindow> Push(WindowOption option);
     }
 }

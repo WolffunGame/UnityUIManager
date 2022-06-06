@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -12,7 +11,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
     [RequireComponent(typeof(RectMask2D))]
-    public sealed class ModalContainer : ContainerLayer, IContainerManager
+    public sealed class ModalContainer : ContainerLayer, IContainerManager<Modal>
     {
         private static readonly Dictionary<int, ModalContainer> InstanceCacheByTransform =
             new Dictionary<int, ModalContainer>();
@@ -209,7 +208,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        public UniTask Push(WindowOption option)
+        public UniTask<Modal> Push(WindowOption option)
         {
             return PushTask(option);
         }
@@ -226,7 +225,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
 //string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
 //        bool loadAsync = true
-        private async UniTask PushTask(WindowOption option)
+        private async UniTask<Modal> PushTask(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
@@ -302,6 +301,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.AfterPush(enterModal, exitModal);
             }
+
+            return enterModal;
         }
 
         private async UniTask PopTask(bool playAnimation)
