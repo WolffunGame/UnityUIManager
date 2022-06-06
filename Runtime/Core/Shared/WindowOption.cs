@@ -20,7 +20,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         public bool PlayAnimation { get; }
 
-        public Action<Window> WindowCreated { get; }
+        public Action<Window> WindowCreated { get; set; }
 
         public bool Stack { get; }
 

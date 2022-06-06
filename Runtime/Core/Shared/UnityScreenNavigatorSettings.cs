@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Modal;
 #if UNITY_EDITOR
@@ -49,11 +50,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         public ITransitionAnimation SheetEnterAnimation => _sheetEnterAnimation != null
             ? Instantiate(_sheetEnterAnimation)
-            : SimpleTransitionAnimationObject.CreateInstance(beforeAlpha: 0.0f, easeType: EaseType.Linear);
+            : SimpleTransitionAnimationObject.CreateInstance(beforeAlpha: 0.0f, easeType: Ease.Linear);
 
         public ITransitionAnimation SheetExitAnimation => _sheetExitAnimation != null
             ? Instantiate(_sheetExitAnimation)
-            : SimpleTransitionAnimationObject.CreateInstance(afterAlpha: 0.0f, easeType: EaseType.Linear);
+            : SimpleTransitionAnimationObject.CreateInstance(afterAlpha: 0.0f, easeType: Ease.Linear);
 
         public ITransitionAnimation PagePushEnterAnimation => _pagePushEnterAnimation != null
             ? Instantiate(_pagePushEnterAnimation)
@@ -85,11 +86,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         public ITransitionAnimation ModalBackdropEnterAnimation => _modalBackdropEnterAnimation != null
             ? Instantiate(_modalBackdropEnterAnimation)
-            : SimpleTransitionAnimationObject.CreateInstance(beforeAlpha: 0.0f, easeType: EaseType.Linear);
+            : SimpleTransitionAnimationObject.CreateInstance(beforeAlpha: 0.0f, easeType: Ease.Linear);
 
         public ITransitionAnimation ModalBackdropExitAnimation => _modalBackdropExitAnimation != null
             ? Instantiate(_modalBackdropExitAnimation)
-            : SimpleTransitionAnimationObject.CreateInstance(afterAlpha: 0.0f, easeType: EaseType.Linear);
+            : SimpleTransitionAnimationObject.CreateInstance(afterAlpha: 0.0f, easeType: Ease.Linear);
 
         public ModalBackdrop ModalBackdropPrefab
         {
