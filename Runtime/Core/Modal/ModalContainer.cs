@@ -164,6 +164,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             rectTransform.localPosition = Vector3.zero;
             
             var canvas = root.AddComponent<Canvas>();
+            canvas.sortingOrder = layer;
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             
             var canvasScaler = root.AddComponent<CanvasScaler>();
