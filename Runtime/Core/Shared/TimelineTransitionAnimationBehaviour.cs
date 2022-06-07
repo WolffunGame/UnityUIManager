@@ -1,4 +1,5 @@
 #if USN_USE_TIMELINE
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -9,8 +10,8 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
     {
         [SerializeField] private PlayableDirector _director;
         [SerializeField] private TimelineAsset _timelineAsset;
-
         public override float Duration => (float)_timelineAsset.duration;
+        public override bool IsCompleted => _director.state == PlayState.Paused;
 
         public override void Setup()
         {
@@ -18,8 +19,13 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             _director.time = 0;
             _director.initialTime = 0;
             _director.playOnAwake = false;
-            _director.timeUpdateMode = DirectorUpdateMode.Manual;
+            _director.timeUpdateMode = DirectorUpdateMode.GameTime;
             _director.extrapolationMode = DirectorWrapMode.None;
+        }
+
+        public override UniTask Play()
+        {
+            return UniTask.CompletedTask;
         }
 
         public override void SetTime(float time)
@@ -27,6 +33,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             _director.time = time;
             _director.Evaluate();
         }
+        
     }
 }
 #endif

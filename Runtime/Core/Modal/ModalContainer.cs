@@ -169,7 +169,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             
             var canvasScaler = root.AddComponent<CanvasScaler>();
             canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            canvasScaler.referenceResolution = new Vector2(UnityEngine.Screen.width, UnityEngine.Screen.height);
+            canvasScaler.referenceResolution = new Vector2(UnityEngine.Screen.currentResolution.height, UnityEngine.Screen.currentResolution.width);
             canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             
             root.AddComponent<GraphicRaycaster>();

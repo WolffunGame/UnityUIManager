@@ -198,7 +198,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         /// <returns></returns>
         public UniTask Show(int sheetId, bool playAnimation)
         {
-            return ShowRoutine(sheetId, playAnimation);
+            return ShowTask(sheetId, playAnimation);
         }
 
         /// <summary>
@@ -256,10 +256,10 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         private UniTask ShowRoutine(string resourceKey, bool playAnimation)
         {
             var sheetId = _sheetNameToId[resourceKey];
-            return ShowRoutine(sheetId, playAnimation);
+            return ShowTask(sheetId, playAnimation);
         }
 
-        private async UniTask ShowRoutine(int sheetId, bool playAnimation)
+        private async UniTask ShowTask(int sheetId, bool playAnimation)
         {
             if (IsInTransition)
             {

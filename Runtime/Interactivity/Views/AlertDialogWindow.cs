@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
@@ -64,7 +65,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
         public override UniTask Initialize()
         {
-            OnChangeViewModel();
+            //OnChangeViewModel();
             return base.Initialize();
         }
 
@@ -78,6 +79,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             finally
             {
                 //TODO: ModalContainer Pop this modal
+               var dialogContainer = ModalContainer.Find(AlertDialog.DialogLayer);
+               if (dialogContainer != null)
+               {
+                   dialogContainer.Pop(true);
+               }
             }
         }
 

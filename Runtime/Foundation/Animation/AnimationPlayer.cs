@@ -33,6 +33,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
         public void Stop()
         {
             IsPlaying = false;
+            
         }
 
         public void Reset()

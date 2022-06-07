@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared
 {
@@ -10,6 +11,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         public RectTransform RectTransform { get; private set; }
         public RectTransform PartnerRectTransform { get; private set; }
         public abstract float Duration { get; }
+        public abstract bool IsCompleted { get; }
 
         void ITransitionAnimation.SetPartner(RectTransform partnerRectTransform)
         {
@@ -20,11 +22,14 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         {
             RectTransform = rectTransform;
             Setup();
-            SetTime(0.0f);
+            SetTime(0);
         }
         
         public abstract void Setup();
-
+        //
         public abstract void SetTime(float time);
+
+        public abstract UniTask Play();
     }
+    
 }

@@ -8,6 +8,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Interactivity.ViewModels;
 using UnityScreenNavigator.Runtime.Interactivity.Views;
+using Object = UnityEngine.Object;
 
 namespace UnityScreenNavigator.Runtime.Interactivity
 {
@@ -18,14 +19,19 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         public const int BUTTON_NEUTRAL = -3;
 
         private const string DEFAULT_DIALOG_CONTAINER = "Dialog";
-        private const string DEFAULT_VIEW_NAME = "Prefabs/prefab_alert_dialog";
+        private const string DEFAULT_DIALOG_KEY = "Prefabs/prefab_alert_dialog";
 
-        private static string viewName;
+        private static string _dialogKey;
 
-        public static string ViewName
+        public static string DialogKey
         {
-            get { return string.IsNullOrEmpty(viewName) ? DEFAULT_VIEW_NAME : viewName; }
-            set { viewName = value; }
+            get { return string.IsNullOrEmpty(_dialogKey) ? DEFAULT_DIALOG_KEY : _dialogKey; }
+            set { _dialogKey = value; }
+        }
+
+        public static string DialogLayer
+        {
+            get => DEFAULT_DIALOG_CONTAINER;
         }
 
 
@@ -121,7 +127,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             viewModel.CanceledOnTouchOutside = canceledOnTouchOutside;
             viewModel.Click = afterHideCallback;
 
-            return ShowMessage(ViewName, viewModel);
+            return ShowMessage(DialogKey, viewModel);
         }
 
         /// <summary>
@@ -166,7 +172,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
 
             AlertDialogWindow window = null;
-            var option = new WindowOption(ViewName, true);
+            var option = new WindowOption(DialogKey, true);
             option.WindowCreated = (w) =>
             {
                 window = (AlertDialogWindow)w;
@@ -187,7 +193,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(AlertDialogViewModel viewModel)
         {
-            return ShowMessage(ViewName, null, viewModel);
+            return ShowMessage(DialogKey, null, viewModel);
         }
 
         /// <summary>
@@ -216,7 +222,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             try
             {
                 if (string.IsNullOrEmpty(key))
-                    key = ViewName;
+                    key = DialogKey;
                 
                 var modalContainer = ModalContainer.Find(DEFAULT_DIALOG_CONTAINER);
                 if (modalContainer == null)
@@ -226,7 +232,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 if (!string.IsNullOrEmpty(contentViewName))
                 {
                     var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(contentViewName);
-                    contentView = contentGo.Value.GetComponent<IUIView>();
+                    var content = Object.Instantiate(contentGo.Value);
+                    contentView = content.GetComponent<IUIView>();   
                 }
 
                 var option = new WindowOption(key, true);

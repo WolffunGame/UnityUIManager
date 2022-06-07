@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 
 namespace UnityScreenNavigator.Tests.PlayMode.Foundation
@@ -17,6 +18,11 @@ namespace UnityScreenNavigator.Tests.PlayMode.Foundation
         {
             time = Math.Min(Duration, time);
             Progress = time / Duration;
+        }
+
+        public UniTask Play()
+        {
+            return UniTask.CompletedTask;
         }
     }
 }

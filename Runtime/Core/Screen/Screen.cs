@@ -265,7 +265,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             return ExitRoutine(push, playAnimation, partnerScreen);
         }
 
-        private UniTask ExitRoutine(bool push, bool playAnimation, Screen partnerScreen)
+        private async UniTask ExitRoutine(bool push, bool playAnimation, Screen partnerScreen)
         {
             if (playAnimation)
             {
@@ -277,12 +277,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
                 anim.SetPartner(partnerScreen?.transform as RectTransform);
                 anim.Setup(RectTransform);
-                //yield return CoroutineManager.Instance.Run(anim.CreatePlayRoutine());
-                return anim.CreatePlayRoutine();
+                
+                await anim.CreatePlayRoutine();
             }
             
             Alpha = 0.0f;
-            return UniTask.CompletedTask;
+            //return UniTask.CompletedTask;
         }
 
         internal void AfterExit(bool push, Screen partnerScreen)

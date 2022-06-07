@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared
 {
@@ -7,7 +9,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
     {
         [SerializeField] private float _delay;
         [SerializeField] private float _duration = 0.3f;
-        [SerializeField] private EaseType _easeType = EaseType.QuarticEaseOut;
+        [SerializeField] private Ease _easeType = Ease.OutQuart;
         [SerializeField] private SheetAlignment _beforeAlignment = SheetAlignment.Center;
         [SerializeField] private Vector3 _beforeScale = Vector3.one;
         [SerializeField] private float _beforeAlpha = 1.0f;
@@ -19,9 +21,28 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         private Vector3 _beforePosition;
         private CanvasGroup _canvasGroup;
 
-        public override float Duration => _duration;
+        private Sequence _sequence;
 
-        public static SimpleTransitionAnimationObject CreateInstance(float? duration = null, EaseType? easeType = null,
+        public override float Duration => _duration;
+        public override bool IsCompleted => _sequence.IsComplete();
+
+        private void Awake()
+        {
+            _sequence = DOTween.Sequence();
+        }
+
+        public override void SetTime(float time)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public override async UniTask Play()
+        {
+            Debug.Log("playing animation object " + name);
+            await SetTime();
+        }
+
+        public static SimpleTransitionAnimationObject CreateInstance(float? duration = null, Ease? easeType = null,
             SheetAlignment? beforeAlignment = null, Vector3? beforeScale = null, float? beforeAlpha = null,
             SheetAlignment? afterAlignment = null, Vector3? afterScale = null, float? afterAlpha = null)
         {
@@ -43,20 +64,32 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             _canvasGroup = canvasGroup;
         }
 
-        public override void SetTime(float time)
+        public async UniTask SetTime()
         {
-            time = Mathf.Max(0, time - _delay);
-            var progress = _duration <= 0.0f ? 1.0f : Mathf.Clamp01(time / _duration);
-            progress = Easings.Interpolate(progress, _easeType);
-            var position = Vector3.Lerp(_beforePosition, _afterPosition, progress);
-            var scale = Vector3.Lerp(_beforeScale, _afterScale, progress);
-            var alpha = Mathf.Lerp(_beforeAlpha, _afterAlpha, progress);
-            RectTransform.anchoredPosition = position;
-            RectTransform.localScale = scale;
-            _canvasGroup.alpha = alpha;
+            // time = Mathf.Max(0, time - _delay);
+            // var progress = _duration <= 0.0f ? 1.0f : Mathf.Clamp01(time / _duration);
+            // progress = Easings.Interpolate(progress, _easeType);
+            // var position = Vector3.Lerp(_beforePosition, _afterPosition, progress);
+            // var scale = Vector3.Lerp(_beforeScale, _afterScale, progress);
+            // var alpha = Mathf.Lerp(_beforeAlpha, _afterAlpha, progress);
+            // RectTransform.anchoredPosition = position;
+            // RectTransform.localScale = scale;
+            // _canvasGroup.alpha = alpha;
+
+            var anchorPosTweener = RectTransform.DOAnchorPos(_afterPosition, _duration).SetDelay(_delay)
+                .SetEase(_easeType).From(_beforePosition);
+            var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).SetEase(_easeType)
+                .From(_beforeScale);
+            var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)
+                .From(_beforeAlpha);
+             _ = _sequence.Join(anchorPosTweener);
+             _ = _sequence.Join(scaleTweener);
+             _ = _sequence.Join(fadeTweener);
+            await _sequence.AwaitForComplete();
+            Debug.Log("Complete animation object " + name);
         }
 
-        public void SetParams(float? duration = null, EaseType? easeType = null, SheetAlignment? beforeAlignment = null,
+        public void SetParams(float? duration = null, Ease? easeType = null, SheetAlignment? beforeAlignment = null,
             Vector3? beforeScale = null, float? beforeAlpha = null, SheetAlignment? afterAlignment = null,
             Vector3? afterScale = null, float? afterAlpha = null)
         {

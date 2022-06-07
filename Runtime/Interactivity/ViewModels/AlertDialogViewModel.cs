@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Interactivity.ViewModels
 {
@@ -14,9 +15,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity.ViewModels
         protected bool closed;
         protected int result;
         protected Action<int> click;
-
         public AlertDialogViewModel(AlertDialogViewModel value) : base(value)
         {
+            Value = this;
         }
 
         /// <summary>
@@ -106,11 +107,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity.ViewModels
             get { return this.result; }
         }
         
-        UniTaskCompletionSource<int> taskCompletion;
- 
-        // await until button clicked
-        public UniTask<int> WaitUntilClicked => taskCompletion.Task;
-
         public virtual void OnClick(int which)
         {
             try
