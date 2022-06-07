@@ -1,15 +1,24 @@
 {
-  "name": "com.harumak.unityscreennavigator",
-  "displayName": "UnityScreenNavigator",
-  "version": "1.1.2",
-  "unity": "2019.4",
+  "name": "com.felixngd.unityuimanager",
+  "displayName": "Unity Screen Navigator",
+  "version": "1.2.0",
+  "unity": "2020.3",
   "license": "MIT",
   "dependencies": {
+    "com.cysharp.unitask": "2.2.5",
+    "com.laicasaane.unity-addressables-manager": "1.2.3"
   },
   "author": {
-    "name": "Haruki Yano",
-    "url": "https://github.com/Haruma-K"
+    "name": "Nguyen Danh Dat",
+    "url": "https://github.com/felixngd"
   },
   "type": "tool",
-  "description": "Library for screen transitions, transition animations, transition history stacking, and lifecycle management in Unity's uGUI."
+  "description": "Library for UI management in Unity's uGUI.",
+  "samples": [
+    {
+      "displayName": "UIScreenNavigator Sample",
+      "description": "Contains sample shaders for the High Definition render pipeline",
+      "path": "Samples~/UnityScreenNavigatorSample"
+    }
+  ]
 }
