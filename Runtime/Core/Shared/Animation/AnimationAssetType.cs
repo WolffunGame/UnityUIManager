@@ -1,4 +1,4 @@
-﻿namespace UnityScreenNavigator.Runtime.Core.Shared
+﻿namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
 {
     public enum AnimationAssetType
     {

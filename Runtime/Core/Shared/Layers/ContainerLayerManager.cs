@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     [DisallowMultipleComponent]
-    public class ContainerLayerManager : UIView, IContainerLayerManager
+    public class ContainerLayerManager : MonoBehaviour, IContainerLayerManager
     {
-        private readonly List<IContainerLayer> _containerLayers = new List<IContainerLayer>();
+        private static readonly List<IContainerLayer> ContainerLayers = new List<IContainerLayer>();
         
         private IContainerLayer _currentContainerLayer;
 
@@ -17,25 +16,25 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
         public int Count
         {
-            get => _containerLayers.Count;
+            get => ContainerLayers.Count;
         }
 
-        public IContainerLayer GetTopVisibilityLayer()
+        public static IContainerLayer GetTopVisibilityLayer()
         {
-            if (_containerLayers == null || _containerLayers.Count <= 0)
+            if (ContainerLayers == null || ContainerLayers.Count <= 0)
                 return null;
             //current layer is the highest layer which is visible (VisibleElementInLayer > 0)
-            for (int i = _containerLayers.Count - 1; i >= 0; i--)
+            for (int i = ContainerLayers.Count - 1; i >= 0; i--)
             {
-                if (_containerLayers[i].VisibleElementInLayer > 0)
-                    return _containerLayers[i];
+                if (ContainerLayers[i].VisibleElementInLayer > 0)
+                    return ContainerLayers[i];
             }
             return null;
         }
 
         public IEnumerator<IContainerLayer> Visibles()
         {
-            foreach (var layer in _containerLayers)
+            foreach (var layer in ContainerLayers)
             {
                 if (layer.VisibleElementInLayer > 0)
                     yield return layer;
@@ -44,10 +43,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
         public IContainerLayer Get(int index)
         {
-            if (index < 0 || index > _containerLayers.Count - 1)
+            if (index < 0 || index > ContainerLayers.Count - 1)
                 throw new IndexOutOfRangeException();
 
-            return _containerLayers[index];
+            return ContainerLayers[index];
         }
 
         public void Add(IContainerLayer layer)
@@ -55,10 +54,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             if (layer == null)
                 throw new ArgumentNullException(nameof(layer));
 
-            if (_containerLayers.Contains(layer))
+            if (ContainerLayers.Contains(layer))
                 return;
 
-            _containerLayers.Add(layer);
+            ContainerLayers.Add(layer);
             transform.AddChild(GetTransform(layer));
         }
 
@@ -67,18 +66,18 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             if (layer == null)
                 throw new ArgumentNullException(nameof(layer));
 
-            return _containerLayers.Remove(layer);
+            return ContainerLayers.Remove(layer);
         }
 
         public IContainerLayer RemoveAt(int index)
         {
-            if (index < 0 || index > _containerLayers.Count - 1)
+            if (index < 0 || index > ContainerLayers.Count - 1)
                 throw new IndexOutOfRangeException();
 
-            var layer = _containerLayers[index];
+            var layer = ContainerLayers[index];
 
             transform.RemoveChild(GetTransform(layer));
-            _containerLayers.RemoveAt(index);
+            ContainerLayers.RemoveAt(index);
             return layer;
         }
 
@@ -88,7 +87,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             if (layer == null)
                 throw new ArgumentNullException(nameof(layer));
 
-            return _containerLayers.Contains(layer);
+            return ContainerLayers.Contains(layer);
         }
 
         public int IndexOf(IContainerLayer window)
@@ -96,13 +95,13 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             if (window == null)
                 throw new ArgumentNullException(nameof(window));
 
-            return _containerLayers.IndexOf(window);
+            return ContainerLayers.IndexOf(window);
         }
 
         public List<IContainerLayer> Find(bool visible)
         {
             List<IContainerLayer> result = new List<IContainerLayer>();
-            foreach (var layer in _containerLayers)
+            foreach (var layer in ContainerLayers)
             {
                 if (layer.VisibleElementInLayer > 0 == visible)
                     result.Add(layer);
@@ -113,12 +112,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
         public T Find<T>() where T : IContainerLayer
         {
-            return (T) _containerLayers.Find(x => x is T);
+            return (T) ContainerLayers.Find(x => x is T);
         }
 
         public T Find<T>(string layerName) where T : IContainerLayer
         {
-            return (T) _containerLayers.Find(x => x is T && x.LayerName == layerName);
+            return (T) ContainerLayers.Find(x => x is T && x.LayerName == layerName);
         }
 
         public List<T> FindAll<T>() where T : IContainerLayer
@@ -128,7 +127,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
         public void Clear()
         {
-            _containerLayers.Clear();
+            ContainerLayers.Clear();
         }
 
         protected virtual Transform GetTransform(IContainerLayer layer)
@@ -137,9 +136,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             {
                 if (layer == null)
                     return null;
-
-                if (layer is UIView)
-                    return (layer as UIView).RectTransform;
 
                 var propertyInfo = layer.GetType().GetProperty("Transform");
                 if (propertyInfo != null)

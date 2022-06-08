@@ -1,7 +1,5 @@
 using System;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
@@ -11,79 +9,65 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 {
     public class AlertDialogWindow : Modal
     {
-        public Text Title;
-
-        public Text Message;
-
-        public GameObject Content;
-
-        public Button ConfirmButton;
-
-        public Button NeutralButton;
-
-        public Button CancelButton;
-
-        public Button OutsideButton;
+        [SerializeField] private Text titleText;
+        [SerializeField] private Text messageText;
+        [SerializeField] private GameObject content;
+        [SerializeField] private Button confirmButton;
+        [SerializeField] private Button neutralButton;
+        [SerializeField] private Button cancelButton;
+        [SerializeField] private Button outsideButton;
 
         public bool CanceledOnTouchOutside { get; set; }
 
-        private IUIView contentView;
+        private IUIView _contentView;
 
-        private AlertDialogViewModel viewModel;
+        private AlertDialogViewModel _viewModel;
 
         public IUIView ContentView
         {
-            get { return this.contentView; }
+            get { return this._contentView; }
             set
             {
-                if (this.contentView == value)
+                if (this._contentView == value)
                     return;
 
-                if (this.contentView != null)
-                    GameObject.Destroy(this.contentView.Owner);
+                if (this._contentView != null)
+                    GameObject.Destroy(this._contentView.Owner);
 
-                this.contentView = value;
-                if (this.contentView != null && this.contentView.Owner != null && this.Content != null)
+                this._contentView = value;
+                if (this._contentView != null && this._contentView.Owner != null && this.content != null)
                 {
-                    this.contentView.Visibility = true;
-                    this.contentView.RectTransform.SetParent(this.Content.transform, false);
-                    if (this.Message != null)
-                        this.Message.gameObject.SetActive(false);
+                    this._contentView.Visibility = true;
+                    this._contentView.RectTransform.SetParent(this.content.transform, false);
+                    if (this.messageText != null)
+                        this.messageText.gameObject.SetActive(false);
                 }
             }
         }
 
         public AlertDialogViewModel ViewModel
         {
-            get { return this.viewModel; }
+            get { return this._viewModel; }
             set
             {
-                this.viewModel = value;
+                this._viewModel = value;
                 this.OnChangeViewModel();
             }
-        }
-
-        public override UniTask Initialize()
-        {
-            //OnChangeViewModel();
-            return base.Initialize();
         }
 
         protected virtual void Button_OnClick(int which)
         {
             try
             {
-                this.viewModel.OnClick(which);
+                this._viewModel.OnClick(which);
             }
-            catch (Exception) { }
             finally
             {
-                //TODO: ModalContainer Pop this modal
-               var dialogContainer = ModalContainer.Find(AlertDialog.DialogLayer);
-               if (dialogContainer != null)
-               {
-                   dialogContainer.Pop(true);
-               }
+                var dialogContainer = ModalContainer.Find(AlertDialog.DialogLayer);
+                if (dialogContainer != null)
+                {
+                    dialogContainer.Pop(true);
+                }
             }
         }
 
@@ -91,87 +75,87 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
         {
             this.Button_OnClick(AlertDialog.BUTTON_NEGATIVE);
         }
-        
+
         protected void OnChangeViewModel()
         {
-            if (this.Message != null)
+            if (this.messageText != null)
             {
-                if (!string.IsNullOrEmpty(this.viewModel.Message))
+                if (!string.IsNullOrEmpty(this._viewModel.Message))
                 {
-                    this.Message.gameObject.SetActive(true);
-                    this.Message.text = this.viewModel.Message;
-                    if (this.contentView != null && this.contentView.Visibility)
-                        this.contentView.Visibility = false;
+                    this.messageText.gameObject.SetActive(true);
+                    this.messageText.text = this._viewModel.Message;
+                    if (this._contentView != null && this._contentView.Visibility)
+                        this._contentView.Visibility = false;
                 }
                 else
-                    this.Message.gameObject.SetActive(false);
+                    this.messageText.gameObject.SetActive(false);
             }
 
-            if (this.Title != null)
+            if (this.titleText != null)
             {
-                if (!string.IsNullOrEmpty(this.viewModel.Title))
+                if (!string.IsNullOrEmpty(this._viewModel.Title))
                 {
-                    this.Title.gameObject.SetActive(true);
-                    this.Title.text = this.viewModel.Title;
+                    this.titleText.gameObject.SetActive(true);
+                    this.titleText.text = this._viewModel.Title;
                 }
                 else
-                    this.Title.gameObject.SetActive(false);
+                    this.titleText.gameObject.SetActive(false);
             }
 
-            if (this.ConfirmButton != null)
+            if (this.confirmButton != null)
             {
-                if (!string.IsNullOrEmpty(this.viewModel.ConfirmButtonText))
+                if (!string.IsNullOrEmpty(this._viewModel.ConfirmButtonText))
                 {
-                    this.ConfirmButton.gameObject.SetActive(true);
-                    this.ConfirmButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_POSITIVE); });
-                    Text text = this.ConfirmButton.GetComponentInChildren<Text>();
+                    this.confirmButton.gameObject.SetActive(true);
+                    this.confirmButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_POSITIVE); });
+                    Text text = this.confirmButton.GetComponentInChildren<Text>();
                     if (text != null)
-                        text.text = this.viewModel.ConfirmButtonText;
+                        text.text = this._viewModel.ConfirmButtonText;
                 }
                 else
                 {
-                    this.ConfirmButton.gameObject.SetActive(false);
+                    this.confirmButton.gameObject.SetActive(false);
                 }
             }
 
-            if (this.CancelButton != null)
+            if (this.cancelButton != null)
             {
-                if (!string.IsNullOrEmpty(this.viewModel.CancelButtonText))
+                if (!string.IsNullOrEmpty(this._viewModel.CancelButtonText))
                 {
-                    this.CancelButton.gameObject.SetActive(true);
-                    this.CancelButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
-                    Text text = this.CancelButton.GetComponentInChildren<Text>();
+                    this.cancelButton.gameObject.SetActive(true);
+                    this.cancelButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
+                    Text text = this.cancelButton.GetComponentInChildren<Text>();
                     if (text != null)
-                        text.text = this.viewModel.CancelButtonText;
+                        text.text = this._viewModel.CancelButtonText;
                 }
                 else
                 {
-                    this.CancelButton.gameObject.SetActive(false);
+                    this.cancelButton.gameObject.SetActive(false);
                 }
             }
 
-            if (this.NeutralButton != null)
+            if (this.neutralButton != null)
             {
-                if (!string.IsNullOrEmpty(this.viewModel.NeutralButtonText))
+                if (!string.IsNullOrEmpty(this._viewModel.NeutralButtonText))
                 {
-                    this.NeutralButton.gameObject.SetActive(true);
-                    this.NeutralButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_NEUTRAL); });
-                    Text text = this.NeutralButton.GetComponentInChildren<Text>();
+                    this.neutralButton.gameObject.SetActive(true);
+                    this.neutralButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_NEUTRAL); });
+                    Text text = this.neutralButton.GetComponentInChildren<Text>();
                     if (text != null)
-                        text.text = this.viewModel.NeutralButtonText;
+                        text.text = this._viewModel.NeutralButtonText;
                 }
                 else
                 {
-                    this.NeutralButton.gameObject.SetActive(false);
+                    this.neutralButton.gameObject.SetActive(false);
                 }
             }
 
-            this.CanceledOnTouchOutside = this.viewModel.CanceledOnTouchOutside;
-            if (this.OutsideButton != null && this.CanceledOnTouchOutside)
+            this.CanceledOnTouchOutside = this._viewModel.CanceledOnTouchOutside;
+            if (this.outsideButton != null && this.CanceledOnTouchOutside)
             {
-                this.OutsideButton.gameObject.SetActive(true);
-                this.OutsideButton.interactable = true;
-                this.OutsideButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
+                this.outsideButton.gameObject.SetActive(true);
+                this.outsideButton.interactable = true;
+                this.outsideButton.onClick.AddListener(() => { this.Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
             }
         }
     }

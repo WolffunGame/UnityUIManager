@@ -47,7 +47,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         public IReadOnlyList<Modal> Modals => _modals;
 
 
-        public Window Current
+        public override Window Current
         {
             get { return _modals[_modals.Count - 1]; }
         }
@@ -57,7 +57,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             get => Modals.Count;
         }
 
-        protected override void Awake()
+        private void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IModalContainerCallbackReceiver>());
 
@@ -66,7 +66,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 : UnityScreenNavigatorSettings.Instance.ModalBackdropPrefab;
         }
 
-        protected override void OnDestroy()
+        private void OnDestroy()
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {

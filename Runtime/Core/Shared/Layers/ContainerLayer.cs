@@ -1,13 +1,17 @@
-﻿using UnityScreenNavigator.Runtime.Core.Shared.Views;
+﻿using UnityEngine;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
-    public abstract class ContainerLayer : WindowView, IContainerLayer
+    public abstract class ContainerLayer : MonoBehaviour, IContainerLayer
     {
         public int Layer { get; set; }
         public string LayerName { get; set; }
         public abstract int VisibleElementInLayer { get; }
         public ContainerLayerType LayerType { get; set; }
+        
+        public abstract Window Current { get; }
+        
         private IContainerLayerManager _containerLayerManager;
 
         public IContainerLayerManager ContainerLayerManager

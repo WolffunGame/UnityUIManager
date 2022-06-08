@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityScreenNavigator.Runtime.Foundation;
+using UnityScreenNavigator.Runtime.Foundation.Animation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
@@ -144,5 +145,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
                 return _canvasGroup;
             }
         }
+        
+        
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
+using UnityScreenNavigator.Runtime.Core.Shared.Animation;
 using UnityScreenNavigator.Runtime.Foundation;
 using Object = UnityEngine.Object;
 
@@ -24,85 +25,6 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             var anim = anims.FirstOrDefault(x => x.IsValid(partnerTransitionIdentifier));
             var result = anim?.GetAnimation();
             return result;
-        }
-
-        [Serializable]
-        public class TransitionAnimation
-        {
-            [SerializeField] private string _partnerSheetIdentifierRegex;
-
-            [SerializeField] private AnimationAssetType _assetType;
-
-            [SerializeField] [EnabledIf(nameof(_assetType), (int)AnimationAssetType.MonoBehaviour)]
-            private TransitionAnimationBehaviour _animationBehaviour;
-
-            [SerializeField] [EnabledIf(nameof(_assetType), (int)AnimationAssetType.ScriptableObject)]
-            private TransitionAnimationObject _animationObject;
-
-            private Regex _partnerSheetIdentifierRegexCache;
-
-            public string PartnerSheetIdentifierRegex
-            {
-                get => _partnerSheetIdentifierRegex;
-                set => _partnerSheetIdentifierRegex = value;
-            }
-
-            public AnimationAssetType AssetType
-            {
-                get => _assetType;
-                set => _assetType = value;
-            }
-
-            public TransitionAnimationBehaviour AnimationBehaviour
-            {
-                get => _animationBehaviour;
-                set => _animationBehaviour = value;
-            }
-
-            public TransitionAnimationObject AnimationObject
-            {
-                get => _animationObject;
-                set => _animationObject = value;
-            }
-
-            public bool IsValid(string partnerSheetIdentifier)
-            {
-                if (GetAnimation() == null)
-                {
-                    return false;
-                }
-
-                // If the partner identifier is not registered, the animation is always valid.
-                if (string.IsNullOrEmpty(_partnerSheetIdentifierRegex))
-                {
-                    return true;
-                }
-                
-                if (string.IsNullOrEmpty(partnerSheetIdentifier))
-                {
-                    return false;
-                }
-
-                if (_partnerSheetIdentifierRegexCache == null)
-                {
-                    _partnerSheetIdentifierRegexCache = new Regex(_partnerSheetIdentifierRegex);
-                }
-
-                return _partnerSheetIdentifierRegexCache.IsMatch(partnerSheetIdentifier);
-            }
-
-            public ITransitionAnimation GetAnimation()
-            {
-                switch (_assetType)
-                {
-                    case AnimationAssetType.MonoBehaviour:
-                        return _animationBehaviour;
-                    case AnimationAssetType.ScriptableObject:
-                        return Object.Instantiate(_animationObject);
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
         }
     }
 }

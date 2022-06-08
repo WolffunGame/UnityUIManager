@@ -8,8 +8,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
     /// </summary>
     public interface IContainerManager<TWindow> : IContainerLayer where  TWindow: Window
     {
-        Window Current { get; }
-
         /// <summary>
         /// Pop a window.
         /// </summary>

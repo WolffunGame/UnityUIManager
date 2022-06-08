@@ -42,12 +42,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// </summary>
         public IReadOnlyList<CacheWindowItem> Screens => _screenItems;
 
-        protected override void Awake()
+        private void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IScreenContainerCallbackReceiver>());
         }
 
-        protected override void OnDestroy()
+        private void OnDestroy()
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {
@@ -72,7 +72,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             foreach (var keyToRemove in keysToRemove) InstanceCacheByTransform.Remove(keyToRemove);
         }
 
-        public Window Current => _screenList[_screenList.Count - 1];
+        public override Window Current => _screenList[_screenList.Count - 1];
 
         public override int VisibleElementInLayer => Screens.Count;
 
