@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -14,12 +15,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
     {
         private const string DEFAULT_VIEW_NAME = "UI/Toast";
 
-        private static string _viewName;
+        private static string _toastKey;
         private readonly Action _callback;
         private readonly UILayout _layout;
-
         private readonly IUIViewGroup _viewGroup;
-
+        
+        private static List<Toast> _toasts = new List<Toast>();
         protected Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration) : this(view, viewGroup,
             message, duration, null, null)
         {
@@ -41,10 +42,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             _callback = callback;
         }
 
-        public static string ViewName
+        public static string ToastKey
         {
-            get => string.IsNullOrEmpty(_viewName) ? DEFAULT_VIEW_NAME : _viewName;
-            set => _viewName = value;
+            get => string.IsNullOrEmpty(_toastKey) ? DEFAULT_VIEW_NAME : _toastKey;
+            set => _toastKey = value;
         }
 
         public float Duration { get; }
@@ -62,54 +63,63 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
         public static UniTask<Toast> Show(string text, float duration = 3f)
         {
-            return Show(ViewName, null, text, duration, null, null);
+            return Show(ToastKey, null, text, duration, null, null);
         }
 
         public static UniTask<Toast> Show(string text, float duration, UILayout layout)
         {
-            return Show(ViewName, null, text, duration, layout, null);
+            return Show(ToastKey, null, text, duration, layout, null);
         }
 
         public static UniTask<Toast> Show(string text, float duration, UILayout layout, Action callback)
         {
-            return Show(ViewName, null, text, duration, layout, callback);
+            return Show(ToastKey, null, text, duration, layout, callback);
         }
 
         public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration = 3f)
         {
-            return Show(ViewName, viewGroup, text, duration, null, null);
+            return Show(ToastKey, viewGroup, text, duration, null, null);
         }
 
         public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout)
         {
-            return Show(ViewName, viewGroup, text, duration, layout, null);
+            return Show(ToastKey, viewGroup, text, duration, layout, null);
         }
 
         public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout,
             Action callback)
         {
-            return Show(ViewName, viewGroup, text, duration, layout, callback);
+            return Show(ToastKey, viewGroup, text, duration, layout, callback);
         }
 
         public static async UniTask<Toast> Show(string viewName, IUIViewGroup viewGroup, string text, float duration,
             UILayout layout,
             Action callback)
         {
+            //Cancel all existing toasts
+            foreach (var t in _toasts)
+            {
+                t.View.Visibility = false;
+                t.Cancel().Forget();
+            }
             if (string.IsNullOrEmpty(viewName))
-                viewName = ViewName;
-
-            var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(ViewName);
+                viewName = ToastKey;
+            
+            var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(ToastKey);
             if (contentGo.Value == null)
                 throw new Exception($"Toast view is not found. viewName: {viewName}");
-            var view = contentGo.Value.GetComponent<ToastView>();
+            var viewGo = Object.Instantiate(contentGo.Value);
+            var view = viewGo.GetComponent<ToastView>();
             if (viewGroup == null)
                 viewGroup = GetCurrentViewGroup();
 
             var toast = new Toast(view, viewGroup, text, duration, layout, callback);
+            _toasts.Add(toast);
             await toast.Show();
             return toast;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         public async UniTask Cancel()
         {
             if (View == null || View.Owner == null)
@@ -120,43 +130,25 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 Object.Destroy(View.Owner);
                 return;
             }
-
-            if (View.ExitAnimation != null)
-            {
-                await View.ExitAnimation.Play();
-                View.Visibility = false;
-                _viewGroup.RemoveView(View);
-                Object.Destroy(View.Owner);
-                DoCallback();
-            }
-            else
-            {
-                View.Visibility = false;
-                _viewGroup.RemoveView(View);
-                Object.Destroy(View.Owner);
-                DoCallback();
-            }
+            
+            await View.PlayExitAnimation();
+            Object.Destroy(View.Owner);
+            DoCallback();
         }
 
         private async UniTask Show()
         {
-            if (View.Visibility)
-                return;
-
             _viewGroup.AddView(View, _layout);
-            View.Visibility = true;
             View.SetMessage(Message);
 
-            if (View.EnterAnimation != null)
-                await View.EnterAnimation.Play();
+            await View.PlayEnterAnimation();
 
             await DelayDismiss(Duration);
         }
 
         protected async UniTask DelayDismiss(float duration)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(duration),
-                cancellationToken: View.GetCancellationTokenOnDestroy());
+            await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: View.GetCancellationTokenOnDestroy());
             await Cancel();
         }
 
@@ -170,7 +162,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             catch (Exception)
             {
                 // ignored
-                Show("", 3, _layout => { });
             }
         }
     }

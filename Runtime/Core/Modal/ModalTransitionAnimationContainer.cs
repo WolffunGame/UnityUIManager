@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Animation;
-using UnityScreenNavigator.Runtime.Foundation;
-using Object = UnityEngine.Object;
 
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {

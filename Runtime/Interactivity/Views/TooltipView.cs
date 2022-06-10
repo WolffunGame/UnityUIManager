@@ -9,7 +9,7 @@ using UnityScreenNavigator.Runtime.Interactivity.ViewModels;
 
 namespace UnityScreenNavigator.Runtime.Interactivity.Views
 {
-    public class TooltipView : UIElement
+    public class TooltipView : UIView
     {
         [SerializeField] private Button closeButton;
         [SerializeField] private Text messageText;
@@ -79,7 +79,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 if (exitAnim == null)
                 {
                     gameObject.SetActive(false);
-                    exitAnim = TooltipTransitionAnimationObject.CreateInstance();
+                    exitAnim = SwitchTransitionAnimationObject.CreateInstance();
                 }
 
                 exitAnim.Setup(RectTransform);
@@ -97,7 +97,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             if (enterAnim == null)
             {
                 gameObject.SetActive(false);
-                enterAnim = TooltipTransitionAnimationObject.CreateInstance();
+                enterAnim = SwitchTransitionAnimationObject.CreateInstance();
             }
 
             enterAnim.Setup(RectTransform);
@@ -142,8 +142,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                     }
                 },
                 gameObject.GetCancellationTokenOnDestroy());
-            
         }
-
+        
     }
 }

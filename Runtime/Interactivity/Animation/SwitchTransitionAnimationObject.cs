@@ -6,8 +6,9 @@ using UnityScreenNavigator.Runtime.Core.Shared;
 namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 {
     [CreateAssetMenu(menuName = "Screen Navigator/Tooltip Transition Animation")]
-    public class TooltipTransitionAnimationObject: TransitionAnimationObject
+    public class SwitchTransitionAnimationObject: TransitionAnimationObject
     {
+        [Header("Animation controls fade in/out and scale")]
         [SerializeField] private float _delay;
         [SerializeField] private float _duration = 0.3f;
         [SerializeField] private Ease _easeType = Ease.OutQuart;
@@ -25,7 +26,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
         private void Awake()
         {
-            _sequence = DOTween.Sequence();
+            _sequence = DOTween.Sequence(this);
         }
 
         public override void SetTime(float time)
@@ -38,11 +39,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
             await SetTime();
         }
 
-        public static TooltipTransitionAnimationObject CreateInstance(float? duration = null, Ease? easeType = null,
+        public static SwitchTransitionAnimationObject CreateInstance(float? duration = null, Ease? easeType = null,
             Vector3? beforeScale = null, float? beforeAlpha = null,
              Vector3? afterScale = null, float? afterAlpha = null)
         {
-            var anim = CreateInstance<TooltipTransitionAnimationObject>();
+            var anim = CreateInstance<SwitchTransitionAnimationObject>();
             anim.SetParams(duration, easeType, beforeScale, beforeAlpha, afterScale,
                 afterAlpha);
             return anim;

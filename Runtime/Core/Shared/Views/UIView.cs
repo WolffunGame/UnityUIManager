@@ -2,11 +2,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityScreenNavigator.Runtime.Foundation;
-using UnityScreenNavigator.Runtime.Foundation.Animation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
-    //[RequireComponent(typeof(RectTransform), typeof(CanvasGroup))]
     public class UIView : UIBehaviour, IUIView
     {
         public virtual string Name
