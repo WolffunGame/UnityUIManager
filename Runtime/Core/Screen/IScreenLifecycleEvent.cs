@@ -1,8 +1,4 @@
-﻿using System.Collections;
-
-#if USN_USE_ASYNC_METHODS
-using Cysharp.Threading.Tasks;
-#endif
+﻿using Cysharp.Threading.Tasks;
 
 namespace UnityScreenNavigator.Runtime.Core.Screen
 {
@@ -12,21 +8,14 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// Called just after this screen is loaded.
         /// </summary>
         /// <returns></returns>
-#if USN_USE_ASYNC_METHODS
         UniTask Initialize();
-#else
-        IEnumerator Initialize();
-#endif
 
         /// <summary>
         /// Called just before this screen is displayed by the Push transition.
         /// </summary>
         /// <returns></returns>
-#if USN_USE_ASYNC_METHODS
         UniTask WillPushEnter();
-#else
-        IEnumerator WillPushEnter();
-#endif
+
         /// <summary>
         /// Called just after this screen is displayed by the Push transition.
         /// </summary>
@@ -36,11 +25,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// Called just before this screen is hidden by the Push transition.
         /// </summary>
         /// <returns></returns>
-#if USN_USE_ASYNC_METHODS
         UniTask WillPushExit();
-#else
-        IEnumerator WillPushExit();
-#endif
+
         /// <summary>
         /// Called just after this screen is hidden by the Push transition.
         /// </summary>
@@ -50,11 +36,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// Called just before this screen is displayed by the Pop transition.
         /// </summary>
         /// <returns></returns>
-#if USN_USE_ASYNC_METHODS
         UniTask WillPopEnter();
-#else
-        IEnumerator WillPopEnter();
-#endif
+        
         /// <summary>
         /// Called just after this screen is displayed by the Pop transition.
         /// </summary>
@@ -64,11 +47,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// Called just before this screen is hidden by the Pop transition.
         /// </summary>
         /// <returns></returns>
-#if USN_USE_ASYNC_METHODS
         UniTask WillPopExit();
-#else
-        IEnumerator WillPopExit();
-#endif
+
         /// <summary>
         /// Called just after this screen is hidden by the Pop transition.
         /// </summary>
@@ -78,10 +58,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// Called just before this screen is released.
         /// </summary>
         /// <returns></returns>
-#if USN_USE_ASYNC_METHODS
         UniTask Cleanup();
-#else
-        IEnumerator Cleanup();
-#endif
+
     }
 }

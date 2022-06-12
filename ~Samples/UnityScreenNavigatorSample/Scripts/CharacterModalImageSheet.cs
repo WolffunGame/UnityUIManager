@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Sheet;
-#if USN_USE_ASYNC_METHODS
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
-#endif
 
 namespace Demo.Scripts
 {

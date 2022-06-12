@@ -4,9 +4,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
-#if USN_USE_ASYNC_METHODS
 using Cysharp.Threading.Tasks;
-#endif
 
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
@@ -28,97 +26,57 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             get => _identifier;
             set => _identifier = value;
         }
-        
+
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
 
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask Initialize()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator Initialize()
-        {
-            yield break;
-        }
-#endif
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask WillPushEnter()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator WillPushEnter()
-        {
-            yield break;
-        }
-#endif
 
         public virtual void DidPushEnter()
         {
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask WillPushExit()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator WillPushExit()
-        {
-            yield break;
-        }
-#endif
 
         public virtual void DidPushExit()
         {
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask WillPopEnter()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator WillPopEnter()
-        {
-            yield break;
-        }
-#endif
+
 
         public virtual void DidPopEnter()
         {
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask WillPopExit()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator WillPopExit()
-        {
-            yield break;
-        }
-#endif
+
 
         public virtual void DidPopExit()
         {
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask Cleanup()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator Cleanup()
-        {
-            yield break;
-        }
-#endif
 
         public void AddLifecycleEvent(IModalLifecycleEvent lifecycleEvent, int priority = 0)
         {
@@ -135,7 +93,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             _lifecycleEvents.Add(this, 0);
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
             Parent = parentTransform;
-            RectTransform.FillParent((RectTransform)Parent);
+            RectTransform.FillParent((RectTransform) Parent);
 
             Alpha = 0.0f;
 
@@ -153,7 +111,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             if (push)
             {
                 gameObject.SetActive(true);
-                RectTransform.FillParent((RectTransform)Parent);
+                RectTransform.FillParent((RectTransform) Parent);
 
                 Alpha = 0.0f;
             }
@@ -193,9 +151,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     return anim.CreatePlayRoutine();
                 }
 
-                RectTransform.FillParent((RectTransform)Parent);
+                RectTransform.FillParent((RectTransform) Parent);
                 return UniTask.CompletedTask;
             }
+
             return UniTask.CompletedTask;
         }
 
@@ -232,7 +191,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             if (!push)
             {
                 gameObject.SetActive(true);
-                RectTransform.FillParent((RectTransform)Parent);
+                RectTransform.FillParent((RectTransform) Parent);
                 Alpha = 1.0f;
             }
 
@@ -268,9 +227,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     anim.Setup(RectTransform);
                     return anim.CreatePlayRoutine();
                 }
-                
+
                 Alpha = 0.0f;
             }
+
             return UniTask.CompletedTask;
         }
 
@@ -294,7 +254,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         internal UniTask BeforeRelease()
         {
-            var tasks= _lifecycleEvents.Select(x => x.Cleanup());
+            var tasks = _lifecycleEvents.Select(x => x.Cleanup());
             return UniTask.WhenAll(tasks);
         }
     }

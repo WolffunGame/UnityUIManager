@@ -1,15 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Foundation;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 using UnityScreenNavigator.Runtime.Foundation.PriorityCollection;
-#if USN_USE_ASYNC_METHODS
-using System;
 using Cysharp.Threading.Tasks;
-#endif
 
 namespace UnityScreenNavigator.Runtime.Core.Sheet
 {
@@ -43,61 +37,34 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
             set => _canvasGroup.interactable = value;
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask Initialize()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator Initialize()
-        {
-            yield break;
-        }
-#endif
 
-#if USN_USE_ASYNC_METHODS
+
         public virtual UniTask WillEnter()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator WillEnter()
-        {
-            yield break;
-        }
-#endif
 
         public virtual void DidEnter()
         {
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask WillExit()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator WillExit()
-        {
-            yield break;
-        }
-#endif
 
         public virtual void DidExit()
         {
         }
 
-#if USN_USE_ASYNC_METHODS
         public virtual UniTask Cleanup()
         {
             return UniTask.CompletedTask;
         }
-#else
-        public virtual IEnumerator Cleanup()
-        {
-            yield break;
-        }
-#endif
 
         public void AddLifecycleEvent(ISheetLifecycleEvent lifecycleEvent, int priority = 0)
         {
