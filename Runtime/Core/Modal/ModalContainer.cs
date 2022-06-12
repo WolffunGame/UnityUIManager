@@ -18,24 +18,25 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         private static readonly Dictionary<string, ModalContainer> InstanceCacheByName =
             new Dictionary<string, ModalContainer>();
-        
+
 
         [SerializeField] private ModalBackdrop _overrideBackdropPrefab;
-        
+
         private readonly List<ModalBackdrop> _backdrops = new List<ModalBackdrop>();
 
         private readonly List<IModalContainerCallbackReceiver> _callbackReceivers =
             new List<IModalContainerCallbackReceiver>();
+
         //Controls the visibility of the modals
         private readonly List<Modal> _modals = new List<Modal>();
-        
+
         //controls load and unload of resources
-        private readonly List<CacheWindowItem> _modalItems = new List<CacheWindowItem>();
-        
+        private readonly List<string> _modalItems = new List<string>();
+
         private readonly List<string> _preloadAssetKeys = new List<string>();
-        
+
         private ModalBackdrop _backdropPrefab;
-        
+
         /// <summary>
         ///     True if in transition.
         /// </summary>
@@ -51,14 +52,15 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             get { return _modals[_modals.Count - 1]; }
         }
-        
+
         public override int VisibleElementInLayer
         {
             get => Modals.Count;
         }
 
-        private void Awake()
+        private void Start()
         {
+            PreSetting();
             _callbackReceivers.AddRange(GetComponents<IModalContainerCallbackReceiver>());
 
             _backdropPrefab = _overrideBackdropPrefab
@@ -72,14 +74,16 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 AddressablesManager.ReleaseAsset(preloadAssetKey);
             }
+
             _preloadAssetKeys.Clear();
-            
+
             foreach (var item in _modalItems)
             {
-                AddressablesManager.ReleaseAsset(item.Key);
+                AddressablesManager.ReleaseAsset(item);
             }
+
             _modalItems.Clear();
-            
+
             InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
@@ -145,6 +149,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             return null;
         }
+
         /// <summary>
         /// Create a new <see cref="ModalContainer" /> as a layer
         /// </summary>
@@ -162,16 +167,17 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             rectTransform.offsetMin = Vector2.zero;
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
             rectTransform.localPosition = Vector3.zero;
-            
+
             var canvas = root.AddComponent<Canvas>();
             canvas.sortingOrder = layer;
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            
+
             var canvasScaler = root.AddComponent<CanvasScaler>();
             canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            canvasScaler.referenceResolution = new Vector2(UnityEngine.Screen.currentResolution.height, UnityEngine.Screen.currentResolution.width);
+            canvasScaler.referenceResolution = new Vector2(UnityEngine.Screen.currentResolution.height,
+                UnityEngine.Screen.currentResolution.width);
             canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-            
+
             root.AddComponent<GraphicRaycaster>();
 
             ModalContainer container = root.AddComponent<ModalContainer>();
@@ -182,10 +188,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 InstanceCacheByName.Add(layerName, container);
             }
-            
+
             return container;
         }
-        
+
         /// <summary>
         ///     Add a callback receiver.
         /// </summary>
@@ -242,7 +248,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             IsInTransition = true;
 
             var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
-            
+
             var backdrop = Instantiate(_backdropPrefab);
             backdrop.Setup((RectTransform) transform);
             _backdrops.Add(backdrop);
@@ -255,7 +261,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     $"Cannot transition because the \"{nameof(Modal)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
 
-            _modalItems.Add(new CacheWindowItem(instance, option.ResourcePath));
+            _modalItems.Add(option.ResourcePath);
             option.WindowCreated?.Invoke(enterModal);
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             await afterLoadHandle;
@@ -267,10 +273,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.BeforePush(enterModal, exitModal);
             }
-            
+
             if (exitModal != null)
             {
-               await  exitModal.BeforeExit(true, enterModal);
+                await exitModal.BeforeExit(true, enterModal);
             }
 
             await enterModal.BeforeEnter(true, exitModal);
@@ -281,7 +287,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             if (exitModal != null)
             {
-               await exitModal.Exit(true, option.PlayAnimation, enterModal);
+                await exitModal.Exit(true, option.PlayAnimation, enterModal);
             }
 
             await enterModal.Enter(true, option.PlayAnimation, exitModal);
@@ -335,7 +341,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
 
             await exitModal.BeforeExit(false, enterModal);
-            
+
             if (enterModal != null)
             {
                 await enterModal.BeforeEnter(false, exitModal);
@@ -345,7 +351,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             await exitModal.Exit(false, playAnimation, enterModal);
             if (enterModal != null)
             {
-               await enterModal.Enter(false, playAnimation, exitModal);
+                await enterModal.Enter(false, playAnimation, exitModal);
             }
 
             await backdrop.Exit(playAnimation);
@@ -371,7 +377,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             await beforeReleaseHandle;
 
 
-            AddressablesManager.ReleaseAsset(_modalItems[_modalItems.Count - 1].Key);
+            AddressablesManager.ReleaseAsset(_modalItems[_modalItems.Count - 1]);
             _modalItems.RemoveAt(_modalItems.Count - 1);
             Destroy(exitModal.gameObject);
             Destroy(backdrop.gameObject);
@@ -404,6 +410,20 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         protected override void OnCreate()
         {
+        }
+
+        /// <summary>
+        /// In this case the <see cref="ModalContainer" /> is created manually in Hierarchy.
+        /// </summary>
+        private void PreSetting()
+        {
+            if (!InstanceCacheByName.ContainsKey(LayerName))
+            {
+                Layer = transform.GetSiblingIndex();
+                LayerType = ContainerLayerType.Modal;
+                InstanceCacheByName.Add(LayerName, this);
+                ContainerLayerManager.Add(this);
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 {
   "name": "com.felixngd.unityuimanager",
   "displayName": "Unity Screen Navigator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "unity": "2020.3",
   "license": "MIT",
   "dependencies": {
@@ -12,7 +12,7 @@
     "name": "Nguyen Danh Dat",
     "url": "https://github.com/felixngd"
   },
-  "type": "tool",
+  "type": "module",
   "description": "Library for UI management in Unity's uGUI.",
   "samples": [
     {

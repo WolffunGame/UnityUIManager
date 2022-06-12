@@ -14,21 +14,21 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
     public sealed class ScreenContainer : ContainerLayer, IContainerManager<Screen>
     {
         private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform =
-            new Dictionary<int, ScreenContainer>();
+            new Dictionary<int, ScreenContainer>(5);
 
         private static readonly Dictionary<string, ScreenContainer> InstanceCacheByName =
-            new Dictionary<string, ScreenContainer>();
+            new Dictionary<string, ScreenContainer>(5);
 
         private readonly List<IScreenContainerCallbackReceiver> _callbackReceivers =
             new List<IScreenContainerCallbackReceiver>();
 
         //controls load and unload of resources
-        private readonly List<CacheWindowItem> _screenItems = new List<CacheWindowItem>();
+        private readonly List<string> _screenItems = new List<string>(5);
 
         //Controls the visibility of the screens, the last one is always visible
-        private readonly List<Screen> _screenList = new List<Screen>();
+        private readonly List<Screen> _screenList = new List<Screen>(5);
 
-        private readonly List<string> _preloadAssetKeys = new List<string>();
+        private readonly List<string> _preloadAssetKeys = new List<string>(5);
 
         private bool _isActiveScreenStacked;
 
@@ -40,11 +40,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// <summary>
         ///     Stacked screens.
         /// </summary>
-        public IReadOnlyList<CacheWindowItem> Screens => _screenItems;
+        public IReadOnlyList<string> Screens => _screenItems;
 
-        private void Awake()
+
+        private void Start()
         {
             _callbackReceivers.AddRange(GetComponents<IScreenContainerCallbackReceiver>());
+            PreSetting();
         }
 
         private void OnDestroy()
@@ -57,13 +59,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             _preloadAssetKeys.Clear();
             foreach (var item in _screenItems)
             {
-                AddressablesManager.ReleaseAsset(item.Key);
+                AddressablesManager.ReleaseAsset(item);
             }
 
             _screenItems.Clear();
 
-            if (LayerName != null)
-                InstanceCacheByName.Remove(LayerName);
+            InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
                 if (Equals(cache.Value))
@@ -132,7 +133,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             if (enterScreen == null)
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(Screen)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
-            _screenItems.Add(new CacheWindowItem(instance, option.ResourcePath));
+            _screenItems.Add(option.ResourcePath);
             option.WindowCreated?.Invoke(enterScreen);
 
             var afterLoadTask = enterScreen.AfterLoad((RectTransform) transform);
@@ -182,13 +183,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 var beforeReleaseHandle = exitScreen.BeforeRelease();
                 await beforeReleaseHandle;
 
-                AddressablesManager.ReleaseAsset(_screenItems[_screenItems.Count - 2].Key);
+                AddressablesManager.ReleaseAsset(_screenItems[_screenItems.Count - 2]);
                 _screenItems.RemoveAt(_screenItems.Count - 2);
                 Destroy(exitScreen.gameObject);
             }
 
             _isActiveScreenStacked = option.Stack;
-            
+
             return enterScreen;
         }
 
@@ -231,7 +232,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             var beforeReleaseTask = exitScreen.BeforeRelease();
             await beforeReleaseTask;
 
-            AddressablesManager.ReleaseAsset(_screenItems[_screenItems.Count - 1].Key);
+            AddressablesManager.ReleaseAsset(_screenItems[_screenItems.Count - 1]);
             _screenItems.RemoveAt(_screenItems.Count - 1);
             Destroy(exitScreen.gameObject);
 
@@ -317,9 +318,26 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             container.CreateLayer(layerName, layer, layerType);
 
-            if (!string.IsNullOrWhiteSpace(layerName)) InstanceCacheByName.Add(layerName, container);
+            if (!string.IsNullOrWhiteSpace(layerName))
+            {
+                InstanceCacheByName.Add(layerName, container);
+            }
 
             return container;
+        }
+
+        /// <summary>
+        /// In this case the <see cref="ScreenContainer" /> is created manually in Hierarchy.
+        /// </summary>
+        private void PreSetting()
+        {
+            if (!InstanceCacheByName.ContainsKey(LayerName))
+            {
+                Layer = transform.GetSiblingIndex();
+                LayerType = ContainerLayerType.Screen;
+                InstanceCacheByName.Add(LayerName, this);
+                ContainerLayerManager.Add(this);
+            }
         }
 
         #endregion
@@ -349,7 +367,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         public override void OnBackButtonPressed()
         {
             if (IsInTransition) return;
-                if (_screenList.Count > 1)
+            if (_screenList.Count > 1)
             {
                 Pop(true).Forget();
             }

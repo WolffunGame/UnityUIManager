@@ -5,21 +5,33 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     public abstract class ContainerLayer : MonoBehaviour, IContainerLayer
     {
-        public int Layer { get; set; }
-        public string LayerName { get; set; }
+        public int Layer { get; protected set; }
+        [SerializeField] private string layerName;
+
+        public string LayerName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(layerName))
+                {
+                    layerName = gameObject.name;
+                }
+
+                return layerName;
+            }
+            protected set => layerName = value;
+        }
+
         public abstract int VisibleElementInLayer { get; }
         public ContainerLayerType LayerType { get; set; }
-        
+
         public abstract Window Current { get; }
-        
+
         private IContainerLayerManager _containerLayerManager;
 
         public IContainerLayerManager ContainerLayerManager
         {
-            get
-            {
-                return _containerLayerManager ??= FindObjectOfType<ContainerLayerManager>();
-            }
+            get { return _containerLayerManager ??= FindObjectOfType<ContainerLayerManager>(); }
             set { _containerLayerManager = value; }
         }
 

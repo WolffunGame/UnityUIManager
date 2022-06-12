@@ -17,7 +17,7 @@ namespace Demo.Scripts
         {
             _globalContainerLayerManager = GetComponent<GlobalContainerLayerManager>();
             _screenContainer = _globalContainerLayerManager.Find<ScreenContainer>(ContainerKey.MainContainerLayer);
-            await UniTask.Delay(1000);
+            //await UniTask.Delay(1000);
             var option = new WindowOption(ResourceKey.TopPagePrefab(), true);
             _screenContainer.Push(option).Forget();
         }

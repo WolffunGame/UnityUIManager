@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
-using UnityScreenNavigator.Runtime.Interactivity.ViewModels;
 using UnityScreenNavigator.Runtime.Interactivity.Views;
 using Object = UnityEngine.Object;
 
@@ -14,44 +13,39 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 {
     public class Tooltip
     {
-        private readonly TooltipViewModel _tooltipViewModel;
+        public AsyncReactiveProperty<string> Message { get; }
+        public TipPosition Position { get; }
+        public Action AfterHideCallBack { get; }
+        public AsyncReactiveProperty<IUIViewGroup> ViewGroup { get; }
+        public AsyncReactiveProperty<IUIView> View { get; }
+        
+        public AsyncReactiveProperty<bool> CloseOnCancelClick { get; }
 
-        private readonly TooltipView _tooltipView;
-        private readonly string _key;
-
-        public TooltipView TooltipView => _tooltipView;
-
-        public Tooltip(string key, TooltipViewModel tooltipViewModel, TooltipView tooltipView)
+        public Tooltip(string message, TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView,
+            Action afterHideCallBack, bool closeOnCancelClick = false)
         {
-            _key = key;
-            _tooltipViewModel = tooltipViewModel;
-            _tooltipView = tooltipView;
+            Message = new AsyncReactiveProperty<string>(message);
+            Position = tipPosition;
+            ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
+            View = new AsyncReactiveProperty<IUIView>(tooltipView);
+            CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
         }
 
-        private async UniTask Show(TipPosition tipPosition, RectTransform target, int offset)
+        public Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView,
+            Action afterHideCallBack, bool closeOnCancelClick = false)
         {
-            _tooltipViewModel.ViewGroup.AddView(_tooltipView);
-
-            this.SetPosition(tipPosition, target, offset);
-            await TooltipView.Show();
+            Position = tipPosition;
+            ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
+            View = new AsyncReactiveProperty<IUIView>(tooltipView);
+            CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
+            AfterHideCallBack = afterHideCallBack;
         }
 
-        private void ForceClose()
+        private void Setup(TipPosition tipPosition, RectTransform target, int offset)
         {
-            if (_tooltipView == null || _tooltipView.Owner == null)
-            {
-                return;
-            }
-
-            if (!_tooltipView.Visibility)
-            {
-                Object.Destroy(_tooltipView.Owner);
-                return;
-            }
-
-            Object.Destroy(_tooltipView);
+            ViewGroup.Value.AddView(View.Value);
+            View.Value.SetPosition(tipPosition, target, offset);
         }
-
 
         #region Static
 
@@ -79,10 +73,21 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             var container = ContainerLayerManager.GetTopVisibilityLayer();
             return container.Current;
         }
-
-        public static async UniTask<Tooltip> Show(string key, IUIView contentView, string message,
+        /// <summary>
+        /// Show tooltip with text only
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="message"></param>
+        /// <param name="tipPosition"></param>
+        /// <param name="target"></param>
+        /// <param name="offset"></param>
+        /// <param name="afterHideCallback"></param>
+        /// <param name="closeOnCancelClick"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static async UniTask<Tooltip> Show(string key, string message,
             TipPosition tipPosition,
-            RectTransform target, int offset, Action afterHideCallback = null, bool closeOnCancelClick = true)
+            RectTransform target, int offset, Action afterHideCallback, bool closeOnCancelClick = true)
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -94,8 +99,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             {
                 Object.Destroy(tooltip.Key.gameObject);
             }
-            _tooltips.Clear();
 
+            _tooltips.Clear();
+            //load tooltip view
             var tipAsset = await AddressablesManager.LoadAssetAsync<GameObject>(key);
             if (tipAsset.Value == null)
             {
@@ -104,20 +110,66 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var content = Object.Instantiate(tipAsset.Value);
             var view = content.GetComponent<TooltipView>();
+
+            var viewGroup = GetCurrentViewGroup();
+
+            var tip = new Tooltip(message, tipPosition, viewGroup, view, afterHideCallback, closeOnCancelClick);
+
+            tip.Setup(tipPosition, target, offset);
+            view.Tooltip = tip;
+
+            await view.Show();
+            _tooltips.Add(view, tip);
+            return tip;
+        }
+        /// <summary>
+        /// Show tooltip with custom view.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="contentView"></param>
+        /// <param name="tipPosition"></param>
+        /// <param name="target"></param>
+        /// <param name="offset"></param>
+        /// <param name="afterHideCallback"></param>
+        /// <param name="closeOnCancelClick"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static async UniTask<Tooltip> Show(string key, IUIView contentView,
+            TipPosition tipPosition,
+            RectTransform target, int offset, Action afterHideCallback, bool closeOnCancelClick = true)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                key = ViewName;
+            }
+
+            //Close all tooltips are open
+            foreach (var tooltip in _tooltips)
+            {
+                Object.Destroy(tooltip.Key.gameObject);
+            }
+
+            _tooltips.Clear();
+            //load tooltip view
+            var tipAsset = await AddressablesManager.LoadAssetAsync<GameObject>(key);
+            if (tipAsset.Value == null)
+            {
+                throw new Exception($"Can't find tooltip asset with key: {key}");
+            }
+
+            var content = Object.Instantiate(tipAsset.Value);
+            var view = content.GetComponent<TooltipView>();
+            //set tooltip view if any
             view.ContentView = contentView;
 
             var viewGroup = GetCurrentViewGroup();
-            var viewModel = new TooltipViewModel(default);
-            viewModel.Message = message;
-            viewModel.Click = afterHideCallback;
-            viewModel.ViewGroup = viewGroup;
-            viewModel.CloseOnCancelClick = closeOnCancelClick;
-            viewModel.TooltipKey = key;
 
-            view.ViewModel = viewModel;
+            var tip = new Tooltip(tipPosition, viewGroup, view, afterHideCallback, closeOnCancelClick);
 
-            var tip = new Tooltip(key, viewModel, view);
-            await tip.Show(tipPosition, target, offset);
+            tip.Setup(tipPosition, target, offset);
+            view.Tooltip = tip;
+
+            await view.Show();
             _tooltips.Add(view, tip);
             return tip;
         }
@@ -125,22 +177,19 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition,
             RectTransform target, int offset)
         {
-            return await Show(key, null, message, tipPosition, target, offset);
+            return await Show(key, message, tipPosition, target, offset, null);
         }
 
         public static async UniTask<Tooltip> Show(string key, IUIView content, TipPosition tipPosition,
             RectTransform target, int offset)
         {
-            return await Show(key, content, null, tipPosition, target, offset);
+            return await Show(key, content, tipPosition, target, offset, null);
         }
-        
-        public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition, RectTransform target, int offset, bool closeOnCancelClick = true)
+
+        public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition,
+            RectTransform target, int offset, bool closeOnCancelClick)
         {
-            return await Show(key, null, message, tipPosition, target, offset, null, closeOnCancelClick);
-        }
-        public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition, RectTransform target, int offset, bool closeOnCancelClick = true, Action afterHideCallback = null)
-        {
-            return await Show(key, null, message, tipPosition, target, offset, afterHideCallback, closeOnCancelClick);
+            return await Show(key, message, tipPosition, target, offset, null, closeOnCancelClick);
         }
 
         #endregion

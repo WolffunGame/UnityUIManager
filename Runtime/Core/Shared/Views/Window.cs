@@ -6,5 +6,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
     public abstract class Window : WindowView
     {
         public virtual string Identifier { get; set; }
+        
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Screen;
@@ -17,7 +18,7 @@ namespace Demo.Scripts
         }
 
 
-        private void InitializeLayers()
+        public void InitializeLayers()
         {
             var layers = containerLayerSettings.GetContainerLayers();
             for (var i = 0; i < layers.Length; i++)
@@ -43,4 +44,25 @@ namespace Demo.Scripts
             foreach (Transform child in transform) Destroy(child.gameObject);
         }
     }
+#if UNITY_EDITOR
+    [CustomEditor(typeof(LayerCreator))]
+    public class LayerCreatorEditor : Editor
+    {
+        private LayerCreator _layerCreator;
+
+        private void OnEnable()
+        {
+            _layerCreator = (LayerCreator) target;
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Create Layers"))
+            {
+                _layerCreator.InitializeLayers();
+            }
+        }
+    }
+#endif
 }

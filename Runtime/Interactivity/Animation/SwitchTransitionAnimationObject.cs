@@ -24,11 +24,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
         public override float Duration => _duration;
         public override bool IsCompleted => _sequence.IsComplete();
 
-        private void Awake()
-        {
-            _sequence = DOTween.Sequence(this);
-        }
-
         public override void SetTime(float time)
         {
             //throw new System.NotImplementedException();
@@ -61,6 +56,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
         public async UniTask SetTime()
         {
+            _sequence = DOTween.Sequence();
             var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeScale);
             var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)

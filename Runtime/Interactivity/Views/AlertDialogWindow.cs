@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Modal;
@@ -158,5 +159,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 outsideButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
             }
         }
+        
     }
 }

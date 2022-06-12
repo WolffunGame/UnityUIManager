@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Interactivity;
 
@@ -28,6 +29,11 @@ namespace Demo.Scripts.Dialogs
             }
         }
 
+        public async UniTask LoadSceneAsync()
+        {
+            await SceneManager.LoadSceneAsync("Demo 2");
+        }
+
     }
 
     [CustomEditor(typeof(TestDialog))]
@@ -39,6 +45,11 @@ namespace Demo.Scripts.Dialogs
             if (GUILayout.Button("Open Dialog"))
             {
                 ((TestDialog) target).OpenDialog().Forget();
+            }
+            
+            if (GUILayout.Button("Load Scene"))
+            {
+                ((TestDialog) target).LoadSceneAsync().Forget();
             }
         }
     }

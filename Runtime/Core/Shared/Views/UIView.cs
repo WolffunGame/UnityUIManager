@@ -5,7 +5,8 @@ using UnityScreenNavigator.Runtime.Foundation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 {
-    public class UIView : UIBehaviour, IUIView
+
+    public class UIView: UIBehaviour, IUIView
     {
         public virtual string Name
         {

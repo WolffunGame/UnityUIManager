@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Interactivity
 {
@@ -13,7 +14,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="target"></param>
         /// <param name="offset"></param>
         /// <param name="preventOutOfBounds"></param>
-        public static void SetPosition(this Tooltip tooltip, TipPosition tipPosition, RectTransform target, int offset,
+        public static void SetPosition(this IUIView tooltip, TipPosition tipPosition, RectTransform target, int offset,
             bool preventOutOfBounds = true)
         {
             var triggerCorners = new Vector3[4];
@@ -25,7 +26,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 return;
             //check if tooltip is out of bounds
             Vector3[] tooltipCorners = new Vector3[4];
-            tooltip.TooltipView.RectTransform.GetWorldCorners(tooltipCorners);
+            tooltip.RectTransform.GetWorldCorners(tooltipCorners);
 
             for (int i = 0; i < tooltipCorners.Length; i++)
                 tooltipCorners[i] = RectTransformUtility.WorldToScreenPoint(null, tooltipCorners[i]);
@@ -53,11 +54,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         // 1 = top left
         // 2 = top right
         // 3 = bottom right
-        private static void SetPosition(this Tooltip tooltip, TipPosition tipPosition, Vector3[] triggerCorners, int offset)
+        private static void SetPosition(this IUIView tooltip, TipPosition tipPosition, Vector3[] triggerCorners, int offset)
         {
             Vector3 pos = Vector3.zero;
             Vector2 offsetVector = Vector2.zero;
-            var tooltipRectTrans = tooltip.TooltipView.RectTransform;
+            var tooltipRectTrans = tooltip.RectTransform;
             switch (tipPosition)
             {
                 case TipPosition.TopRightCorner:
@@ -114,7 +115,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                     break;
             }
 
-            tooltip.TooltipView.transform.position = pos;
+            tooltip.RectTransform.position = pos;
             tooltipRectTrans.anchoredPosition += offsetVector;
         }
     }

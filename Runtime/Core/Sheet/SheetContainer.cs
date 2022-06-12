@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
-using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Foundation;
 
 namespace UnityScreenNavigator.Runtime.Core.Sheet
@@ -22,7 +20,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         [SerializeField] private string _name;
 
         //controls load and unload of resources
-        private readonly List<CacheWindowItem> _sheetItems = new List<CacheWindowItem>();
+        private readonly List<string> _sheetItems = new List<string>();
         // private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
         //     = new Dictionary<int, AssetLoadHandle<GameObject>>();
 
@@ -89,7 +87,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
             foreach (var item in _sheetItems)
             {
-                AddressablesManager.ReleaseAsset(item.Key);
+                AddressablesManager.ReleaseAsset(item);
             }
 
             _sheetItems.Clear();
@@ -243,7 +241,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                     $"Cannot register because the \"{nameof(Sheet)}\" component is not attached to the specified resource \"{resourceKey}\".");
             }
 
-            _sheetItems.Add(new CacheWindowItem(instance, resourceKey));
+            _sheetItems.Add(resourceKey);
             var sheetId = sheet.GetInstanceID();
             _sheets.Add(sheetId, sheet);
             _sheetNameToId[resourceKey] = sheetId;

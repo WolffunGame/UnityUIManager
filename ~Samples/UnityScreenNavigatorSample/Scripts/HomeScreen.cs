@@ -1,6 +1,8 @@
 using System;
+using _Samples.UnityScreenNavigatorSample.Scripts.Tooltips;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Screen;
@@ -37,6 +39,7 @@ namespace Demo.Scripts
             AlertDialog.DialogKey = "Prefabs/prefab_alert_dialog";
             var result = await DefaultDialogService.ShowDialog("Hello World", "This is the first dialog in the demo",
                 "OK", "Cancel");
+            
             if (result == AlertDialog.BUTTON_POSITIVE)
             {
                 Debug.Log("Positive button clicked");
@@ -79,16 +82,49 @@ namespace Demo.Scripts
         }
 
         Tooltip _buttonTooltip;
+        // /// <summary>
+        // /// Show tooltip without content.
+        // /// </summary>
+        // private async void OnShowTooltipClicked()
+        // {
+        //     //lorem ipsum string for 100 words
+        //     var str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+        //               "Donec euismod, nisl eget consectetur sagittis, nisl nunc " +
+        //               "consectetur nisi, euismod aliquam nisi nisl euismod. ";
+        //     _buttonTooltip = await Tooltip.Show(string.Empty, str, TipPosition.TopMiddle,
+        //         _showTooltip.image.rectTransform, 50, false);
+        // }
 
         private async void OnShowTooltipClicked()
         {
-            if (_buttonTooltip != null) return;
             //lorem ipsum string for 100 words
             var str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                       "Donec euismod, nisl eget consectetur sagittis, nisl nunc " +
                       "consectetur nisi, euismod aliquam nisi nisl euismod. ";
-            _buttonTooltip = await Tooltip.Show(string.Empty, str, TipPosition.TopMiddle,
-                _showTooltip.image.rectTransform, 50, false, () => _buttonTooltip = null);
+            var result = await AddressablesManager.LoadAssetAsync<GameObject>("Prefabs/simple_tooltip_content");
+            var go = Instantiate(result.Value);
+            var view = go.GetComponent<SimpleTooltipContent>();
+            _buttonTooltip = await Tooltip.Show(string.Empty, view, TipPosition.BottomMiddle,  _showTooltip.image.rectTransform, 50);
+        }
+        
+        public void ChangeToolTipText()
+        {
+            _buttonTooltip.Message.Value = "This is the new tooltip text";
         }
     }
+    #if UNITY_EDITOR
+    [UnityEditor.CustomEditor(typeof(HomeScreen))]
+    public class HomeScreenEditor : UnityEditor.Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            var homeScreen = target as HomeScreen;
+            if (GUILayout.Button("Change Tooltip Text"))
+            {
+                homeScreen.ChangeToolTipText();
+            }
+        }
+    }
+    #endif
 }
