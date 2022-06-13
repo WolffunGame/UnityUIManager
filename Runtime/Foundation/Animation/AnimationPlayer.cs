@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UI_ANIMATION_TIMELINE_SUPPORT
+using System;
 
 namespace UnityScreenNavigator.Runtime.Foundation.Animation
 {
@@ -55,3 +56,4 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
         }
     }
 }
+#endif

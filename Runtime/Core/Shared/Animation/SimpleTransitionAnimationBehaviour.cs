@@ -19,10 +19,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
         private Vector3 _afterPosition;
         private Vector3 _beforePosition;
         private CanvasGroup _canvasGroup;
-
+#if UI_ANIMATION_TIMELINE_SUPPORT
         public override float Duration => _delay + _duration;
         public override bool IsCompleted => _sequence.IsComplete();
-
+#endif
         private Sequence _sequence;
 
         private void Awake()
@@ -41,11 +41,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
 
             _canvasGroup = canvasGroup;
         }
-
+#if UI_ANIMATION_TIMELINE_SUPPORT
         public override void SetTime(float time)
         {
             //throw new NotImplementedException();
         }
+#endif
 
         public override async UniTask Play()
         {

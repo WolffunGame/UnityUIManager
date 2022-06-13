@@ -1,4 +1,4 @@
-#if USN_USE_TIMELINE
+#if UI_ANIMATION_TIMELINE_SUPPORT
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -10,6 +10,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
     {
         [SerializeField] private PlayableDirector _director;
         [SerializeField] private TimelineAsset _timelineAsset;
+        
         public override float Duration => (float)_timelineAsset.duration;
         public override bool IsCompleted => _director.state == PlayState.Paused;
 

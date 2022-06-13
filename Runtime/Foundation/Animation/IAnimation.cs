@@ -4,6 +4,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
 {
     public interface IAnimation
     {
+        #if UI_ANIMATION_TIMELINE_SUPPORT
         /// <summary>
         /// duration of animation
         /// </summary>
@@ -13,10 +14,12 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
         /// </summary>
         /// <param name="time"></param>
         void SetTime(float time);
+        #else
         /// <summary>
         /// Entry point to start animation. Work with animation system such as DOTween of other system does not need update every time.
         /// </summary>
         /// <returns></returns>
         UniTask Play();
+        #endif
     }
 }

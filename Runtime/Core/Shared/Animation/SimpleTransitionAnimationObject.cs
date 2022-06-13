@@ -22,20 +22,21 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         private CanvasGroup _canvasGroup;
 
         private Sequence _sequence;
-
+#if UI_ANIMATION_TIMELINE_SUPPORT
         public override float Duration => _duration;
         public override bool IsCompleted => _sequence.IsComplete();
+#endif
 
         private void Awake()
         {
             _sequence = DOTween.Sequence();
         }
-
+#if UI_ANIMATION_TIMELINE_SUPPORT
         public override void SetTime(float time)
         {
             //throw new System.NotImplementedException();
         }
-
+#endif
         public override async UniTask Play()
         {
             await SetTime();

@@ -7,6 +7,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
     {
         public static async UniTask CreatePlayRoutine(this IAnimation self)
         {
+#if UI_ANIMATION_TIMELINE_SUPPORT
             if (self is TimelineTransitionAnimationBehaviour)
             {
                 var player = new AnimationPlayer(self);
@@ -15,11 +16,9 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
                 await UniTask.WaitUntil(() => player.IsFinished);
                 UpdateDispatcher.Instance.Unregister(player);
             }
-            else
-            {
-                await self.Play();
-            }
-
+#else
+            await self.Play();
+#endif
         }
     }
 }

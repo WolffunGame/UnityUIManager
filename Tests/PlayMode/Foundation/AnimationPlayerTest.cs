@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿#if UI_ANIMATION_TIMELINE_SUPPORT
+using NUnit.Framework;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 
 namespace UnityScreenNavigator.Tests.PlayMode.Foundation
@@ -98,3 +99,4 @@ namespace UnityScreenNavigator.Tests.PlayMode.Foundation
         }
     }
 }
+#endif

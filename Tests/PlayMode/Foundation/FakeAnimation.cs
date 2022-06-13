@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UI_ANIMATION_TIMELINE_SUPPORT
+using System;
 using Cysharp.Threading.Tasks;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 
@@ -26,3 +27,4 @@ namespace UnityScreenNavigator.Tests.PlayMode.Foundation
         }
     }
 }
+#endif

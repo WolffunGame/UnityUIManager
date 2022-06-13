@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#if UI_ANIMATION_TIMELINE_SUPPORT
+
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Foundation.Animation
@@ -46,3 +48,5 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
         }
     }
 }
+
+#endif

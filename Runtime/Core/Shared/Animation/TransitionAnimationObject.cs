@@ -10,8 +10,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
     {
         public RectTransform RectTransform { get; private set; }
         public RectTransform PartnerRectTransform { get; private set; }
+#if UI_ANIMATION_TIMELINE_SUPPORT
         public abstract float Duration { get; }
         public abstract bool IsCompleted { get; }
+#endif
         public abstract UniTask Play();
 
         void ITransitionAnimation.SetPartner(RectTransform partnerRectTransform)
@@ -23,10 +25,13 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         {
             RectTransform = rectTransform;
             Setup();
+#if UI_ANIMATION_TIMELINE_SUPPORT
             SetTime(0.0f);
+#endif
         }
-
+#if UI_ANIMATION_TIMELINE_SUPPORT
         public abstract void SetTime(float time);
+#endif
 
         public abstract void Setup();
     }
