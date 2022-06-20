@@ -150,6 +150,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
                 return null;
             }
         }
-        
+
+        private void OnDestroy()
+        {
+            ContainerLayers.Clear();
+        }
     }
 }
