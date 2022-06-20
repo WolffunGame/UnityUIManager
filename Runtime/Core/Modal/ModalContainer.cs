@@ -10,7 +10,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
-    [RequireComponent(typeof(RectMask2D)), DefaultExecutionOrder(-100)]
+    [RequireComponent(typeof(RectMask2D))]
     public sealed class ModalContainer : ContainerLayer, IContainerManager<Modal>
     {
         private static readonly Dictionary<int, ModalContainer> InstanceCacheByTransform =
@@ -68,7 +68,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 : UnityScreenNavigatorSettings.Instance.ModalBackdropPrefab;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {

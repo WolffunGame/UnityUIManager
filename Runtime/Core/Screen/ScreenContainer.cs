@@ -10,7 +10,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Screen
 {
-    [RequireComponent(typeof(RectMask2D)), DefaultExecutionOrder(-100)]
+    [RequireComponent(typeof(RectMask2D))]
     public sealed class ScreenContainer : ContainerLayer, IContainerManager<Screen>
     {
         private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform =
@@ -49,7 +49,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             PreSetting();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {
