@@ -13,12 +13,5 @@
     "url": "https://github.com/felixngd"
   },
   "type": "library",
-  "description": "Library for UI management in Unity's uGUI.",
-  "samples": [
-    {
-      "displayName": "UIScreenNavigator Sample",
-      "description": "Contains sample code for UIScreenNavigator.",
-      "path": "Samples~/UnityScreenNavigatorSample"
-    }
-  ]
+  "description": "Library for UI management in Unity's uGUI."
 }
