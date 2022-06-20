@@ -36,7 +36,7 @@ namespace Demo.Scripts
 
         private async void OnShowAlertDialogClicked()
         {
-            AlertDialog.DialogKey = "Prefabs/prefab_alert_dialog";
+            AlertDialog.DialogKey = "prefab_alert_dialog";
             var result = await DefaultDialogService.ShowDialog("Hello World", "This is the first dialog in the demo",
                 "OK", "Cancel");
             
@@ -56,7 +56,7 @@ namespace Demo.Scripts
 
         private void OnShowToastClicked()
         {
-            Toast.ToastKey = "Prefabs/DefaultToast";
+            Toast.ToastKey = "DefaultToast";
             Toast.Show("This is the first toast in the demo", 2f).Forget();
         }
 
@@ -101,7 +101,7 @@ namespace Demo.Scripts
             var str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                       "Donec euismod, nisl eget consectetur sagittis, nisl nunc " +
                       "consectetur nisi, euismod aliquam nisi nisl euismod. ";
-            var result = await AddressablesManager.LoadAssetAsync<GameObject>("Prefabs/simple_tooltip_content");
+            var result = await AddressablesManager.LoadAssetAsync<GameObject>("simple_tooltip_content");
             var go = Instantiate(result.Value);
             var view = go.GetComponent<SimpleTooltipContent>();
             _buttonTooltip = await Tooltip.Show(string.Empty, view, TipPosition.BottomMiddle,  _showTooltip.image.rectTransform, 50);

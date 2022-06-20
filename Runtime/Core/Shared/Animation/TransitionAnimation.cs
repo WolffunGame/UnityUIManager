@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityScreenNavigator.Runtime.Foundation;
@@ -51,7 +52,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
                 {
                     return false;
                 }
-
+                
                 // If the partner identifier is not registered, the animation is always valid.
                 if (string.IsNullOrEmpty(partnerIdentifierRegex))
                 {

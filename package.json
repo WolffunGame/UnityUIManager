@@ -17,7 +17,7 @@
   "samples": [
     {
       "displayName": "UIScreenNavigator Sample",
-      "description": "Contains sample shaders for the High Definition render pipeline",
+      "description": "Contains sample code for UIScreenNavigator.",
       "path": "Samples~/UnityScreenNavigatorSample"
     }
   ]

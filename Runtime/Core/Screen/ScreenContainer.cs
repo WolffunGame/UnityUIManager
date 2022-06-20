@@ -10,7 +10,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Screen
 {
-    [RequireComponent(typeof(RectMask2D))]
+    [RequireComponent(typeof(RectMask2D)), DefaultExecutionOrder(-100)]
     public sealed class ScreenContainer : ContainerLayer, IContainerManager<Screen>
     {
         private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform =
@@ -43,7 +43,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         public IReadOnlyList<string> Screens => _screenItems;
 
 
-        private void Start()
+        private void Awake()
         {
             _callbackReceivers.AddRange(GetComponents<IScreenContainerCallbackReceiver>());
             PreSetting();
@@ -318,7 +318,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             container.CreateLayer(layerName, layer, layerType);
 
-            if (!string.IsNullOrWhiteSpace(layerName))
+            if (!InstanceCacheByName.ContainsKey(layerName))
             {
                 InstanceCacheByName.Add(layerName, container);
             }

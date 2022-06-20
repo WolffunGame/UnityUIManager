@@ -2,7 +2,7 @@ namespace Demo.Scripts
 {
     public static class ResourceKey
     {
-        private const string PrefabFormat = "Prefabs/prefab_demo_{0}";
+        private const string PrefabFormat = "prefab_demo_{0}";
         private const string TopPagePrefabName = "page_top";
         private const string HomePagePrefabName = "page_home";
         private const string HomeLoadingPagePrefabName = "page_home_loading";
@@ -13,8 +13,8 @@ namespace Demo.Scripts
         private const string CharacterModalImageSheetPrefabName = "sheet_character_modal_image";
         private const string CharacterImageModalPrefabName = "modal_character_image";
 
-        private const string CharacterImageFormat = "Textures/tex_character_{0:D3}_{1}";
-        private const string CharacterThumbnailFormat = "Textures/tex_character_thumb_{0:D3}_{1}";
+        private const string CharacterImageFormat = "tex_character_{0:D3}_{1}";
+        private const string CharacterThumbnailFormat = "tex_character_thumb_{0:D3}_{1}";
 
         public static string TopPagePrefab()
         {

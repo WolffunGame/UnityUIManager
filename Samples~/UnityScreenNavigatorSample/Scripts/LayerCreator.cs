@@ -10,8 +10,8 @@ namespace Demo.Scripts
     public class LayerCreator : MonoBehaviour
     {
         [SerializeField] private ContainerLayerSettings containerLayerSettings;
-
-        private void Awake()
+        
+        private void Start()
         {
             if (transform.childCount > 0) throw new Exception("LayerCreator should not have children");
             InitializeLayers();

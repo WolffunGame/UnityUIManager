@@ -10,7 +10,7 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Modal
 {
-    [RequireComponent(typeof(RectMask2D))]
+    [RequireComponent(typeof(RectMask2D)), DefaultExecutionOrder(-100)]
     public sealed class ModalContainer : ContainerLayer, IContainerManager<Modal>
     {
         private static readonly Dictionary<int, ModalContainer> InstanceCacheByTransform =
@@ -58,7 +58,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             get => Modals.Count;
         }
 
-        private void Start()
+        private void Awake()
         {
             PreSetting();
             _callbackReceivers.AddRange(GetComponents<IModalContainerCallbackReceiver>());
@@ -184,7 +184,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             container.CreateLayer(layerName, layer, layerType);
 
-            if (!string.IsNullOrWhiteSpace(layerName))
+            if (!InstanceCacheByName.ContainsKey(layerName))
             {
                 InstanceCacheByName.Add(layerName, container);
             }

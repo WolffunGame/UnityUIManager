@@ -49,7 +49,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
         #region Static
 
-        private const string DEFAULT_VIEW_NAME = "Prefabs/DefaultTooltip";
+        private const string DEFAULT_VIEW_NAME = "DefaultTooltip";
 
         private static string _viewName;
 
