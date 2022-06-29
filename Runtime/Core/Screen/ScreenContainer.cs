@@ -49,7 +49,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             PreSetting();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {

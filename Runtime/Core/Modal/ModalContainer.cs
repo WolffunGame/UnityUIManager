@@ -68,7 +68,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 : UnityScreenNavigatorSettings.Instance.ModalBackdropPrefab;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {
