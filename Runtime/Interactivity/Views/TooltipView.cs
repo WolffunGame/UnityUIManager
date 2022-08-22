@@ -10,7 +10,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
     public class TooltipView : UIView
     {
         [SerializeField] private Button closeButton;
+        #if USN_USE_TEXTMESHPRO
+        [SerializeField] private TMPro.TextMeshProUGUI messageText;
+        #else
         [SerializeField] private Text messageText;
+        #endif
+
         [SerializeField] private GameObject content;
 
         [SerializeField] private InteractivityTransitionAnimationContainer transitionAnimationContainer =
@@ -110,9 +115,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 gameObject.GetCancellationTokenOnDestroy());
 
             Tooltip.Message?.BindTo(messageText);
+            
             Tooltip.CloseOnCancelClick.Subscribe(b => closeButton.gameObject.SetActive(b));
             closeButton.onClick.AddListener(Close);
-            //Tooltip.Position.Subscribe(p => { this.SetPosition(p, (RectTransform)RectTransform.parent, 200); });
         }
     }
 }

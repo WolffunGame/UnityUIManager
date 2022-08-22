@@ -9,8 +9,14 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 {
     public class AlertDialogWindow : Modal
     {
+#if USN_USE_TEXTMESHPRO
+        [SerializeField] private TMPro.TextMeshProUGUI titleText;
+        [SerializeField] private TMPro.TextMeshProUGUI messageText;
+#else
         [SerializeField] private Text titleText;
         [SerializeField] private Text messageText;
+#endif
+
         [SerializeField] private GameObject content;
         [SerializeField] private Button confirmButton;
         [SerializeField] private Button neutralButton;
@@ -109,7 +115,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 {
                     confirmButton.gameObject.SetActive(true);
                     confirmButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_POSITIVE); });
+#if USN_USE_TEXTMESHPRO
+                    var text = confirmButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+#else
                     var text = confirmButton.GetComponentInChildren<Text>();
+#endif
+
                     if (text != null)
                         text.text = _viewModel.ConfirmButtonText;
                 }
@@ -125,7 +136,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 {
                     cancelButton.gameObject.SetActive(true);
                     cancelButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
+#if USN_USE_TEXTMESHPRO
+                    var text = cancelButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+#else
                     var text = cancelButton.GetComponentInChildren<Text>();
+#endif
                     if (text != null)
                         text.text = _viewModel.CancelButtonText;
                 }
@@ -141,7 +156,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 {
                     neutralButton.gameObject.SetActive(true);
                     neutralButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEUTRAL); });
+#if USN_USE_TEXTMESHPRO
+                    var text = neutralButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+#else
                     var text = neutralButton.GetComponentInChildren<Text>();
+#endif
                     if (text != null)
                         text.text = _viewModel.NeutralButtonText;
                 }
@@ -159,6 +178,5 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 outsideButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
             }
         }
-        
     }
 }

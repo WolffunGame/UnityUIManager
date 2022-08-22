@@ -9,7 +9,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 {
     public class ToastView : UIView
     {
+        #if USN_USE_TEXTMESHPRO
+        [SerializeField] private TMPro.TextMeshProUGUI messageText;
+        #else
         [SerializeField] private Text messageText;
+        #endif
         [SerializeField] private InteractivityTransitionAnimationContainer transitionAnimationContainer;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
