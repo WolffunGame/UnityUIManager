@@ -6,32 +6,31 @@ using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
-using UnityScreenNavigator.Runtime.Interactivity.ViewModels;
 using UnityScreenNavigator.Runtime.Interactivity.Views;
 using Object = UnityEngine.Object;
 
 namespace UnityScreenNavigator.Runtime.Interactivity
 {
-    public class AlertDialog
+    public struct AlertDialog
     {
-        public const int BUTTON_POSITIVE = -1;
-        public const int BUTTON_NEGATIVE = -2;
-        public const int BUTTON_NEUTRAL = -3;
+        public const int ButtonPositive = -1;
+        public const int ButtonNegative = -2;
+        public const int ButtonNeutral = -3;
 
-        private const string DEFAULT_DIALOG_CONTAINER = "Dialog";
-        private const string DEFAULT_DIALOG_KEY = "Prefabs/prefab_alert_dialog";
+        private const string DefaultDialogContainer = "Dialog";
+        private const string DefaultDialogKey = "Prefabs/prefab_alert_dialog";
 
         private static string _dialogKey;
 
         public static string DialogKey
         {
-            get { return string.IsNullOrEmpty(_dialogKey) ? DEFAULT_DIALOG_KEY : _dialogKey; }
+            get { return string.IsNullOrEmpty(_dialogKey) ? DefaultDialogKey : _dialogKey; }
             set { _dialogKey = value; }
         }
 
         public static string DialogLayer
         {
-            get => DEFAULT_DIALOG_CONTAINER;
+            get => DefaultDialogContainer;
         }
 
 
@@ -45,7 +44,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             string message,
             string title)
         {
-            return ShowMessage(message, title, null, null, null, true, null);
+            return ShowMessage(message, title, null, null, null, true);
         }
 
         /// <summary>
@@ -55,16 +54,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="title">The title of the dialog box. This may be null.</param>
         /// <param name="buttonText">The text shown in the only button
         /// in the dialog box. If left null, the button will be invisible.</param>
-        /// <param name="afterHideCallback">A callback that should be executed after
-        /// the dialog box is closed by the user.</param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
             string title,
-            string buttonText,
-            Action<int> afterHideCallback)
+            string buttonText)
         {
-            return ShowMessage(message, title, buttonText, null, null, false, afterHideCallback);
+            return ShowMessage(message, title, buttonText, null, null, false);
         }
 
         /// <summary>
@@ -76,19 +72,14 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// in the dialog box. If left null, the button will be invisible.</param>
         /// <param name="cancelButtonText">The text shown in the "cancel" button
         /// in the dialog box. If left null, the button will be invisible.</param>
-        /// <param name="afterHideCallback">A callback that should be executed after
-        /// the dialog box is closed by the user. The callback method will get a boolean
-        /// parameter indicating if the "confirm" button (true) or the "cancel" button
-        /// (false) was pressed by the user.</param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
             string title,
             string confirmButtonText,
-            string cancelButtonText,
-            Action<int> afterHideCallback)
+            string cancelButtonText)
         {
-            return ShowMessage(message, title, confirmButtonText, null, cancelButtonText, false, afterHideCallback);
+            return ShowMessage(message, title, confirmButtonText, null, cancelButtonText, false);
         }
 
         /// <summary>
@@ -104,10 +95,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// in the dialog box. If left null, the button will be invisible.</param>
         /// <param name="canceledOnTouchOutside">Whether the dialog box is canceled when 
         /// touched outside the window's bounds. </param>
-        /// <param name="afterHideCallback">A callback that should be executed after
-        /// the dialog box is closed by the user. The callback method will get a boolean
-        /// parameter indicating if the "confirm" button (true) or the "cancel" button
-        /// (false) was pressed by the user.</param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
@@ -115,19 +102,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             string confirmButtonText,
             string neutralButtonText,
             string cancelButtonText,
-            bool canceledOnTouchOutside,
-            Action<int> afterHideCallback)
+            bool canceledOnTouchOutside)
         {
-            AlertDialogViewModel viewModel = new AlertDialogViewModel(default);
-            viewModel.Message = message;
-            viewModel.Title = title;
-            viewModel.ConfirmButtonText = confirmButtonText;
-            viewModel.NeutralButtonText = neutralButtonText;
-            viewModel.CancelButtonText = cancelButtonText;
-            viewModel.CanceledOnTouchOutside = canceledOnTouchOutside;
-            viewModel.Click = afterHideCallback;
+            var dialog = new AlertDialog(title, message, confirmButtonText, neutralButtonText, cancelButtonText, canceledOnTouchOutside);
 
-            return ShowMessage(DialogKey, viewModel);
+            return ShowMessage(DialogKey, dialog);
         }
 
         /// <summary>
@@ -143,10 +122,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// in the dialog box. If left null, the button will be invisible.</param>
         /// <param name="canceledOnTouchOutside">Whether the dialog box is canceled when 
         /// touched outside the window's bounds. </param>
-        /// <param name="afterHideCallback">A callback that should be executed after
-        /// the dialog box is closed by the user. The callback method will get a boolean
-        /// parameter indicating if the "confirm" button (true) or the "cancel" button
-        /// (false) was pressed by the user.</param>
         /// <returns>A AlertDialog.</returns>
         public static async UniTask<AlertDialog> ShowMessage(
             IUIView contentView,
@@ -154,35 +129,31 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             string confirmButtonText,
             string neutralButtonText,
             string cancelButtonText,
-            bool canceledOnTouchOutside,
-            Action<int> afterHideCallback)
+            bool canceledOnTouchOutside)
         {
-            AlertDialogViewModel viewModel = new AlertDialogViewModel(default);
-            viewModel.Title = title;
-            viewModel.ConfirmButtonText = confirmButtonText;
-            viewModel.NeutralButtonText = neutralButtonText;
-            viewModel.CancelButtonText = cancelButtonText;
-            viewModel.CanceledOnTouchOutside = canceledOnTouchOutside;
-            viewModel.Click = afterHideCallback;
+            var dialog = new AlertDialog
+            {
+                Title = title,
+                ConfirmButtonText = confirmButtonText,
+                NeutralButtonText = neutralButtonText,
+                CancelButtonText = cancelButtonText,
+                CanceledOnTouchOutside = canceledOnTouchOutside,
+                UserClick = new AsyncReactiveProperty<int>(0)
+            };
 
-            var modalContainer = ModalContainer.Find(DEFAULT_DIALOG_CONTAINER);
+            var modalContainer = ModalContainer.Find(DefaultDialogContainer);
             if (modalContainer == null)
             {
-                modalContainer = ModalContainer.Create(DEFAULT_DIALOG_CONTAINER, 10, ContainerLayerType.Modal);
+                modalContainer = ModalContainer.Create(DefaultDialogContainer, 10, ContainerLayerType.Modal);
             }
-
-            AlertDialogWindow window = null;
+            
             var option = new WindowOption(DialogKey, true);
-            option.WindowCreated = (w) =>
-            {
-                window = (AlertDialogWindow)w;
-                window.ViewModel = viewModel;
-                window.ContentView = contentView;
-            };
-            window = (AlertDialogWindow) await modalContainer.Push(option);
-            //TODO Load view here
-
-            AlertDialog dialog = new AlertDialog(window, viewModel);
+            var window = (AlertDialogWindow) await modalContainer.Push(option);
+            //var createdWindow = await option.WindowCreated.WaitAsync();
+            //var window = (AlertDialogWindow)createdWindow;
+            window.DialogModel.Value = dialog;
+            window.ContentView = contentView;
+            
             return dialog;
         }
 
@@ -191,7 +162,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// </summary>
         /// <param name="viewModel">The view model of the dialog box</param>
         /// <returns>A AlertDialog.</returns>
-        public static UniTask<AlertDialog> ShowMessage(AlertDialogViewModel viewModel)
+        public static UniTask<AlertDialog> ShowMessage(AlertDialog viewModel)
         {
             return ShowMessage(DialogKey, null, viewModel);
         }
@@ -202,7 +173,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="key">The view name of the dialog box,if it is null, use the default view name</param>
         /// <param name="viewModel">The view model of the dialog box</param>
         /// <returns>A AlertDialog.</returns>
-        public static UniTask<AlertDialog> ShowMessage(string key, AlertDialogViewModel viewModel)
+        public static UniTask<AlertDialog> ShowMessage(string key, AlertDialog viewModel)
         {
             return ShowMessage(key, null, viewModel);
         }
@@ -212,10 +183,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// </summary>
         /// <param name="key">The view name of the dialog box,if it is null, use the default view name</param>
         /// <param name="contentViewName">The custom content view name to be shown to the user.</param>
-        /// <param name="viewModel">The view model of the dialog box</param>
+        /// <param name="dialog">The view model of the dialog box</param>
         /// <returns>A AlertDialog.</returns>
-        public static async UniTask<AlertDialog> ShowMessage(string key, string contentViewName,
-            AlertDialogViewModel viewModel)
+        public static async UniTask<AlertDialog> ShowMessage(string key, string contentViewName, AlertDialog dialog)
         {
             AlertDialogWindow window = null;
             IUIView contentView = null;
@@ -224,10 +194,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 if (string.IsNullOrEmpty(key))
                     key = DialogKey;
                 
-                var modalContainer = ModalContainer.Find(DEFAULT_DIALOG_CONTAINER);
+                var modalContainer = ModalContainer.Find(DefaultDialogContainer);
                 if (modalContainer == null)
                 {
-                    modalContainer = ModalContainer.Create(DEFAULT_DIALOG_CONTAINER, 10, ContainerLayerType.Modal);
+                    modalContainer = ModalContainer.Create(DefaultDialogContainer, 10, ContainerLayerType.Modal);
                 }
                 if (!string.IsNullOrEmpty(contentViewName))
                 {
@@ -237,16 +207,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 }
 
                 var option = new WindowOption(key, true);
-                option.WindowCreated = (w) =>
-                {
-                    window = (AlertDialogWindow)w;
-                    window.ViewModel = viewModel;
-                    window.ContentView = contentView;
-                };
                 window = (AlertDialogWindow) await modalContainer.Push(option);
-                return new AlertDialog(window, viewModel);
+                
+                window.DialogModel.Value = dialog;
+                window.ContentView = contentView;
+                return dialog;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 if (window != null)
                 {
@@ -259,28 +226,29 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                     AddressablesManager.ReleaseAsset(contentViewName);
                 }
 
-                throw e;
+                throw;
             }
         }
 
-        private AlertDialogWindow window;
-        private AlertDialogViewModel viewModel;
-
-        public AlertDialog(AlertDialogWindow window, AlertDialogViewModel viewModel)
+        public AsyncReactiveProperty<int> UserClick { get; private set; }
+        
+        public string Title;
+        public string Message;
+        public string ConfirmButtonText;
+        public string NeutralButtonText;
+        public string CancelButtonText;
+        public bool CanceledOnTouchOutside;
+        
+        public AlertDialog(string title, string message, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside)
         {
-            this.window = window;
-            this.viewModel = viewModel;
+            Title = title;
+            Message = message;
+            ConfirmButtonText = confirmButtonText;
+            NeutralButtonText = neutralButtonText;
+            CancelButtonText = cancelButtonText;
+            CanceledOnTouchOutside = canceledOnTouchOutside;
+            UserClick = new AsyncReactiveProperty<int>(0);
         }
 
-
-        public UniTask WaitForClosed()
-        {
-            return UniTask.WaitUntil(() => !this.viewModel.Closed);
-        }
-
-        public void Cancel()
-        {
-            this.window.Cancel();
-        }
     }
 }

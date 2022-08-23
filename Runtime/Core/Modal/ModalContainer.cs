@@ -262,7 +262,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             _modalItems.Add(option.ResourcePath);
-            option.WindowCreated?.Invoke(enterModal);
+            
+            option.WindowCreated.Value = enterModal;
+            
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             await afterLoadHandle;
 

@@ -78,7 +78,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             exitAnim.Setup(RectTransform);
             await exitAnim.Play();
 
-            Tooltip.AfterHideCallBack?.Invoke();
+            Tooltip.AfterHide.Value = true;
 
             Tooltip.Remove(this);
             if (gameObject)

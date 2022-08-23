@@ -134,7 +134,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(Screen)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             _screenItems.Add(option.ResourcePath);
-            option.WindowCreated?.Invoke(enterScreen);
+
+            option.WindowCreated.Value = enterScreen;
 
             var afterLoadTask = enterScreen.AfterLoad((RectTransform) transform);
             await afterLoadTask;

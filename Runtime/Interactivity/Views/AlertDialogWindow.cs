@@ -1,13 +1,13 @@
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
-using UnityScreenNavigator.Runtime.Interactivity.ViewModels;
 
 namespace UnityScreenNavigator.Runtime.Interactivity.Views
 {
-    public class AlertDialogWindow : Modal
+    public sealed class AlertDialogWindow : Modal
     {
 #if USN_USE_TEXTMESHPRO
         [SerializeField] private TMPro.TextMeshProUGUI titleText;
@@ -24,9 +24,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
         [SerializeField] private Button outsideButton;
 
         private IUIView _contentView;
-
-        private AlertDialogViewModel _viewModel;
-
+        
         public bool CanceledOnTouchOutside { get; set; }
 
         public IUIView ContentView
@@ -50,22 +48,21 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 }
             }
         }
-
-        public AlertDialogViewModel ViewModel
+        
+        public override UniTask Initialize()
         {
-            get => _viewModel;
-            set
-            {
-                _viewModel = value;
-                OnChangeViewModel();
-            }
+            DialogModel.Subscribe(OnModelChanged);
+            return base.Initialize();
         }
 
-        protected virtual void Button_OnClick(int which)
+        public AsyncReactiveProperty<AlertDialog> DialogModel { get; } =
+            new AsyncReactiveProperty<AlertDialog>(default);
+
+        private void Button_OnClick(int which)
         {
             try
             {
-                _viewModel.OnClick(which);
+                DialogModel.Value.UserClick.Value = which;
             }
             finally
             {
@@ -74,19 +71,19 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
         }
 
-        public virtual void Cancel()
+        public void Cancel()
         {
-            Button_OnClick(AlertDialog.BUTTON_NEGATIVE);
+            Button_OnClick(AlertDialog.ButtonNegative);
         }
 
-        protected void OnChangeViewModel()
+        private void OnModelChanged(AlertDialog dialog)
         {
             if (messageText != null)
             {
-                if (!string.IsNullOrEmpty(_viewModel.Message))
+                if (!string.IsNullOrEmpty(dialog.Message))
                 {
                     messageText.gameObject.SetActive(true);
-                    messageText.text = _viewModel.Message;
+                    messageText.text = dialog.Message;
                     if (_contentView != null && _contentView.Visibility)
                         _contentView.Visibility = false;
                 }
@@ -98,10 +95,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
             if (titleText != null)
             {
-                if (!string.IsNullOrEmpty(_viewModel.Title))
+                if (!string.IsNullOrEmpty(dialog.Title))
                 {
                     titleText.gameObject.SetActive(true);
-                    titleText.text = _viewModel.Title;
+                    titleText.text = dialog.Title;
                 }
                 else
                 {
@@ -111,10 +108,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
             if (confirmButton != null)
             {
-                if (!string.IsNullOrEmpty(_viewModel.ConfirmButtonText))
+                if (!string.IsNullOrEmpty(dialog.ConfirmButtonText))
                 {
                     confirmButton.gameObject.SetActive(true);
-                    confirmButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_POSITIVE); });
+                    confirmButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.ButtonPositive); });
 #if USN_USE_TEXTMESHPRO
                     var text = confirmButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
 #else
@@ -122,7 +119,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 #endif
 
                     if (text != null)
-                        text.text = _viewModel.ConfirmButtonText;
+                        text.text = dialog.ConfirmButtonText;
                 }
                 else
                 {
@@ -132,17 +129,17 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
             if (cancelButton != null)
             {
-                if (!string.IsNullOrEmpty(_viewModel.CancelButtonText))
+                if (!string.IsNullOrEmpty(dialog.CancelButtonText))
                 {
                     cancelButton.gameObject.SetActive(true);
-                    cancelButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
+                    cancelButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.ButtonNegative); });
 #if USN_USE_TEXTMESHPRO
                     var text = cancelButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
 #else
                     var text = cancelButton.GetComponentInChildren<Text>();
 #endif
                     if (text != null)
-                        text.text = _viewModel.CancelButtonText;
+                        text.text = dialog.CancelButtonText;
                 }
                 else
                 {
@@ -152,17 +149,17 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
             if (neutralButton != null)
             {
-                if (!string.IsNullOrEmpty(_viewModel.NeutralButtonText))
+                if (!string.IsNullOrEmpty(dialog.NeutralButtonText))
                 {
                     neutralButton.gameObject.SetActive(true);
-                    neutralButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEUTRAL); });
+                    neutralButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.ButtonNeutral); });
 #if USN_USE_TEXTMESHPRO
                     var text = neutralButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
 #else
                     var text = neutralButton.GetComponentInChildren<Text>();
 #endif
                     if (text != null)
-                        text.text = _viewModel.NeutralButtonText;
+                        text.text = dialog.NeutralButtonText;
                 }
                 else
                 {
@@ -170,12 +167,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 }
             }
 
-            CanceledOnTouchOutside = _viewModel.CanceledOnTouchOutside;
+            CanceledOnTouchOutside = dialog.CanceledOnTouchOutside;
             if (outsideButton != null && CanceledOnTouchOutside)
             {
                 outsideButton.gameObject.SetActive(true);
                 outsideButton.interactable = true;
-                outsideButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.BUTTON_NEGATIVE); });
+                outsideButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.ButtonNegative); });
             }
         }
     }

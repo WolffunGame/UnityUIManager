@@ -15,14 +15,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
     {
         public AsyncReactiveProperty<string> Message { get; }
         public TipPosition Position { get; }
-        public Action AfterHideCallBack { get; }
+        public AsyncReactiveProperty<bool> AfterHide { get; set; }
         public AsyncReactiveProperty<IUIViewGroup> ViewGroup { get; }
         public AsyncReactiveProperty<IUIView> View { get; }
-        
-        public AsyncReactiveProperty<bool> CloseOnCancelClick { get; }
 
-        public Tooltip(string message, TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView,
-            Action afterHideCallBack, bool closeOnCancelClick = false)
+        public AsyncReactiveProperty<bool> CloseOnCancelClick { get; set; }
+
+        public Tooltip(string message, TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
         {
             Message = new AsyncReactiveProperty<string>(message);
             Position = tipPosition;
@@ -31,14 +30,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
         }
 
-        public Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView,
-            Action afterHideCallBack, bool closeOnCancelClick = false)
+        public Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
         {
             Position = tipPosition;
             ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
             View = new AsyncReactiveProperty<IUIView>(tooltipView);
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
-            AfterHideCallBack = afterHideCallBack;
+            AfterHide = new AsyncReactiveProperty<bool>(false);
         }
 
         private void Setup(TipPosition tipPosition, RectTransform target, int offset)
@@ -73,6 +71,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             var container = ContainerLayerManager.GetTopVisibilityLayer();
             return container.Current;
         }
+
         /// <summary>
         /// Show tooltip with text only
         /// </summary>
@@ -87,7 +86,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <exception cref="Exception"></exception>
         public static async UniTask<Tooltip> Show(string key, string message,
             TipPosition tipPosition,
-            RectTransform target, int offset, Action afterHideCallback, bool closeOnCancelClick = true)
+            RectTransform target, int offset, bool closeOnCancelClick = true)
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -113,7 +112,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var viewGroup = GetCurrentViewGroup();
 
-            var tip = new Tooltip(message, tipPosition, viewGroup, view, afterHideCallback, closeOnCancelClick);
+            var tip = new Tooltip(message, tipPosition, viewGroup, view, closeOnCancelClick);
 
             tip.Setup(tipPosition, target, offset);
             view.Tooltip = tip;
@@ -122,6 +121,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             _tooltips.Add(view, tip);
             return tip;
         }
+
         /// <summary>
         /// Show tooltip with custom view.
         /// </summary>
@@ -130,13 +130,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="tipPosition"></param>
         /// <param name="target"></param>
         /// <param name="offset"></param>
-        /// <param name="afterHideCallback"></param>
         /// <param name="closeOnCancelClick"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         public static async UniTask<Tooltip> Show(string key, IUIView contentView,
             TipPosition tipPosition,
-            RectTransform target, int offset, Action afterHideCallback, bool closeOnCancelClick = true)
+            RectTransform target, int offset, bool closeOnCancelClick = true)
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -164,7 +163,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var viewGroup = GetCurrentViewGroup();
 
-            var tip = new Tooltip(tipPosition, viewGroup, view, afterHideCallback, closeOnCancelClick);
+            var tip = new Tooltip(tipPosition, viewGroup, view, closeOnCancelClick);
 
             tip.Setup(tipPosition, target, offset);
             view.Tooltip = tip;
@@ -174,23 +173,18 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             return tip;
         }
 
-        public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition,
-            RectTransform target, int offset)
-        {
-            return await Show(key, message, tipPosition, target, offset, null);
-        }
-
-        public static async UniTask<Tooltip> Show(string key, IUIView content, TipPosition tipPosition,
-            RectTransform target, int offset)
-        {
-            return await Show(key, content, tipPosition, target, offset, null);
-        }
-
-        public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition,
-            RectTransform target, int offset, bool closeOnCancelClick)
-        {
-            return await Show(key, message, tipPosition, target, offset, null, closeOnCancelClick);
-        }
+        // public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition,
+        //     RectTransform target, int offset)
+        // {
+        //     return await Show(key, message, tipPosition, target, offset);
+        // }
+        //
+        // public static async UniTask<Tooltip> Show(string key, IUIView content, TipPosition tipPosition,
+        //     RectTransform target, int offset)
+        // {
+        //     return await Show(key, content, tipPosition, target, offset);
+        // }
+        //
 
         #endregion
     }
