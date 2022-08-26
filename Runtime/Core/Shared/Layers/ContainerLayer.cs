@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
@@ -24,6 +25,21 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
         public abstract int VisibleElementInLayer { get; }
         public ContainerLayerType LayerType { get; set; }
+        
+        [SerializeField] private Canvas canvas;
+
+        public Canvas Canvas
+        {
+            get
+            {
+                if(canvas == null)
+                {
+                    canvas = GetComponent<Canvas>();
+                }
+
+                return canvas;
+            }
+        }
 
         public abstract Window Current { get; }
 
@@ -35,9 +51,9 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             set { _containerLayerManager = value; }
         }
 
-        public void CreateLayer(string layerName, int layer, ContainerLayerType layerType)
+        public void CreateLayer(string newLayerName, int layer, ContainerLayerType layerType)
         {
-            LayerName = layerName;
+            LayerName = newLayerName;
             Layer = layer;
             LayerType = layerType;
             OnCreate();
@@ -47,5 +63,13 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         public abstract void OnBackButtonPressed();
 
         protected abstract void OnCreate();
+        
+        private void OnValidate()
+        {
+            if(canvas == null)
+            {
+                canvas = GetComponent<Canvas>();
+            }
+        }
     }
 }

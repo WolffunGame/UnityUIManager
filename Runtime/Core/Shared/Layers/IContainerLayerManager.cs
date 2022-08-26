@@ -48,7 +48,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        IContainerLayer RemoveAt(int index);
+        // IContainerLayer RemoveAt(int index);
 
         /// <summary>
         /// 

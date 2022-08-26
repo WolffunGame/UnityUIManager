@@ -28,6 +28,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
             View = new AsyncReactiveProperty<IUIView>(tooltipView);
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
+            AfterHide = new AsyncReactiveProperty<bool>(false);
         }
 
         public Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)

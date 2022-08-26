@@ -17,7 +17,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         public const int ButtonNegative = -2;
         public const int ButtonNeutral = -3;
 
-        private const string DefaultDialogContainer = "Dialog";
+        private static string _defaultDialogContainer = "Dialog";
         private const string DefaultDialogKey = "Prefabs/prefab_alert_dialog";
 
         private static string _dialogKey;
@@ -30,7 +30,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
         public static string DialogLayer
         {
-            get => DefaultDialogContainer;
+            get => _defaultDialogContainer;
+            set => _defaultDialogContainer = value;
         }
 
 
@@ -141,10 +142,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 UserClick = new AsyncReactiveProperty<int>(0)
             };
 
-            var modalContainer = ModalContainer.Find(DefaultDialogContainer);
+            var modalContainer = ModalContainer.Find(_defaultDialogContainer);
             if (modalContainer == null)
             {
-                modalContainer = ModalContainer.Create(DefaultDialogContainer, 10, ContainerLayerType.Modal);
+                modalContainer = ModalContainer.Create(_defaultDialogContainer, 10, ContainerLayerType.Modal);
             }
             
             var option = new WindowOption(DialogKey, true);
@@ -194,10 +195,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 if (string.IsNullOrEmpty(key))
                     key = DialogKey;
                 
-                var modalContainer = ModalContainer.Find(DefaultDialogContainer);
+                var modalContainer = ModalContainer.Find(_defaultDialogContainer);
                 if (modalContainer == null)
                 {
-                    modalContainer = ModalContainer.Create(DefaultDialogContainer, 10, ContainerLayerType.Modal);
+                    modalContainer = ModalContainer.Create(_defaultDialogContainer, 10, ContainerLayerType.Modal);
                 }
                 if (!string.IsNullOrEmpty(contentViewName))
                 {

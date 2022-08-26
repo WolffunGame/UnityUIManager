@@ -48,15 +48,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         public IReadOnlyList<Modal> Modals => _modals;
 
 
-        public override Window Current
-        {
-            get { return _modals[_modals.Count - 1]; }
-        }
+        public override Window Current => _modals[_modals.Count - 1];
 
-        public override int VisibleElementInLayer
-        {
-            get => Modals.Count;
-        }
+        public override int VisibleElementInLayer => Modals.Count;
 
         private void Awake()
         {
@@ -310,6 +304,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.AfterPush(enterModal, exitModal);
             }
+            
 
             return enterModal;
         }
@@ -421,7 +416,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             if (!InstanceCacheByName.ContainsKey(LayerName))
             {
-                Layer = transform.GetSiblingIndex();
+                Layer = Canvas.sortingOrder;
                 LayerType = ContainerLayerType.Modal;
                 InstanceCacheByName.Add(LayerName, this);
                 ContainerLayerManager.Add(this);

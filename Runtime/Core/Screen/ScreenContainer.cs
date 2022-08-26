@@ -334,7 +334,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         {
             if (!InstanceCacheByName.ContainsKey(LayerName))
             {
-                Layer = transform.GetSiblingIndex();
+                Layer = Canvas.sortingOrder;
                 LayerType = ContainerLayerType.Screen;
                 InstanceCacheByName.Add(LayerName, this);
                 ContainerLayerManager.Add(this);

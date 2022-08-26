@@ -23,13 +23,14 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         {
             if (ContainerLayers == null || ContainerLayers.Count <= 0)
                 return null;
-            //current layer is the highest layer which is visible (VisibleElementInLayer > 0)
-            for (int i = ContainerLayers.Count - 1; i >= 0; i--)
+
+            var topLayer = ContainerLayers[0];
+            for (var i = 1; i < ContainerLayers.Count; i++)
             {
-                if (ContainerLayers[i].VisibleElementInLayer > 0)
-                    return ContainerLayers[i];
+                if (ContainerLayers[i].Layer > topLayer.Layer)
+                    topLayer = ContainerLayers[i];
             }
-            return null;
+            return topLayer;
         }
 
         public IEnumerator<IContainerLayer> Visibles()
@@ -48,6 +49,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
             return ContainerLayers[index];
         }
+        
 
         public void Add(IContainerLayer layer)
         {
@@ -58,7 +60,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
                 return;
 
             ContainerLayers.Add(layer);
-            transform.AddChild(GetTransform(layer));
         }
 
         public bool Remove(IContainerLayer layer)
@@ -69,17 +70,17 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             return ContainerLayers.Remove(layer);
         }
 
-        public IContainerLayer RemoveAt(int index)
-        {
-            if (index < 0 || index > ContainerLayers.Count - 1)
-                throw new IndexOutOfRangeException();
-
-            var layer = ContainerLayers[index];
-
-            transform.RemoveChild(GetTransform(layer));
-            ContainerLayers.RemoveAt(index);
-            return layer;
-        }
+        // public IContainerLayer RemoveAt(int index)
+        // {
+        //     if (index < 0 || index > ContainerLayers.Count - 1)
+        //         throw new IndexOutOfRangeException();
+        //
+        //     var layer = ContainerLayers[index];
+        //
+        //     transform.RemoveChild(GetTransform(layer));
+        //     ContainerLayers.RemoveAt(index);
+        //     return layer;
+        // }
 
 
         public bool Contains(IContainerLayer layer)
