@@ -20,10 +20,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
         private CanvasGroup _canvasGroup;
 
-        private Sequence _sequence;
+        //private Sequence _sequence;
 #if UI_ANIMATION_TIMELINE_SUPPORT
         public override float Duration => _duration;
-        public override bool IsCompleted => _sequence.IsComplete();
+        public override bool IsCompleted => true;
 
         public override void SetTime(float time)
         {
@@ -57,15 +57,16 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
         public async UniTask SetTime()
         {
-            _sequence = DOTween.Sequence();
-            var cancellationToken = RectTransform.GetCancellationTokenOnDestroy();
+            var sequence = DOTween.Sequence();
+
             var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeScale);
             var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeAlpha);
-            _ = _sequence.Join(scaleTweener);
-            _ = _sequence.Join(fadeTweener);
-            await _sequence.AwaitForComplete(cancellationToken: cancellationToken);
+            _ = sequence.Join(scaleTweener);
+            _ = sequence.Join(fadeTweener);
+
+            await sequence.AsyncWaitForCompletion();
         }
 
         public void SetParams(float? duration = null, Ease? easeType = null,

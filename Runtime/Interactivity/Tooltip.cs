@@ -109,6 +109,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
 
             var content = Object.Instantiate(tipAsset.Value);
+            //content.transform.localScale = Vector3.zero;
             var view = content.GetComponent<TooltipView>();
 
             var viewGroup = GetCurrentViewGroup();

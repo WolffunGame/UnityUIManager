@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityScreenNavigator.Runtime.Foundation;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
@@ -9,7 +8,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
     public class ContainerLayerManager : MonoBehaviour, IContainerLayerManager
     {
         private static readonly List<IContainerLayer> ContainerLayers = new List<IContainerLayer>();
-        
+
         private IContainerLayer _currentContainerLayer;
 
         public bool Activated { get; set; }
@@ -24,12 +23,19 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             if (ContainerLayers == null || ContainerLayers.Count <= 0)
                 return null;
 
+            //find highest layer with element greater than 0
             var topLayer = ContainerLayers[0];
             for (var i = 1; i < ContainerLayers.Count; i++)
             {
-                if (ContainerLayers[i].Layer > topLayer.Layer)
-                    topLayer = ContainerLayers[i];
+                var currentLayer = ContainerLayers[i];
+                if (currentLayer.VisibleElementInLayer <= 0) continue;
+
+                if (topLayer.VisibleElementInLayer <= 0)
+                    topLayer = currentLayer;
+                else if (currentLayer.SortOrder > topLayer.SortOrder)
+                    topLayer = currentLayer;
             }
+
             return topLayer;
         }
 
@@ -49,7 +55,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 
             return ContainerLayers[index];
         }
-        
+
 
         public void Add(IContainerLayer layer)
         {

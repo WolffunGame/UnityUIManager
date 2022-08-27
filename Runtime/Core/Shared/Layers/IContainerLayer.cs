@@ -8,7 +8,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
     /// </summary>
     public interface IContainerLayer
     {
-        int Layer { get;}
+        int SortOrder { get;}
         string LayerName { get;}
         /// <summary>
         /// Element count in layer

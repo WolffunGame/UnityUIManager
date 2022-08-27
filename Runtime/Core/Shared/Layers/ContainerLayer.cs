@@ -6,7 +6,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
 {
     public abstract class ContainerLayer : MonoBehaviour, IContainerLayer
     {
-        public int Layer { get; protected set; }
+        public int SortOrder { get; protected set; }
         [SerializeField] private string layerName;
 
         public string LayerName
@@ -54,7 +54,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         public void CreateLayer(string newLayerName, int layer, ContainerLayerType layerType)
         {
             LayerName = newLayerName;
-            Layer = layer;
+            SortOrder = layer;
             LayerType = layerType;
             OnCreate();
             ContainerLayerManager.Add(this);

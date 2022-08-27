@@ -416,7 +416,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             if (!InstanceCacheByName.ContainsKey(LayerName))
             {
-                Layer = Canvas.sortingOrder;
+                SortOrder = Canvas.sortingOrder;
                 LayerType = ContainerLayerType.Modal;
                 InstanceCacheByName.Add(LayerName, this);
                 ContainerLayerManager.Add(this);
