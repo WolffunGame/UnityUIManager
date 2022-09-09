@@ -13,7 +13,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 {
     public class Toast
     {
-        private const string DEFAULT_VIEW_NAME = "UI/Toast";
+        private const string DEFAULT_VIEW_NAME = "DefaultToast";
 
         private static string _toastKey;
         private readonly Action _callback;
