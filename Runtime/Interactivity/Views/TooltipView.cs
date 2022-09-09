@@ -119,5 +119,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             Tooltip.CloseOnCancelClick.Subscribe(b => closeButton.gameObject.SetActive(b));
             closeButton.onClick.AddListener(Close);
         }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            Tooltip.Remove(this);
+        }
     }
 }

@@ -20,19 +20,14 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         private readonly UILayout _layout;
         private readonly IUIViewGroup _viewGroup;
         
-        private static List<Toast> _toasts = new List<Toast>();
+        private static readonly List<Toast> Toasts = new List<Toast>();
         protected Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration) : this(view, viewGroup,
             message, duration, null, null)
         {
         }
 
-        protected Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration, UILayout layout) : this(
-            view, viewGroup, message, duration, layout, null)
-        {
-        }
-
-        protected Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration, UILayout layout,
-            Action callback)
+        private Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration, UILayout layout,
+            Action callback = null)
         {
             View = view;
             _viewGroup = viewGroup;
@@ -91,13 +86,23 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         {
             return Show(ToastKey, viewGroup, text, duration, layout, callback);
         }
+        
+        public static UniTask<Toast> Show(string key, IUIViewGroup viewGroup, string text, float duration = 3f)
+        {
+            return Show(key, viewGroup, text, duration, null, null);
+        }
+        
+        public static UniTask<Toast> Show(string key, string text, float duration)
+        {
+            return Show(key, null, text, duration, null, null);
+        }
 
-        public static async UniTask<Toast> Show(string viewName, IUIViewGroup viewGroup, string text, float duration,
+        private static async UniTask<Toast> Show(string viewName, IUIViewGroup viewGroup, string text, float duration,
             UILayout layout,
             Action callback)
         {
             //Cancel all existing toasts
-            foreach (var t in _toasts)
+            foreach (var t in Toasts)
             {
                 t.View.Visibility = false;
                 t.Cancel().Forget();
@@ -105,7 +110,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             if (string.IsNullOrEmpty(viewName))
                 viewName = ToastKey;
             
-            var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(ToastKey);
+            var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(viewName);
             if (contentGo.Value == null)
                 throw new Exception($"Toast view is not found. viewName: {viewName}");
             var viewGo = Object.Instantiate(contentGo.Value);
@@ -114,7 +119,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 viewGroup = GetCurrentViewGroup();
 
             var toast = new Toast(view, viewGroup, text, duration, layout, callback);
-            _toasts.Add(toast);
+            Toasts.Add(toast);
             await toast.Show();
             return toast;
         }
@@ -146,13 +151,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             await DelayDismiss(Duration);
         }
 
-        protected async UniTask DelayDismiss(float duration)
+        private async UniTask DelayDismiss(float duration)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: View.GetCancellationTokenOnDestroy());
             await Cancel();
         }
 
-        protected void DoCallback()
+        private void DoCallback()
         {
             try
             {
