@@ -41,7 +41,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// <summary>
         ///     True if in transition.
         /// </summary>
-        public AsyncReactiveProperty<bool> IsInTransition { get; private set; }
+        public AsyncReactiveProperty<bool> IsInTransition { get; } = new AsyncReactiveProperty<bool>(false);
 
         /// <summary>
         ///     Stacked modals.
