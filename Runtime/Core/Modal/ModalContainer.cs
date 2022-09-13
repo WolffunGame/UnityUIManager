@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -40,7 +41,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// <summary>
         ///     True if in transition.
         /// </summary>
-        public bool IsInTransition { get; private set; }
+        public AsyncReactiveProperty<bool> IsInTransition { get; private set; }
 
         /// <summary>
         ///     Stacked modals.
@@ -239,7 +240,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     "Cannot transition because the screen is already in transition.");
             }
 
-            IsInTransition = true;
+            IsInTransition.Value = true;
 
             var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
 
@@ -290,7 +291,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // End Transition
             _modals.Add(enterModal);
-            IsInTransition = false;
+            IsInTransition.Value = false;
 
             // Postprocess
             if (exitModal != null)
@@ -323,7 +324,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     "Cannot transition because the screen is already in transition.");
             }
 
-            IsInTransition = true;
+            IsInTransition.Value = true;
 
             var exitModal = _modals[_modals.Count - 1];
             var enterModal = _modals.Count == 1 ? null : _modals[_modals.Count - 2];
@@ -355,7 +356,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // End Transition
             _modals.RemoveAt(_modals.Count - 1);
-            IsInTransition = false;
+            IsInTransition.Value = false;
 
             // Postprocess
             exitModal.AfterExit(false, enterModal);
@@ -421,6 +422,11 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 InstanceCacheByName.Add(LayerName, this);
                 ContainerLayerManager.Add(this);
             }
+        }
+        
+        public UniTask WaitUntilTransitionEnd()
+        {
+            return IsInTransition.AnyAsync(b => b == false);
         }
     }
 }
