@@ -5,6 +5,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
 {
     internal static class AnimationExtensions
     {
+        // ReSharper disable Unity.PerformanceAnalysis
         public static async UniTask CreatePlayRoutine(this IAnimation self)
         {
 #if UI_ANIMATION_TIMELINE_SUPPORT

@@ -41,7 +41,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         /// <summary>
         ///     True if in transition.
         /// </summary>
-        public AsyncReactiveProperty<bool> IsInTransition { get; } = new AsyncReactiveProperty<bool>(false);
+        public bool IsInTransition { get; private set; }
 
         /// <summary>
         ///     Stacked modals.
@@ -240,7 +240,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     "Cannot transition because the screen is already in transition.");
             }
 
-            IsInTransition.Value = true;
+            IsInTransition = true;
 
             var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
 
@@ -291,7 +291,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // End Transition
             _modals.Add(enterModal);
-            IsInTransition.Value = false;
+            IsInTransition = false;
 
             // Postprocess
             if (exitModal != null)
@@ -324,7 +324,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                     "Cannot transition because the screen is already in transition.");
             }
 
-            IsInTransition.Value = true;
+            IsInTransition = true;
 
             var exitModal = _modals[_modals.Count - 1];
             var enterModal = _modals.Count == 1 ? null : _modals[_modals.Count - 2];
@@ -356,7 +356,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // End Transition
             _modals.RemoveAt(_modals.Count - 1);
-            IsInTransition.Value = false;
+            IsInTransition = false;
 
             // Postprocess
             exitModal.AfterExit(false, enterModal);
@@ -424,9 +424,5 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
         }
         
-        public UniTask WaitUntilTransitionEnd()
-        {
-            return IsInTransition.AnyAsync(b => b == false);
-        }
     }
 }

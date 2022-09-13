@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
@@ -72,7 +73,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         public virtual void DidPopExit()
         {
         }
-
+        // ReSharper disable Unity.PerformanceAnalysis
         public virtual UniTask Cleanup()
         {
             return UniTask.CompletedTask;
@@ -181,11 +182,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
         }
 
+
         internal UniTask BeforeExit(bool push, Modal partnerModal)
         {
             return BeforeExitTask(push, partnerModal);
         }
-
+        // ReSharper disable Unity.PerformanceAnalysis
         private UniTask BeforeExitTask(bool push, Modal partnerModal)
         {
             if (!push)
@@ -205,12 +207,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 : _lifecycleEvents.Select(x => x.WillPopExit());
             return UniTask.WhenAll(tasks);
         }
-
+        
         internal UniTask Exit(bool push, bool playAnimation, Modal partnerModal)
         {
             return ExitTask(push, playAnimation, partnerModal);
         }
-
+        // ReSharper disable Unity.PerformanceAnalysis
         private UniTask ExitTask(bool push, bool playAnimation, Modal partnerModal)
         {
             if (!push)
@@ -254,7 +256,11 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         internal UniTask BeforeRelease()
         {
-            var tasks = _lifecycleEvents.Select(x => x.Cleanup());
+            var tasks = new List<UniTask>();
+            foreach (var lifecycleEvent in _lifecycleEvents)
+            {
+                tasks.Add(lifecycleEvent.Cleanup());
+            }
             return UniTask.WhenAll(tasks);
         }
     }
