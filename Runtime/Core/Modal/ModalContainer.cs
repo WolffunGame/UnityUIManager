@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -37,6 +37,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         private readonly List<string> _preloadAssetKeys = new List<string>();
 
         private ModalBackdrop _backdropPrefab;
+
+        private readonly List<WindowOption> _queuedModals = new List<WindowOption>();
 
         /// <summary>
         ///     True if in transition.
@@ -225,19 +227,25 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             return PopTask(playAnimation);
         }
 
-//string resourceKey, bool playAnimation, Action<Modal> onLoad = null,
-//        bool loadAsync = true
         private async UniTask<Modal> PushTask(WindowOption option)
         {
             if (option.ResourcePath == null)
             {
                 throw new ArgumentNullException(nameof(option.ResourcePath));
             }
-
+            
             if (IsInTransition)
             {
-                throw new InvalidOperationException(
-                    "Cannot transition because the screen is already in transition.");
+                _queuedModals.Add(option);
+                // throw new InvalidOperationException(
+                //     "Cannot transition because the screen is already in transition.");
+                Debug.LogWarning("Cannot transition because the modal is already in transition. Queued.");
+                return null;
+            }
+            if(option.Priority < Current.Priority)
+            {
+                _queuedModals.Add(option);
+                return null;
             }
 
             IsInTransition = true;
@@ -257,9 +265,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             _modalItems.Add(option.ResourcePath);
-            
+
             option.WindowCreated.Value = enterModal;
-            
+
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             await afterLoadHandle;
 
@@ -293,6 +301,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             _modals.Add(enterModal);
             IsInTransition = false;
 
+
             // Postprocess
             if (exitModal != null)
             {
@@ -305,7 +314,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.AfterPush(enterModal, exitModal);
             }
-            
+
 
             return enterModal;
         }
@@ -423,6 +432,23 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 ContainerLayerManager.Add(this);
             }
         }
-        
+
+        private async UniTask PlayPushWindowSequence()
+        {
+            if (_queuedModals.Count == 0)
+            {
+                return;
+            }
+            _queuedModals.Sort((t1, t2) => t1.Priority.CompareTo(t2.Priority));
+
+            var queuedModal = _queuedModals.GetEnumerator();
+            using (queuedModal)
+            {
+                while (queuedModal.MoveNext())
+                {
+                    await PushTask(queuedModal.Current);
+                }
+            }
+        }
     }
 }

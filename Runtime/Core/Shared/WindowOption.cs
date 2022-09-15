@@ -3,22 +3,21 @@ using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared
 {
-    public struct WindowOption
+    public readonly struct WindowOption
     {
-        public WindowOption(string resourcePath, bool playAnimation, bool stack = true, bool loadAsync = true)
+        public WindowOption(string resourcePath, bool playAnimation, int priority = 0, bool stack = true)
         {
             ResourcePath = resourcePath;
-            LoadAsync = loadAsync;
             PlayAnimation = playAnimation;
             Stack = stack;
             WindowCreated = new AsyncReactiveProperty<Window>(default);
+            Priority = priority;
         }
-
-        public bool LoadAsync { get; }
-
+        
         public bool PlayAnimation { get; }
         
-
+        public int Priority { get;}
+        
         public AsyncReactiveProperty<Window> WindowCreated { get; }
 
         public bool Stack { get; }
