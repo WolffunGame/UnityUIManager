@@ -257,9 +257,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             _modalItems.Add(option.ResourcePath);
-            
+
             option.WindowCreated.Value = enterModal;
-            
+
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             await afterLoadHandle;
 
@@ -279,15 +279,20 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             await enterModal.BeforeEnter(true, exitModal);
 
             // Play Animation
-
-            await backdrop.Enter(option.PlayAnimation);
+            var animationTasks = new List<UniTask>();
+            var backdropAnimation = backdrop.Enter(option.PlayAnimation);
+            animationTasks.Add(backdropAnimation);
 
             if (exitModal != null)
             {
-                await exitModal.Exit(true, option.PlayAnimation, enterModal);
+                var exitAnimation = exitModal.Exit(true, option.PlayAnimation, enterModal);
+                animationTasks.Add(exitAnimation);
             }
 
-            await enterModal.Enter(true, option.PlayAnimation, exitModal);
+            var enterAnimation = enterModal.Enter(true, option.PlayAnimation, exitModal);
+            animationTasks.Add(enterAnimation);
+            await UniTask.WhenAll(animationTasks);
+
 
             // End Transition
             _modals.Add(enterModal);
@@ -305,7 +310,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.AfterPush(enterModal, exitModal);
             }
-            
+
 
             return enterModal;
         }
@@ -346,13 +351,19 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             // Play Animation
-            await exitModal.Exit(false, playAnimation, enterModal);
+            var animationTasks = new List<UniTask>();
+            var exitAnimation = exitModal.Exit(false, playAnimation, enterModal);
+            animationTasks.Add(exitAnimation);
             if (enterModal != null)
             {
-                await enterModal.Enter(false, playAnimation, exitModal);
+                var enterAnimation = enterModal.Enter(false, playAnimation, exitModal);
+                animationTasks.Add(enterAnimation);
             }
 
-            await backdrop.Exit(playAnimation);
+            var backDropAnimation = backdrop.Exit(playAnimation);
+            animationTasks.Add(backDropAnimation);
+
+            await UniTask.WhenAll(animationTasks);
 
             // End Transition
             _modals.RemoveAt(_modals.Count - 1);
@@ -423,6 +434,5 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 ContainerLayerManager.Add(this);
             }
         }
-        
     }
 }
