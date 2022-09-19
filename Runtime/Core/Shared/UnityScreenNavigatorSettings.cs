@@ -139,7 +139,8 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 #else
                 if (_instance == null)
                 {
-                    _instance = CreateInstance<UnityScreenNavigatorSettings>();
+                    var settings = Resources.Load<UnityScreenNavigatorSettings>("UnityScreenNavigatorSettings");
+                    _instance = settings;
                 }
 
                 return _instance;
@@ -213,10 +214,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         private void OnValidate()
         {
-            if (_instance == null)
-            {
-                _instance = this;
-            }
+            _instance = this;
         }
 #endif
     }

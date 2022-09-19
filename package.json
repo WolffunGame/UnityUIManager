@@ -1,7 +1,7 @@
 {
   "name": "com.felixngd.unityuimanager",
   "displayName": "Unity Screen Navigator",
-  "version": "1.2.0-preview.19",
+  "version": "1.2.0-preview.20",
   "unity": "2020.3",
   "license": "MIT",
   "dependencies": {
