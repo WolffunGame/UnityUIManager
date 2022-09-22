@@ -40,12 +40,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// </summary>
         /// <param name="message">The message to be shown to the user.</param>
         /// <param name="title">The title of the dialog box. This may be null.</param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
-            string title)
+            string title, int priority = 0)
         {
-            return ShowMessage(message, title, null, null, null, true);
+            return ShowMessage(message, title, null, null, null, true, priority);
         }
 
         /// <summary>
@@ -55,13 +56,14 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="title">The title of the dialog box. This may be null.</param>
         /// <param name="buttonText">The text shown in the only button
         /// in the dialog box. If left null, the button will be invisible.</param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
             string title,
-            string buttonText)
+            string buttonText, int priority = 0)
         {
-            return ShowMessage(message, title, buttonText, null, null, false);
+            return ShowMessage(message, title, buttonText, null, null, false, priority);
         }
 
         /// <summary>
@@ -73,14 +75,15 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// in the dialog box. If left null, the button will be invisible.</param>
         /// <param name="cancelButtonText">The text shown in the "cancel" button
         /// in the dialog box. If left null, the button will be invisible.</param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
             string title,
             string confirmButtonText,
-            string cancelButtonText)
+            string cancelButtonText, int priority = 0)
         {
-            return ShowMessage(message, title, confirmButtonText, null, cancelButtonText, false);
+            return ShowMessage(message, title, confirmButtonText, null, cancelButtonText, false, priority);
         }
 
         /// <summary>
@@ -96,6 +99,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// in the dialog box. If left null, the button will be invisible.</param>
         /// <param name="canceledOnTouchOutside">Whether the dialog box is canceled when 
         /// touched outside the window's bounds. </param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(
             string message,
@@ -103,11 +107,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             string confirmButtonText,
             string neutralButtonText,
             string cancelButtonText,
-            bool canceledOnTouchOutside)
+            bool canceledOnTouchOutside = false, int priority = 0)
         {
             var dialog = new AlertDialog(title, message, confirmButtonText, neutralButtonText, cancelButtonText, canceledOnTouchOutside);
 
-            return ShowMessage(DialogKey, dialog);
+            return ShowMessage(DialogKey, dialog, priority);
         }
 
         /// <summary>
@@ -123,6 +127,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// in the dialog box. If left null, the button will be invisible.</param>
         /// <param name="canceledOnTouchOutside">Whether the dialog box is canceled when 
         /// touched outside the window's bounds. </param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
         public static async UniTask<AlertDialog> ShowMessage(
             IUIView contentView,
@@ -130,7 +135,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             string confirmButtonText,
             string neutralButtonText,
             string cancelButtonText,
-            bool canceledOnTouchOutside)
+            bool canceledOnTouchOutside = false, int priority = 0)
         {
             var dialog = new AlertDialog
             {
@@ -148,7 +153,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 modalContainer = ModalContainer.Create(_defaultDialogContainer, 10, ContainerLayerType.Modal);
             }
             
-            var option = new WindowOption(DialogKey, true);
+            var option = new WindowOption(DialogKey, true, priority);
             var window = (AlertDialogWindow) await modalContainer.Push(option);
             //var createdWindow = await option.WindowCreated.WaitAsync();
             //var window = (AlertDialogWindow)createdWindow;
@@ -162,10 +167,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// Displays information to the user. 
         /// </summary>
         /// <param name="viewModel">The view model of the dialog box</param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
-        public static UniTask<AlertDialog> ShowMessage(AlertDialog viewModel)
+        public static UniTask<AlertDialog> ShowMessage(AlertDialog viewModel, int priority = 0)
         {
-            return ShowMessage(DialogKey, null, viewModel);
+            return ShowMessage(DialogKey, viewModel, priority);
         }
 
         /// <summary>
@@ -173,10 +179,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// </summary>
         /// <param name="key">The view name of the dialog box,if it is null, use the default view name</param>
         /// <param name="viewModel">The view model of the dialog box</param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
-        public static UniTask<AlertDialog> ShowMessage(string key, AlertDialog viewModel)
+        public static UniTask<AlertDialog> ShowMessage(string key, AlertDialog viewModel, int priority = 0)
         {
-            return ShowMessage(key, null, viewModel);
+            return ShowMessage(key, null, viewModel, priority);
         }
         // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
@@ -185,8 +192,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="key">The view name of the dialog box,if it is null, use the default view name</param>
         /// <param name="contentViewName">The custom content view name to be shown to the user.</param>
         /// <param name="dialog">The view model of the dialog box</param>
+        /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
-        public static async UniTask<AlertDialog> ShowMessage(string key, string contentViewName, AlertDialog dialog)
+        private static async UniTask<AlertDialog> ShowMessage(string key, string contentViewName, AlertDialog dialog, int priority = 0)
         {
             AlertDialogWindow window = null;
             IUIView contentView = null;
@@ -207,7 +215,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                     contentView = content.GetComponent<IUIView>();   
                 }
 
-                var option = new WindowOption(key, true);
+                var option = new WindowOption(key, true, priority);
                 window = (AlertDialogWindow) await modalContainer.Push(option);
                 
                 window.DialogModel.Value = dialog;
