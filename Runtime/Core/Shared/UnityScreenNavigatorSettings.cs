@@ -47,7 +47,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         private ModalBackdrop _defaultModalBackdrop;
 
 
-
         public ITransitionAnimation SheetEnterAnimation => _sheetEnterAnimation != null
             ? Instantiate(_sheetEnterAnimation)
             : SimpleTransitionAnimationObject.CreateInstance(beforeAlpha: 0.0f, easeType: Ease.Linear);
@@ -121,9 +120,18 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 #if UNITY_EDITOR
                 if (_instance == null)
                 {
-                    var asset = PlayerSettings.GetPreloadedAssets().OfType<UnityScreenNavigatorSettings>()
-                        .FirstOrDefault();
-                    _instance = asset != null ? asset : CreateInstance<UnityScreenNavigatorSettings>();
+                    //find scriptable object asset of type UnityScreenNavigatorSettings
+                    var guids = AssetDatabase.FindAssets($"t:{nameof(UnityScreenNavigatorSettings)}");
+                    if (guids.Length == 0)
+                    {
+                        Debug.LogError($"Could not find {nameof(UnityScreenNavigatorSettings)} asset");
+                    }
+                    else
+                    {
+                        //load scriptable object asset
+                        var path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                        _instance = AssetDatabase.LoadAssetAtPath<UnityScreenNavigatorSettings>(path);
+                    }
                 }
 
                 return _instance;
@@ -131,7 +139,8 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 #else
                 if (_instance == null)
                 {
-                    _instance = CreateInstance<UnityScreenNavigatorSettings>();
+                    var settings = Resources.Load<UnityScreenNavigatorSettings>("UnityScreenNavigatorSettings");
+                    _instance = settings;
                 }
 
                 return _instance;
@@ -164,7 +173,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         {
             return enter ? SheetEnterAnimation : SheetExitAnimation;
         }
-
 
 
 #if UNITY_EDITOR
@@ -203,7 +211,11 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
             AssetDatabase.SaveAssets();
         }
+
+        private void OnValidate()
+        {
+            _instance = this;
+        }
 #endif
     }
-
 }

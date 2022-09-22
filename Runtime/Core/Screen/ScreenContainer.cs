@@ -154,9 +154,16 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             await enterScreen.BeforeEnter(true, exitScreen);
 
             // Play Animations
-            if (exitScreen != null) await exitScreen.Exit(true, option.PlayAnimation, enterScreen);
+            var animationTasks = new List<UniTask>();
+            if (exitScreen != null)
+            {
+                var exitAnimation = exitScreen.Exit(true, option.PlayAnimation, enterScreen);
+                animationTasks.Add(exitAnimation);
+            }
 
-            await enterScreen.Enter(true, option.PlayAnimation, exitScreen);
+            var enterAnimation = enterScreen.Enter(true, option.PlayAnimation, exitScreen);
+            animationTasks.Add(enterAnimation);
+            await UniTask.WhenAll(animationTasks);
 
 
             // End Transition
@@ -209,8 +216,16 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             if (enterScreen != null) await enterScreen.BeforeEnter(false, exitScreen);
 
             // Play Animations
-            await exitScreen.Exit(false, playAnimation, enterScreen);
-            if (enterScreen != null) await enterScreen.Enter(false, playAnimation, exitScreen);
+            var animationTasks = new List<UniTask>();
+            var exitAnimation = exitScreen.Exit(false, playAnimation, enterScreen);
+            animationTasks.Add(exitAnimation);
+            if (enterScreen != null)
+            {
+                var enterAnimation = enterScreen.Enter(false, playAnimation, exitScreen);
+                animationTasks.Add(enterAnimation);
+            }
+
+            await UniTask.WhenAll(animationTasks);
 
             // End Transition
             _screenList.RemoveAt(_screenList.Count - 1);
