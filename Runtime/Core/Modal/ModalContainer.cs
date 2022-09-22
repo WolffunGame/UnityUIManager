@@ -36,7 +36,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         private ModalBackdrop _backdropPrefab;
 
-        private readonly List<WindowOption> _queuedModals = new List<WindowOption>();
         private bool _isInTransition;
         
         /// <summary>
@@ -435,25 +434,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 LayerType = ContainerLayerType.Modal;
                 InstanceCacheByName.Add(LayerName, this);
                 ContainerLayerManager.Add(this);
-            }
-        }
-
-        private async UniTask PlayPushWindowSequence()
-        {
-            if (_queuedModals.Count == 0)
-            {
-                return;
-            }
-
-            _queuedModals.Sort((t1, t2) => t1.Priority.CompareTo(t2.Priority));
-
-            var queuedModal = _queuedModals.GetEnumerator();
-            using (queuedModal)
-            {
-                while (queuedModal.MoveNext())
-                {
-                    await PushTask(queuedModal.Current);
-                }
             }
         }
     }
