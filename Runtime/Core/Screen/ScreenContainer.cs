@@ -31,11 +31,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         private readonly List<string> _preloadAssetKeys = new List<string>(5);
 
         private bool _isActiveScreenStacked;
-
-        /// <summary>
-        /// True if in transition.
-        /// </summary>
-        public bool IsInTransition { get; private set; }
+        private bool _isInTransition;
 
         /// <summary>
         ///     Stacked screens.
@@ -73,7 +69,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             foreach (var keyToRemove in keysToRemove) InstanceCacheByTransform.Remove(keyToRemove);
         }
 
-        public override Window Current => _screenList[_screenList.Count - 1];
+        public override Window Current => _screenList.Count > 0 ? _screenList[_screenList.Count - 1] : null;
 
         public override int VisibleElementInLayer => Screens.Count;
 
@@ -119,11 +115,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         {
             if (option.ResourcePath == null) throw new ArgumentNullException(nameof(option.ResourcePath));
 
-            if (IsInTransition)
-                throw new InvalidOperationException(
-                    "Cannot transition because the screen is already in transition.");
+            if (_isInTransition)
+            {
+                await UniTask.WaitUntil(() => !_isInTransition);
+            }
 
-            IsInTransition = true;
+            _isInTransition = true;
 
             // Setup
             var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
@@ -169,7 +166,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             }
 
             _screenList.Add(enterScreen);
-            IsInTransition = false;
+            _isInTransition = false;
 
             // Postprocess
             if (exitScreen != null) exitScreen.AfterExit(true, enterScreen);
@@ -200,11 +197,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 throw new InvalidOperationException(
                     "Cannot transition because there are no screens loaded on the stack.");
 
-            if (IsInTransition)
-                throw new InvalidOperationException(
-                    "Cannot transition because the screen is already in transition.");
-
-            IsInTransition = true;
+            _isInTransition = true;
 
             var exitScreen = _screenList[_screenList.Count - 1];
             var enterScreen = _screenList.Count == 1 ? null : _screenList[_screenList.Count - 2];
@@ -221,7 +214,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             // End Transition
             _screenList.RemoveAt(_screenList.Count - 1);
-            IsInTransition = false;
+            _isInTransition = false;
 
             // Postprocess
             exitScreen.AfterExit(false, enterScreen);
@@ -364,18 +357,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         #endregion
 
-
-        public override void OnBackButtonPressed()
+        public override async UniTask OnBackButtonPressed()
         {
-            if (IsInTransition) return;
+            if (_isInTransition) return;
             if (_screenList.Count > 1)
             {
-                Pop(true).Forget();
+                await Pop(true);
             }
-        }
-
-        protected override void OnCreate()
-        {
         }
     }
 }

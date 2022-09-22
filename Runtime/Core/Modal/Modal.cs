@@ -29,8 +29,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         }
 
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
-
-
+        
         public virtual UniTask Initialize()
         {
             return UniTask.CompletedTask;

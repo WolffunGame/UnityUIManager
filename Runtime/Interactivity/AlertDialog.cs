@@ -178,7 +178,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         {
             return ShowMessage(key, null, viewModel);
         }
-
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Displays information to the user. 
         /// </summary>
@@ -214,7 +214,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 window.ContentView = contentView;
                 return dialog;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 if (window != null)
                 {
@@ -226,9 +226,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                     GameObject.Destroy(contentView.Owner);
                     AddressablesManager.ReleaseAsset(contentViewName);
                 }
-
-                throw;
+                Debug.LogError(e);
             }
+            
+            return default;
         }
 
         public AsyncReactiveProperty<int> UserClick { get; private set; }

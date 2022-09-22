@@ -1,4 +1,5 @@
 ﻿
+using Cysharp.Threading.Tasks;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
@@ -34,7 +35,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
         /// <summary>
         /// Handle back key on some device
         /// </summary>
-        void OnBackButtonPressed();
+        UniTask OnBackButtonPressed();
     }
 
     public enum ContainerLayerType

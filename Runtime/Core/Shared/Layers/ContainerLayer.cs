@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 
@@ -56,14 +57,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Layers
             LayerName = newLayerName;
             SortOrder = layer;
             LayerType = layerType;
-            OnCreate();
             ContainerLayerManager.Add(this);
         }
 
-        public abstract void OnBackButtonPressed();
+        public abstract UniTask OnBackButtonPressed();
 
-        protected abstract void OnCreate();
-        
+
         private void OnValidate()
         {
             if(canvas == null)
