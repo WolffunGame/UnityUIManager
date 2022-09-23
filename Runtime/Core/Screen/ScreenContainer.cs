@@ -248,6 +248,52 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             _isActiveScreenStacked = true;
         }
 
+        /// <summary>
+        /// Pop to the specified screen.
+        /// </summary>
+        /// <param name="identifier"></param>
+        /// <param name="playAnimationAtLast"></param>
+        public async UniTask PopTo(string identifier, bool playAnimationAtLast = false)
+        {
+            int count = 0;
+            for (var i = _screenList.Count - 1; i >= 0; i--)
+            {
+                if (_screenList[i].Identifier == identifier)
+                {
+                    count = _screenList.Count - i - 1;
+                    break;
+                }
+            }
+
+            if (count == 0)
+            {
+                Debug.LogWarning($"Cannot pop to {identifier} because it is not in the stack.");
+                return;
+            }
+            for (var i = 0; i < count; i++)
+            {
+                if(playAnimationAtLast && i == count - 1)
+                    await PopTask(true);
+                else
+                    await PopTask(false);
+            }
+        }
+        /// <summary>
+        /// Pop all screens except the first screen.
+        /// </summary>
+        public async UniTask PopToRoot(bool playAnimationAtLast = false)
+        {
+            if (_screenList.Count == 0) return;
+
+            for (var i = 0; i < _screenList.Count - 1; i++)
+            {
+                if(playAnimationAtLast && i == _screenList.Count - 2)
+                    await PopTask(true);
+                else
+                    await PopTask(false);
+            }
+        }
+
         #region STATIC_METHODS
 
         /// <summary>
@@ -347,6 +393,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 InstanceCacheByName.Add(LayerName, this);
                 ContainerLayerManager.Add(this);
             }
+            // var screens = GetComponentsInChildren<Screen>(true);
+            // foreach (var screen in screens)
+            // {
+            //     _screenList.Add(screen);
+            //     _screenItems.Add(screen.Identifier);
+            // }
         }
 
         #endregion
