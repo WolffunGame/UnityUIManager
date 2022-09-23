@@ -16,12 +16,14 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         public AsyncReactiveProperty<string> Message { get; }
         public TipPosition Position { get; }
         public AsyncReactiveProperty<bool> AfterHide { get; set; }
-        public AsyncReactiveProperty<IUIViewGroup> ViewGroup { get; }
-        public AsyncReactiveProperty<IUIView> View { get; }
+        private AsyncReactiveProperty<IUIViewGroup> ViewGroup { get; } 
+        private AsyncReactiveProperty<IUIView> View { get; }
 
         public AsyncReactiveProperty<bool> CloseOnCancelClick { get; set; }
+        
+        public bool LockClose { get; private set; }
 
-        public Tooltip(string message, TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
+        private Tooltip(string message, TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
         {
             Message = new AsyncReactiveProperty<string>(message);
             Position = tipPosition;
@@ -31,7 +33,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             AfterHide = new AsyncReactiveProperty<bool>(false);
         }
 
-        public Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
+        private Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
         {
             Position = tipPosition;
             ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
@@ -44,6 +46,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         {
             ViewGroup.Value.AddView(View.Value);
             View.Value.SetPosition(tipPosition, target, offset);
+        }
+        
+        public void LockCloseForSeconds(float seconds)
+        {
+            LockClose = true;
+            UniTask.Delay(TimeSpan.FromSeconds(seconds)).ContinueWith(() => LockClose = false);
         }
 
         #region Static

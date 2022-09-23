@@ -67,6 +67,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
         protected virtual async void Close()
         {
+            if(Tooltip.LockClose)
+                return;
             //play Exit animation
             var exitAnim = transitionAnimationContainer.GetAnimation(false);
             if (exitAnim == null)
