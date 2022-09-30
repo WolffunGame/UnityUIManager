@@ -285,9 +285,11 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         {
             if (_screenList.Count == 0) return;
 
-            for (var i = 0; i < _screenList.Count - 1; i++)
+            var screenCountToPop = _screenList.Count - 1;
+
+            for (var i = 0; i < screenCountToPop; i++)
             {
-                if(playAnimationAtLast && i == _screenList.Count - 2)
+                if (playAnimationAtLast && i == screenCountToPop - 1)
                     await PopTask(true);
                 else
                     await PopTask(false);
