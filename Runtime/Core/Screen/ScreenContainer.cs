@@ -279,7 +279,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             }
         }
         /// <summary>
-        /// Pop all screens except the first screen.
+        /// Pop all screens except the first screen in the stack.
         /// </summary>
         public async UniTask PopToRoot(bool playAnimationAtLast = false)
         {
@@ -293,6 +293,20 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                     await PopTask(true);
                 else
                     await PopTask(false);
+            }
+        }
+        /// <summary>
+        /// Pop all screens in the stack.
+        /// </summary>
+        public async UniTask PopAll()
+        {
+            if (_screenList.Count == 0) return;
+
+            var screenCountToPop = _screenList.Count;
+
+            for (var i = 0; i < screenCountToPop; i++)
+            {
+                await PopTask(false);
             }
         }
 
