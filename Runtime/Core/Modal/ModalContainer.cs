@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
@@ -31,6 +31,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         //controls load and unload of resources
         private readonly List<string> _modalItems = new List<string>();
+        private readonly IAssetsKeyLoader<GameObject> _assetsKeyLoader = new AssetsKeyLoader<GameObject>();
 
         private readonly List<string> _preloadAssetKeys = new List<string>();
 
@@ -66,18 +67,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         private void OnDestroy()
         {
-            foreach (var preloadAssetKey in _preloadAssetKeys)
-            {
-                AddressablesManager.ReleaseAsset(preloadAssetKey);
-            }
-
+            _assetsKeyLoader.UnloadAllAssets();
+            
             _preloadAssetKeys.Clear();
-
-            foreach (var item in _modalItems)
-            {
-                AddressablesManager.ReleaseAsset(item);
-            }
-
             _modalItems.Clear();
 
             InstanceCacheByName.Remove(LayerName);
@@ -261,13 +253,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             _isInTransition = true;
 
-            var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
+            var operationResult = await _assetsKeyLoader.LoadAssetAsync(option.ResourcePath);
 
             var backdrop = Instantiate(_backdropPrefab);
             backdrop.Setup((RectTransform) transform);
             _backdrops.Add(backdrop);
 
-            var instance = Instantiate(operationResult.Value);
+            var instance = Instantiate(operationResult);
             var enterModal = instance.GetComponent<Modal>();
             if (enterModal == null)
             {
@@ -325,7 +317,6 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 callbackReceiver.AfterPush(enterModal, exitModal);
             }
-
 
             return enterModal;
         }
@@ -390,7 +381,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             await beforeReleaseHandle;
 
 
-            AddressablesManager.ReleaseAsset(_modalItems[_modalItems.Count - 1]);
+            _assetsKeyLoader.UnloadAsset(_modalItems[^1]);
             _modalItems.RemoveAt(_modalItems.Count - 1);
             Destroy(exitModal.gameObject);
             Destroy(backdrop.gameObject);
@@ -404,13 +395,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         private UniTask PreloadTask(string resourceKey)
         {
-            return AddressablesManager.LoadAssetAsync<GameObject>(resourceKey);
+            return _assetsKeyLoader.LoadAssetAsync(resourceKey);
         }
 
         public void ReleasePreloaded(string resourceKey)
         {
             _preloadAssetKeys.Remove(resourceKey);
-            AddressablesManager.ReleaseAsset(resourceKey);
+            _assetsKeyLoader.UnloadAsset(resourceKey);
         }
 
         public override UniTask OnBackButtonPressed()

@@ -6,14 +6,12 @@
         "Unity.ResourceManager",
         "Unity.Timeline",
         "UniTask",
-        "Unity.AddressablesManager",
-        "Unity.ObjectPooling",
-        "Unity.ObjectPooling.Addressables",
         "UniTask.Linq",
         "UniTask.DOTween",
         "DOTween.Modules",
         "Unity.TextMeshPro",
-        "UniTask.TextMeshPro"
+        "UniTask.TextMeshPro",
+        "AddressableAssets.Loaders"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -23,11 +21,6 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [
-        {
-            "name": "com.unity.addressables",
-            "expression": "",
-            "define": "USN_USE_ADDRESSABLES"
-        },
         {
             "name": "com.unity.timeline",
             "expression": "",

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Interactivity.Views;
@@ -14,40 +14,28 @@ namespace UnityScreenNavigator.Runtime.Interactivity
     public class Tooltip
     {
         public AsyncReactiveProperty<string> Message { get; }
-        public TipPosition Position { get; }
         public AsyncReactiveProperty<bool> AfterHide { get; set; }
-        private AsyncReactiveProperty<IUIViewGroup> ViewGroup { get; } 
-        private AsyncReactiveProperty<IUIView> View { get; }
+        private IUIViewGroup ViewGroup { get; } 
 
-        public AsyncReactiveProperty<bool> CloseOnCancelClick { get; set; }
+        public AsyncReactiveProperty<bool> CloseOnCancelClick { get;}
         
         public bool LockClose { get; private set; }
 
-        private Tooltip(string message, TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
+        private Tooltip(string message, IUIViewGroup viewGroup, bool closeOnCancelClick = false)
         {
             Message = new AsyncReactiveProperty<string>(message);
-            Position = tipPosition;
-            ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
-            View = new AsyncReactiveProperty<IUIView>(tooltipView);
+            ViewGroup = viewGroup;
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
             AfterHide = new AsyncReactiveProperty<bool>(false);
         }
 
-        private Tooltip(TipPosition tipPosition, IUIViewGroup viewGroup, TooltipView tooltipView, bool closeOnCancelClick = false)
+        private Tooltip(IUIViewGroup viewGroup, bool closeOnCancelClick = false)
         {
-            Position = tipPosition;
-            ViewGroup = new AsyncReactiveProperty<IUIViewGroup>(viewGroup);
-            View = new AsyncReactiveProperty<IUIView>(tooltipView);
+            ViewGroup = viewGroup;
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
             AfterHide = new AsyncReactiveProperty<bool>(false);
         }
 
-        private void Setup(TipPosition tipPosition, RectTransform target, int offset)
-        {
-            ViewGroup.Value.AddView(View.Value);
-            View.Value.SetPosition(tipPosition, target, offset);
-        }
-        
         public void LockCloseForSeconds(float seconds)
         {
             LockClose = true;
@@ -56,26 +44,27 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
         #region Static
 
-        private const string DEFAULT_VIEW_NAME = "DefaultTooltip";
+        private const string DefaultViewName = "DefaultTooltip";
 
         private static string _viewName;
 
         public static string ViewName
         {
-            get => string.IsNullOrEmpty(_viewName) ? DEFAULT_VIEW_NAME : _viewName;
+            get => string.IsNullOrEmpty(_viewName) ? DefaultViewName : _viewName;
             set => _viewName = value;
         }
 
-        private static readonly Dictionary<TooltipView, Tooltip> _tooltips = new Dictionary<TooltipView, Tooltip>();
+        private static readonly Dictionary<TooltipView, Tooltip> Tooltips = new Dictionary<TooltipView, Tooltip>();
+        private static IAssetsKeyLoader<GameObject> _assetsKeyLoader = new AssetsKeyLoader<GameObject>();
 
         public static void Remove(TooltipView tooltipView)
         {
-            if (_tooltips.ContainsKey(tooltipView))
-                _tooltips.Remove(tooltipView);
+            if (Tooltips.ContainsKey(tooltipView))
+                Tooltips.Remove(tooltipView);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static IUIViewGroup GetCurrentViewGroup()
+        private static IUIViewGroup GetCurrentViewGroup()
         {
             var container = ContainerLayerManager.GetTopVisibilityLayer();
             return container.Current;
@@ -89,7 +78,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="tipPosition"></param>
         /// <param name="target"></param>
         /// <param name="offset"></param>
-        /// <param name="afterHideCallback"></param>
         /// <param name="closeOnCancelClick"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
@@ -103,32 +91,32 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
 
             //Close all tooltips are open
-            foreach (var tooltip in _tooltips)
+            foreach (var tooltip in Tooltips)
             {
                 Object.Destroy(tooltip.Key.gameObject);
             }
 
-            _tooltips.Clear();
+            Tooltips.Clear();
             //load tooltip view
-            var tipAsset = await AddressablesManager.LoadAssetAsync<GameObject>(key);
-            if (tipAsset.Value == null)
+            var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
+            if (tipAsset == null)
             {
                 throw new Exception($"Can't find tooltip asset with key: {key}");
             }
 
-            var content = Object.Instantiate(tipAsset.Value);
-            //content.transform.localScale = Vector3.zero;
+            var content = Object.Instantiate(tipAsset);
             var view = content.GetComponent<TooltipView>();
 
             var viewGroup = GetCurrentViewGroup();
 
-            var tip = new Tooltip(message, tipPosition, viewGroup, view, closeOnCancelClick);
-
-            tip.Setup(tipPosition, target, offset);
+            var tip = new Tooltip(message, viewGroup, closeOnCancelClick);
+            viewGroup.AddView(view);
+            view.SetPosition(tipPosition, target, offset);
+            
             view.Tooltip = tip;
 
             await view.Show();
-            _tooltips.Add(view, tip);
+            Tooltips.Add(view, tip);
             return tip;
         }
 
@@ -153,49 +141,36 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
 
             //Close all tooltips are open
-            foreach (var tooltip in _tooltips)
+            foreach (var tooltip in Tooltips)
             {
                 Object.Destroy(tooltip.Key.gameObject);
             }
 
-            _tooltips.Clear();
+            Tooltips.Clear();
             //load tooltip view
-            var tipAsset = await AddressablesManager.LoadAssetAsync<GameObject>(key);
-            if (tipAsset.Value == null)
+            var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
+            if (tipAsset == null)
             {
                 throw new Exception($"Can't find tooltip asset with key: {key}");
             }
 
-            var content = Object.Instantiate(tipAsset.Value);
+            var content = Object.Instantiate(tipAsset);
             var view = content.GetComponent<TooltipView>();
             //set tooltip view if any
             view.ContentView = contentView;
 
             var viewGroup = GetCurrentViewGroup();
 
-            var tip = new Tooltip(tipPosition, viewGroup, view, closeOnCancelClick);
-
-            tip.Setup(tipPosition, target, offset);
+            var tip = new Tooltip(viewGroup, closeOnCancelClick);
+            tip.ViewGroup.AddView(view);
+            view.SetPosition(tipPosition, target, offset);
+            
             view.Tooltip = tip;
 
             await view.Show();
-            _tooltips.Add(view, tip);
+            Tooltips.Add(view, tip);
             return tip;
         }
-
-        // public static async UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition,
-        //     RectTransform target, int offset)
-        // {
-        //     return await Show(key, message, tipPosition, target, offset);
-        // }
-        //
-        // public static async UniTask<Tooltip> Show(string key, IUIView content, TipPosition tipPosition,
-        //     RectTransform target, int offset)
-        // {
-        //     return await Show(key, content, tipPosition, target, offset);
-        // }
-        //
-
         #endregion
     }
 }

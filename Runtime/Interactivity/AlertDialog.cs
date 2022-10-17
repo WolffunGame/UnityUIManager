@@ -1,7 +1,7 @@
 using System;
+using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityScreenNavigator.Runtime.Core.Modal;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
@@ -19,6 +19,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
         private static string _defaultDialogContainer = "Dialog";
         private const string DefaultDialogKey = "Prefabs/prefab_alert_dialog";
+
+        private static readonly IAssetsKeyLoader<GameObject> AssetsKeyLoader = new AssetsKeyLoader<GameObject>();
 
         private static string _dialogKey;
 
@@ -210,8 +212,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 }
                 if (!string.IsNullOrEmpty(contentViewName))
                 {
-                    var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(contentViewName);
-                    var content = Object.Instantiate(contentGo.Value);
+                    var contentGo = await AssetsKeyLoader.LoadAssetAsync(contentViewName);
+                    var content = Object.Instantiate(contentGo);
                     contentView = content.GetComponent<IUIView>();   
                 }
 
@@ -232,7 +234,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 if (contentView != null)
                 {
                     GameObject.Destroy(contentView.Owner);
-                    AddressablesManager.ReleaseAsset(contentViewName);
+                    AssetsKeyLoader.UnloadAsset(contentViewName);
                 }
                 Debug.LogError(e);
             }

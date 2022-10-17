@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -21,6 +22,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         private readonly IUIViewGroup _viewGroup;
         
         private static readonly List<Toast> Toasts = new List<Toast>();
+        private static readonly IAssetsKeyLoader<GameObject> AssetsKeyLoader = new AssetsKeyLoader<GameObject>();
         protected Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration) : this(view, viewGroup,
             message, duration, null, null)
         {
@@ -110,10 +112,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             if (string.IsNullOrEmpty(viewName))
                 viewName = ToastKey;
             
-            var contentGo = await AddressablesManager.LoadAssetAsync<GameObject>(viewName);
-            if (contentGo.Value == null)
+            var contentGo = await AssetsKeyLoader.LoadAssetAsync(viewName);
+            if (contentGo == null)
                 throw new Exception($"Toast view is not found. viewName: {viewName}");
-            var viewGo = Object.Instantiate(contentGo.Value);
+            var viewGo = Object.Instantiate(contentGo);
             var view = viewGo.GetComponent<ToastView>();
             if (viewGroup == null)
                 viewGroup = GetCurrentViewGroup();

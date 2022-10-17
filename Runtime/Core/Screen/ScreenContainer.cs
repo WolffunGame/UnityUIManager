@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
@@ -24,6 +24,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         //controls load and unload of resources
         private readonly List<string> _screenItems = new List<string>(5);
+        private readonly IAssetsKeyLoader<GameObject> _assetsKeyLoader = new AssetsKeyLoader<GameObject>();
 
         //Controls the visibility of the screens, the last one is always visible
         private readonly List<Screen> _screenList = new List<Screen>(5);
@@ -49,17 +50,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         {
             foreach (var preloadAssetKey in _preloadAssetKeys)
             {
-                AddressablesManager.ReleaseAsset(preloadAssetKey);
+                _assetsKeyLoader.UnloadAsset(preloadAssetKey);
             }
-
             _preloadAssetKeys.Clear();
-            foreach (var item in _screenItems)
-            {
-                AddressablesManager.ReleaseAsset(item);
-            }
-
+            
+            _assetsKeyLoader.UnloadAllAssets();
             _screenItems.Clear();
-
+            
             InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
@@ -123,9 +120,9 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             _isInTransition = true;
 
             // Setup
-            var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(option.ResourcePath);
+            var operationResult = await _assetsKeyLoader.LoadAssetAsync(option.ResourcePath);
 
-            var instance = Instantiate(operationResult.Value);
+            var instance = Instantiate(operationResult);
             var enterScreen = instance.GetComponent<Screen>();
             if (enterScreen == null)
                 throw new InvalidOperationException(
@@ -188,7 +185,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 var beforeReleaseHandle = exitScreen.BeforeRelease();
                 await beforeReleaseHandle;
 
-                AddressablesManager.ReleaseAsset(_screenItems[_screenItems.Count - 2]);
+                _assetsKeyLoader.UnloadAsset(_screenItems[^2]);
                 _screenItems.RemoveAt(_screenItems.Count - 2);
                 Destroy(exitScreen.gameObject);
             }
@@ -206,8 +203,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             _isInTransition = true;
 
-            var exitScreen = _screenList[_screenList.Count - 1];
-            var enterScreen = _screenList.Count == 1 ? null : _screenList[_screenList.Count - 2];
+            var exitScreen = _screenList[^1];
+            var enterScreen = _screenList.Count == 1 ? null : _screenList[^2];
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers) callbackReceiver.BeforePop(enterScreen, exitScreen);
@@ -241,7 +238,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             var beforeReleaseTask = exitScreen.BeforeRelease();
             await beforeReleaseTask;
 
-            AddressablesManager.ReleaseAsset(_screenItems[_screenItems.Count - 1]);
+            _assetsKeyLoader.UnloadAsset(_screenItems[^1]);
             _screenItems.RemoveAt(_screenItems.Count - 1);
             Destroy(exitScreen.gameObject);
 
@@ -429,13 +426,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         private UniTask PreloadTask(string resourceKey)
         {
-            return AddressablesManager.LoadAssetAsync<GameObject>(resourceKey);
+            return _assetsKeyLoader.LoadAssetAsync(resourceKey);
         }
 
         public void ReleasePreloaded(string resourceKey)
         {
+            _assetsKeyLoader.UnloadAsset(resourceKey);
             _preloadAssetKeys.Remove(resourceKey);
-            AddressablesManager.ReleaseAsset(resourceKey);
         }
 
         #endregion

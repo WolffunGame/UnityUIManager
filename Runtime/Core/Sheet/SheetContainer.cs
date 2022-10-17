@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -20,9 +21,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         [SerializeField] private string _name;
 
         //controls load and unload of resources
-        private readonly List<string> _sheetItems = new List<string>();
-        // private readonly Dictionary<int, AssetLoadHandle<GameObject>> _assetLoadHandles
-        //     = new Dictionary<int, AssetLoadHandle<GameObject>>();
+        private readonly IAssetsKeyLoader<GameObject> _assetsKeyLoader = new AssetsKeyLoader<GameObject>();
 
         private readonly List<ISheetContainerCallbackReceiver> _callbackReceivers =
             new List<ISheetContainerCallbackReceiver>();
@@ -32,9 +31,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
         private int? _activeSheetId;
         private CanvasGroup _canvasGroup;
-
-        //private IAssetLoader AssetLoader => UnityScreenNavigatorSettings.Instance.AssetLoader;
-
+        
         public int? ActiveSheetId => _activeSheetId;
 
         public Sheet ActiveSheet
@@ -85,12 +82,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                 Destroy(sheet.gameObject);
             }
 
-            foreach (var item in _sheetItems)
-            {
-                AddressablesManager.ReleaseAsset(item);
-            }
+            _assetsKeyLoader.UnloadAllAssets();
 
-            _sheetItems.Clear();
+            //_sheetItems.Clear();
 
             InstanceCacheByName.Remove(_name);
             var keysToRemove = new List<int>();
@@ -216,8 +210,7 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
         /// <param name="loadAsync"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public UniTask Register(string resourceKey,
-            Action<(int sheetId, Sheet instance)> onLoad = null, bool loadAsync = true)
+        public UniTask Register(string resourceKey, Action<(int sheetId, Sheet instance)> onLoad = null, bool loadAsync = true)
         {
             return RegisterTask(resourceKey, onLoad, loadAsync);
         }
@@ -230,10 +223,9 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                 throw new ArgumentNullException(nameof(resourceKey));
             }
 
-            var operationResult = await AddressablesManager.LoadAssetAsync<GameObject>(resourceKey);
+            var operationResult = await _assetsKeyLoader.LoadAssetAsync(resourceKey);
 
-
-            var instance = Instantiate(operationResult.Value);
+            var instance = Instantiate(operationResult);
             var sheet = instance.GetComponent<Sheet>();
             if (sheet == null)
             {
@@ -241,7 +233,6 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
                     $"Cannot register because the \"{nameof(Sheet)}\" component is not attached to the specified resource \"{resourceKey}\".");
             }
 
-            _sheetItems.Add(resourceKey);
             var sheetId = sheet.GetInstanceID();
             _sheets.Add(sheetId, sheet);
             _sheetNameToId[resourceKey] = sheetId;

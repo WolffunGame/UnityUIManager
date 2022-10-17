@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "com.cysharp.unitask": "2.2.5",
-    "com.laicasaane.unity-addressables-manager": "1.2.3"
+    "com.dre0dru.addressables.services": "1.2.0"
   },
   "author": {
     "name": "Nguyen Danh Dat",
