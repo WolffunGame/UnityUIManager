@@ -18,7 +18,7 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
                 UpdateDispatcher.Instance.Unregister(player);
             }
 #else
-            await self.Play();
+            await self.Play(default);
 #endif
         }
     }
