@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared
@@ -34,7 +35,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         public abstract void SetTime(float time);
 #endif
 
-        public abstract UniTask Play();
+        public abstract UniTask Play(CancellationToken cancellationToken);
     }
     
 }

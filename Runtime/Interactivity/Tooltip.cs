@@ -82,8 +82,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         public static async UniTask<Tooltip> Show(string key, string message,
-            TipPosition tipPosition,
-            RectTransform target, int offset, bool closeOnCancelClick = true)
+            TipPosition tipPosition, RectTransform target, int offset, bool closeOnCancelClick = true)
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -115,7 +114,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             
             view.Tooltip = tip;
 
-            await view.Show();
+            await view.Show(view.GetCancellationTokenOnDestroy());
             Tooltips.Add(view, tip);
             return tip;
         }
@@ -167,7 +166,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             
             view.Tooltip = tip;
 
-            await view.Show();
+            await view.Show(view.GetCancellationTokenOnDestroy());
             Tooltips.Add(view, tip);
             return tip;
         }

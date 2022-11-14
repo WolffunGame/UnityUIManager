@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -30,9 +31,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
             //throw new System.NotImplementedException();
         }
 #endif
-        public override async UniTask Play()
+        public override async UniTask Play(CancellationToken cancellationToken)
         {
-            await SetTime();
+            await SetTime(cancellationToken);
         }
 
         public static SwitchTransitionAnimationObject CreateInstance(float? duration = null, Ease? easeType = null,
@@ -55,7 +56,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
             _canvasGroup = canvasGroup;
         }
 
-        public async UniTask SetTime()
+        public async UniTask SetTime(CancellationToken cancellationToken)
         {
             var sequence = DOTween.Sequence();
 
@@ -66,7 +67,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
             _ = sequence.Join(scaleTweener);
             _ = sequence.Join(fadeTweener);
 
-            await sequence.AsyncWaitForCompletion();
+            await sequence.AwaitForComplete(cancellationToken: cancellationToken);
         }
 
         public void SetParams(float? duration = null, Ease? easeType = null,

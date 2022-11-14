@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
@@ -40,9 +41,6 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             get { return _contentView; }
             set
             {
-                // if (_contentView == value)
-                //     return;
-                //
                 if (_contentView != null)
                     Destroy(_contentView.Owner);
 
@@ -59,7 +57,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
         public Tooltip Tooltip { get; set; }
 
-        protected virtual async void Close()
+        protected virtual async void Close(CancellationToken cancellationToken)
         {
             if(Tooltip.LockClose)
                 return;
@@ -72,7 +70,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             exitAnim.Setup(RectTransform);
-            await exitAnim.Play();
+            await exitAnim.Play(cancellationToken);
 
             Tooltip.AfterHide.Value = true;
 
@@ -81,7 +79,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                 Destroy(gameObject);
         }
 
-        public async UniTask Show()
+        public async UniTask Show(CancellationToken cancellationToken)
         {
             var enterAnim = TransitionAnimationContainer.GetAnimation(true);
             if (enterAnim == null)
@@ -91,7 +89,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             enterAnim.Setup(RectTransform);
-            await enterAnim.Play();
+            await enterAnim.Play(cancellationToken);
         }
 
         protected override void Start()
@@ -100,7 +98,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             Tooltip.Message?.BindTo(messageText);
             
             Tooltip.CloseOnCancelClick.Subscribe(b => closeButton.gameObject.SetActive(b));
-            closeButton.onClick.AddListener(Close);
+            closeButton.OnClickAsAsyncEnumerable().Subscribe(_ => Close(this.GetCancellationTokenOnDestroy()));
 
             UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ =>
                 {
@@ -108,11 +106,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                     {
                         if (!Tooltip.CloseOnCancelClick.Value)
                         {
-                            Close();
+                            Close(this.GetCancellationTokenOnDestroy());
                         }
                     }
                 },
-                gameObject.GetCancellationTokenOnDestroy());
+                this.GetCancellationTokenOnDestroy());
         }
 
         protected override void OnDestroy()

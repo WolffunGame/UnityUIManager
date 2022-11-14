@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -48,7 +49,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
         }
 #endif
 
-        public override async UniTask Play()
+        public override async UniTask Play(CancellationToken cancellationToken)
         {
             await SetTime();
         }

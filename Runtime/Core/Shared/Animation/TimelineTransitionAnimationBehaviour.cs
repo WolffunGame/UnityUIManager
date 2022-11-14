@@ -1,4 +1,5 @@
 #if UI_ANIMATION_TIMELINE_SUPPORT
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -24,7 +25,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             _director.extrapolationMode = DirectorWrapMode.None;
         }
 
-        public override UniTask Play()
+        public override UniTask Play(CancellationToken cancellationToken)
         {
             return UniTask.CompletedTask;
         }

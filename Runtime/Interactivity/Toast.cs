@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using AddressableAssets.Loaders;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Interactivity.Views;
@@ -100,14 +100,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         }
 
         private static async UniTask<Toast> Show(string viewName, IUIViewGroup viewGroup, string text, float duration,
-            UILayout layout,
-            Action callback)
+            UILayout layout, Action callback)
         {
             //Cancel all existing toasts
             foreach (var t in Toasts)
             {
                 t.View.Visibility = false;
-                t.Cancel().Forget();
+                await t.Cancel(default);
             }
             if (string.IsNullOrEmpty(viewName))
                 viewName = ToastKey;
@@ -122,41 +121,41 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var toast = new Toast(view, viewGroup, text, duration, layout, callback);
             Toasts.Add(toast);
-            await toast.Show();
+            await toast.Show(view.GetCancellationTokenOnDestroy());
             return toast;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        public async UniTask Cancel()
+        public async UniTask Cancel(CancellationToken cancellationToken)
         {
             if (View == null || View.Owner == null)
                 return;
 
             if (!View.Visibility)
             {
-                Object.Destroy(View.Owner);
+                Object.Destroy(View);
                 return;
             }
             
-            await View.PlayExitAnimation();
-            Object.Destroy(View.Owner);
+            await View.PlayExitAnimation(cancellationToken);
+            Object.Destroy(View);
             DoCallback();
         }
 
-        private async UniTask Show()
+        private async UniTask Show(CancellationToken cancellationToken)
         {
             _viewGroup.AddView(View, _layout);
             View.SetMessage(Message);
 
-            await View.PlayEnterAnimation();
+            await View.PlayEnterAnimation(cancellationToken);
 
-            await DelayDismiss(Duration);
+            await DelayDismiss(Duration, cancellationToken);
         }
 
-        private async UniTask DelayDismiss(float duration)
+        private async UniTask DelayDismiss(float duration, CancellationToken token)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: View.GetCancellationTokenOnDestroy());
-            await Cancel();
+            await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: token);
+            await Cancel(token);
         }
 
         private void DoCallback()

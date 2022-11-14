@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 
 namespace UnityScreenNavigator.Runtime.Foundation.Animation
 {
@@ -20,6 +21,6 @@ namespace UnityScreenNavigator.Runtime.Foundation.Animation
         /// Entry point to start animation. Work with animation system such as DOTween of other system does not need update every time.
         /// </summary>
         /// <returns></returns>
-        UniTask Play();
+        UniTask Play(CancellationToken cancellationToken);
     }
 }

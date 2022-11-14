@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
@@ -21,7 +22,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             messageText.text = message;
         }
 
-        public UniTask PlayEnterAnimation()
+        public UniTask PlayEnterAnimation(CancellationToken cancellationToken)
         {
             var enterAnimation = transitionAnimationContainer.GetAnimation(true);
             if (enterAnimation == null)
@@ -31,10 +32,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             enterAnimation.Setup(RectTransform);
-            return enterAnimation.Play();
+            return enterAnimation.Play(cancellationToken);
         }
         
-        public UniTask PlayExitAnimation()
+        public UniTask PlayExitAnimation(CancellationToken cancellationToken)
         {
             var exitAnimation = transitionAnimationContainer.GetAnimation(false);
             if (exitAnimation == null)
@@ -44,7 +45,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             exitAnimation.Setup(RectTransform);
-            return exitAnimation.Play();
+            return exitAnimation.Play(cancellationToken);
         }
         
     }

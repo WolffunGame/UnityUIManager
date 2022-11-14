@@ -1,5 +1,6 @@
 ﻿#if UI_ANIMATION_TIMELINE_SUPPORT
 using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityScreenNavigator.Runtime.Foundation.Animation;
 
@@ -21,7 +22,7 @@ namespace UnityScreenNavigator.Tests.PlayMode.Foundation
             Progress = time / Duration;
         }
 
-        public UniTask Play()
+        public UniTask Play(CancellationToken cancellationToken)
         {
             return UniTask.CompletedTask;
         }

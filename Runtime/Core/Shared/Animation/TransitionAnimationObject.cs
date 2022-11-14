@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace UnityScreenNavigator.Runtime.Core.Shared
@@ -14,7 +15,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
         public abstract float Duration { get; }
         public abstract bool IsCompleted { get; }
 #endif
-        public abstract UniTask Play();
+        public abstract UniTask Play(CancellationToken cancellationToken);
 
         void ITransitionAnimation.SetPartner(RectTransform partnerRectTransform)
         {

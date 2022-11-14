@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -37,9 +38,9 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             //throw new System.NotImplementedException();
         }
 #endif
-        public override async UniTask Play()
+        public override async UniTask Play(CancellationToken cancellationToken)
         {
-            await SetTime();
+            await SetTime(cancellationToken);
         }
 
         public static SimpleTransitionAnimationObject CreateInstance(float? duration = null, Ease? easeType = null,
@@ -64,7 +65,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             _canvasGroup = canvasGroup;
         }
 
-        public async UniTask SetTime()
+        public async UniTask SetTime(CancellationToken cancellationToken)
         {
             // time = Mathf.Max(0, time - _delay);
             // var progress = _duration <= 0.0f ? 1.0f : Mathf.Clamp01(time / _duration);
@@ -85,7 +86,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
              _ = _sequence.Join(anchorPosTweener);
              _ = _sequence.Join(scaleTweener);
              _ = _sequence.Join(fadeTweener);
-            await _sequence.AwaitForComplete();
+            await _sequence.AwaitForComplete(cancellationToken: cancellationToken);
         }
 
         public void SetParams(float? duration = null, Ease? easeType = null, SheetAlignment? beforeAlignment = null,
