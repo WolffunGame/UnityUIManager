@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 
 namespace UnityScreenNavigator.Runtime.Interactivity
 {
-    public class Toast
+    public readonly partial struct Toast
     {
         private const string DEFAULT_VIEW_NAME = "DefaultToast";
 
@@ -23,7 +23,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         
         private static readonly List<Toast> Toasts = new List<Toast>();
         private static readonly IAssetsKeyLoader<GameObject> AssetsKeyLoader = new AssetsKeyLoader<GameObject>();
-        protected Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration) : this(view, viewGroup,
+        private Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration) : this(view, viewGroup,
             message, duration, null, null)
         {
         }

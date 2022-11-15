@@ -7,7 +7,7 @@ using UnityScreenNavigator.Runtime.Interactivity.Animation;
 
 namespace UnityScreenNavigator.Runtime.Interactivity.Views
 {
-    public class ToastView : UIView
+    public partial class ToastView : UIView
     {
         #if USN_USE_TEXTMESHPRO
         [SerializeField] private TMPro.TextMeshProUGUI messageText;
