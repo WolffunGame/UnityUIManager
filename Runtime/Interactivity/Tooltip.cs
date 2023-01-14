@@ -170,6 +170,44 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             Tooltips.Add(view, tip);
             return tip;
         }
+
+        public static async UniTask<Tooltip> Show(string key, string message,
+            TipPosition tipPosition, RectTransform target, IUIViewGroup container ,int offset, bool closeOnCancelClick = true)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                key = ViewName;
+            }
+
+            //Close all tooltips are open
+            foreach (var tooltip in Tooltips)
+            {
+                Object.Destroy(tooltip.Key.gameObject);
+            }
+
+            Tooltips.Clear();
+            //load tooltip view
+            var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
+            if (tipAsset == null)
+            {
+                throw new Exception($"Can't find tooltip asset with key: {key}");
+            }
+
+            var content = Object.Instantiate(tipAsset);
+            var view = content.GetComponent<TooltipView>();
+
+            var viewGroup = container;
+
+            var tip = new Tooltip(message, viewGroup, closeOnCancelClick);
+            viewGroup.AddView(view);
+            view.SetPosition(tipPosition, target, offset);
+            
+            view.Tooltip = tip;
+
+            await view.Show(view.GetCancellationTokenOnDestroy());
+            Tooltips.Add(view, tip);
+            return tip;
+        }
         #endregion
     }
 }
