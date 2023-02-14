@@ -18,7 +18,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         private IUIViewGroup ViewGroup { get; } 
 
         public AsyncReactiveProperty<bool> CloseOnCancelClick { get;}
-        public AsyncReactiveProperty<bool> DoneSetUp { get; set;}
+        public AsyncReactiveProperty<bool> OnLazySetValue { get; set;}
         public bool LockClose { get; private set; }
 
         #region LAZY SET 
@@ -27,8 +27,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             return this;
         }
 
-        public Tooltip SetDoneSetUp() {
-            DoneSetUp.Value = true;
+        public Tooltip SetOnLazySetValues() {
+            OnLazySetValue.Value = true;
             return this;
         }
 
