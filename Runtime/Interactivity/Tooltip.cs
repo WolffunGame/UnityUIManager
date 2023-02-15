@@ -13,25 +13,36 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 {
     public class Tooltip
     {
-        public AsyncReactiveProperty<string> Message { get; }
+        public AsyncReactiveProperty<string> Message { get; set;}
         public AsyncReactiveProperty<bool> AfterHide { get; set; }
         private IUIViewGroup ViewGroup { get; } 
 
         public AsyncReactiveProperty<bool> CloseOnCancelClick { get;}
-        
+        public AsyncReactiveProperty<bool> OnLazySetValue { get; set;}
         public bool LockClose { get; private set; }
 
-        private Tooltip(string message, IUIViewGroup viewGroup, bool closeOnCancelClick = false)
+        #region LAZY SET 
+        public Tooltip SetMessage(string message) {
+            Message.Value = message;
+            return this;
+        }
+
+        public Tooltip SetOnLazySetValues() {
+            OnLazySetValue.Value = true;
+            return this;
+        }
+
+        #endregion
+
+        private Tooltip(string message, bool closeOnCancelClick = false)
         {
             Message = new AsyncReactiveProperty<string>(message);
-            ViewGroup = viewGroup;
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
             AfterHide = new AsyncReactiveProperty<bool>(false);
         }
 
-        private Tooltip(IUIViewGroup viewGroup, bool closeOnCancelClick = false)
+        private Tooltip( bool closeOnCancelClick = false)
         {
-            ViewGroup = viewGroup;
             CloseOnCancelClick = new AsyncReactiveProperty<bool>(closeOnCancelClick);
             AfterHide = new AsyncReactiveProperty<bool>(false);
         }
@@ -64,9 +75,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static IUIViewGroup GetCurrentViewGroup()
+        private static IUIViewGroup GetCurrentViewGroup(IContainerLayer layer)
         {
-            var container = ContainerLayerManager.GetTopVisibilityLayer();
+            var container = layer;
             return container.Current;
         }
 
@@ -82,20 +93,19 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
         public static async UniTask<Tooltip> Show(string key, string message,
-            TipPosition tipPosition, RectTransform target, int offset, bool closeOnCancelClick = true)
+            TipPosition tipPosition,
+            RectTransform target,
+            int offset, 
+            bool closeOnCancelClick = true
+            )
         {
             if (string.IsNullOrEmpty(key))
             {
                 key = ViewName;
             }
 
-            //Close all tooltips are open
-            foreach (var tooltip in Tooltips)
-            {
-                Object.Destroy(tooltip.Key.gameObject);
-            }
+            CloseAllOpeningTooltips();
 
-            Tooltips.Clear();
             //load tooltip view
             var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
             if (tipAsset == null)
@@ -106,9 +116,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             var content = Object.Instantiate(tipAsset);
             var view = content.GetComponent<TooltipView>();
 
-            var viewGroup = GetCurrentViewGroup();
+            var viewGroup = GetCurrentViewGroup(ContainerLayerManager.GetTopVisibilityLayer());
 
-            var tip = new Tooltip(message, viewGroup, closeOnCancelClick);
+            var tip = new Tooltip(message, closeOnCancelClick);
             viewGroup.AddView(view);
             view.SetPosition(tipPosition, target, offset);
             
@@ -130,22 +140,19 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="closeOnCancelClick"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static async UniTask<Tooltip> Show(string key, IUIView contentView,
+        public static async UniTask<Tooltip> Show(
+            string key, IUIView contentView,
             TipPosition tipPosition,
-            RectTransform target, int offset, bool closeOnCancelClick = true)
+            RectTransform target, int offset,
+            bool closeOnCancelClick = true)
         {
             if (string.IsNullOrEmpty(key))
             {
                 key = ViewName;
             }
 
-            //Close all tooltips are open
-            foreach (var tooltip in Tooltips)
-            {
-                Object.Destroy(tooltip.Key.gameObject);
-            }
+            CloseAllOpeningTooltips();
 
-            Tooltips.Clear();
             //load tooltip view
             var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
             if (tipAsset == null)
@@ -158,10 +165,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             //set tooltip view if any
             view.ContentView = contentView;
 
-            var viewGroup = GetCurrentViewGroup();
+            var viewGroup = GetCurrentViewGroup(ContainerLayerManager.GetTopVisibilityLayer());
 
-            var tip = new Tooltip(viewGroup, closeOnCancelClick);
-            tip.ViewGroup.AddView(view);
+            var tip = new Tooltip(closeOnCancelClick);
+
+            view.SetViewGroup(viewGroup);
+
             view.SetPosition(tipPosition, target, offset);
             
             view.Tooltip = tip;
@@ -169,6 +178,16 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             await view.Show(view.GetCancellationTokenOnDestroy());
             Tooltips.Add(view, tip);
             return tip;
+        }
+
+        public static void CloseAllOpeningTooltips(){
+
+            foreach (var tooltip in Tooltips)
+            {
+                Object.Destroy(tooltip.Key.gameObject);
+            }
+
+            Tooltips.Clear();
         }
 
         public static async UniTask<Tooltip> Show(string key, string message,
@@ -179,13 +198,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 key = ViewName;
             }
 
-            //Close all tooltips are open
-            foreach (var tooltip in Tooltips)
-            {
-                Object.Destroy(tooltip.Key.gameObject);
-            }
+            CloseAllOpeningTooltips();
 
-            Tooltips.Clear();
             //load tooltip view
             var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
             if (tipAsset == null)
@@ -194,19 +208,98 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
 
             var content = Object.Instantiate(tipAsset);
+
             var view = content.GetComponent<TooltipView>();
 
             var viewGroup = container;
 
-            var tip = new Tooltip(message, viewGroup, closeOnCancelClick);
-            viewGroup.AddView(view);
+            var tip = new Tooltip(message, closeOnCancelClick);
+
+            view.SetViewGroup(viewGroup);
+
             view.SetPosition(tipPosition, target, offset);
             
             view.Tooltip = tip;
 
             await view.Show(view.GetCancellationTokenOnDestroy());
+
             Tooltips.Add(view, tip);
+
             return tip;
+        }
+
+
+        /// <summary>
+        /// Create a (Tooltip, TooltipView) pair in the specified ViewGroup without setting position, message, or animation
+        /// </summary>
+        /// <param name="key">The Addressable key of the tooltip prefab</param>
+        /// <param name="container">The ViewGroup the tooltip will be added to</param>
+        /// <param name="closeOnCancelClick"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        
+        public static async UniTask<(Tooltip, TooltipView)> LazyShow(string key, IUIViewGroup container , bool closeOnCancelClick = true)
+        {
+            if (string.IsNullOrEmpty(key))
+            {
+                key = ViewName;
+            }
+
+            //load tooltip view
+            var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
+            
+            if (tipAsset == null)
+            {
+                throw new Exception($"Can't find tooltip asset with key: {key}");
+            }
+
+            var content = Object.Instantiate(tipAsset);
+            
+            var view = content.GetComponent<TooltipView>();
+
+            var viewGroup = container;
+
+            var tip = new Tooltip("", closeOnCancelClick);
+
+            view.SetViewGroup(viewGroup);
+
+            view.Tooltip = tip;
+
+          //  await tip.DoneSetUp.WaitAsync();
+
+         //   await view.Show(view.GetCancellationTokenOnDestroy());
+
+            Tooltips.Add(view, tip);
+
+            return (tip, view);
+        }
+
+        /// <summary>
+        /// LazyShow but with input tooltip GameObject
+        /// </summary>
+        /// <param name="tooltipObj"></param>
+        /// <param name="container"></param>
+        /// <param name="closeOnCancelClick"></param>
+        /// <returns></returns>
+         public static async UniTask<(Tooltip, TooltipView)> LazyShow(GameObject tooltipObj, IUIViewGroup container , bool closeOnCancelClick = true)
+        {            
+            var view = tooltipObj.GetComponent<TooltipView>();
+
+            var viewGroup = container;
+
+            var tip = new Tooltip("", closeOnCancelClick);
+
+            view.SetViewGroup(viewGroup);
+
+            view.Tooltip = tip;
+
+          //  await tip.DoneSetUp.WaitAsync();
+
+         //   await view.Show(view.GetCancellationTokenOnDestroy());
+
+            Tooltips.Add(view, tip);
+
+            return (tip, view);
         }
         #endregion
     }

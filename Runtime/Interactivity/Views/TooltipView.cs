@@ -61,7 +61,18 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
         {
             if(Tooltip.LockClose)
                 return;
-            //play Exit animation
+            
+            await PlayExitAnim(cancellationToken);
+
+            Tooltip.AfterHide.Value = true;
+
+            Tooltip.Remove(this);
+            
+            if (gameObject)
+                Destroy(gameObject);
+        }
+
+        private UniTask PlayExitAnim(CancellationToken cancellationToken) {
             var exitAnim = transitionAnimationContainer.GetAnimation(false);
             if (exitAnim == null)
             {
@@ -70,13 +81,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             exitAnim.Setup(RectTransform);
-            await exitAnim.Play(cancellationToken);
-
-            Tooltip.AfterHide.Value = true;
-
-            Tooltip.Remove(this);
-            if (gameObject)
-                Destroy(gameObject);
+            return exitAnim.Play(cancellationToken);
         }
 
         public async UniTask Show(CancellationToken cancellationToken)
@@ -89,6 +94,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             enterAnim.Setup(RectTransform);
+
             await enterAnim.Play(cancellationToken);
         }
 
@@ -97,8 +103,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             base.Start();
             Tooltip.Message?.BindTo(messageText);
             
-            Tooltip.CloseOnCancelClick.Subscribe(b => closeButton.gameObject.SetActive(b));
-            closeButton.OnClickAsAsyncEnumerable().Subscribe(_ => Close(this.GetCancellationTokenOnDestroy()));
+            Tooltip.CloseOnCancelClick?.Subscribe(b => closeButton.gameObject.SetActive(b));
+            closeButton?.OnClickAsAsyncEnumerable().Subscribe(_ => Close(this.GetCancellationTokenOnDestroy()));
 
             UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ =>
                 {
@@ -118,5 +124,28 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             base.OnDestroy();
             Tooltip.Remove(this);
         }
+
+        #region LAZY SET
+        public TooltipView SetViewGroup(IUIViewGroup viewGroup) {
+            
+            if (viewGroup == null) 
+                    throw new System.ArgumentNullException("Null View Group");
+
+            try
+            {                
+                viewGroup.AddView(this);
+
+            } catch (System.Exception e) {
+
+                throw new System.Exception("UnityScreenNavigator: Error adding view");
+
+            }
+
+            return this;
+        }
+
+
+        
+        #endregion
     }
 }
