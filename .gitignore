@@ -71,3 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 .idea/
+
+/Documentation/
+/_site/
+/Assets/DemoDevelopment/obj/xdoc/cache/
