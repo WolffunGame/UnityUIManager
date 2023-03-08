@@ -23,7 +23,15 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
         #region LAZY SET 
         public Tooltip SetMessage(string message) {
-            Message.Value = message;
+            //Message.Value = message;
+            if (Message == null)
+            {
+                Message = new AsyncReactiveProperty<string>(message); 
+            }
+            else
+            {
+                Message.Value = message;
+            }
             return this;
         }
 
@@ -259,7 +267,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var viewGroup = container;
 
-            var tip = new Tooltip("", closeOnCancelClick);
+            var tip = new Tooltip(closeOnCancelClick);
 
             view.SetViewGroup(viewGroup);
 
@@ -287,7 +295,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var viewGroup = container;
 
-            var tip = new Tooltip("", closeOnCancelClick);
+            var tip = new Tooltip(closeOnCancelClick);
 
             view.SetViewGroup(viewGroup);
 
