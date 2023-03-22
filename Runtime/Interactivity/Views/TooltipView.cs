@@ -22,6 +22,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
         [SerializeField] private InteractivityTransitionAnimationContainer transitionAnimationContainer =
             new InteractivityTransitionAnimationContainer();
 
+        [SerializeField] private bool isDisableAutoClose;
+
         /// <summary>
         /// Manage animations for tooltip
         /// </summary>
@@ -106,17 +108,20 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             Tooltip.CloseOnCancelClick?.Subscribe(b => closeButton.gameObject.SetActive(b));
             closeButton?.OnClickAsAsyncEnumerable().Subscribe(_ => Close(this.GetCancellationTokenOnDestroy()));
 
-            UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ =>
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        if (!Tooltip.CloseOnCancelClick.Value)
-                        {
-                            Close(this.GetCancellationTokenOnDestroy());
-                        }
-                    }
-                },
-                this.GetCancellationTokenOnDestroy());
+            if (!isDisableAutoClose)
+            {
+                UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ =>
+                  {
+                      if (Input.GetMouseButtonDown(0))
+                      {
+                          if (!Tooltip.CloseOnCancelClick.Value)
+                          {
+                              Close(this.GetCancellationTokenOnDestroy());
+                          }
+                      }
+                  },
+                  this.GetCancellationTokenOnDestroy());
+            }
         }
 
         protected override void OnDestroy()
