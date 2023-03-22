@@ -59,6 +59,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
         public Tooltip Tooltip { get; set; }
 
+        public void QuickClose()
+        {
+            Close(this.GetCancellationTokenOnDestroy());
+        }
+
         protected virtual async void Close(CancellationToken cancellationToken)
         {
             if(Tooltip.LockClose)
