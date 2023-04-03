@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  id: MonoBehaviourDestroyedEventDispatcher
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy
+  - UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDispatch
+  langs:
+  - csharp
+  - vb
+  name: MonoBehaviourDestroyedEventDispatcher
+  nameWithType: MonoBehaviourDestroyedEventDispatcher
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  type: Class
+  source:
+    id: MonoBehaviourDestroyedEventDispatcher
+    path: ''
+    startLine: 3349
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: 'public class MonoBehaviourDestroyedEventDispatcher : MonoBehaviour'
+    content.vb: Public Class MonoBehaviourDestroyedEventDispatcher Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy
+  id: OnDestroy
+  parent: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  langs:
+  - csharp
+  - vb
+  name: OnDestroy()
+  nameWithType: MonoBehaviourDestroyedEventDispatcher.OnDestroy()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy()
+  type: Method
+  source:
+    id: OnDestroy
+    path: ''
+    startLine: 3351
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public void OnDestroy()
+    content.vb: Public Sub OnDestroy()
+  overload: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDispatch
+  commentId: E:UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDispatch
+  id: OnDispatch
+  parent: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  langs:
+  - csharp
+  - vb
+  name: OnDispatch
+  nameWithType: MonoBehaviourDestroyedEventDispatcher.OnDispatch
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDispatch
+  type: Event
+  source:
+    id: OnDispatch
+    path: ''
+    startLine: 3356
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public event Action OnDispatch
+    return:
+      type: Global.Action
+    content.vb: Public Event OnDispatch As Action
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy
+  name: OnDestroy
+  nameWithType: MonoBehaviourDestroyedEventDispatcher.OnDestroy
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.OnDestroy
+- uid: Global.Action
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: Action

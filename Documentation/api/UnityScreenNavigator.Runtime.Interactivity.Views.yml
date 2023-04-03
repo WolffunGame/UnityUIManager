@@ -1,0 +1,64 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Views
+  id: UnityScreenNavigator.Runtime.Interactivity.Views
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  - UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Interactivity.Views
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Views
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  name: AlertDialogWindow
+  nameWithType: AlertDialogWindow
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  name: ToastView
+  nameWithType: ToastView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views
+  name: TooltipView
+  nameWithType: TooltipView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Views
+  name: UnityScreenNavigator.Runtime.Interactivity.Views
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Views
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views

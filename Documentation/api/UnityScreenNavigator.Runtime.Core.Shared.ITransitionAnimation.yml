@@ -1,0 +1,121 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  id: ITransitionAnimation
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner(RectTransform)
+  - UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup(RectTransform)
+  langs:
+  - csharp
+  - vb
+  name: ITransitionAnimation
+  nameWithType: ITransitionAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  type: Interface
+  source:
+    id: ITransitionAnimation
+    path: ''
+    startLine: 3337
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: 'public interface ITransitionAnimation : IAnimation'
+    content.vb: Public Interface ITransitionAnimation Inherits IAnimation
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner(RectTransform)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner(RectTransform)
+  id: SetPartner(RectTransform)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: SetPartner(RectTransform)
+  nameWithType: ITransitionAnimation.SetPartner(RectTransform)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner(RectTransform)
+  type: Method
+  source:
+    id: SetPartner
+    path: ''
+    startLine: 3339
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: void SetPartner(RectTransform partnerRectTransform)
+    parameters:
+    - id: partnerRectTransform
+      type: Global.RectTransform
+    content.vb: Sub SetPartner(partnerRectTransform As RectTransform)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup(RectTransform)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup(RectTransform)
+  id: Setup(RectTransform)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: Setup(RectTransform)
+  nameWithType: ITransitionAnimation.Setup(RectTransform)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup(RectTransform)
+  type: Method
+  source:
+    id: Setup
+    path: ''
+    startLine: 3341
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: void Setup(RectTransform rectTransform)
+    parameters:
+    - id: rectTransform
+      type: Global.RectTransform
+    content.vb: Sub Setup(rectTransform As RectTransform)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner
+  name: SetPartner
+  nameWithType: ITransitionAnimation.SetPartner
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner
+- uid: Global.RectTransform
+  isExternal: true
+  name: RectTransform
+  nameWithType: RectTransform
+  fullName: RectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup
+  name: Setup
+  nameWithType: ITransitionAnimation.Setup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup

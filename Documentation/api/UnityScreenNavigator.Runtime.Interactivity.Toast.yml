@@ -1,0 +1,823 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Toast
+  id: Toast
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel(CancellationToken)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Duration
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Message
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single,UILayout,Action)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single,UILayout)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,IUIViewGroup,System.String,System.Single)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single,UILayout,Action)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single,UILayout)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.String,System.Single)
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey
+  - UnityScreenNavigator.Runtime.Interactivity.Toast.View
+  langs:
+  - csharp
+  - vb
+  name: Toast
+  nameWithType: Toast
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast
+  type: Struct
+  source:
+    id: Toast
+    path: ''
+    startLine: 6844
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public readonly struct Toast
+    content.vb: Public Structure Toast
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey
+  id: ToastKey
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: ToastKey
+  nameWithType: Toast.ToastKey
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey
+  type: Property
+  source:
+    id: ToastKey
+    path: ''
+    startLine: 6871
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static string ToastKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared Property ToastKey As String
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Duration
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Toast.Duration
+  id: Duration
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Toast.Duration
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Duration
+  type: Property
+  source:
+    id: Duration
+    path: ''
+    startLine: 6877
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public float Duration { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Duration As Single
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Duration*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Message
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Toast.Message
+  id: Message
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Toast.Message
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Message
+  type: Property
+  source:
+    id: Message
+    path: ''
+    startLine: 6879
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public string Message { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Message As String
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Message*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.View
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Toast.View
+  id: View
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: View
+  nameWithType: Toast.View
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.View
+  type: Property
+  source:
+    id: View
+    path: ''
+    startLine: 6881
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public ToastView View { get; }
+    parameters: []
+    return:
+      type: Global.ToastView
+    content.vb: Public ReadOnly Property View As ToastView
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.View*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup
+  id: GetCurrentViewGroup
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentViewGroup()
+  nameWithType: Toast.GetCurrentViewGroup()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup()
+  type: Method
+  source:
+    id: GetCurrentViewGroup
+    path: ''
+    startLine: 6883
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static IUIViewGroup GetCurrentViewGroup()
+    return:
+      type: Global.IUIViewGroup
+    content.vb: Public Shared Function GetCurrentViewGroup() As IUIViewGroup
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single)
+  id: Show(System.String,System.Single)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(string, float)
+  nameWithType: Toast.Show(string, float)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(string, float)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6890
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(string text, float duration = 3)
+    parameters:
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(text As String, duration As Single = 3) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(String, Single)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(String, Single)
+  name.vb: Show(String, Single)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single,UILayout)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single,UILayout)
+  id: Show(System.String,System.Single,UILayout)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(string, float, UILayout)
+  nameWithType: Toast.Show(string, float, UILayout)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(string, float, UILayout)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6895
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(string text, float duration, UILayout layout)
+    parameters:
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    - id: layout
+      type: Global.UILayout
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(text As String, duration As Single, layout As UILayout) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(String, Single, UILayout)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(String, Single, UILayout)
+  name.vb: Show(String, Single, UILayout)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single,UILayout,Action)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.Single,UILayout,Action)
+  id: Show(System.String,System.Single,UILayout,Action)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(string, float, UILayout, Action)
+  nameWithType: Toast.Show(string, float, UILayout, Action)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(string, float, UILayout, Action)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6900
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(string text, float duration, UILayout layout, Action callback)
+    parameters:
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    - id: layout
+      type: Global.UILayout
+    - id: callback
+      type: Global.Action
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(text As String, duration As Single, layout As UILayout, callback As Action) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(String, Single, UILayout, Action)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(String, Single, UILayout, Action)
+  name.vb: Show(String, Single, UILayout, Action)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single)
+  id: Show(IUIViewGroup,System.String,System.Single)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(IUIViewGroup, string, float)
+  nameWithType: Toast.Show(IUIViewGroup, string, float)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup, string, float)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6905
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration = 3)
+    parameters:
+    - id: viewGroup
+      type: Global.IUIViewGroup
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(viewGroup As IUIViewGroup, text As String, duration As Single = 3) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(IUIViewGroup, String, Single)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup, String, Single)
+  name.vb: Show(IUIViewGroup, String, Single)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single,UILayout)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single,UILayout)
+  id: Show(IUIViewGroup,System.String,System.Single,UILayout)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(IUIViewGroup, string, float, UILayout)
+  nameWithType: Toast.Show(IUIViewGroup, string, float, UILayout)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup, string, float, UILayout)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6910
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout)
+    parameters:
+    - id: viewGroup
+      type: Global.IUIViewGroup
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    - id: layout
+      type: Global.UILayout
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(viewGroup As IUIViewGroup, text As String, duration As Single, layout As UILayout) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(IUIViewGroup, String, Single, UILayout)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup, String, Single, UILayout)
+  name.vb: Show(IUIViewGroup, String, Single, UILayout)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single,UILayout,Action)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup,System.String,System.Single,UILayout,Action)
+  id: Show(IUIViewGroup,System.String,System.Single,UILayout,Action)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(IUIViewGroup, string, float, UILayout, Action)
+  nameWithType: Toast.Show(IUIViewGroup, string, float, UILayout, Action)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup, string, float, UILayout, Action)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6915
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout, Action callback)
+    parameters:
+    - id: viewGroup
+      type: Global.IUIViewGroup
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    - id: layout
+      type: Global.UILayout
+    - id: callback
+      type: Global.Action
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(viewGroup As IUIViewGroup, text As String, duration As Single, layout As UILayout, callback As Action) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(IUIViewGroup, String, Single, UILayout, Action)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(IUIViewGroup, String, Single, UILayout, Action)
+  name.vb: Show(IUIViewGroup, String, Single, UILayout, Action)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,IUIViewGroup,System.String,System.Single)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,IUIViewGroup,System.String,System.Single)
+  id: Show(System.String,IUIViewGroup,System.String,System.Single)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(string, IUIViewGroup, string, float)
+  nameWithType: Toast.Show(string, IUIViewGroup, string, float)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(string, IUIViewGroup, string, float)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6921
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(string key, IUIViewGroup viewGroup, string text, float duration = 3)
+    parameters:
+    - id: key
+      type: System.String
+    - id: viewGroup
+      type: Global.IUIViewGroup
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(key As String, viewGroup As IUIViewGroup, text As String, duration As Single = 3) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(String, IUIViewGroup, String, Single)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(String, IUIViewGroup, String, Single)
+  name.vb: Show(String, IUIViewGroup, String, Single)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.String,System.Single)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Show(System.String,System.String,System.Single)
+  id: Show(System.String,System.String,System.Single)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Show(string, string, float)
+  nameWithType: Toast.Show(string, string, float)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(string, string, float)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 6926
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Toast> Show(string key, string text, float duration)
+    parameters:
+    - id: key
+      type: System.String
+    - id: text
+      type: System.String
+    - id: duration
+      type: System.Single
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+    content.vb: Public Shared Function Show(key As String, text As String, duration As Single) As UniTask(Of Toast)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  nameWithType.vb: Toast.Show(String, String, Single)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Toast.Show(String, String, Single)
+  name.vb: Show(String, String, Single)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel(CancellationToken)
+  id: Cancel(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Toast
+  langs:
+  - csharp
+  - vb
+  name: Cancel(CancellationToken)
+  nameWithType: Toast.Cancel(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel(CancellationToken)
+  type: Method
+  source:
+    id: Cancel
+    path: ''
+    startLine: 6958
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public UniTask Cancel(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+    content.vb: Public Function Cancel(cancellationToken As CancellationToken) As UniTask
+  overload: UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel*
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey
+  name: ToastKey
+  nameWithType: Toast.ToastKey
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.ToastKey
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Duration*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.Duration
+  name: Duration
+  nameWithType: Toast.Duration
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Duration
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Message*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.Message
+  name: Message
+  nameWithType: Toast.Message
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Message
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.View*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.View
+  name: View
+  nameWithType: Toast.View
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.View
+- uid: Global.ToastView
+  commentId: '!:Global.ToastView'
+  isExternal: true
+  name: ToastView
+  nameWithType: ToastView
+  fullName: ToastView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup
+  name: GetCurrentViewGroup
+  nameWithType: Toast.GetCurrentViewGroup
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.GetCurrentViewGroup
+- uid: Global.IUIViewGroup
+  isExternal: true
+  name: IUIViewGroup
+  nameWithType: IUIViewGroup
+  fullName: IUIViewGroup
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Show*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.Show
+  name: Show
+  nameWithType: Toast.Show
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Show
+- uid: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}
+  commentId: '!:Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Toast}'
+  definition: Global.UniTask`1
+  name: UniTask<Toast>
+  nameWithType: UniTask<Toast>
+  fullName: UniTask<UnityScreenNavigator.Runtime.Interactivity.Toast>
+  nameWithType.vb: UniTask(Of Toast)
+  fullName.vb: UniTask(Of UnityScreenNavigator.Runtime.Interactivity.Toast)
+  name.vb: UniTask(Of Toast)
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Toast
+    name: Toast
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Toast
+    name: Toast
+  - name: )
+- uid: Global.UniTask`1
+  isExternal: true
+  name: UniTask<>
+  nameWithType: UniTask<>
+  fullName: UniTask<>
+  nameWithType.vb: UniTask(Of )
+  fullName.vb: UniTask(Of )
+  name.vb: UniTask(Of )
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: Global.UILayout
+  isExternal: true
+  name: UILayout
+  nameWithType: UILayout
+  fullName: UILayout
+- uid: Global.Action
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: Action
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel
+  name: Cancel
+  nameWithType: Toast.Cancel
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast.Cancel
+- uid: Global.CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask

@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Animation
+  id: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.SimpleTransitionAnimationBehaviour
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  name: AnimationAssetType
+  nameWithType: AnimationAssetType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.SimpleTransitionAnimationBehaviour
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.SimpleTransitionAnimationBehaviour
+  name: SimpleTransitionAnimationBehaviour
+  nameWithType: SimpleTransitionAnimationBehaviour
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.SimpleTransitionAnimationBehaviour
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  name: TransitionAnimation
+  nameWithType: TransitionAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Animation
+  name: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+    name: Animation
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+    name: Animation

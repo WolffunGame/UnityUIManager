@@ -1,0 +1,843 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  id: SheetContainer
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  children:
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find(System.String)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide(System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(RectTransform,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(Transform,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register(System.String,Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(System.Int32,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(System.String,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: SheetContainer
+  nameWithType: SheetContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  type: Class
+  source:
+    id: SheetContainer
+    path: ''
+    startLine: 5335
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: 'public sealed class SheetContainer : MonoBehaviour'
+    content.vb: Public NotInheritable Class SheetContainer Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId
+  commentId: P:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId
+  id: ActiveSheetId
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: ActiveSheetId
+  nameWithType: SheetContainer.ActiveSheetId
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId
+  type: Property
+  source:
+    id: ActiveSheetId
+    path: ''
+    startLine: 5358
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: public int? ActiveSheetId { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public ReadOnly Property ActiveSheetId As Integer?
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet
+  commentId: P:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet
+  id: ActiveSheet
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: ActiveSheet
+  nameWithType: SheetContainer.ActiveSheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet
+  type: Property
+  source:
+    id: ActiveSheet
+    path: ''
+    startLine: 5360
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: public Sheet ActiveSheet { get; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    content.vb: Public ReadOnly Property ActiveSheet As Sheet
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition
+  commentId: P:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition
+  id: IsInTransition
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: IsInTransition
+  nameWithType: SheetContainer.IsInTransition
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition
+  type: Property
+  source:
+    id: IsInTransition
+    path: ''
+    startLine: 5376
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nTrue if in transition.\n"
+  example: []
+  syntax:
+    content: public bool IsInTransition { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInTransition As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets
+  commentId: P:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets
+  id: Sheets
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Sheets
+  nameWithType: SheetContainer.Sheets
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets
+  type: Property
+  source:
+    id: Sheets
+    path: ''
+    startLine: 5381
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nRegistered sheets.\n"
+  example: []
+  syntax:
+    content: public IReadOnlyDictionary<int, Sheet> Sheets { get; }
+    parameters: []
+    return:
+      type: Global.IReadOnlyDictionary{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}
+    content.vb: Public ReadOnly Property Sheets As IReadOnlyDictionary(Of Integer, Sheet)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable
+  commentId: P:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable
+  id: Interactable
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Interactable
+  nameWithType: SheetContainer.Interactable
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable
+  type: Property
+  source:
+    id: Interactable
+    path: ''
+    startLine: 5383
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: public bool Interactable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Interactable As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(Transform,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(Transform,System.Boolean)
+  id: Of(Transform,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Of(Transform, bool)
+  nameWithType: SheetContainer.Of(Transform, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(Transform, bool)
+  type: Method
+  source:
+    id: Of
+    path: ''
+    startLine: 5434
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nGet the <xref href=\"UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer\" data-throw-if-not-resolved=\"false\"></xref> that manages the sheet to which <see cref=\"!:transform\"></see> belongs.\n"
+  example: []
+  syntax:
+    content: public static SheetContainer Of(Transform transform, bool useCache = true)
+    parameters:
+    - id: transform
+      type: Global.Transform
+      description: ''
+    - id: useCache
+      type: System.Boolean
+      description: Use the previous result for the <see cref="!:transform"></see>.
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+      description: ''
+    content.vb: Public Shared Function [Of](transform As Transform, useCache As Boolean = True) As SheetContainer
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of*
+  nameWithType.vb: SheetContainer.Of(Transform, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(Transform, Boolean)
+  name.vb: Of(Transform, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(RectTransform,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(RectTransform,System.Boolean)
+  id: Of(RectTransform,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Of(RectTransform, bool)
+  nameWithType: SheetContainer.Of(RectTransform, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(RectTransform, bool)
+  type: Method
+  source:
+    id: Of
+    path: ''
+    startLine: 5445
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nGet the <xref href=\"UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer\" data-throw-if-not-resolved=\"false\"></xref> that manages the sheet to which <see cref=\"!:rectTransform\"></see> belongs.\n"
+  example: []
+  syntax:
+    content: public static SheetContainer Of(RectTransform rectTransform, bool useCache = true)
+    parameters:
+    - id: rectTransform
+      type: Global.RectTransform
+      description: ''
+    - id: useCache
+      type: System.Boolean
+      description: Use the previous result for the <see cref="!:rectTransform"></see>.
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+      description: ''
+    content.vb: Public Shared Function [Of](rectTransform As RectTransform, useCache As Boolean = True) As SheetContainer
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of*
+  nameWithType.vb: SheetContainer.Of(RectTransform, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of(RectTransform, Boolean)
+  name.vb: Of(RectTransform, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find(System.String)
+  id: Find(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Find(string)
+  nameWithType: SheetContainer.Find(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find(string)
+  type: Method
+  source:
+    id: Find
+    path: ''
+    startLine: 5469
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nFind the <xref href=\"UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer\" data-throw-if-not-resolved=\"false\"></xref> of <see cref=\"!:containerName\"></see>.\n"
+  example: []
+  syntax:
+    content: public static SheetContainer Find(string containerName)
+    parameters:
+    - id: containerName
+      type: System.String
+      description: ''
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+      description: ''
+    content.vb: Public Shared Function Find(containerName As String) As SheetContainer
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find*
+  nameWithType.vb: SheetContainer.Find(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find(String)
+  name.vb: Find(String)
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  id: AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: AddCallbackReceiver(ISheetContainerCallbackReceiver)
+  nameWithType: SheetContainer.AddCallbackReceiver(ISheetContainerCallbackReceiver)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  type: Method
+  source:
+    id: AddCallbackReceiver
+    path: ''
+    startLine: 5483
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nAdd a callback receiver.\n"
+  example: []
+  syntax:
+    content: public void AddCallbackReceiver(ISheetContainerCallbackReceiver callbackReceiver)
+    parameters:
+    - id: callbackReceiver
+      type: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+      description: ''
+    content.vb: Public Sub AddCallbackReceiver(callbackReceiver As ISheetContainerCallbackReceiver)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  id: RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: RemoveCallbackReceiver(ISheetContainerCallbackReceiver)
+  nameWithType: SheetContainer.RemoveCallbackReceiver(ISheetContainerCallbackReceiver)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver)
+  type: Method
+  source:
+    id: RemoveCallbackReceiver
+    path: ''
+    startLine: 5492
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nRemove a callback receiver.\n"
+  example: []
+  syntax:
+    content: public void RemoveCallbackReceiver(ISheetContainerCallbackReceiver callbackReceiver)
+    parameters:
+    - id: callbackReceiver
+      type: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+      description: ''
+    content.vb: Public Sub RemoveCallbackReceiver(callbackReceiver As ISheetContainerCallbackReceiver)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(System.String,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(System.String,System.Boolean)
+  id: Show(System.String,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Show(string, bool)
+  nameWithType: SheetContainer.Show(string, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(string, bool)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 5503
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nShow a sheet.\n"
+  example: []
+  syntax:
+    content: public UniTask Show(string resourceKey, bool playAnimation)
+    parameters:
+    - id: resourceKey
+      type: System.String
+      description: ''
+    - id: playAnimation
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask
+      description: ''
+    content.vb: Public Function Show(resourceKey As String, playAnimation As Boolean) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show*
+  nameWithType.vb: SheetContainer.Show(String, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(String, Boolean)
+  name.vb: Show(String, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(System.Int32,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(System.Int32,System.Boolean)
+  id: Show(System.Int32,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Show(int, bool)
+  nameWithType: SheetContainer.Show(int, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(int, bool)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 5514
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nShow a sheet.\n"
+  example: []
+  syntax:
+    content: public UniTask Show(int sheetId, bool playAnimation)
+    parameters:
+    - id: sheetId
+      type: System.Int32
+      description: ''
+    - id: playAnimation
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask
+      description: ''
+    content.vb: Public Function Show(sheetId As Integer, playAnimation As Boolean) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show*
+  nameWithType.vb: SheetContainer.Show(Integer, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show(Integer, Boolean)
+  name.vb: Show(Integer, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide(System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide(System.Boolean)
+  id: Hide(System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Hide(bool)
+  nameWithType: SheetContainer.Hide(bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide(bool)
+  type: Method
+  source:
+    id: Hide
+    path: ''
+    startLine: 5523
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nHide a sheet.\n"
+  example: []
+  syntax:
+    content: public UniTask Hide(bool playAnimation)
+    parameters:
+    - id: playAnimation
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask
+    content.vb: Public Function Hide(playAnimation As Boolean) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide*
+  nameWithType.vb: SheetContainer.Hide(Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide(Boolean)
+  name.vb: Hide(Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register(System.String,Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register(System.String,Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},System.Boolean)
+  id: Register(System.String,Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  langs:
+  - csharp
+  - vb
+  name: Register(string, Action<(int sheetId, Sheet instance)>, bool)
+  nameWithType: SheetContainer.Register(string, Action<(int sheetId, Sheet instance)>, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register(string, Action<(int sheetId, UnityScreenNavigator.Runtime.Core.Sheet.Sheet instance)>, bool)
+  type: Method
+  source:
+    id: Register
+    path: ''
+    startLine: 5536
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nRegister a sheet.\n"
+  example: []
+  syntax:
+    content: public UniTask Register(string resourceKey, Action<(int sheetId, Sheet instance)> onLoad = null, bool loadAsync = true)
+    parameters:
+    - id: resourceKey
+      type: System.String
+      description: ''
+    - id: onLoad
+      type: Global.Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}
+      description: ''
+    - id: loadAsync
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask
+      description: ''
+    content.vb: Public Function Register(resourceKey As String, onLoad As Action(Of (sheetId As Integer, instance As Sheet)) = Nothing, loadAsync As Boolean = True) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register*
+  nameWithType.vb: SheetContainer.Register(String, Action(Of (sheetId As Integer, instance As Sheet)), Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register(String, Action(Of (sheetId As Integer, instance As UnityScreenNavigator.Runtime.Core.Sheet.Sheet)), Boolean)
+  name.vb: Register(String, Action(Of (sheetId As Integer, instance As Sheet)), Boolean)
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet
+  commentId: N:UnityScreenNavigator.Runtime.Core.Sheet
+  name: UnityScreenNavigator.Runtime.Core.Sheet
+  nameWithType: UnityScreenNavigator.Runtime.Core.Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId
+  name: ActiveSheetId
+  nameWithType: SheetContainer.ActiveSheetId
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheetId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet
+  name: ActiveSheet
+  nameWithType: SheetContainer.ActiveSheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.ActiveSheet
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: Sheet
+  nameWithType: Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition
+  name: IsInTransition
+  nameWithType: SheetContainer.IsInTransition
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.IsInTransition
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets
+  name: Sheets
+  nameWithType: SheetContainer.Sheets
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Sheets
+- uid: Global.IReadOnlyDictionary{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}
+  commentId: '!:Global.IReadOnlyDictionary{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}'
+  definition: Global.IReadOnlyDictionary`2
+  name: IReadOnlyDictionary<int, Sheet>
+  nameWithType: IReadOnlyDictionary<int, Sheet>
+  fullName: IReadOnlyDictionary<int, UnityScreenNavigator.Runtime.Core.Sheet.Sheet>
+  nameWithType.vb: IReadOnlyDictionary(Of Integer, Sheet)
+  fullName.vb: IReadOnlyDictionary(Of Integer, UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  name.vb: IReadOnlyDictionary(Of Integer, Sheet)
+  spec.csharp:
+  - uid: Global.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: '>'
+  spec.vb:
+  - uid: Global.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: )
+- uid: Global.IReadOnlyDictionary`2
+  commentId: '!:Global.IReadOnlyDictionary`2'
+  isExternal: true
+  name: IReadOnlyDictionary<, >
+  nameWithType: IReadOnlyDictionary<, >
+  fullName: IReadOnlyDictionary<, >
+  nameWithType.vb: IReadOnlyDictionary(Of , )
+  fullName.vb: IReadOnlyDictionary(Of , )
+  name.vb: IReadOnlyDictionary(Of , )
+  spec.csharp:
+  - uid: Global.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: ','
+  - name: " "
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: ','
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable
+  name: Interactable
+  nameWithType: SheetContainer.Interactable
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Interactable
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: SheetContainer
+  nameWithType: SheetContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of
+  name: Of
+  nameWithType: SheetContainer.Of
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Of
+- uid: Global.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: Transform
+- uid: Global.RectTransform
+  isExternal: true
+  name: RectTransform
+  nameWithType: RectTransform
+  fullName: RectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find
+  name: Find
+  nameWithType: SheetContainer.Find
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Find
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver
+  name: AddCallbackReceiver
+  nameWithType: SheetContainer.AddCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.AddCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: ISheetContainerCallbackReceiver
+  nameWithType: ISheetContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver
+  name: RemoveCallbackReceiver
+  nameWithType: SheetContainer.RemoveCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.RemoveCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show
+  name: Show
+  nameWithType: SheetContainer.Show
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Show
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide
+  name: Hide
+  nameWithType: SheetContainer.Hide
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Hide
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register
+  name: Register
+  nameWithType: SheetContainer.Register
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.Register
+- uid: Global.Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}
+  commentId: '!:Global.Action{System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}'
+  definition: Global.Action`1
+  name: Action<(int sheetId, Sheet instance)>
+  nameWithType: Action<(int sheetId, Sheet instance)>
+  fullName: Action<(int sheetId, UnityScreenNavigator.Runtime.Core.Sheet.Sheet instance)>
+  nameWithType.vb: Action(Of (sheetId As Integer, instance As Sheet))
+  fullName.vb: Action(Of (sheetId As Integer, instance As UnityScreenNavigator.Runtime.Core.Sheet.Sheet))
+  name.vb: Action(Of (sheetId As Integer, instance As Sheet))
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.sheetId
+    name: sheetId
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.instance
+    name: instance
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.sheetId
+    name: sheetId
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.instance
+    name: instance
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: )
+  - name: )
+- uid: Global.Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )

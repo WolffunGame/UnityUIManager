@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Views
+  id: UnityScreenNavigator.Runtime.Core.Shared.Views
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.Attributes
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.UIView
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.WindowView
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Shared.Views
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: IAttributes
+  nameWithType: IAttributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.Attributes
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.Attributes
+  name: Attributes
+  nameWithType: Attributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.Attributes
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: IUIView
+  nameWithType: IUIView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UILayout
+  nameWithType: UILayout
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: IUIViewGroup
+  nameWithType: IUIViewGroup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.UIView
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.UIView
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UIView
+  nameWithType: UIView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.UIView
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+  name: Window
+  nameWithType: Window
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.WindowView
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.WindowView
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: WindowView
+  nameWithType: WindowView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.WindowView
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UnityScreenNavigator.Runtime.Core.Shared.Views
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views

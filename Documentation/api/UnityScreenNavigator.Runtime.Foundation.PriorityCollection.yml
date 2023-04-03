@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  commentId: N:UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  id: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  children:
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  nameWithType: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  commentId: T:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  name: PriorityList<T>
+  nameWithType: PriorityList<T>
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>
+  nameWithType.vb: PriorityList(Of T)
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T)
+  name.vb: PriorityList(Of T)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+    name: PriorityList
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+    name: PriorityList
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue`1
+  commentId: T:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue`1
+  name: PriorityQueue<T>
+  nameWithType: PriorityQueue<T>
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue<T>
+  nameWithType.vb: PriorityQueue(Of T)
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue(Of T)
+  name.vb: PriorityQueue(Of T)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue`1
+    name: PriorityQueue
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue`1
+    name: PriorityQueue
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

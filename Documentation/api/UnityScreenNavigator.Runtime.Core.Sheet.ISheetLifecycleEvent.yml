@@ -1,0 +1,235 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  id: ISheetLifecycleEvent
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  children:
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit
+  langs:
+  - csharp
+  - vb
+  name: ISheetLifecycleEvent
+  nameWithType: ISheetLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  type: Interface
+  source:
+    id: ISheetLifecycleEvent
+    path: ''
+    startLine: 5080
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: public interface ISheetLifecycleEvent
+    content.vb: Public Interface ISheetLifecycleEvent
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize
+  id: Initialize
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: ISheetLifecycleEvent.Initialize()
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize()
+  type: Method
+  source:
+    id: Initialize
+    path: ''
+    startLine: 5082
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: UniTask Initialize()
+    return:
+      type: Global.UniTask
+    content.vb: Function Initialize() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter
+  id: WillEnter
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  langs:
+  - csharp
+  - vb
+  name: WillEnter()
+  nameWithType: ISheetLifecycleEvent.WillEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter()
+  type: Method
+  source:
+    id: WillEnter
+    path: ''
+    startLine: 5084
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: UniTask WillEnter()
+    return:
+      type: Global.UniTask
+    content.vb: Function WillEnter() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter
+  id: DidEnter
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  langs:
+  - csharp
+  - vb
+  name: DidEnter()
+  nameWithType: ISheetLifecycleEvent.DidEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter()
+  type: Method
+  source:
+    id: DidEnter
+    path: ''
+    startLine: 5085
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: void DidEnter()
+    content.vb: Sub DidEnter()
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit
+  id: WillExit
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  langs:
+  - csharp
+  - vb
+  name: WillExit()
+  nameWithType: ISheetLifecycleEvent.WillExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit()
+  type: Method
+  source:
+    id: WillExit
+    path: ''
+    startLine: 5087
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: UniTask WillExit()
+    return:
+      type: Global.UniTask
+    content.vb: Function WillExit() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit
+  id: DidExit
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  langs:
+  - csharp
+  - vb
+  name: DidExit()
+  nameWithType: ISheetLifecycleEvent.DidExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit()
+  type: Method
+  source:
+    id: DidExit
+    path: ''
+    startLine: 5089
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: void DidExit()
+    content.vb: Sub DidExit()
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup
+  id: Cleanup
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  langs:
+  - csharp
+  - vb
+  name: Cleanup()
+  nameWithType: ISheetLifecycleEvent.Cleanup()
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup()
+  type: Method
+  source:
+    id: Cleanup
+    path: ''
+    startLine: 5091
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: UniTask Cleanup()
+    return:
+      type: Global.UniTask
+    content.vb: Function Cleanup() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet
+  commentId: N:UnityScreenNavigator.Runtime.Core.Sheet
+  name: UnityScreenNavigator.Runtime.Core.Sheet
+  nameWithType: UnityScreenNavigator.Runtime.Core.Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize
+  name: Initialize
+  nameWithType: ISheetLifecycleEvent.Initialize
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Initialize
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter
+  name: WillEnter
+  nameWithType: ISheetLifecycleEvent.WillEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillEnter
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter
+  name: DidEnter
+  nameWithType: ISheetLifecycleEvent.DidEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidEnter
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit
+  name: WillExit
+  nameWithType: ISheetLifecycleEvent.WillExit
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.WillExit
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit
+  name: DidExit
+  nameWithType: ISheetLifecycleEvent.DidExit
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.DidExit
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup
+  name: Cleanup
+  nameWithType: ISheetLifecycleEvent.Cleanup
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.Cleanup

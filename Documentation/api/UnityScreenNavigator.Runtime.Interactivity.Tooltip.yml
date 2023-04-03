@@ -1,0 +1,1094 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  id: Tooltip
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(GameObject,IUIViewGroup,System.Boolean)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(System.String,IUIViewGroup,System.Boolean)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds(System.Single)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove(TooltipView)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage(System.String)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,IUIView,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,IUIViewGroup,System.Int32,System.Boolean)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName
+  langs:
+  - csharp
+  - vb
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  type: Class
+  source:
+    id: Tooltip
+    path: ''
+    startLine: 7017
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public class Tooltip
+    content.vb: Public Class Tooltip
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message
+  id: Message
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Tooltip.Message
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message
+  type: Property
+  source:
+    id: Message
+    path: ''
+    startLine: 7019
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public AsyncReactiveProperty<string> Message { get; set; }
+    parameters: []
+    return:
+      type: Global.AsyncReactiveProperty{System.String}
+    content.vb: Public Property Message As AsyncReactiveProperty(Of String)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide
+  id: AfterHide
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: AfterHide
+  nameWithType: Tooltip.AfterHide
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide
+  type: Property
+  source:
+    id: AfterHide
+    path: ''
+    startLine: 7020
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public AsyncReactiveProperty<bool> AfterHide { get; set; }
+    parameters: []
+    return:
+      type: Global.AsyncReactiveProperty{System.Boolean}
+    content.vb: Public Property AfterHide As AsyncReactiveProperty(Of Boolean)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick
+  id: CloseOnCancelClick
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: CloseOnCancelClick
+  nameWithType: Tooltip.CloseOnCancelClick
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick
+  type: Property
+  source:
+    id: CloseOnCancelClick
+    path: ''
+    startLine: 7023
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public AsyncReactiveProperty<bool> CloseOnCancelClick { get; }
+    parameters: []
+    return:
+      type: Global.AsyncReactiveProperty{System.Boolean}
+    content.vb: Public ReadOnly Property CloseOnCancelClick As AsyncReactiveProperty(Of Boolean)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue
+  id: OnLazySetValue
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: OnLazySetValue
+  nameWithType: Tooltip.OnLazySetValue
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue
+  type: Property
+  source:
+    id: OnLazySetValue
+    path: ''
+    startLine: 7024
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public AsyncReactiveProperty<bool> OnLazySetValue { get; set; }
+    parameters: []
+    return:
+      type: Global.AsyncReactiveProperty{System.Boolean}
+    content.vb: Public Property OnLazySetValue As AsyncReactiveProperty(Of Boolean)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose
+  id: LockClose
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: LockClose
+  nameWithType: Tooltip.LockClose
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose
+  type: Property
+  source:
+    id: LockClose
+    path: ''
+    startLine: 7025
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public bool LockClose { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property LockClose As Boolean
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage(System.String)
+  id: SetMessage(System.String)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: SetMessage(string)
+  nameWithType: Tooltip.SetMessage(string)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage(string)
+  type: Method
+  source:
+    id: SetMessage
+    path: ''
+    startLine: 7028
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public Tooltip SetMessage(string message)
+    parameters:
+    - id: message
+      type: System.String
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    content.vb: Public Function SetMessage(message As String) As Tooltip
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage*
+  nameWithType.vb: Tooltip.SetMessage(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage(String)
+  name.vb: SetMessage(String)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues
+  id: SetOnLazySetValues
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: SetOnLazySetValues()
+  nameWithType: Tooltip.SetOnLazySetValues()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues()
+  type: Method
+  source:
+    id: SetOnLazySetValues
+    path: ''
+    startLine: 7041
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public Tooltip SetOnLazySetValues()
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    content.vb: Public Function SetOnLazySetValues() As Tooltip
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds(System.Single)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds(System.Single)
+  id: LockCloseForSeconds(System.Single)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: LockCloseForSeconds(float)
+  nameWithType: Tooltip.LockCloseForSeconds(float)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds(float)
+  type: Method
+  source:
+    id: LockCloseForSeconds
+    path: ''
+    startLine: 7061
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public void LockCloseForSeconds(float seconds)
+    parameters:
+    - id: seconds
+      type: System.Single
+    content.vb: Public Sub LockCloseForSeconds(seconds As Single)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds*
+  nameWithType.vb: Tooltip.LockCloseForSeconds(Single)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds(Single)
+  name.vb: LockCloseForSeconds(Single)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName
+  id: ViewName
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: ViewName
+  nameWithType: Tooltip.ViewName
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName
+  type: Property
+  source:
+    id: ViewName
+    path: ''
+    startLine: 7073
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static string ViewName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared Property ViewName As String
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove(TooltipView)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove(TooltipView)
+  id: Remove(TooltipView)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: Remove(TooltipView)
+  nameWithType: Tooltip.Remove(TooltipView)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove(TooltipView)
+  type: Method
+  source:
+    id: Remove
+    path: ''
+    startLine: 7082
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static void Remove(TooltipView tooltipView)
+    parameters:
+    - id: tooltipView
+      type: Global.TooltipView
+    content.vb: Public Shared Sub Remove(tooltipView As TooltipView)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  id: Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: Show(string, string, TipPosition, RectTransform, int, bool)
+  nameWithType: Tooltip.Show(string, string, TipPosition, RectTransform, int, bool)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(string, string, UnityScreenNavigator.Runtime.Interactivity.TipPosition, RectTransform, int, bool)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 7106
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nShow tooltip with text only\n"
+  example: []
+  syntax:
+    content: public static UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition, RectTransform target, int offset, bool closeOnCancelClick = true)
+    parameters:
+    - id: key
+      type: System.String
+      description: ''
+    - id: message
+      type: System.String
+      description: ''
+    - id: tipPosition
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+      description: ''
+    - id: target
+      type: Global.RectTransform
+      description: ''
+    - id: offset
+      type: System.Int32
+      description: ''
+    - id: closeOnCancelClick
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Tooltip}
+      description: ''
+    content.vb: Public Shared Function Show(key As String, message As String, tipPosition As TipPosition, target As RectTransform, offset As Integer, closeOnCancelClick As Boolean = True) As UniTask(Of Tooltip)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show*
+  nameWithType.vb: Tooltip.Show(String, String, TipPosition, RectTransform, Integer, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(String, String, UnityScreenNavigator.Runtime.Interactivity.TipPosition, RectTransform, Integer, Boolean)
+  name.vb: Show(String, String, TipPosition, RectTransform, Integer, Boolean)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,IUIView,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,IUIView,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  id: Show(System.String,IUIView,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,System.Int32,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: Show(string, IUIView, TipPosition, RectTransform, int, bool)
+  nameWithType: Tooltip.Show(string, IUIView, TipPosition, RectTransform, int, bool)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(string, IUIView, UnityScreenNavigator.Runtime.Interactivity.TipPosition, RectTransform, int, bool)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 7154
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nShow tooltip with custom view.\n"
+  example: []
+  syntax:
+    content: public static UniTask<Tooltip> Show(string key, IUIView contentView, TipPosition tipPosition, RectTransform target, int offset, bool closeOnCancelClick = true)
+    parameters:
+    - id: key
+      type: System.String
+      description: ''
+    - id: contentView
+      type: Global.IUIView
+      description: ''
+    - id: tipPosition
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+      description: ''
+    - id: target
+      type: Global.RectTransform
+      description: ''
+    - id: offset
+      type: System.Int32
+      description: ''
+    - id: closeOnCancelClick
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Tooltip}
+      description: ''
+    content.vb: Public Shared Function Show(key As String, contentView As IUIView, tipPosition As TipPosition, target As RectTransform, offset As Integer, closeOnCancelClick As Boolean = True) As UniTask(Of Tooltip)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show*
+  nameWithType.vb: Tooltip.Show(String, IUIView, TipPosition, RectTransform, Integer, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(String, IUIView, UnityScreenNavigator.Runtime.Interactivity.TipPosition, RectTransform, Integer, Boolean)
+  name.vb: Show(String, IUIView, TipPosition, RectTransform, Integer, Boolean)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips
+  id: CloseAllOpeningTooltips
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: CloseAllOpeningTooltips()
+  nameWithType: Tooltip.CloseAllOpeningTooltips()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips()
+  type: Method
+  source:
+    id: CloseAllOpeningTooltips
+    path: ''
+    startLine: 7194
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static void CloseAllOpeningTooltips()
+    content.vb: Public Shared Sub CloseAllOpeningTooltips()
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,IUIViewGroup,System.Int32,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,IUIViewGroup,System.Int32,System.Boolean)
+  id: Show(System.String,System.String,UnityScreenNavigator.Runtime.Interactivity.TipPosition,RectTransform,IUIViewGroup,System.Int32,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: Show(string, string, TipPosition, RectTransform, IUIViewGroup, int, bool)
+  nameWithType: Tooltip.Show(string, string, TipPosition, RectTransform, IUIViewGroup, int, bool)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(string, string, UnityScreenNavigator.Runtime.Interactivity.TipPosition, RectTransform, IUIViewGroup, int, bool)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 7204
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static UniTask<Tooltip> Show(string key, string message, TipPosition tipPosition, RectTransform target, IUIViewGroup container, int offset, bool closeOnCancelClick = true)
+    parameters:
+    - id: key
+      type: System.String
+    - id: message
+      type: System.String
+    - id: tipPosition
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+    - id: target
+      type: Global.RectTransform
+    - id: container
+      type: Global.IUIViewGroup
+    - id: offset
+      type: System.Int32
+    - id: closeOnCancelClick
+      type: System.Boolean
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Tooltip}
+    content.vb: Public Shared Function Show(key As String, message As String, tipPosition As TipPosition, target As RectTransform, container As IUIViewGroup, offset As Integer, closeOnCancelClick As Boolean = True) As UniTask(Of Tooltip)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show*
+  nameWithType.vb: Tooltip.Show(String, String, TipPosition, RectTransform, IUIViewGroup, Integer, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show(String, String, UnityScreenNavigator.Runtime.Interactivity.TipPosition, RectTransform, IUIViewGroup, Integer, Boolean)
+  name.vb: Show(String, String, TipPosition, RectTransform, IUIViewGroup, Integer, Boolean)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(System.String,IUIViewGroup,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(System.String,IUIViewGroup,System.Boolean)
+  id: LazyShow(System.String,IUIViewGroup,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: LazyShow(string, IUIViewGroup, bool)
+  nameWithType: Tooltip.LazyShow(string, IUIViewGroup, bool)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(string, IUIViewGroup, bool)
+  type: Method
+  source:
+    id: LazyShow
+    path: ''
+    startLine: 7252
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nCreate a (Tooltip, TooltipView) pair in the specified ViewGroup without setting position, message, or animation\n"
+  example: []
+  syntax:
+    content: public static UniTask<(Tooltip, TooltipView)> LazyShow(string key, IUIViewGroup container, bool closeOnCancelClick = true)
+    parameters:
+    - id: key
+      type: System.String
+      description: The Addressable key of the tooltip prefab
+    - id: container
+      type: Global.IUIViewGroup
+      description: The ViewGroup the tooltip will be added to
+    - id: closeOnCancelClick
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask{System.ValueTuple{UnityScreenNavigator.Runtime.Interactivity.Tooltip,TooltipView}}
+      description: ''
+    content.vb: Public Shared Function LazyShow(key As String, container As IUIViewGroup, closeOnCancelClick As Boolean = True) As UniTask(Of (Tooltip, TooltipView))
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow*
+  nameWithType.vb: Tooltip.LazyShow(String, IUIViewGroup, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(String, IUIViewGroup, Boolean)
+  name.vb: LazyShow(String, IUIViewGroup, Boolean)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(GameObject,IUIViewGroup,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(GameObject,IUIViewGroup,System.Boolean)
+  id: LazyShow(GameObject,IUIViewGroup,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  langs:
+  - csharp
+  - vb
+  name: LazyShow(GameObject, IUIViewGroup, bool)
+  nameWithType: Tooltip.LazyShow(GameObject, IUIViewGroup, bool)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(GameObject, IUIViewGroup, bool)
+  type: Method
+  source:
+    id: LazyShow
+    path: ''
+    startLine: 7295
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nLazyShow but with input tooltip GameObject\n"
+  example: []
+  syntax:
+    content: public static UniTask<(Tooltip, TooltipView)> LazyShow(GameObject tooltipObj, IUIViewGroup container, bool closeOnCancelClick = true)
+    parameters:
+    - id: tooltipObj
+      type: Global.GameObject
+      description: ''
+    - id: container
+      type: Global.IUIViewGroup
+      description: ''
+    - id: closeOnCancelClick
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask{System.ValueTuple{UnityScreenNavigator.Runtime.Interactivity.Tooltip,TooltipView}}
+      description: ''
+    content.vb: Public Shared Function LazyShow(tooltipObj As GameObject, container As IUIViewGroup, closeOnCancelClick As Boolean = True) As UniTask(Of (Tooltip, TooltipView))
+  overload: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow*
+  nameWithType.vb: Tooltip.LazyShow(GameObject, IUIViewGroup, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow(GameObject, IUIViewGroup, Boolean)
+  name.vb: LazyShow(GameObject, IUIViewGroup, Boolean)
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message
+  name: Message
+  nameWithType: Tooltip.Message
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Message
+- uid: Global.AsyncReactiveProperty{System.String}
+  commentId: '!:Global.AsyncReactiveProperty{System.String}'
+  definition: Global.AsyncReactiveProperty`1
+  name: AsyncReactiveProperty<string>
+  nameWithType: AsyncReactiveProperty<string>
+  fullName: AsyncReactiveProperty<string>
+  nameWithType.vb: AsyncReactiveProperty(Of String)
+  fullName.vb: AsyncReactiveProperty(Of String)
+  name.vb: AsyncReactiveProperty(Of String)
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: )
+- uid: Global.AsyncReactiveProperty`1
+  isExternal: true
+  name: AsyncReactiveProperty<>
+  nameWithType: AsyncReactiveProperty<>
+  fullName: AsyncReactiveProperty<>
+  nameWithType.vb: AsyncReactiveProperty(Of )
+  fullName.vb: AsyncReactiveProperty(Of )
+  name.vb: AsyncReactiveProperty(Of )
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide
+  name: AfterHide
+  nameWithType: Tooltip.AfterHide
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.AfterHide
+- uid: Global.AsyncReactiveProperty{System.Boolean}
+  commentId: '!:Global.AsyncReactiveProperty{System.Boolean}'
+  definition: Global.AsyncReactiveProperty`1
+  name: AsyncReactiveProperty<bool>
+  nameWithType: AsyncReactiveProperty<bool>
+  fullName: AsyncReactiveProperty<bool>
+  nameWithType.vb: AsyncReactiveProperty(Of Boolean)
+  fullName.vb: AsyncReactiveProperty(Of Boolean)
+  name.vb: AsyncReactiveProperty(Of Boolean)
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick
+  name: CloseOnCancelClick
+  nameWithType: Tooltip.CloseOnCancelClick
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseOnCancelClick
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue
+  name: OnLazySetValue
+  nameWithType: Tooltip.OnLazySetValue
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.OnLazySetValue
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose
+  name: LockClose
+  nameWithType: Tooltip.LockClose
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockClose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage
+  name: SetMessage
+  nameWithType: Tooltip.SetMessage
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetMessage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues
+  name: SetOnLazySetValues
+  nameWithType: Tooltip.SetOnLazySetValues
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.SetOnLazySetValues
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds
+  name: LockCloseForSeconds
+  nameWithType: Tooltip.LockCloseForSeconds
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LockCloseForSeconds
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName
+  name: ViewName
+  nameWithType: Tooltip.ViewName
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.ViewName
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove
+  name: Remove
+  nameWithType: Tooltip.Remove
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Remove
+- uid: Global.TooltipView
+  commentId: '!:Global.TooltipView'
+  isExternal: true
+  name: TooltipView
+  nameWithType: TooltipView
+  fullName: TooltipView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show
+  name: Show
+  nameWithType: Tooltip.Show
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.Show
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: TipPosition
+  nameWithType: TipPosition
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: Global.RectTransform
+  isExternal: true
+  name: RectTransform
+  nameWithType: RectTransform
+  fullName: RectTransform
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Tooltip}
+  commentId: '!:Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.Tooltip}'
+  definition: Global.UniTask`1
+  name: UniTask<Tooltip>
+  nameWithType: UniTask<Tooltip>
+  fullName: UniTask<UnityScreenNavigator.Runtime.Interactivity.Tooltip>
+  nameWithType.vb: UniTask(Of Tooltip)
+  fullName.vb: UniTask(Of UnityScreenNavigator.Runtime.Interactivity.Tooltip)
+  name.vb: UniTask(Of Tooltip)
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    name: Tooltip
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    name: Tooltip
+  - name: )
+- uid: Global.UniTask`1
+  isExternal: true
+  name: UniTask<>
+  nameWithType: UniTask<>
+  fullName: UniTask<>
+  nameWithType.vb: UniTask(Of )
+  fullName.vb: UniTask(Of )
+  name.vb: UniTask(Of )
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: Global.IUIView
+  isExternal: true
+  name: IUIView
+  nameWithType: IUIView
+  fullName: IUIView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips
+  name: CloseAllOpeningTooltips
+  nameWithType: Tooltip.CloseAllOpeningTooltips
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.CloseAllOpeningTooltips
+- uid: Global.IUIViewGroup
+  isExternal: true
+  name: IUIViewGroup
+  nameWithType: IUIViewGroup
+  fullName: IUIViewGroup
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow
+  name: LazyShow
+  nameWithType: Tooltip.LazyShow
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip.LazyShow
+- uid: Global.UniTask{System.ValueTuple{UnityScreenNavigator.Runtime.Interactivity.Tooltip,TooltipView}}
+  commentId: '!:Global.UniTask{System.ValueTuple{UnityScreenNavigator.Runtime.Interactivity.Tooltip,TooltipView}}'
+  definition: Global.UniTask`1
+  name: UniTask<(Tooltip, TooltipView)>
+  nameWithType: UniTask<(Tooltip, TooltipView)>
+  fullName: UniTask<(UnityScreenNavigator.Runtime.Interactivity.Tooltip, TooltipView)>
+  nameWithType.vb: UniTask(Of (Tooltip, TooltipView))
+  fullName.vb: UniTask(Of (UnityScreenNavigator.Runtime.Interactivity.Tooltip, TooltipView))
+  name.vb: UniTask(Of (Tooltip, TooltipView))
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    name: Tooltip
+  - name: ','
+  - name: " "
+  - uid: Global.TooltipView
+    name: TooltipView
+    isExternal: true
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    name: Tooltip
+  - name: ','
+  - name: " "
+  - uid: Global.TooltipView
+    name: TooltipView
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Global.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: GameObject

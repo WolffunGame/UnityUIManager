@@ -1,0 +1,950 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  id: ScreenContainer
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  children:
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create(System.String,System.Int32,ContainerLayerType)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find(System.String)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(RectTransform,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(Transform,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop(System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo(System.String,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot(System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload(System.String)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push(UnityScreenNavigator.Runtime.Core.Shared.WindowOption)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded(System.String)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer
+  langs:
+  - csharp
+  - vb
+  name: ScreenContainer
+  nameWithType: ScreenContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  type: Class
+  source:
+    id: ScreenContainer
+    path: ''
+    startLine: 2763
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: 'public sealed class ScreenContainer : ContainerLayer, IContainerManager<Screen>'
+    content.vb: Public NotInheritable Class ScreenContainer Inherits ContainerLayer Implements IContainerManager(Of Screen)
+  inheritance:
+  - System.Object
+  implements:
+  - Global.IContainerManager{UnityScreenNavigator.Runtime.Core.Screen.Screen}
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens
+  commentId: P:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens
+  id: Screens
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Screens
+  nameWithType: ScreenContainer.Screens
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens
+  type: Property
+  source:
+    id: Screens
+    path: ''
+    startLine: 2790
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nStacked screens.\n"
+  example: []
+  syntax:
+    content: public IReadOnlyList<string> Screens { get; }
+    parameters: []
+    return:
+      type: Global.IReadOnlyList{System.String}
+    content.vb: Public ReadOnly Property Screens As IReadOnlyList(Of String)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current
+  commentId: P:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current
+  id: Current
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: ScreenContainer.Current
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current
+  type: Property
+  source:
+    id: Current
+    path: ''
+    startLine: 2819
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public override Window Current { get; }
+    parameters: []
+    return:
+      type: Global.Window
+    content.vb: Public Overrides ReadOnly Property Current As Window
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer
+  commentId: P:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer
+  id: VisibleElementInLayer
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: VisibleElementInLayer
+  nameWithType: ScreenContainer.VisibleElementInLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer
+  type: Property
+  source:
+    id: VisibleElementInLayer
+    path: ''
+    startLine: 2821
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public override int VisibleElementInLayer { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property VisibleElementInLayer As Integer
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push(UnityScreenNavigator.Runtime.Core.Shared.WindowOption)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push(UnityScreenNavigator.Runtime.Core.Shared.WindowOption)
+  id: Push(UnityScreenNavigator.Runtime.Core.Shared.WindowOption)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Push(WindowOption)
+  nameWithType: ScreenContainer.Push(WindowOption)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push(UnityScreenNavigator.Runtime.Core.Shared.WindowOption)
+  type: Method
+  source:
+    id: Push
+    path: ''
+    startLine: 2828
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nPush new screen.\n"
+  example: []
+  syntax:
+    content: public UniTask<Screen> Push(WindowOption option)
+    parameters:
+    - id: option
+      type: UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Core.Screen.Screen}
+      description: ''
+    content.vb: Public Function Push([option] As WindowOption) As UniTask(Of Screen)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop(System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop(System.Boolean)
+  id: Pop(System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Pop(bool)
+  nameWithType: ScreenContainer.Pop(bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop(bool)
+  type: Method
+  source:
+    id: Pop
+    path: ''
+    startLine: 2838
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nPop current screen.\n"
+  example: []
+  syntax:
+    content: public UniTask Pop(bool playAnimation)
+    parameters:
+    - id: playAnimation
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask
+      description: ''
+    content.vb: Public Function Pop(playAnimation As Boolean) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop*
+  nameWithType.vb: ScreenContainer.Pop(Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop(Boolean)
+  name.vb: Pop(Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  id: AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: AddCallbackReceiver(IScreenContainerCallbackReceiver)
+  nameWithType: ScreenContainer.AddCallbackReceiver(IScreenContainerCallbackReceiver)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  type: Method
+  source:
+    id: AddCallbackReceiver
+    path: ''
+    startLine: 2847
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nAdd a callback receiver.\n"
+  example: []
+  syntax:
+    content: public void AddCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
+    parameters:
+    - id: callbackReceiver
+      type: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+      description: ''
+    content.vb: Public Sub AddCallbackReceiver(callbackReceiver As IScreenContainerCallbackReceiver)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  id: RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: RemoveCallbackReceiver(IScreenContainerCallbackReceiver)
+  nameWithType: ScreenContainer.RemoveCallbackReceiver(IScreenContainerCallbackReceiver)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver(UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver)
+  type: Method
+  source:
+    id: RemoveCallbackReceiver
+    path: ''
+    startLine: 2856
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nRemove a callback receiver.\n"
+  example: []
+  syntax:
+    content: public void RemoveCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
+    parameters:
+    - id: callbackReceiver
+      type: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+      description: ''
+    content.vb: Public Sub RemoveCallbackReceiver(callbackReceiver As IScreenContainerCallbackReceiver)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo(System.String,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo(System.String,System.Boolean)
+  id: PopTo(System.String,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: PopTo(string, bool)
+  nameWithType: ScreenContainer.PopTo(string, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo(string, bool)
+  type: Method
+  source:
+    id: PopTo
+    path: ''
+    startLine: 3003
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nPop to the specified screen.\n"
+  example: []
+  syntax:
+    content: public UniTask PopTo(string identifier, bool playAnimationAtLast = false)
+    parameters:
+    - id: identifier
+      type: System.String
+      description: ''
+    - id: playAnimationAtLast
+      type: System.Boolean
+      description: ''
+    return:
+      type: Global.UniTask
+    content.vb: Public Function PopTo(identifier As String, playAnimationAtLast As Boolean = False) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo*
+  nameWithType.vb: ScreenContainer.PopTo(String, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo(String, Boolean)
+  name.vb: PopTo(String, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot(System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot(System.Boolean)
+  id: PopToRoot(System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: PopToRoot(bool)
+  nameWithType: ScreenContainer.PopToRoot(bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot(bool)
+  type: Method
+  source:
+    id: PopToRoot
+    path: ''
+    startLine: 3031
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nPop all screens except the first screen in the stack.\n"
+  example: []
+  syntax:
+    content: public UniTask PopToRoot(bool playAnimationAtLast = false)
+    parameters:
+    - id: playAnimationAtLast
+      type: System.Boolean
+    return:
+      type: Global.UniTask
+    content.vb: Public Function PopToRoot(playAnimationAtLast As Boolean = False) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot*
+  nameWithType.vb: ScreenContainer.PopToRoot(Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot(Boolean)
+  name.vb: PopToRoot(Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll
+  id: PopAll
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: PopAll()
+  nameWithType: ScreenContainer.PopAll()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll()
+  type: Method
+  source:
+    id: PopAll
+    path: ''
+    startLine: 3048
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nPop all screens in the stack.\n"
+  example: []
+  syntax:
+    content: public UniTask PopAll()
+    return:
+      type: Global.UniTask
+    content.vb: Public Function PopAll() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(Transform,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(Transform,System.Boolean)
+  id: Of(Transform,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Of(Transform, bool)
+  nameWithType: ScreenContainer.Of(Transform, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(Transform, bool)
+  type: Method
+  source:
+    id: Of
+    path: ''
+    startLine: 3068
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nGet the <xref href=\"UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer\" data-throw-if-not-resolved=\"false\"></xref> that manages the screen to which <see cref=\"!:transform\"></see> belongs.\n"
+  example: []
+  syntax:
+    content: public static ScreenContainer Of(Transform transform, bool useCache = true)
+    parameters:
+    - id: transform
+      type: Global.Transform
+      description: ''
+    - id: useCache
+      type: System.Boolean
+      description: Use the previous result for the <see cref="!:transform"></see>.
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+      description: ''
+    content.vb: Public Shared Function [Of](transform As Transform, useCache As Boolean = True) As ScreenContainer
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of*
+  nameWithType.vb: ScreenContainer.Of(Transform, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(Transform, Boolean)
+  name.vb: Of(Transform, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(RectTransform,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(RectTransform,System.Boolean)
+  id: Of(RectTransform,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Of(RectTransform, bool)
+  nameWithType: ScreenContainer.Of(RectTransform, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(RectTransform, bool)
+  type: Method
+  source:
+    id: Of
+    path: ''
+    startLine: 3079
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nGet the <xref href=\"UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer\" data-throw-if-not-resolved=\"false\"></xref> that manages the screen to which <see cref=\"!:rectTransform\"></see> belongs.\n"
+  example: []
+  syntax:
+    content: public static ScreenContainer Of(RectTransform rectTransform, bool useCache = true)
+    parameters:
+    - id: rectTransform
+      type: Global.RectTransform
+      description: ''
+    - id: useCache
+      type: System.Boolean
+      description: Use the previous result for the <see cref="!:rectTransform"></see>.
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+      description: ''
+    content.vb: Public Shared Function [Of](rectTransform As RectTransform, useCache As Boolean = True) As ScreenContainer
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of*
+  nameWithType.vb: ScreenContainer.Of(RectTransform, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of(RectTransform, Boolean)
+  name.vb: Of(RectTransform, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find(System.String)
+  id: Find(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Find(string)
+  nameWithType: ScreenContainer.Find(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find(string)
+  type: Method
+  source:
+    id: Find
+    path: ''
+    startLine: 3099
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nFind the <xref href=\"UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer\" data-throw-if-not-resolved=\"false\"></xref> of <see cref=\"!:containerName\"></see>.\n"
+  example: []
+  syntax:
+    content: public static ScreenContainer Find(string containerName)
+    parameters:
+    - id: containerName
+      type: System.String
+      description: ''
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+      description: ''
+    content.vb: Public Shared Function Find(containerName As String) As ScreenContainer
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find*
+  nameWithType.vb: ScreenContainer.Find(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find(String)
+  name.vb: Find(String)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create(System.String,System.Int32,ContainerLayerType)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create(System.String,System.Int32,ContainerLayerType)
+  id: Create(System.String,System.Int32,ContainerLayerType)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Create(string, int, ContainerLayerType)
+  nameWithType: ScreenContainer.Create(string, int, ContainerLayerType)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create(string, int, ContainerLayerType)
+  type: Method
+  source:
+    id: Create
+    path: ''
+    startLine: 3113
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  summary: "\nCreate a new <xref href=\"UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer\" data-throw-if-not-resolved=\"false\"></xref> as a layer.\n"
+  example: []
+  syntax:
+    content: public static ScreenContainer Create(string layerName, int layer, ContainerLayerType layerType)
+    parameters:
+    - id: layerName
+      type: System.String
+      description: ''
+    - id: layer
+      type: System.Int32
+      description: ''
+    - id: layerType
+      type: Global.ContainerLayerType
+      description: ''
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+      description: ''
+    content.vb: Public Shared Function Create(layerName As String, layer As Integer, layerType As ContainerLayerType) As ScreenContainer
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create*
+  nameWithType.vb: ScreenContainer.Create(String, Integer, ContainerLayerType)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create(String, Integer, ContainerLayerType)
+  name.vb: Create(String, Integer, ContainerLayerType)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload(System.String)
+  id: Preload(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: Preload(string)
+  nameWithType: ScreenContainer.Preload(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload(string)
+  type: Method
+  source:
+    id: Preload
+    path: ''
+    startLine: 3171
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public UniTask Preload(string resourceKey)
+    parameters:
+    - id: resourceKey
+      type: System.String
+    return:
+      type: Global.UniTask
+    content.vb: Public Function Preload(resourceKey As String) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload*
+  nameWithType.vb: ScreenContainer.Preload(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload(String)
+  name.vb: Preload(String)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded(System.String)
+  id: ReleasePreloaded(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: ReleasePreloaded(string)
+  nameWithType: ScreenContainer.ReleasePreloaded(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded(string)
+  type: Method
+  source:
+    id: ReleasePreloaded
+    path: ''
+    startLine: 3182
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void ReleasePreloaded(string resourceKey)
+    parameters:
+    - id: resourceKey
+      type: System.String
+    content.vb: Public Sub ReleasePreloaded(resourceKey As String)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded*
+  nameWithType.vb: ScreenContainer.ReleasePreloaded(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded(String)
+  name.vb: ReleasePreloaded(String)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed
+  id: OnBackButtonPressed
+  parent: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  langs:
+  - csharp
+  - vb
+  name: OnBackButtonPressed()
+  nameWithType: ScreenContainer.OnBackButtonPressed()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed()
+  type: Method
+  source:
+    id: OnBackButtonPressed
+    path: ''
+    startLine: 3190
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public override UniTask OnBackButtonPressed()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overrides Function OnBackButtonPressed() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Screen
+  commentId: N:UnityScreenNavigator.Runtime.Core.Screen
+  name: UnityScreenNavigator.Runtime.Core.Screen
+  nameWithType: UnityScreenNavigator.Runtime.Core.Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Global.IContainerManager{UnityScreenNavigator.Runtime.Core.Screen.Screen}
+  commentId: '!:Global.IContainerManager{UnityScreenNavigator.Runtime.Core.Screen.Screen}'
+  definition: Global.IContainerManager`1
+  name: IContainerManager<Screen>
+  nameWithType: IContainerManager<Screen>
+  fullName: IContainerManager<UnityScreenNavigator.Runtime.Core.Screen.Screen>
+  nameWithType.vb: IContainerManager(Of Screen)
+  fullName.vb: IContainerManager(Of UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  name.vb: IContainerManager(Of Screen)
+  spec.csharp:
+  - uid: Global.IContainerManager`1
+    name: IContainerManager
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: '>'
+  spec.vb:
+  - uid: Global.IContainerManager`1
+    name: IContainerManager
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.IContainerManager`1
+  isExternal: true
+  name: IContainerManager<>
+  nameWithType: IContainerManager<>
+  fullName: IContainerManager<>
+  nameWithType.vb: IContainerManager(Of )
+  fullName.vb: IContainerManager(Of )
+  name.vb: IContainerManager(Of )
+  spec.csharp:
+  - uid: Global.IContainerManager`1
+    name: IContainerManager
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.IContainerManager`1
+    name: IContainerManager
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens
+  name: Screens
+  nameWithType: ScreenContainer.Screens
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Screens
+- uid: Global.IReadOnlyList{System.String}
+  commentId: '!:Global.IReadOnlyList{System.String}'
+  definition: Global.IReadOnlyList`1
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: Global.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Global.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: )
+- uid: Global.IReadOnlyList`1
+  isExternal: true
+  name: IReadOnlyList<>
+  nameWithType: IReadOnlyList<>
+  fullName: IReadOnlyList<>
+  nameWithType.vb: IReadOnlyList(Of )
+  fullName.vb: IReadOnlyList(Of )
+  name.vb: IReadOnlyList(Of )
+  spec.csharp:
+  - uid: Global.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current
+  name: Current
+  nameWithType: ScreenContainer.Current
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Current
+- uid: Global.Window
+  isExternal: true
+  name: Window
+  nameWithType: Window
+  fullName: Window
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer
+  name: VisibleElementInLayer
+  nameWithType: ScreenContainer.VisibleElementInLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.VisibleElementInLayer
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push
+  name: Push
+  nameWithType: ScreenContainer.Push
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Push
+- uid: UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: WindowOption
+  nameWithType: WindowOption
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+- uid: Global.UniTask{UnityScreenNavigator.Runtime.Core.Screen.Screen}
+  commentId: '!:Global.UniTask{UnityScreenNavigator.Runtime.Core.Screen.Screen}'
+  definition: Global.UniTask`1
+  name: UniTask<Screen>
+  nameWithType: UniTask<Screen>
+  fullName: UniTask<UnityScreenNavigator.Runtime.Core.Screen.Screen>
+  nameWithType.vb: UniTask(Of Screen)
+  fullName.vb: UniTask(Of UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  name.vb: UniTask(Of Screen)
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+- uid: Global.UniTask`1
+  isExternal: true
+  name: UniTask<>
+  nameWithType: UniTask<>
+  fullName: UniTask<>
+  nameWithType.vb: UniTask(Of )
+  fullName.vb: UniTask(Of )
+  name.vb: UniTask(Of )
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop
+  name: Pop
+  nameWithType: ScreenContainer.Pop
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Pop
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver
+  name: AddCallbackReceiver
+  nameWithType: ScreenContainer.AddCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.AddCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: IScreenContainerCallbackReceiver
+  nameWithType: IScreenContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver
+  name: RemoveCallbackReceiver
+  nameWithType: ScreenContainer.RemoveCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.RemoveCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo
+  name: PopTo
+  nameWithType: ScreenContainer.PopTo
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopTo
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot
+  name: PopToRoot
+  nameWithType: ScreenContainer.PopToRoot
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopToRoot
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll
+  name: PopAll
+  nameWithType: ScreenContainer.PopAll
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.PopAll
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: ScreenContainer
+  nameWithType: ScreenContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of
+  name: Of
+  nameWithType: ScreenContainer.Of
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Of
+- uid: Global.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: Transform
+- uid: Global.RectTransform
+  isExternal: true
+  name: RectTransform
+  nameWithType: RectTransform
+  fullName: RectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find
+  name: Find
+  nameWithType: ScreenContainer.Find
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Find
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create
+  name: Create
+  nameWithType: ScreenContainer.Create
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Create
+- uid: Global.ContainerLayerType
+  isExternal: true
+  name: ContainerLayerType
+  nameWithType: ContainerLayerType
+  fullName: ContainerLayerType
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload
+  name: Preload
+  nameWithType: ScreenContainer.Preload
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.Preload
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded
+  name: ReleasePreloaded
+  nameWithType: ScreenContainer.ReleasePreloaded
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.ReleasePreloaded
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed
+  name: OnBackButtonPressed
+  nameWithType: ScreenContainer.OnBackButtonPressed
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.OnBackButtonPressed

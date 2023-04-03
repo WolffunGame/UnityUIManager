@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  id: UnityScreenNavigator.Runtime.Core.Shared
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  - UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  - UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  - UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  - UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: ITransitionAnimation
+  nameWithType: ITransitionAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+- uid: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+  name: MonoBehaviourDestroyedEventDispatcher
+  nameWithType: MonoBehaviourDestroyedEventDispatcher
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: SheetAlignment
+  nameWithType: SheetAlignment
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+- uid: UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: WindowOption
+  nameWithType: WindowOption
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.WindowOption
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: SimpleTransitionAnimationObject
+  nameWithType: SimpleTransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: TransitionAnimationBehaviour
+  nameWithType: TransitionAnimationBehaviour
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: TransitionAnimationObject
+  nameWithType: TransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared

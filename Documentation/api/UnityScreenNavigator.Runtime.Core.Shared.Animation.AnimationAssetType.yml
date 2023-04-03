@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  id: AnimationAssetType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.MonoBehaviour
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.ScriptableObject
+  langs:
+  - csharp
+  - vb
+  name: AnimationAssetType
+  nameWithType: AnimationAssetType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  type: Enum
+  source:
+    id: AnimationAssetType
+    path: ''
+    startLine: 3657
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public enum AnimationAssetType
+    content.vb: Public Enum AnimationAssetType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.MonoBehaviour
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.MonoBehaviour
+  id: MonoBehaviour
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  langs:
+  - csharp
+  - vb
+  name: MonoBehaviour
+  nameWithType: AnimationAssetType.MonoBehaviour
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.MonoBehaviour
+  type: Field
+  source:
+    id: MonoBehaviour
+    path: ''
+    startLine: 3659
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: MonoBehaviour = 0
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.ScriptableObject
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.ScriptableObject
+  id: ScriptableObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  langs:
+  - csharp
+  - vb
+  name: ScriptableObject
+  nameWithType: AnimationAssetType.ScriptableObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.ScriptableObject
+  type: Field
+  source:
+    id: ScriptableObject
+    path: ''
+    startLine: 3660
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: ScriptableObject = 1
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Animation
+  name: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+    name: Animation
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+    name: Animation
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  name: AnimationAssetType
+  nameWithType: AnimationAssetType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType

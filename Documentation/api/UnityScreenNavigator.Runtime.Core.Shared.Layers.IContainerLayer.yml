@@ -1,0 +1,377 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  id: IContainerLayer
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer(System.String,System.Int32,UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer
+  langs:
+  - csharp
+  - vb
+  name: IContainerLayer
+  nameWithType: IContainerLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  type: Interface
+  source:
+    id: IContainerLayer
+    path: ''
+    startLine: 4453
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  summary: "\nLayer for each container\n"
+  example: []
+  syntax:
+    content: public interface IContainerLayer
+    content.vb: Public Interface IContainerLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder
+  id: SortOrder
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: SortOrder
+  nameWithType: IContainerLayer.SortOrder
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder
+  type: Property
+  source:
+    id: SortOrder
+    path: ''
+    startLine: 4455
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: int SortOrder { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property SortOrder As Integer
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName
+  id: LayerName
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: LayerName
+  nameWithType: IContainerLayer.LayerName
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName
+  type: Property
+  source:
+    id: LayerName
+    path: ''
+    startLine: 4456
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: string LayerName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property LayerName As String
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer
+  id: VisibleElementInLayer
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: VisibleElementInLayer
+  nameWithType: IContainerLayer.VisibleElementInLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer
+  type: Property
+  source:
+    id: VisibleElementInLayer
+    path: ''
+    startLine: 4460
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  summary: "\nElement count in layer\n"
+  example: []
+  syntax:
+    content: int VisibleElementInLayer { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property VisibleElementInLayer As Integer
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType
+  id: LayerType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: LayerType
+  nameWithType: IContainerLayer.LayerType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType
+  type: Property
+  source:
+    id: LayerType
+    path: ''
+    startLine: 4464
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  summary: "\nContainer for this layer\n"
+  example: []
+  syntax:
+    content: ContainerLayerType LayerType { get; set; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+    content.vb: Property LayerType As ContainerLayerType
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager
+  id: ContainerLayerManager
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: ContainerLayerManager
+  nameWithType: IContainerLayer.ContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager
+  type: Property
+  source:
+    id: ContainerLayerManager
+    path: ''
+    startLine: 4466
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: IContainerLayerManager ContainerLayerManager { get; set; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+    content.vb: Property ContainerLayerManager As IContainerLayerManager
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current
+  id: Current
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: IContainerLayer.Current
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current
+  type: Property
+  source:
+    id: Current
+    path: ''
+    startLine: 4470
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  summary: "\nCurrent window on the top in this layer\n"
+  example: []
+  syntax:
+    content: Window Current { get; }
+    parameters: []
+    return:
+      type: Global.Window
+    content.vb: ReadOnly Property Current As Window
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer(System.String,System.Int32,UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer(System.String,System.Int32,UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType)
+  id: CreateLayer(System.String,System.Int32,UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: CreateLayer(string, int, ContainerLayerType)
+  nameWithType: IContainerLayer.CreateLayer(string, int, ContainerLayerType)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer(string, int, UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType)
+  type: Method
+  source:
+    id: CreateLayer
+    path: ''
+    startLine: 4477
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  summary: "\nCreate layer\n"
+  example: []
+  syntax:
+    content: void CreateLayer(string layerName, int layer, ContainerLayerType layerType)
+    parameters:
+    - id: layerName
+      type: System.String
+      description: ''
+    - id: layer
+      type: System.Int32
+      description: ''
+    - id: layerType
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+      description: ''
+    content.vb: Sub CreateLayer(layerName As String, layer As Integer, layerType As ContainerLayerType)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer*
+  nameWithType.vb: IContainerLayer.CreateLayer(String, Integer, ContainerLayerType)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer(String, Integer, UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType)
+  name.vb: CreateLayer(String, Integer, ContainerLayerType)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed
+  id: OnBackButtonPressed
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  langs:
+  - csharp
+  - vb
+  name: OnBackButtonPressed()
+  nameWithType: IContainerLayer.OnBackButtonPressed()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed()
+  type: Method
+  source:
+    id: OnBackButtonPressed
+    path: ''
+    startLine: 4481
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  summary: "\nHandle back key on some device\n"
+  example: []
+  syntax:
+    content: UniTask OnBackButtonPressed()
+    return:
+      type: Global.UniTask
+    content.vb: Function OnBackButtonPressed() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder
+  name: SortOrder
+  nameWithType: IContainerLayer.SortOrder
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.SortOrder
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName
+  name: LayerName
+  nameWithType: IContainerLayer.LayerName
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer
+  name: VisibleElementInLayer
+  nameWithType: IContainerLayer.VisibleElementInLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.VisibleElementInLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType
+  name: LayerType
+  nameWithType: IContainerLayer.LayerType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.LayerType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: ContainerLayerType
+  nameWithType: ContainerLayerType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager
+  name: ContainerLayerManager
+  nameWithType: IContainerLayer.ContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.ContainerLayerManager
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: IContainerLayerManager
+  nameWithType: IContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current
+  name: Current
+  nameWithType: IContainerLayer.Current
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.Current
+- uid: Global.Window
+  isExternal: true
+  name: Window
+  nameWithType: Window
+  fullName: Window
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer
+  name: CreateLayer
+  nameWithType: IContainerLayer.CreateLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.CreateLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed
+  name: OnBackButtonPressed
+  nameWithType: IContainerLayer.OnBackButtonPressed
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.OnBackButtonPressed
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask

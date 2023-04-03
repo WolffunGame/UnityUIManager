@@ -1,0 +1,489 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  id: SimpleTransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  - UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play(CancellationToken)
+  - UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  - UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime(CancellationToken)
+  - UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup
+  langs:
+  - csharp
+  - vb
+  name: SimpleTransitionAnimationObject
+  nameWithType: SimpleTransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  type: Class
+  source:
+    id: SimpleTransitionAnimationObject
+    path: ''
+    startLine: 3796
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: 'public sealed class SimpleTransitionAnimationObject : TransitionAnimationObject, ITransitionAnimation, IAnimation'
+    content.vb: Public NotInheritable Class SimpleTransitionAnimationObject Inherits TransitionAnimationObject Implements ITransitionAnimation, IAnimation
+  inheritance:
+  - System.Object
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  - Global.IAnimation
+  inheritedMembers:
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.RectTransform
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.PartnerRectTransform
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#SetPartner(RectTransform)
+  - UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#Setup(RectTransform)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play(CancellationToken)
+  id: Play(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  langs:
+  - csharp
+  - vb
+  name: Play(CancellationToken)
+  nameWithType: SimpleTransitionAnimationObject.Play(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play(CancellationToken)
+  type: Method
+  source:
+    id: Play
+    path: ''
+    startLine: 3829
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public override UniTask Play(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+    content.vb: Public Overrides Function Play(cancellationToken As CancellationToken) As UniTask
+  overridden: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Play(CancellationToken)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  id: CreateInstance(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(float?, Ease?, SheetAlignment?, Vector3?, float?, SheetAlignment?, Vector3?, float?)
+  nameWithType: SimpleTransitionAnimationObject.CreateInstance(float?, Ease?, SheetAlignment?, Vector3?, float?, SheetAlignment?, Vector3?, float?)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance(float?, Ease?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, float?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, float?)
+  type: Method
+  source:
+    id: CreateInstance
+    path: ''
+    startLine: 3834
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public static SimpleTransitionAnimationObject CreateInstance(float? duration = null, Ease? easeType = null, SheetAlignment? beforeAlignment = null, Vector3? beforeScale = null, float? beforeAlpha = null, SheetAlignment? afterAlignment = null, Vector3? afterScale = null, float? afterAlpha = null)
+    parameters:
+    - id: duration
+      type: System.Nullable{System.Single}
+    - id: easeType
+      type: System.Nullable{Ease}
+    - id: beforeAlignment
+      type: System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment}
+    - id: beforeScale
+      type: System.Nullable{Vector3}
+    - id: beforeAlpha
+      type: System.Nullable{System.Single}
+    - id: afterAlignment
+      type: System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment}
+    - id: afterScale
+      type: System.Nullable{Vector3}
+    - id: afterAlpha
+      type: System.Nullable{System.Single}
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+    content.vb: Public Shared Function CreateInstance(duration As Single? = Nothing, easeType As Ease? = Nothing, beforeAlignment As SheetAlignment? = Nothing, beforeScale As Vector3? = Nothing, beforeAlpha As Single? = Nothing, afterAlignment As SheetAlignment? = Nothing, afterScale As Vector3? = Nothing, afterAlpha As Single? = Nothing) As SimpleTransitionAnimationObject
+  overload: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance*
+  nameWithType.vb: SimpleTransitionAnimationObject.CreateInstance(Single?, Ease?, SheetAlignment?, Vector3?, Single?, SheetAlignment?, Vector3?, Single?)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance(Single?, Ease?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, Single?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, Single?)
+  name.vb: CreateInstance(Single?, Ease?, SheetAlignment?, Vector3?, Single?, SheetAlignment?, Vector3?, Single?)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup
+  id: Setup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  langs:
+  - csharp
+  - vb
+  name: Setup()
+  nameWithType: SimpleTransitionAnimationObject.Setup()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup()
+  type: Method
+  source:
+    id: Setup
+    path: ''
+    startLine: 3844
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public override void Setup()
+    content.vb: Public Overrides Sub Setup()
+  overridden: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Setup
+  overload: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime(CancellationToken)
+  id: SetTime(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  langs:
+  - csharp
+  - vb
+  name: SetTime(CancellationToken)
+  nameWithType: SimpleTransitionAnimationObject.SetTime(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime(CancellationToken)
+  type: Method
+  source:
+    id: SetTime
+    path: ''
+    startLine: 3856
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public UniTask SetTime(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+    content.vb: Public Function SetTime(cancellationToken As CancellationToken) As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  id: SetParams(System.Nullable{System.Single},System.Nullable{Ease},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single},System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment},System.Nullable{Vector3},System.Nullable{System.Single})
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  langs:
+  - csharp
+  - vb
+  name: SetParams(float?, Ease?, SheetAlignment?, Vector3?, float?, SheetAlignment?, Vector3?, float?)
+  nameWithType: SimpleTransitionAnimationObject.SetParams(float?, Ease?, SheetAlignment?, Vector3?, float?, SheetAlignment?, Vector3?, float?)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams(float?, Ease?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, float?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, float?)
+  type: Method
+  source:
+    id: SetParams
+    path: ''
+    startLine: 3880
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public void SetParams(float? duration = null, Ease? easeType = null, SheetAlignment? beforeAlignment = null, Vector3? beforeScale = null, float? beforeAlpha = null, SheetAlignment? afterAlignment = null, Vector3? afterScale = null, float? afterAlpha = null)
+    parameters:
+    - id: duration
+      type: System.Nullable{System.Single}
+    - id: easeType
+      type: System.Nullable{Ease}
+    - id: beforeAlignment
+      type: System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment}
+    - id: beforeScale
+      type: System.Nullable{Vector3}
+    - id: beforeAlpha
+      type: System.Nullable{System.Single}
+    - id: afterAlignment
+      type: System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment}
+    - id: afterScale
+      type: System.Nullable{Vector3}
+    - id: afterAlpha
+      type: System.Nullable{System.Single}
+    content.vb: Public Sub SetParams(duration As Single? = Nothing, easeType As Ease? = Nothing, beforeAlignment As SheetAlignment? = Nothing, beforeScale As Vector3? = Nothing, beforeAlpha As Single? = Nothing, afterAlignment As SheetAlignment? = Nothing, afterScale As Vector3? = Nothing, afterAlpha As Single? = Nothing)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams*
+  nameWithType.vb: SimpleTransitionAnimationObject.SetParams(Single?, Ease?, SheetAlignment?, Vector3?, Single?, SheetAlignment?, Vector3?, Single?)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams(Single?, Ease?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, Single?, UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?, Vector3?, Single?)
+  name.vb: SetParams(Single?, Ease?, SheetAlignment?, Vector3?, Single?, SheetAlignment?, Vector3?, Single?)
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: TransitionAnimationObject
+  nameWithType: TransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: ITransitionAnimation
+  nameWithType: ITransitionAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+- uid: Global.IAnimation
+  isExternal: true
+  name: IAnimation
+  nameWithType: IAnimation
+  fullName: IAnimation
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.RectTransform
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.RectTransform
+  parent: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  name: RectTransform
+  nameWithType: TransitionAnimationObject.RectTransform
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.RectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.PartnerRectTransform
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.PartnerRectTransform
+  parent: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  name: PartnerRectTransform
+  nameWithType: TransitionAnimationObject.PartnerRectTransform
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.PartnerRectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#SetPartner(RectTransform)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#SetPartner(RectTransform)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  isExternal: true
+  name: ITransitionAnimation.SetPartner(RectTransform)
+  nameWithType: TransitionAnimationObject.ITransitionAnimation.SetPartner(RectTransform)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.SetPartner(RectTransform)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+    name: ITransitionAnimation
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#SetPartner(RectTransform)
+    name: SetPartner
+  - name: (
+  - uid: Global.RectTransform
+    name: RectTransform
+    isExternal: true
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#Setup(RectTransform)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#Setup(RectTransform)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  isExternal: true
+  name: ITransitionAnimation.Setup(RectTransform)
+  nameWithType: TransitionAnimationObject.ITransitionAnimation.Setup(RectTransform)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.Setup(RectTransform)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+    name: ITransitionAnimation
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.UnityScreenNavigator#Runtime#Core#Shared#ITransitionAnimation#Setup(RectTransform)
+    name: Setup
+  - name: (
+  - uid: Global.RectTransform
+    name: RectTransform
+    isExternal: true
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Play(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Play(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  isExternal: true
+  name: Play(CancellationToken)
+  nameWithType: TransitionAnimationObject.Play(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Play(CancellationToken)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Play(CancellationToken)
+    name: Play
+  - name: (
+  - uid: Global.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Play(CancellationToken)
+    name: Play
+  - name: (
+  - uid: Global.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play
+  name: Play
+  nameWithType: SimpleTransitionAnimationObject.Play
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Play
+- uid: Global.CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance
+  name: CreateInstance
+  nameWithType: SimpleTransitionAnimationObject.CreateInstance
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.CreateInstance
+- uid: System.Nullable{System.Single}
+  commentId: T:System.Nullable{System.Single}
+  parent: System
+  definition: System.Nullable`1
+  name: float?
+  nameWithType: float?
+  fullName: float?
+  nameWithType.vb: Single?
+  fullName.vb: Single?
+  name.vb: Single?
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable{Ease}
+  commentId: T:System.Nullable{Ease}
+  parent: System
+  definition: System.Nullable`1
+  name: Ease?
+  nameWithType: Ease?
+  fullName: Ease?
+  spec.csharp:
+  - uid: Global.Ease
+    name: Ease
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: Global.Ease
+    name: Ease
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment}
+  commentId: T:System.Nullable{UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment}
+  parent: System
+  definition: System.Nullable`1
+  name: SheetAlignment?
+  nameWithType: SheetAlignment?
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment?
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+    name: SheetAlignment
+  - name: '?'
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+    name: SheetAlignment
+  - name: '?'
+- uid: System.Nullable{Vector3}
+  commentId: T:System.Nullable{Vector3}
+  parent: System
+  definition: System.Nullable`1
+  name: Vector3?
+  nameWithType: Vector3?
+  fullName: Vector3?
+  spec.csharp:
+  - uid: Global.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: Global.Vector3
+    name: Vector3
+    isExternal: true
+  - name: '?'
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: SimpleTransitionAnimationObject
+  nameWithType: SimpleTransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Setup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Setup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  name: Setup()
+  nameWithType: TransitionAnimationObject.Setup()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Setup()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Setup
+    name: Setup
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.Setup
+    name: Setup
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup
+  name: Setup
+  nameWithType: SimpleTransitionAnimationObject.Setup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.Setup
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime
+  name: SetTime
+  nameWithType: SimpleTransitionAnimationObject.SetTime
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetTime
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams
+  name: SetParams
+  nameWithType: SimpleTransitionAnimationObject.SetParams
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.SetParams

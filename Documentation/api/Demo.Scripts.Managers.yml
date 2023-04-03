@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: Demo.Scripts.Managers
+  commentId: N:Demo.Scripts.Managers
+  id: Demo.Scripts.Managers
+  children:
+  - Demo.Scripts.Managers.GlobalContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Demo.Scripts.Managers
+  nameWithType: Demo.Scripts.Managers
+  fullName: Demo.Scripts.Managers
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: Demo.Scripts.Managers.GlobalContainerLayerManager
+  commentId: T:Demo.Scripts.Managers.GlobalContainerLayerManager
+  parent: Demo.Scripts.Managers
+  name: GlobalContainerLayerManager
+  nameWithType: GlobalContainerLayerManager
+  fullName: Demo.Scripts.Managers.GlobalContainerLayerManager
+- uid: Demo.Scripts.Managers
+  commentId: N:Demo.Scripts.Managers
+  name: Demo.Scripts.Managers
+  nameWithType: Demo.Scripts.Managers
+  fullName: Demo.Scripts.Managers
+  spec.csharp:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+  - name: .
+  - uid: Demo.Scripts.Managers
+    name: Managers
+  spec.vb:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+  - name: .
+  - uid: Demo.Scripts.Managers
+    name: Managers

@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  id: IAnimation
+  parent: UnityScreenNavigator.Runtime.Foundation.Animation
+  children:
+  - UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play(CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IAnimation
+  nameWithType: IAnimation
+  fullName: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  type: Interface
+  source:
+    id: IAnimation
+    path: ''
+    startLine: 5991
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.Animation
+  syntax:
+    content: public interface IAnimation
+    content.vb: Public Interface IAnimation
+- uid: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play(CancellationToken)
+  id: Play(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  langs:
+  - csharp
+  - vb
+  name: Play(CancellationToken)
+  nameWithType: IAnimation.Play(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play(CancellationToken)
+  type: Method
+  source:
+    id: Play
+    path: ''
+    startLine: 6009
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.Animation
+  summary: "\nEntry point to start animation. Work with animation system such as DOTween of other system does not need update every time.\n"
+  example: []
+  syntax:
+    content: UniTask Play(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+      description: ''
+    content.vb: Function Play(cancellationToken As CancellationToken) As UniTask
+  overload: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play*
+references:
+- uid: UnityScreenNavigator.Runtime.Foundation.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Foundation.Animation
+  name: UnityScreenNavigator.Runtime.Foundation.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Foundation.Animation
+  fullName: UnityScreenNavigator.Runtime.Foundation.Animation
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation
+    name: Foundation
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation.Animation
+    name: Animation
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation
+    name: Foundation
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation.Animation
+    name: Animation
+- uid: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play*
+  commentId: Overload:UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play
+  name: Play
+  nameWithType: IAnimation.Play
+  fullName: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.Play
+- uid: Global.CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask

@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  id: ModalBackdrop
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  children:
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup(RectTransform)
+  langs:
+  - csharp
+  - vb
+  name: ModalBackdrop
+  nameWithType: ModalBackdrop
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  type: Class
+  source:
+    id: ModalBackdrop
+    path: ''
+    startLine: 1713
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: 'public sealed class ModalBackdrop : MonoBehaviour'
+    content.vb: Public NotInheritable Class ModalBackdrop Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer
+  commentId: P:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer
+  id: AnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  langs:
+  - csharp
+  - vb
+  name: AnimationContainer
+  nameWithType: ModalBackdrop.AnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer
+  type: Property
+  source:
+    id: AnimationContainer
+    path: ''
+    startLine: 1721
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public ModalBackdropTransitionAnimationContainer AnimationContainer { get; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+    content.vb: Public ReadOnly Property AnimationContainer As ModalBackdropTransitionAnimationContainer
+  overload: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer*
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup(RectTransform)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup(RectTransform)
+  id: Setup(RectTransform)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  langs:
+  - csharp
+  - vb
+  name: Setup(RectTransform)
+  nameWithType: ModalBackdrop.Setup(RectTransform)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup(RectTransform)
+  type: Method
+  source:
+    id: Setup
+    path: ''
+    startLine: 1729
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public void Setup(RectTransform parentTransform)
+    parameters:
+    - id: parentTransform
+      type: Global.RectTransform
+    content.vb: Public Sub Setup(parentTransform As RectTransform)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Modal
+  commentId: N:UnityScreenNavigator.Runtime.Core.Modal
+  name: UnityScreenNavigator.Runtime.Core.Modal
+  nameWithType: UnityScreenNavigator.Runtime.Core.Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer
+  name: AnimationContainer
+  nameWithType: ModalBackdrop.AnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.AnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: ModalBackdropTransitionAnimationContainer
+  nameWithType: ModalBackdropTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup
+  name: Setup
+  nameWithType: ModalBackdrop.Setup
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.Setup
+- uid: Global.RectTransform
+  isExternal: true
+  name: RectTransform
+  nameWithType: RectTransform
+  fullName: RectTransform

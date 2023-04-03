@@ -1,0 +1,1091 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  id: AlertDialog
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNegative
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNeutral
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonPositive
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CancelButtonText
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CanceledOnTouchOutside
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ConfirmButtonText
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Message
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.NeutralButtonText
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(IUIView,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Title
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick
+  langs:
+  - csharp
+  - vb
+  name: AlertDialog
+  nameWithType: AlertDialog
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  type: Struct
+  source:
+    id: AlertDialog
+    path: ''
+    startLine: 6561
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public struct AlertDialog
+    content.vb: Public Structure AlertDialog
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonPositive
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonPositive
+  id: ButtonPositive
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ButtonPositive
+  nameWithType: AlertDialog.ButtonPositive
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonPositive
+  type: Field
+  source:
+    id: ButtonPositive
+    path: ''
+    startLine: 6563
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public const int ButtonPositive = -1
+    return:
+      type: System.Int32
+    content.vb: Public Const ButtonPositive As Integer = -1
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNegative
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNegative
+  id: ButtonNegative
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ButtonNegative
+  nameWithType: AlertDialog.ButtonNegative
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNegative
+  type: Field
+  source:
+    id: ButtonNegative
+    path: ''
+    startLine: 6564
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public const int ButtonNegative = -2
+    return:
+      type: System.Int32
+    content.vb: Public Const ButtonNegative As Integer = -2
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNeutral
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNeutral
+  id: ButtonNeutral
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ButtonNeutral
+  nameWithType: AlertDialog.ButtonNeutral
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNeutral
+  type: Field
+  source:
+    id: ButtonNeutral
+    path: ''
+    startLine: 6565
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public const int ButtonNeutral = -3
+    return:
+      type: System.Int32
+    content.vb: Public Const ButtonNeutral As Integer = -3
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey
+  id: DialogKey
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: DialogKey
+  nameWithType: AlertDialog.DialogKey
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey
+  type: Property
+  source:
+    id: DialogKey
+    path: ''
+    startLine: 6574
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static string DialogKey { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared Property DialogKey As String
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey*
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer
+  id: DialogLayer
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: DialogLayer
+  nameWithType: AlertDialog.DialogLayer
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer
+  type: Property
+  source:
+    id: DialogLayer
+    path: ''
+    startLine: 6580
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public static string DialogLayer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared Property DialogLayer As String
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer*
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.Int32)
+  id: ShowMessage(System.String,System.String,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(string, string, int)
+  nameWithType: AlertDialog.ShowMessage(string, string, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(string, string, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6594
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user. \n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(string message, string title, int priority = 0)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to be shown to the user.
+    - id: title
+      type: System.String
+      description: The title of the dialog box. This may be null.
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(message As String, title As String, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(String, String, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(String, String, Integer)
+  name.vb: ShowMessage(String, String, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.Int32)
+  id: ShowMessage(System.String,System.String,System.String,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(string, string, string, int)
+  nameWithType: AlertDialog.ShowMessage(string, string, string, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(string, string, string, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6610
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user. \n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(string message, string title, string buttonText, int priority = 0)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to be shown to the user.
+    - id: title
+      type: System.String
+      description: The title of the dialog box. This may be null.
+    - id: buttonText
+      type: System.String
+      description: >-
+        The text shown in the only button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(message As String, title As String, buttonText As String, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(String, String, String, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(String, String, String, Integer)
+  name.vb: ShowMessage(String, String, String, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.Int32)
+  id: ShowMessage(System.String,System.String,System.String,System.String,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(string, string, string, string, int)
+  nameWithType: AlertDialog.ShowMessage(string, string, string, string, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(string, string, string, string, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6629
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user.\n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(string message, string title, string confirmButtonText, string cancelButtonText, int priority = 0)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to be shown to the user.
+    - id: title
+      type: System.String
+      description: The title of the dialog box. This may be null.
+    - id: confirmButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;confirm&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: cancelButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;cancel&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(message As String, title As String, confirmButtonText As String, cancelButtonText As String, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(String, String, String, String, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(String, String, String, String, Integer)
+  name.vb: ShowMessage(String, String, String, String, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  id: ShowMessage(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(string, string, string, string, string, bool, int)
+  nameWithType: AlertDialog.ShowMessage(string, string, string, string, string, bool, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(string, string, string, string, string, bool, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6653
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user. \n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(string message, string title, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside = false, int priority = 0)
+    parameters:
+    - id: message
+      type: System.String
+      description: The message to be shown to the user.
+    - id: title
+      type: System.String
+      description: The title of the dialog box. This may be null.
+    - id: confirmButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;confirm&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: neutralButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;neutral&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: cancelButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;cancel&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: canceledOnTouchOutside
+      type: System.Boolean
+      description: "Whether the dialog box is canceled when \ntouched outside the window&apos;s bounds. "
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(message As String, title As String, confirmButtonText As String, neutralButtonText As String, cancelButtonText As String, canceledOnTouchOutside As Boolean = False, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(String, String, String, String, String, Boolean, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(String, String, String, String, String, Boolean, Integer)
+  name.vb: ShowMessage(String, String, String, String, String, Boolean, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(IUIView,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(IUIView,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  id: ShowMessage(IUIView,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(IUIView, string, string, string, string, bool, int)
+  nameWithType: AlertDialog.ShowMessage(IUIView, string, string, string, string, bool, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(IUIView, string, string, string, string, bool, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6681
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user. \n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(IUIView contentView, string title, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside = false, int priority = 0)
+    parameters:
+    - id: contentView
+      type: Global.IUIView
+      description: The custom content view to be shown to the user.
+    - id: title
+      type: System.String
+      description: The title of the dialog box. This may be null.
+    - id: confirmButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;confirm&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: neutralButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;neutral&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: cancelButtonText
+      type: System.String
+      description: >-
+        The text shown in the &quot;cancel&quot; button
+
+        in the dialog box. If left null, the button will be invisible.
+    - id: canceledOnTouchOutside
+      type: System.Boolean
+      description: "Whether the dialog box is canceled when \ntouched outside the window&apos;s bounds. "
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(contentView As IUIView, title As String, confirmButtonText As String, neutralButtonText As String, cancelButtonText As String, canceledOnTouchOutside As Boolean = False, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(IUIView, String, String, String, String, Boolean, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(IUIView, String, String, String, String, Boolean, Integer)
+  name.vb: ShowMessage(IUIView, String, String, String, String, Boolean, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  id: ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(AlertDialog, int)
+  nameWithType: AlertDialog.ShowMessage(AlertDialog, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6721
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user. \n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(AlertDialog viewModel, int priority = 0)
+    parameters:
+    - id: viewModel
+      type: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+      description: The view model of the dialog box
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(viewModel As AlertDialog, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(AlertDialog, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog, Integer)
+  name.vb: ShowMessage(AlertDialog, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  id: ShowMessage(System.String,UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ShowMessage(string, AlertDialog, int)
+  nameWithType: AlertDialog.ShowMessage(string, AlertDialog, int)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(string, UnityScreenNavigator.Runtime.Interactivity.AlertDialog, int)
+  type: Method
+  source:
+    id: ShowMessage
+    path: ''
+    startLine: 6733
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  summary: "\nDisplays information to the user. \n"
+  example: []
+  syntax:
+    content: public static UniTask<AlertDialog> ShowMessage(string key, AlertDialog viewModel, int priority = 0)
+    parameters:
+    - id: key
+      type: System.String
+      description: The view name of the dialog box,if it is null, use the default view name
+    - id: viewModel
+      type: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+      description: The view model of the dialog box
+    - id: priority
+      type: System.Int32
+      description: ''
+    return:
+      type: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+      description: A AlertDialog.
+    content.vb: Public Shared Function ShowMessage(key As String, viewModel As AlertDialog, priority As Integer = 0) As UniTask(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  nameWithType.vb: AlertDialog.ShowMessage(String, AlertDialog, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(String, UnityScreenNavigator.Runtime.Interactivity.AlertDialog, Integer)
+  name.vb: ShowMessage(String, AlertDialog, Integer)
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick
+  id: UserClick
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: UserClick
+  nameWithType: AlertDialog.UserClick
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick
+  type: Property
+  source:
+    id: UserClick
+    path: ''
+    startLine: 6792
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public readonly AsyncReactiveProperty<int> UserClick { get; }
+    parameters: []
+    return:
+      type: Global.AsyncReactiveProperty{System.Int32}
+    content.vb: Public Property UserClick As AsyncReactiveProperty(Of Integer)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick*
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Title
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Title
+  id: Title
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: AlertDialog.Title
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Title
+  type: Field
+  source:
+    id: Title
+    path: ''
+    startLine: 6794
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public string Title
+    return:
+      type: System.String
+    content.vb: Public Title As String
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Message
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Message
+  id: Message
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: AlertDialog.Message
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Message
+  type: Field
+  source:
+    id: Message
+    path: ''
+    startLine: 6795
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public string Message
+    return:
+      type: System.String
+    content.vb: Public Message As String
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ConfirmButtonText
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ConfirmButtonText
+  id: ConfirmButtonText
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: ConfirmButtonText
+  nameWithType: AlertDialog.ConfirmButtonText
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ConfirmButtonText
+  type: Field
+  source:
+    id: ConfirmButtonText
+    path: ''
+    startLine: 6796
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public string ConfirmButtonText
+    return:
+      type: System.String
+    content.vb: Public ConfirmButtonText As String
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.NeutralButtonText
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.NeutralButtonText
+  id: NeutralButtonText
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: NeutralButtonText
+  nameWithType: AlertDialog.NeutralButtonText
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.NeutralButtonText
+  type: Field
+  source:
+    id: NeutralButtonText
+    path: ''
+    startLine: 6797
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public string NeutralButtonText
+    return:
+      type: System.String
+    content.vb: Public NeutralButtonText As String
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CancelButtonText
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CancelButtonText
+  id: CancelButtonText
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: CancelButtonText
+  nameWithType: AlertDialog.CancelButtonText
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CancelButtonText
+  type: Field
+  source:
+    id: CancelButtonText
+    path: ''
+    startLine: 6798
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public string CancelButtonText
+    return:
+      type: System.String
+    content.vb: Public CancelButtonText As String
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CanceledOnTouchOutside
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CanceledOnTouchOutside
+  id: CanceledOnTouchOutside
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: CanceledOnTouchOutside
+  nameWithType: AlertDialog.CanceledOnTouchOutside
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CanceledOnTouchOutside
+  type: Field
+  source:
+    id: CanceledOnTouchOutside
+    path: ''
+    startLine: 6799
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public bool CanceledOnTouchOutside
+    return:
+      type: System.Boolean
+    content.vb: Public CanceledOnTouchOutside As Boolean
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  id: '#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)'
+  parent: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  langs:
+  - csharp
+  - vb
+  name: AlertDialog(string, string, string, string, string, bool)
+  nameWithType: AlertDialog.AlertDialog(string, string, string, string, string, bool)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.AlertDialog(string, string, string, string, string, bool)
+  type: Constructor
+  source:
+    id: .ctor
+    path: ''
+    startLine: 6801
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public AlertDialog(string title, string message, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside)
+    parameters:
+    - id: title
+      type: System.String
+    - id: message
+      type: System.String
+    - id: confirmButtonText
+      type: System.String
+    - id: neutralButtonText
+      type: System.String
+    - id: cancelButtonText
+      type: System.String
+    - id: canceledOnTouchOutside
+      type: System.Boolean
+    content.vb: Public Sub New(title As String, message As String, confirmButtonText As String, neutralButtonText As String, cancelButtonText As String, canceledOnTouchOutside As Boolean)
+  overload: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor*
+  nameWithType.vb: AlertDialog.New(String, String, String, String, String, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.New(String, String, String, String, String, Boolean)
+  name.vb: New(String, String, String, String, String, Boolean)
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey
+  name: DialogKey
+  nameWithType: AlertDialog.DialogKey
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer
+  name: DialogLayer
+  nameWithType: AlertDialog.DialogLayer
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage
+  name: ShowMessage
+  nameWithType: AlertDialog.ShowMessage
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage
+- uid: Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+  commentId: '!:Global.UniTask{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}'
+  definition: Global.UniTask`1
+  name: UniTask<AlertDialog>
+  nameWithType: UniTask<AlertDialog>
+  fullName: UniTask<UnityScreenNavigator.Runtime.Interactivity.AlertDialog>
+  nameWithType.vb: UniTask(Of AlertDialog)
+  fullName.vb: UniTask(Of UnityScreenNavigator.Runtime.Interactivity.AlertDialog)
+  name.vb: UniTask(Of AlertDialog)
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+    name: AlertDialog
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+    name: AlertDialog
+  - name: )
+- uid: Global.UniTask`1
+  isExternal: true
+  name: UniTask<>
+  nameWithType: UniTask<>
+  fullName: UniTask<>
+  nameWithType.vb: UniTask(Of )
+  fullName.vb: UniTask(Of )
+  name.vb: UniTask(Of )
+  spec.csharp:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.UniTask`1
+    name: UniTask
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Global.IUIView
+  isExternal: true
+  name: IUIView
+  nameWithType: IUIView
+  fullName: IUIView
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: AlertDialog
+  nameWithType: AlertDialog
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick
+  name: UserClick
+  nameWithType: AlertDialog.UserClick
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick
+- uid: Global.AsyncReactiveProperty{System.Int32}
+  commentId: '!:Global.AsyncReactiveProperty{System.Int32}'
+  definition: Global.AsyncReactiveProperty`1
+  name: AsyncReactiveProperty<int>
+  nameWithType: AsyncReactiveProperty<int>
+  fullName: AsyncReactiveProperty<int>
+  nameWithType.vb: AsyncReactiveProperty(Of Integer)
+  fullName.vb: AsyncReactiveProperty(Of Integer)
+  name.vb: AsyncReactiveProperty(Of Integer)
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: )
+- uid: Global.AsyncReactiveProperty`1
+  isExternal: true
+  name: AsyncReactiveProperty<>
+  nameWithType: AsyncReactiveProperty<>
+  fullName: AsyncReactiveProperty<>
+  nameWithType.vb: AsyncReactiveProperty(Of )
+  fullName.vb: AsyncReactiveProperty(Of )
+  name.vb: AsyncReactiveProperty(Of )
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor
+  name: AlertDialog
+  nameWithType: AlertDialog.AlertDialog
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.AlertDialog
+  nameWithType.vb: AlertDialog.New
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.AlertDialog.New
+  name.vb: New

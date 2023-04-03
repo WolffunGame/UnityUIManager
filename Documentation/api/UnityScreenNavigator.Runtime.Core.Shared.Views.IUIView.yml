@@ -1,0 +1,403 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  id: IUIView
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  langs:
+  - csharp
+  - vb
+  name: IUIView
+  nameWithType: IUIView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  type: Interface
+  source:
+    id: IUIView
+    path: ''
+    startLine: 4717
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: public interface IUIView
+    content.vb: Public Interface IUIView
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  id: RectTransform
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: RectTransform
+  nameWithType: IUIView.RectTransform
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  type: Property
+  source:
+    id: RectTransform
+    path: ''
+    startLine: 4719
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: RectTransform RectTransform { get; }
+    parameters: []
+    return:
+      type: Global.RectTransform
+    content.vb: ReadOnly Property RectTransform As RectTransform
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  id: Alpha
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: Alpha
+  nameWithType: IUIView.Alpha
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  type: Property
+  source:
+    id: Alpha
+    path: ''
+    startLine: 4721
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: float Alpha { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Property Alpha As Single
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  id: Interactable
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: Interactable
+  nameWithType: IUIView.Interactable
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  type: Property
+  source:
+    id: Interactable
+    path: ''
+    startLine: 4723
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: bool Interactable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property Interactable As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  id: CanvasGroup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: CanvasGroup
+  nameWithType: IUIView.CanvasGroup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  type: Property
+  source:
+    id: CanvasGroup
+    path: ''
+    startLine: 4725
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: CanvasGroup CanvasGroup { get; }
+    parameters: []
+    return:
+      type: Global.CanvasGroup
+    content.vb: ReadOnly Property CanvasGroup As CanvasGroup
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  id: Name
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IUIView.Name
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  type: Property
+  source:
+    id: Name
+    path: ''
+    startLine: 4727
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  id: Parent
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: IUIView.Parent
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  type: Property
+  source:
+    id: Parent
+    path: ''
+    startLine: 4729
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: Transform Parent { get; }
+    parameters: []
+    return:
+      type: Global.Transform
+    content.vb: ReadOnly Property Parent As Transform
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  id: Owner
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: IUIView.Owner
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  type: Property
+  source:
+    id: Owner
+    path: ''
+    startLine: 4731
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: GameObject Owner { get; }
+    parameters: []
+    return:
+      type: Global.GameObject
+    content.vb: ReadOnly Property Owner As GameObject
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  id: Visibility
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: Visibility
+  nameWithType: IUIView.Visibility
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  type: Property
+  source:
+    id: Visibility
+    path: ''
+    startLine: 4733
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: bool Visibility { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property Visibility As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  id: ExtraAttributes
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  langs:
+  - csharp
+  - vb
+  name: ExtraAttributes
+  nameWithType: IUIView.ExtraAttributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  type: Property
+  source:
+    id: ExtraAttributes
+    path: ''
+    startLine: 4738
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  summary: "\nExternal extended attributes\n"
+  example: []
+  syntax:
+    content: IAttributes ExtraAttributes { get; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+    content.vb: ReadOnly Property ExtraAttributes As IAttributes
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UnityScreenNavigator.Runtime.Core.Shared.Views
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  name: RectTransform
+  nameWithType: IUIView.RectTransform
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+- uid: Global.RectTransform
+  isExternal: true
+  name: RectTransform
+  nameWithType: RectTransform
+  fullName: RectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  name: Alpha
+  nameWithType: IUIView.Alpha
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  name: Interactable
+  nameWithType: IUIView.Interactable
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  name: CanvasGroup
+  nameWithType: IUIView.CanvasGroup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+- uid: Global.CanvasGroup
+  isExternal: true
+  name: CanvasGroup
+  nameWithType: CanvasGroup
+  fullName: CanvasGroup
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  name: Name
+  nameWithType: IUIView.Name
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  name: Parent
+  nameWithType: IUIView.Parent
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+- uid: Global.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: Transform
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  name: Owner
+  nameWithType: IUIView.Owner
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+- uid: Global.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: GameObject
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  name: Visibility
+  nameWithType: IUIView.Visibility
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  name: ExtraAttributes
+  nameWithType: IUIView.ExtraAttributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: IAttributes
+  nameWithType: IAttributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes

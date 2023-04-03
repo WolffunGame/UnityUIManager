@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Modal
+  commentId: N:UnityScreenNavigator.Runtime.Core.Modal
+  id: UnityScreenNavigator.Runtime.Core.Modal
+  children:
+  - UnityScreenNavigator.Runtime.Core.Modal.AnonymousModalContainerCallbackReceiver
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalContainer
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalContainerExtensions
+  - UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Modal
+  nameWithType: UnityScreenNavigator.Runtime.Core.Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Modal.AnonymousModalContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.AnonymousModalContainerCallbackReceiver
+  name: AnonymousModalContainerCallbackReceiver
+  nameWithType: AnonymousModalContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.AnonymousModalContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: IModalContainerCallbackReceiver
+  nameWithType: IModalContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: IModalLifecycleEvent
+  nameWithType: IModalLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.Modal
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: Modal
+  nameWithType: Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+  name: ModalBackdrop
+  nameWithType: ModalBackdrop
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: ModalBackdropTransitionAnimationContainer
+  nameWithType: ModalBackdropTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: ModalContainer
+  nameWithType: ModalContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalContainerExtensions
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalContainerExtensions
+  name: ModalContainerExtensions
+  nameWithType: ModalContainerExtensions
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalContainerExtensions
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: ModalTransitionAnimationContainer
+  nameWithType: ModalTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal
+  commentId: N:UnityScreenNavigator.Runtime.Core.Modal
+  name: UnityScreenNavigator.Runtime.Core.Modal
+  nameWithType: UnityScreenNavigator.Runtime.Core.Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal

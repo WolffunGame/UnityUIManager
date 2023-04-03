@@ -1,0 +1,111 @@
+### YamlMime:ManagedReference
+items:
+- uid: Demo.Scripts.Demo
+  commentId: N:Demo.Scripts.Demo
+  id: Demo.Scripts.Demo
+  children:
+  - Demo.Scripts.Demo.Demo
+  - Demo.Scripts.Demo.DontDestroyLayerManager
+  - Demo.Scripts.Demo.Popup`1
+  - Demo.Scripts.Demo.Popup1Property
+  - Demo.Scripts.Demo.PopupProperty
+  - Demo.Scripts.Demo.Screen2
+  - Demo.Scripts.Demo.Screen3
+  - Demo.Scripts.Demo.Screen4
+  - Demo.Scripts.Demo.TestPopMultiple
+  langs:
+  - csharp
+  - vb
+  name: Demo.Scripts.Demo
+  nameWithType: Demo.Scripts.Demo
+  fullName: Demo.Scripts.Demo
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: Demo.Scripts.Demo.DontDestroyLayerManager
+  commentId: T:Demo.Scripts.Demo.DontDestroyLayerManager
+  name: DontDestroyLayerManager
+  nameWithType: DontDestroyLayerManager
+  fullName: Demo.Scripts.Demo.DontDestroyLayerManager
+- uid: Demo.Scripts.Demo.Popup`1
+  commentId: T:Demo.Scripts.Demo.Popup`1
+  name: Popup<T>
+  nameWithType: Popup<T>
+  fullName: Demo.Scripts.Demo.Popup<T>
+  nameWithType.vb: Popup(Of T)
+  fullName.vb: Demo.Scripts.Demo.Popup(Of T)
+  name.vb: Popup(Of T)
+  spec.csharp:
+  - uid: Demo.Scripts.Demo.Popup`1
+    name: Popup
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Demo.Scripts.Demo.Popup`1
+    name: Popup
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Demo.Scripts.Demo.PopupProperty
+  commentId: T:Demo.Scripts.Demo.PopupProperty
+  parent: Demo.Scripts.Demo
+  name: PopupProperty
+  nameWithType: PopupProperty
+  fullName: Demo.Scripts.Demo.PopupProperty
+- uid: Demo.Scripts.Demo.Popup1Property
+  commentId: T:Demo.Scripts.Demo.Popup1Property
+  name: Popup1Property
+  nameWithType: Popup1Property
+  fullName: Demo.Scripts.Demo.Popup1Property
+- uid: Demo.Scripts.Demo.Demo
+  commentId: T:Demo.Scripts.Demo.Demo
+  name: Demo
+  nameWithType: Demo
+  fullName: Demo.Scripts.Demo.Demo
+- uid: Demo.Scripts.Demo.Screen2
+  commentId: T:Demo.Scripts.Demo.Screen2
+  name: Screen2
+  nameWithType: Screen2
+  fullName: Demo.Scripts.Demo.Screen2
+- uid: Demo.Scripts.Demo.Screen3
+  commentId: T:Demo.Scripts.Demo.Screen3
+  name: Screen3
+  nameWithType: Screen3
+  fullName: Demo.Scripts.Demo.Screen3
+- uid: Demo.Scripts.Demo.Screen4
+  commentId: T:Demo.Scripts.Demo.Screen4
+  name: Screen4
+  nameWithType: Screen4
+  fullName: Demo.Scripts.Demo.Screen4
+- uid: Demo.Scripts.Demo.TestPopMultiple
+  commentId: T:Demo.Scripts.Demo.TestPopMultiple
+  name: TestPopMultiple
+  nameWithType: TestPopMultiple
+  fullName: Demo.Scripts.Demo.TestPopMultiple
+- uid: Demo.Scripts.Demo
+  commentId: N:Demo.Scripts.Demo
+  name: Demo.Scripts.Demo
+  nameWithType: Demo.Scripts.Demo
+  fullName: Demo.Scripts.Demo
+  spec.csharp:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+  - name: .
+  - uid: Demo.Scripts.Demo
+    name: Demo
+  spec.vb:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+  - name: .
+  - uid: Demo.Scripts.Demo
+    name: Demo

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct AlertDialog
+ | UnityUIManager </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct AlertDialog
+ | UnityUIManager ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog">
+
+
+  <h1 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog" class="text-break">Struct AlertDialog
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.ValueType.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.ValueType.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">UnityScreenNavigator</span>.<span class="xref">Runtime</span>.<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.html">Interactivity</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct AlertDialog</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog__ctor_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog__ctor_System_String_System_String_System_String_System_String_System_String_System_Boolean_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)">AlertDialog(string, string, string, string, string, bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AlertDialog(string title, string message, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">title</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">confirmButtonText</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">neutralButtonText</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">cancelButtonText</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">canceledOnTouchOutside</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ButtonNegative" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNegative">ButtonNegative</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ButtonNegative = -2</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ButtonNeutral" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonNeutral">ButtonNeutral</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ButtonNeutral = -3</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ButtonPositive" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ButtonPositive">ButtonPositive</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int ButtonPositive = -1</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_CancelButtonText" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CancelButtonText">CancelButtonText</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CancelButtonText</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_CanceledOnTouchOutside" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.CanceledOnTouchOutside">CanceledOnTouchOutside</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanceledOnTouchOutside</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ConfirmButtonText" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ConfirmButtonText">ConfirmButtonText</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ConfirmButtonText</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_Message" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Message">Message</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Message</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_NeutralButtonText" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.NeutralButtonText">NeutralButtonText</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NeutralButtonText</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_Title" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.Title">Title</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Title</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_DialogKey_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_DialogKey" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogKey">DialogKey</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DialogKey { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_DialogLayer_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_DialogLayer" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.DialogLayer">DialogLayer</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string DialogLayer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_UserClick_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_UserClick" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.UserClick">UserClick</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly AsyncReactiveProperty&lt;int&gt; UserClick { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AsyncReactiveProperty&lt;&gt;</span>&lt;<span class="xref">int</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_IUIView_System_String_System_String_System_String_System_String_System_Boolean_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(IUIView,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)">ShowMessage(IUIView, string, string, string, string, bool, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(IUIView contentView, string title, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside = false, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IUIView</span></td>
+        <td><span class="parametername">contentView</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The custom content view to be shown to the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The title of the dialog box. This may be null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">confirmButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;confirm&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">neutralButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;neutral&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">cancelButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;cancel&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">canceledOnTouchOutside</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">Whether the dialog box is canceled when
+touched outside the window's bounds.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_System_String_System_String_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.Int32)">ShowMessage(string, string, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(string message, string title, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The message to be shown to the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The title of the dialog box. This may be null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_System_String_System_String_System_String_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.Int32)">ShowMessage(string, string, string, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(string message, string title, string buttonText, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The message to be shown to the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The title of the dialog box. This may be null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">buttonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the only button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_System_String_System_String_System_String_System_String_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.Int32)">ShowMessage(string, string, string, string, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(string message, string title, string confirmButtonText, string cancelButtonText, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The message to be shown to the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The title of the dialog box. This may be null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">confirmButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;confirm&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">cancelButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;cancel&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_System_String_System_String_System_String_System_String_System_String_System_Boolean_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32)">ShowMessage(string, string, string, string, string, bool, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(string message, string title, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside = false, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">message</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The message to be shown to the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The title of the dialog box. This may be null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">confirmButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;confirm&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">neutralButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;neutral&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">cancelButtonText</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The text shown in the &quot;cancel&quot; button
+in the dialog box. If left null, the button will be invisible.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">canceledOnTouchOutside</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">Whether the dialog box is canceled when
+touched outside the window's bounds.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_System_String_UnityScreenNavigator_Runtime_Interactivity_AlertDialog_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(System.String,UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)">ShowMessage(string, AlertDialog, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(string key, AlertDialog viewModel, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The view name of the dialog box,if it is null, use the default view name</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a></td>
+        <td><span class="parametername">viewModel</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The view model of the dialog box</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Interactivity_AlertDialog_ShowMessage_UnityScreenNavigator_Runtime_Interactivity_AlertDialog_System_Int32_" data-uid="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.ShowMessage(UnityScreenNavigator.Runtime.Interactivity.AlertDialog,System.Int32)">ShowMessage(AlertDialog, int)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="2">Displays information to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UniTask&lt;AlertDialog&gt; ShowMessage(AlertDialog viewModel, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a></td>
+        <td><span class="parametername">viewModel</span></td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">The view model of the dialog box</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html">AlertDialog</a>&gt;</td>
+        <td><p sourcefile="api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml" sourcestartlinenumber="1">A AlertDialog.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      UnityUIManager
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

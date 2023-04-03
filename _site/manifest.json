@@ -24,11 +24,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DocFxForUnity.Player.yml",
+      "source_relative_path": "api/Demo.PopModalButtonPresenter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/DocFxForUnity.Player.html",
-          "hash": "/uyXYF5F3GiRX1GMdqRCvy+KgjA0fhZ7v3ZOwVeHfxI="
+          "relative_path": "api/Demo.PopModalButtonPresenter.html",
+          "hash": "k5wJney5DEuHJe8SeGv3aoKXgN7rIc+GjoZVxCJQ1WQ="
         }
       },
       "is_incremental": false,
@@ -36,11 +36,1331 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DocFxForUnity.yml",
+      "source_relative_path": "api/Demo.PopPageButtonPresenter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/DocFxForUnity.html",
-          "hash": "DSmT+rIRwuhrNlulotpMVvoMHHe47Trp/rJfTa2yInM="
+          "relative_path": "api/Demo.PopPageButtonPresenter.html",
+          "hash": "fATVg/TEaPFVYvYnJi/t1tCx8gEnxcIUUGQ2gTbU6JI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.CharacterImageModal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.CharacterImageModal.html",
+          "hash": "Jb6BBa4hm90pFbhg3lHRFyb8JsXOWVo/dHShdJNUImQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.CharacterModal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.CharacterModal.html",
+          "hash": "155djg4EeT3TSX8972+5tYziJy4gaWsvimy3YBebAmQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.CharacterModalImageSheet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.CharacterModalImageSheet.html",
+          "hash": "pKCKYrTiY4stULE/SsaeDMUzQZkRV9b58oypuGs3W84="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.CharacterModalThumbnail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.CharacterModalThumbnail.html",
+          "hash": "+aEpJiFafy4vqCaFeV8mYjJUtCFb2og8vunYDDEFpvo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.CharacterModalThumbnailGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.CharacterModalThumbnailGrid.html",
+          "hash": "HxBoKuZK30SPVutAKxTNjnicv+YT/uh+DL3HYnbB4sc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.ContainerKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.ContainerKey.html",
+          "hash": "0r+RLgYDK++H/lC8/mpJ2NzUkBM7EFSg0NxPdzGHsjg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.Demo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.Demo.html",
+          "hash": "F1vJwapX80l6ZFKnf7X78IB1EMOxvOMOLKij8LcEiNQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.DontDestroyLayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.DontDestroyLayerManager.html",
+          "hash": "uE8oRVMEXtXXxqapZ07oo+SJZJEsaRLwQSEhNOSlTa0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.Popup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.Popup-1.html",
+          "hash": "TePlTXHR/KPXoPe0pjgFDUUHYIkMQPvkQkJkq91iP6E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.Popup1Property.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.Popup1Property.html",
+          "hash": "DRukLn8el94PK5b8JvYd8jsg7rZGJ7diMO7CgDEoDPM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.PopupProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.PopupProperty.html",
+          "hash": "I+l0vbfNPv/jpUEGtjc4JUzyOXokWtyxQ6YSWszDR6w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.Screen2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.Screen2.html",
+          "hash": "dznrVudmzegLdX9seQLURuNmQk2cZZAOxS7L+KdgqsY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.Screen3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.Screen3.html",
+          "hash": "P56541EsAjxIDSEHQ5A1EsX+bRgxC9JIG/TKdfDaeWM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.Screen4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.Screen4.html",
+          "hash": "g5qgBns+GnVfqvyBglZ5kk5ve+7b6CLcdd0ZRRsdaI0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.TestPopMultiple.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.TestPopMultiple.html",
+          "hash": "3JsyjZ2rxqa1mDuO/ToANpsy1IpwwbabC51+kPbfdfQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Demo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Demo.html",
+          "hash": "5W4Qv8wnXfqdF9vlpeu50zFDaPPQeZNzjBuLq5xmpEQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.HomeLoadingScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.HomeLoadingScreen.html",
+          "hash": "aw8VOGEmCdkRxFP8zlhh4PmopMiP5p09m84mwIT8p54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.HomeScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.HomeScreen.html",
+          "hash": "VhGxj+umNQKnzAjlZmr4CAk/XNpcHPGaZjeM1lPIBjw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Launcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Launcher.html",
+          "hash": "3axWMXjR41jJfoFC6Ka+8b/My8h7r5/kb32sCN4FMF8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.LayerCreator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.LayerCreator.html",
+          "hash": "aHqCCCzr33kkRLGd3xl6FREZGcw0R3KBWj9X+6jK/Kc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Managers.GlobalContainerLayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Managers.GlobalContainerLayerManager.html",
+          "hash": "uM6TlGlzascjNkU6bWfVCmc6Tt0JgQnbJmk/rnTxkKI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.Managers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.Managers.html",
+          "hash": "93JNhx+qBA1jPGNzUcJi78h528+kRNFRggRZBXPhjs8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.ResourceKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.ResourceKey.html",
+          "hash": "/esQxGJk3pAb3l0OPTY5zbCQxIyC901dkljH5xYgLx0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.RootPageManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.RootPageManager.html",
+          "hash": "1Os+Owa/GX+10b9cX4a0ba/kFqio0P4FwB04mR/P4Ac="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.ShopItemGridSheet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.ShopItemGridSheet.html",
+          "hash": "ph/7ZdB+3B6LTw4OgQzSTZjlupKId4sY6dZ9W7IifIw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.ShopScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.ShopScreen.html",
+          "hash": "TJYt9WF7wLuPDFULN6oy5LnHwUUKAgPjQ6xTsex7naI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.TopScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.TopScreen.html",
+          "hash": "NePXsiieNgt5s5UPjBbCet8sMxv6j6VZ/AhRDQM+1TQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Scripts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Scripts.html",
+          "hash": "R/oC/3BlfE9k/0Y/oSMr6axoHJD7Y3brhYKNOkSR6BA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.html",
+          "hash": "Brd9nxEwx3pOYEXAkvHV0W9LjbELChfTljGbKyVG2S4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DemoDevelopment.PageDevelopmentManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DemoDevelopment.PageDevelopmentManager.html",
+          "hash": "ddv885BVUS1oVgQ7zxufFjN80QBC/8Aq3yw6HUgNHsE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DemoDevelopment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DemoDevelopment.html",
+          "hash": "iWPaj2L8Dak/ZEj/k1UvRXp7BmxVMOIvROCbWae0j1g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TestUniTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TestUniTask.html",
+          "hash": "8AEaHhpwv1tteqZuPSaq8FAId2ZR/71VEpbpBO4gebo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.html",
+          "hash": "z18IRpL9B/WDUKzrEDnPXBpxxU8LHQgjHlR4s7ZTrUE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.AnonymousModalContainerCallbackReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.AnonymousModalContainerCallbackReceiver.html",
+          "hash": "DhbJZXLVAJ+HLG3A1m7n4DDwsgl1JEN4+ojLx3YR20E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.html",
+          "hash": "kRqESts0S9sgraOjRuIvO5xVv9klIp+4xiBrMGbt6mo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.html",
+          "hash": "hTKNNPm8i1NZu613Gn7rhi5QtbcxhQzNi7WoOoyRh9Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.Modal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.Modal.html",
+          "hash": "IpdV2KLWDxF61xQkH6D4QzdwLuRCbEyF5mnm+tIPxJw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalBackdrop.html",
+          "hash": "7I5D1n66L9mAJSURxOeK1CQaLUqWWZ8KriaL0QZbEgs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalBackdropTransitionAnimationContainer.html",
+          "hash": "8TmDyn3ZzCanWFZIOLJSfVbGM66pBr+37HUf9RmxYW0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalContainer.html",
+          "hash": "m35fr1Pte3oFwmefqDZsI3yJLNkgrSNjYfAqtFUicdg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalContainerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalContainerExtensions.html",
+          "hash": "M4iYlYDi69M0RrEuJSfWvStr64tXSI8g25k3F605FbI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer.html",
+          "hash": "yL2uqw4ke2NNyld1juNkfuHOcpydk+8HE90pzDoZy0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Modal.html",
+          "hash": "m/lRFmZ+iAw11vtFS98Wdjz/gyjTNGxLfE/ilpMhKds="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.html",
+          "hash": "YB/Zbev033lX/Xwxj8cMaXR37KQGuw8wuWcbYm53VSg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.html",
+          "hash": "nqyM0sfGKotDBDzZWYzx6xrf+LmjV0VGMUiQthvTj80="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.html",
+          "hash": "JpxdITy+btSw6tDqe02EXY+Gk1lTB9QF0MMQF9ey7S0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.Screen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.Screen.html",
+          "hash": "ay7dd4aI/xSxjZCf2kcpbg/Bl0tZ07BUIyQTQyFLvX4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer.html",
+          "hash": "26hc8icdEV8Xhf82t9G90haQpfYBHuyqUTAHjqkSAR4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.ScreenContainerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.ScreenContainerExtensions.html",
+          "hash": "pXDv/mT239xDiEKCfPtLb79A+w7SNRIWsR4LbYEi08w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer.html",
+          "hash": "hhA2gPkRAahY5zHaKpr6zLD4nEMhLcKNuifj4DA4waA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Screen.html",
+          "hash": "cLzUQh9YStGfIerGDxE1wAgpYnxbqgn+LKHOF+TGOqI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType.html",
+          "hash": "DFx9X3SfZ7Vdna+FoSFT7n86X4b7sH4/ffBKLWS2fJ0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.SimpleTransitionAnimationBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.SimpleTransitionAnimationBehaviour.html",
+          "hash": "t+4Bqxigb1G0crL34OozlihIamh27ktlQhno3fotliY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.html",
+          "hash": "iZI3M/PwmW/Cnyeare4PYcngVMXrfDOpFDmT4CyRCi0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Animation.html",
+          "hash": "LSf3ZrwPIRJalsrR9Q0gztbPZ8bBplYL59Lh5Q/Ol6c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation.html",
+          "hash": "tzTuSx07PauLmVykezfnHXqqqoxzGZKvWuOX0uShmn4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayer.html",
+          "hash": "aU9IRiCLoTNr6f/xgfJuU+SRTYMCkH6z+igOV+IjeFU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration.html",
+          "hash": "M9rcmrX+J/R3tac3MYc5KdlxVvaFmkNXn/rXZnt6xkY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.html",
+          "hash": "O+lHziCyBZT6ryqZ1yLmfkLuTqNO/4xUtUwBbalM5D8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.html",
+          "hash": "xqLYKVCfWC+3fFXeid6gnqTB8paj+T8KFbnqgPs1QF8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.html",
+          "hash": "kRqi+AZa4sepw6g7KPIxLbbUi956StVZf2wlcEznO7s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer.html",
+          "hash": "xG/fyYzmB3V0rfRAUQlufc+8NnUXFXYBL7mq2ZCenV8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.html",
+          "hash": "pHaIc2/9ubdrP7Y+GKI0pf4MdLz4nyBv7mmf2YzbbjE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager-1.html",
+          "hash": "INL150BZuQ0BVXNBPsU3twUUmxZEztlKzCxUDm/4znQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Layers.html",
+          "hash": "kW6gr7wBYnQhBpaF1y1JWcJGWkMYPi/kFuaX4Ka0ckw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.MonoBehaviourDestroyedEventDispatcher.html",
+          "hash": "X5AiTyo9nemhHQH8Hd6Oi+xg+espDmswta8sNJzRMEQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.html",
+          "hash": "i/OIq46dWPdNRCc2k/DcAbNVVLDpM1Rxbzov2EKpGmc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.SimpleTransitionAnimationObject.html",
+          "hash": "i3kI2noVlXwB+b6Z92uOefIUyo7bXOvOllHdyrhkGCM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour.html",
+          "hash": "NdEREUpVI36w3hHysXRVrDAxUK+Q/57daxSlJAiRuwo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject.html",
+          "hash": "vugjbUku2OXJX2eIzWuhGDIBCT+1B18DXhOHReZxu5I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.Attributes.html",
+          "hash": "om5A89qnPQwZ2MX3ufNYM4QJSXYHlmQDG2FxF7abQGA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.html",
+          "hash": "9NmNxlYiQyTdN6ruiaO0jmisUlzmX6D8AMjJ8vhu27k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.html",
+          "hash": "3jUeIIlzFBTVlj0Jdio01won4NN7Qu1fhuW3KPdakJE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.html",
+          "hash": "8yelaD+uBdl7+Vf2KvHACm2tONhK7ovtXnAoj+XvaJI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout.html",
+          "hash": "Rz7jrQZBf7f1R/0nU1OyvWehNxYbSqFEOo6qdSF66hs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.UIView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.UIView.html",
+          "hash": "s3Td64iT/rAvdvOutJY2YzEKST5oXd2DZQuoPN62jws="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.Window.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.Window.html",
+          "hash": "mmJLwo6QhRZK0DMjbPIlJXMPkBGFRyTIhWMVc+UvhX4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.WindowView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.WindowView.html",
+          "hash": "uQrmQNCsqrRVmO8Z/O/n2oxD8Bmf2ku59cgMglJm4Hs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.Views.html",
+          "hash": "CsqLNkassH8/vEvhOWq4K9caS+pMgFExs3q9p5jtWXA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.WindowOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.WindowOption.html",
+          "hash": "xWn56qJCYnL2sQYF78/LNnyyeFqyt15CpDLCS9gu3CQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Shared.html",
+          "hash": "eU2raiYD0TL581/z2zQGJfNMl8P77eNK1zNV6c/8oVk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.html",
+          "hash": "TXNw69KVYw+/iyFVVzN5UxJxauUn9BAr8nRsr1xr+gQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.html",
+          "hash": "JuTQTDQoNJQWVBenyIhSwD1hoHyao7IvH4B3258AmcE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent.html",
+          "hash": "rLy3/s34zodcKey34eb4fdUPQGY+krfJwZWrcn73EF0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.Sheet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html",
+          "hash": "RhzMCoYPXoZvlltj1Zaezj8p9lY5BWKJtIBsdCrChEc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer.html",
+          "hash": "EP0zCf77xQpw1jrZtk/NVw5RcSAmg3eoXMezVxA7QTs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.html",
+          "hash": "d0s5TkDExweu2Bxgs3LZxUDw95fBSx2P+aAq0gFEuXU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.SheetTransitionAnimationContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.SheetTransitionAnimationContainer.html",
+          "hash": "Y8+56iLS7GirAgKn4DfLg4VYqTuwJNBaFtYcwJt4b3Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Core.Sheet.html",
+          "hash": "GDXf41AwwS36fSOxHcs25lDHxoool5S/cqAzAiUc9Uo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation.html",
+          "hash": "gGFfDXfqeJVFGST4XB+bqARumewJ4J9z/PwemhkHlVI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Foundation.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Foundation.Animation.html",
+          "hash": "knY0vzpftoG++MEMLt5jeNkogpbITv2WUSb7nT1ZyCw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList-1.html",
+          "hash": "ps1GgXCbKdb3wPKWo6vJIa6By0eOLkXwN3npo8VvM3c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityQueue-1.html",
+          "hash": "AispRxLPsoqG/I1bsfKlsjsiJFkAMuUjDWoB0mHqkhE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Foundation.PriorityCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Foundation.PriorityCollection.html",
+          "hash": "0KTu79bQtDZbu/RcaHijf7/s7MEsLbpGzJZ3jf5d5wE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.AlertDialog.html",
+          "hash": "gVMTumONiFLmc196dfLDTBLTXIc8VdDx56tVobRy9OE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Animation.InteractivityTransitionAnimationContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Animation.InteractivityTransitionAnimationContainer.html",
+          "hash": "gF29P3nb8/QPX7XqdlEN4Zjn8dJsndEOLQZQ35UJmpc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Animation.SwitchTransitionAnimationObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Animation.SwitchTransitionAnimationObject.html",
+          "hash": "TqJzWKsYW5MIvUbBIa+p/W3mmuLWZifEtBtqkATZieU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Animation.html",
+          "hash": "adFfABZv22A920DHrx5XBh3xpm8lzh5In3DeeD33mlg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.TipPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.TipPosition.html",
+          "hash": "gAZOKrd+r20j8F1Mg5IQz2tB3XSWctXzqQmjl1P+8Eo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Toast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Toast.html",
+          "hash": "JrwQwoSGCcZfbtoADlJOAnT6JN3Yw+3gPgczcvAr9sI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Tooltip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Tooltip.html",
+          "hash": "sVpt7xVRhIrU6i9NyFaOzScdjWRmEZiqOr2VtlAnHzA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.TooltipExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.TooltipExtensions.html",
+          "hash": "5W9ZqdUJgP+Dnv0XQ8UXcflUpuOEdM0Aj9Qd+tAaAj4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.TooltipOutbound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.TooltipOutbound.html",
+          "hash": "ykMnmbW4YFcCiGCp2yy/Zq/JD+ITvzpeH6abcUCMZvk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.html",
+          "hash": "Q9cuiQmJbI54z0bcwmh2tLmlbOMAKa5Dy0Ho2qMi1HY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.html",
+          "hash": "4DjuZkh8G8NKk5/vrdhcbQVysF3XfmuHJ+cPeNfAkus="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.html",
+          "hash": "SjQqFpt8nm1J6XUIZHBZbrzOuUncp5f9gZhxMGMlu1g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.Views.html",
+          "hash": "HWbxua8+9mcxj1rT4kx13IOVTPX2ByhdWEN6Ukhj4aY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UnityScreenNavigator.Runtime.Interactivity.html",
+          "hash": "BerTOHxwU9jE/mAd/PwNnQ/g7KzGfY1EqQEYzX7/ogc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/_Samples.UnityScreenNavigatorSample.Scripts.Tooltips.SimpleTooltipContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/_Samples.UnityScreenNavigatorSample.Scripts.Tooltips.SimpleTooltipContent.html",
+          "hash": "GPg4z/xn5cOopinTbji63yAarO6t55gAhOfza5UxJU0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/_Samples.UnityScreenNavigatorSample.Scripts.Tooltips.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/_Samples.UnityScreenNavigatorSample.Scripts.Tooltips.html",
+          "hash": "G45uk+68Efk+yuJC9N8jiszgTVessO3BsVMemtrf6OQ="
         }
       },
       "is_incremental": false,
@@ -52,7 +1372,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "zU0EejSgg7FmHMtIJZbTpVKZxTGwJkkB5oA+PvU7iMc="
+          "hash": "KamZPRA+xlf3e7gpL2HT+g+y9qYscoZHp+8Z/b5OrdA="
         }
       },
       "is_incremental": false,
@@ -134,7 +1454,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "SFx3+KcZROGTeWicTWfPlDmUjDgaRE0U1CqtjyPd7vc="
+          "hash": "rPmnfM6oKKbIEHLtmMtr2i/PnR4ZLbmaXcj8aTpS5d8="
         }
       },
       "is_incremental": false,
@@ -161,7 +1481,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 2,
+          "total_file_count": 112,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet
+  commentId: N:UnityScreenNavigator.Runtime.Core.Sheet
+  id: UnityScreenNavigator.Runtime.Core.Sheet
+  children:
+  - UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  - UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetTransitionAnimationContainer
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Sheet
+  nameWithType: UnityScreenNavigator.Runtime.Core.Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver
+  name: AnonymousSheetContainerCallbackReceiver
+  nameWithType: AnonymousSheetContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: ISheetContainerCallbackReceiver
+  nameWithType: ISheetContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: ISheetLifecycleEvent
+  nameWithType: ISheetLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetLifecycleEvent
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: Sheet
+  nameWithType: Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: SheetContainer
+  nameWithType: SheetContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  name: SheetContainerExtensions
+  nameWithType: SheetContainerExtensions
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: SheetTransitionAnimationContainer
+  nameWithType: SheetTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Sheet
+  commentId: N:UnityScreenNavigator.Runtime.Core.Sheet
+  name: UnityScreenNavigator.Runtime.Core.Sheet
+  nameWithType: UnityScreenNavigator.Runtime.Core.Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet

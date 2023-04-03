@@ -1,0 +1,1037 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  id: ContainerLayerManager
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find``1
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find``1(System.String)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll``1
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get(System.Int32)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles
+  langs:
+  - csharp
+  - vb
+  name: ContainerLayerManager
+  nameWithType: ContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  type: Class
+  source:
+    id: ContainerLayerManager
+    path: ''
+    startLine: 4215
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: 'public class ContainerLayerManager : MonoBehaviour, IContainerLayerManager'
+    content.vb: Public Class ContainerLayerManager Inherits MonoBehaviour Implements IContainerLayerManager
+  inheritance:
+  - System.Object
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated
+  id: Activated
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Activated
+  nameWithType: ContainerLayerManager.Activated
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated
+  type: Property
+  source:
+    id: Activated
+    path: ''
+    startLine: 4222
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public bool Activated { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Activated As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Activated
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count
+  id: Count
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: ContainerLayerManager.Count
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count
+  type: Property
+  source:
+    id: Count
+    path: ''
+    startLine: 4224
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Count
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer
+  id: GetTopVisibilityLayer
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: GetTopVisibilityLayer()
+  nameWithType: ContainerLayerManager.GetTopVisibilityLayer()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer()
+  type: Method
+  source:
+    id: GetTopVisibilityLayer
+    path: ''
+    startLine: 4229
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public static IContainerLayer GetTopVisibilityLayer()
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    content.vb: Public Shared Function GetTopVisibilityLayer() As IContainerLayer
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles
+  id: Visibles
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Visibles()
+  nameWithType: ContainerLayerManager.Visibles()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles()
+  type: Method
+  source:
+    id: Visibles
+    path: ''
+    startLine: 4250
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public IEnumerator<IContainerLayer> Visibles()
+    return:
+      type: Global.IEnumerator{UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer}
+    content.vb: Public Function Visibles() As IEnumerator(Of IContainerLayer)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Visibles
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get(System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get(System.Int32)
+  id: Get(System.Int32)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Get(int)
+  nameWithType: ContainerLayerManager.Get(int)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get(int)
+  type: Method
+  source:
+    id: Get
+    path: ''
+    startLine: 4259
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public IContainerLayer Get(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    content.vb: Public Function [Get](index As Integer) As IContainerLayer
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(System.Int32)
+  nameWithType.vb: ContainerLayerManager.Get(Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get(Integer)
+  name.vb: Get(Integer)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  id: Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Add(IContainerLayer)
+  nameWithType: ContainerLayerManager.Add(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  type: Method
+  source:
+    id: Add
+    path: ''
+    startLine: 4268
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public void Add(IContainerLayer layer)
+    parameters:
+    - id: layer
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    content.vb: Public Sub Add(layer As IContainerLayer)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  id: Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Remove(IContainerLayer)
+  nameWithType: ContainerLayerManager.Remove(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  type: Method
+  source:
+    id: Remove
+    path: ''
+    startLine: 4279
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public bool Remove(IContainerLayer layer)
+    parameters:
+    - id: layer
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(layer As IContainerLayer) As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  id: Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Contains(IContainerLayer)
+  nameWithType: ContainerLayerManager.Contains(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  type: Method
+  source:
+    id: Contains
+    path: ''
+    startLine: 4300
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public bool Contains(IContainerLayer layer)
+    parameters:
+    - id: layer
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(layer As IContainerLayer) As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  id: IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: IndexOf(IContainerLayer)
+  nameWithType: ContainerLayerManager.IndexOf(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  type: Method
+  source:
+    id: IndexOf
+    path: ''
+    startLine: 4308
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public int IndexOf(IContainerLayer window)
+    parameters:
+    - id: window
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    return:
+      type: System.Int32
+    content.vb: Public Function IndexOf(window As IContainerLayer) As Integer
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(System.Boolean)
+  id: Find(System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Find(bool)
+  nameWithType: ContainerLayerManager.Find(bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(bool)
+  type: Method
+  source:
+    id: Find
+    path: ''
+    startLine: 4316
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public List<IContainerLayer> Find(bool visible)
+    parameters:
+    - id: visible
+      type: System.Boolean
+    return:
+      type: Global.List{UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer}
+    content.vb: Public Function Find(visible As Boolean) As List(Of IContainerLayer)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(System.Boolean)
+  nameWithType.vb: ContainerLayerManager.Find(Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(Boolean)
+  name.vb: Find(Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find``1
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find``1
+  id: Find``1
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Find<T>()
+  nameWithType: ContainerLayerManager.Find<T>()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find<T>()
+  type: Method
+  source:
+    id: Find
+    path: ''
+    startLine: 4328
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: 'public T Find<T>() where T : IContainerLayer'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function Find(Of T As IContainerLayer)() As T
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1
+  nameWithType.vb: ContainerLayerManager.Find(Of T)()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(Of T)()
+  name.vb: Find(Of T)()
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find``1(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find``1(System.String)
+  id: Find``1(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Find<T>(string)
+  nameWithType: ContainerLayerManager.Find<T>(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find<T>(string)
+  type: Method
+  source:
+    id: Find
+    path: ''
+    startLine: 4333
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: 'public T Find<T>(string layerName) where T : IContainerLayer'
+    parameters:
+    - id: layerName
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function Find(Of T As IContainerLayer)(layerName As String) As T
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1(System.String)
+  nameWithType.vb: ContainerLayerManager.Find(Of T)(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find(Of T)(String)
+  name.vb: Find(Of T)(String)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll``1
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll``1
+  id: FindAll``1
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: FindAll<T>()
+  nameWithType: ContainerLayerManager.FindAll<T>()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll<T>()
+  type: Method
+  source:
+    id: FindAll
+    path: ''
+    startLine: 4338
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: 'public List<T> FindAll<T>() where T : IContainerLayer'
+    typeParameters:
+    - id: T
+    return:
+      type: Global.List{{T}}
+    content.vb: Public Function FindAll(Of T As IContainerLayer)() As List(Of T)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll``1
+  nameWithType.vb: ContainerLayerManager.FindAll(Of T)()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll(Of T)()
+  name.vb: FindAll(Of T)()
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear
+  id: Clear
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ContainerLayerManager.Clear()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear()
+  type: Method
+  source:
+    id: Clear
+    path: ''
+    startLine: 4343
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Clear
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  id: GetTransform(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  langs:
+  - csharp
+  - vb
+  name: GetTransform(IContainerLayer)
+  nameWithType: ContainerLayerManager.GetTransform(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  type: Method
+  source:
+    id: GetTransform
+    path: ''
+    startLine: 4348
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: protected virtual Transform GetTransform(IContainerLayer layer)
+    parameters:
+    - id: layer
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    return:
+      type: Global.Transform
+    content.vb: Protected Overridable Function GetTransform(layer As IContainerLayer) As Transform
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: IContainerLayerManager
+  nameWithType: IContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated
+  name: Activated
+  nameWithType: ContainerLayerManager.Activated
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Activated
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Activated
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Activated
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Activated
+  nameWithType: IContainerLayerManager.Activated
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Activated
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count
+  name: Count
+  nameWithType: ContainerLayerManager.Count
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Count
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Count
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Count
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Count
+  nameWithType: IContainerLayerManager.Count
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer
+  name: GetTopVisibilityLayer
+  nameWithType: ContainerLayerManager.GetTopVisibilityLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTopVisibilityLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: IContainerLayer
+  nameWithType: IContainerLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles
+  name: Visibles
+  nameWithType: ContainerLayerManager.Visibles
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Visibles
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Visibles
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Visibles
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Visibles()
+  nameWithType: IContainerLayerManager.Visibles()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Visibles()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Visibles
+    name: Visibles
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Visibles
+    name: Visibles
+  - name: (
+  - name: )
+- uid: Global.IEnumerator{UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer}
+  commentId: '!:Global.IEnumerator{UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer}'
+  definition: Global.IEnumerator`1
+  name: IEnumerator<IContainerLayer>
+  nameWithType: IEnumerator<IContainerLayer>
+  fullName: IEnumerator<UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer>
+  nameWithType.vb: IEnumerator(Of IContainerLayer)
+  fullName.vb: IEnumerator(Of UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  name.vb: IEnumerator(Of IContainerLayer)
+  spec.csharp:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: '>'
+  spec.vb:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+- uid: Global.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<>
+  nameWithType: IEnumerator<>
+  fullName: IEnumerator<>
+  nameWithType.vb: IEnumerator(Of )
+  fullName.vb: IEnumerator(Of )
+  name.vb: IEnumerator(Of )
+  spec.csharp:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get
+  name: Get
+  nameWithType: ContainerLayerManager.Get
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Get
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(System.Int32)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  isExternal: true
+  name: Get(int)
+  nameWithType: IContainerLayerManager.Get(int)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(int)
+  nameWithType.vb: IContainerLayerManager.Get(Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(Integer)
+  name.vb: Get(Integer)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(System.Int32)
+    name: Get
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Get(System.Int32)
+    name: Get
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add
+  name: Add
+  nameWithType: ContainerLayerManager.Add
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Add
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Add(IContainerLayer)
+  nameWithType: IContainerLayerManager.Add(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: Add
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Add(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: Add
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove
+  name: Remove
+  nameWithType: ContainerLayerManager.Remove
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Remove
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Remove(IContainerLayer)
+  nameWithType: IContainerLayerManager.Remove(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: Remove
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Remove(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: Remove
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains
+  name: Contains
+  nameWithType: ContainerLayerManager.Contains
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Contains
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Contains(IContainerLayer)
+  nameWithType: IContainerLayerManager.Contains(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: Contains
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Contains(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: Contains
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf
+  name: IndexOf
+  nameWithType: ContainerLayerManager.IndexOf
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.IndexOf
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: IndexOf(IContainerLayer)
+  nameWithType: IContainerLayerManager.IndexOf(IContainerLayer)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: IndexOf
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.IndexOf(UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+    name: IndexOf
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find
+  name: Find
+  nameWithType: ContainerLayerManager.Find
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Find
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  isExternal: true
+  name: Find(bool)
+  nameWithType: IContainerLayerManager.Find(bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(bool)
+  nameWithType.vb: IContainerLayerManager.Find(Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(Boolean)
+  name.vb: Find(Boolean)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(System.Boolean)
+    name: Find
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(System.Boolean)
+    name: Find
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+  - name: )
+- uid: Global.List{UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer}
+  commentId: '!:Global.List{UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer}'
+  definition: Global.List`1
+  name: List<IContainerLayer>
+  nameWithType: List<IContainerLayer>
+  fullName: List<UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer>
+  nameWithType.vb: List(Of IContainerLayer)
+  fullName.vb: List(Of UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer)
+  name.vb: List(Of IContainerLayer)
+  spec.csharp:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: '>'
+  spec.vb:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+    name: IContainerLayer
+  - name: )
+- uid: Global.List`1
+  isExternal: true
+  name: List<>
+  nameWithType: List<>
+  fullName: List<>
+  nameWithType.vb: List(Of )
+  fullName.vb: List(Of )
+  name.vb: List(Of )
+  spec.csharp:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Find<T>()
+  nameWithType: IContainerLayerManager.Find<T>()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find<T>()
+  nameWithType.vb: IContainerLayerManager.Find(Of T)()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(Of T)()
+  name.vb: Find(Of T)()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1
+    name: Find
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1
+    name: Find
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  isExternal: true
+  name: Find<T>(string)
+  nameWithType: IContainerLayerManager.Find<T>(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find<T>(string)
+  nameWithType.vb: IContainerLayerManager.Find(Of T)(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find(Of T)(String)
+  name.vb: Find(Of T)(String)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1(System.String)
+    name: Find
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Find``1(System.String)
+    name: Find
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll
+  name: FindAll
+  nameWithType: ContainerLayerManager.FindAll
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.FindAll
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll``1
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll``1
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: FindAll<T>()
+  nameWithType: IContainerLayerManager.FindAll<T>()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll<T>()
+  nameWithType.vb: IContainerLayerManager.FindAll(Of T)()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll(Of T)()
+  name.vb: FindAll(Of T)()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll``1
+    name: FindAll
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.FindAll``1
+    name: FindAll
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: Global.List{{T}}
+  commentId: '!:Global.List{``0}'
+  definition: Global.List`1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear
+  name: Clear
+  nameWithType: ContainerLayerManager.Clear
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.Clear
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Clear
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Clear
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  name: Clear()
+  nameWithType: IContainerLayerManager.Clear()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Clear()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Clear
+    name: Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager.Clear
+    name: Clear
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform
+  name: GetTransform
+  nameWithType: ContainerLayerManager.GetTransform
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager.GetTransform
+- uid: Global.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: Transform

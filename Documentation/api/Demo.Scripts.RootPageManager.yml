@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: Demo.Scripts.RootPageManager
+  commentId: T:Demo.Scripts.RootPageManager
+  id: RootPageManager
+  parent: Demo.Scripts
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: RootPageManager
+  nameWithType: RootPageManager
+  fullName: Demo.Scripts.RootPageManager
+  type: Class
+  source:
+    id: RootPageManager
+    path: ''
+    startLine: 713
+  assemblies:
+  - cs.temp.dll
+  namespace: Demo.Scripts
+  syntax:
+    content: 'public class RootPageManager : MonoBehaviour'
+    content.vb: Public Class RootPageManager Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+references:
+- uid: Demo.Scripts
+  commentId: N:Demo.Scripts
+  name: Demo.Scripts
+  nameWithType: Demo.Scripts
+  fullName: Demo.Scripts
+  spec.csharp:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+  spec.vb:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

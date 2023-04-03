@@ -1,0 +1,188 @@
+### YamlMime:ManagedReference
+items:
+- uid: Demo.Scripts.CharacterModalThumbnailGrid
+  commentId: T:Demo.Scripts.CharacterModalThumbnailGrid
+  id: CharacterModalThumbnailGrid
+  parent: Demo.Scripts
+  children:
+  - Demo.Scripts.CharacterModalThumbnailGrid.Setup(System.Int32)
+  - Demo.Scripts.CharacterModalThumbnailGrid.ThumbnailClicked
+  langs:
+  - csharp
+  - vb
+  name: CharacterModalThumbnailGrid
+  nameWithType: CharacterModalThumbnailGrid
+  fullName: Demo.Scripts.CharacterModalThumbnailGrid
+  type: Class
+  source:
+    id: CharacterModalThumbnailGrid
+    path: ''
+    startLine: 240
+  assemblies:
+  - cs.temp.dll
+  namespace: Demo.Scripts
+  syntax:
+    content: 'public class CharacterModalThumbnailGrid : MonoBehaviour'
+    content.vb: Public Class CharacterModalThumbnailGrid Inherits MonoBehaviour
+  inheritance:
+  - System.Object
+- uid: Demo.Scripts.CharacterModalThumbnailGrid.ThumbnailClicked
+  commentId: E:Demo.Scripts.CharacterModalThumbnailGrid.ThumbnailClicked
+  id: ThumbnailClicked
+  parent: Demo.Scripts.CharacterModalThumbnailGrid
+  langs:
+  - csharp
+  - vb
+  name: ThumbnailClicked
+  nameWithType: CharacterModalThumbnailGrid.ThumbnailClicked
+  fullName: Demo.Scripts.CharacterModalThumbnailGrid.ThumbnailClicked
+  type: Event
+  source:
+    id: ThumbnailClicked
+    path: ''
+    startLine: 246
+  assemblies:
+  - cs.temp.dll
+  namespace: Demo.Scripts
+  syntax:
+    content: public event Action<int> ThumbnailClicked
+    return:
+      type: Global.Action{System.Int32}
+    content.vb: Public Event ThumbnailClicked As Action(Of Integer)
+- uid: Demo.Scripts.CharacterModalThumbnailGrid.Setup(System.Int32)
+  commentId: M:Demo.Scripts.CharacterModalThumbnailGrid.Setup(System.Int32)
+  id: Setup(System.Int32)
+  parent: Demo.Scripts.CharacterModalThumbnailGrid
+  langs:
+  - csharp
+  - vb
+  name: Setup(int)
+  nameWithType: CharacterModalThumbnailGrid.Setup(int)
+  fullName: Demo.Scripts.CharacterModalThumbnailGrid.Setup(int)
+  type: Method
+  source:
+    id: Setup
+    path: ''
+    startLine: 248
+  assemblies:
+  - cs.temp.dll
+  namespace: Demo.Scripts
+  syntax:
+    content: public UniTask Setup(int characterId)
+    parameters:
+    - id: characterId
+      type: System.Int32
+    return:
+      type: Global.UniTask
+    content.vb: Public Function Setup(characterId As Integer) As UniTask
+  overload: Demo.Scripts.CharacterModalThumbnailGrid.Setup*
+  nameWithType.vb: CharacterModalThumbnailGrid.Setup(Integer)
+  fullName.vb: Demo.Scripts.CharacterModalThumbnailGrid.Setup(Integer)
+  name.vb: Setup(Integer)
+references:
+- uid: Demo.Scripts
+  commentId: N:Demo.Scripts
+  name: Demo.Scripts
+  nameWithType: Demo.Scripts
+  fullName: Demo.Scripts
+  spec.csharp:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+  spec.vb:
+  - uid: Demo
+    name: Demo
+  - name: .
+  - uid: Demo.Scripts
+    name: Scripts
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.Action{System.Int32}
+  commentId: '!:Global.Action{System.Int32}'
+  definition: Global.Action`1
+  name: Action<int>
+  nameWithType: Action<int>
+  fullName: Action<int>
+  nameWithType.vb: Action(Of Integer)
+  fullName.vb: Action(Of Integer)
+  name.vb: Action(Of Integer)
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: )
+- uid: Global.Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: Demo.Scripts.CharacterModalThumbnailGrid.Setup*
+  commentId: Overload:Demo.Scripts.CharacterModalThumbnailGrid.Setup
+  name: Setup
+  nameWithType: CharacterModalThumbnailGrid.Setup
+  fullName: Demo.Scripts.CharacterModalThumbnailGrid.Setup
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask

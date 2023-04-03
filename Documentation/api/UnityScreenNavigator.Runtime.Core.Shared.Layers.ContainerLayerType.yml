@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  id: ContainerLayerType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Modal
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Screen
+  langs:
+  - csharp
+  - vb
+  name: ContainerLayerType
+  nameWithType: ContainerLayerType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  type: Enum
+  source:
+    id: ContainerLayerType
+    path: ''
+    startLine: 4484
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public enum ContainerLayerType
+    content.vb: Public Enum ContainerLayerType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Modal
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Modal
+  id: Modal
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  langs:
+  - csharp
+  - vb
+  name: Modal
+  nameWithType: ContainerLayerType.Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Modal
+  type: Field
+  source:
+    id: Modal
+    path: ''
+    startLine: 4486
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: Modal = 0
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Screen
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Screen
+  id: Screen
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  langs:
+  - csharp
+  - vb
+  name: Screen
+  nameWithType: ContainerLayerType.Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType.Screen
+  type: Field
+  source:
+    id: Screen
+    path: ''
+    startLine: 4486
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: Screen = 1
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: ContainerLayerType
+  nameWithType: ContainerLayerType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType

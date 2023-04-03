@@ -1,0 +1,752 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  id: AnonymousScreenContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  children:
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.#ctor(Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}})
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPop
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPush
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePop
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePush
+  langs:
+  - csharp
+  - vb
+  name: AnonymousScreenContainerCallbackReceiver
+  nameWithType: AnonymousScreenContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  type: Class
+  source:
+    id: AnonymousScreenContainerCallbackReceiver
+    path: ''
+    startLine: 2366
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: 'public sealed class AnonymousScreenContainerCallbackReceiver : IScreenContainerCallbackReceiver'
+    content.vb: Public NotInheritable Class AnonymousScreenContainerCallbackReceiver Implements IScreenContainerCallbackReceiver
+  inheritance:
+  - System.Object
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.#ctor(Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}})
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.#ctor(Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}})
+  id: '#ctor(Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}})'
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AnonymousScreenContainerCallbackReceiver(Action<(Screen enterScreen, Screen exitScreen)>, Action<(Screen enterScreen, Screen exitScreen)>, Action<(Screen enterScreen, Screen exitScreen)>, Action<(Screen enterScreen, Screen exitScreen)>)
+  nameWithType: AnonymousScreenContainerCallbackReceiver.AnonymousScreenContainerCallbackReceiver(Action<(Screen enterScreen, Screen exitScreen)>, Action<(Screen enterScreen, Screen exitScreen)>, Action<(Screen enterScreen, Screen exitScreen)>, Action<(Screen enterScreen, Screen exitScreen)>)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AnonymousScreenContainerCallbackReceiver(Action<(UnityScreenNavigator.Runtime.Core.Screen.Screen enterScreen, UnityScreenNavigator.Runtime.Core.Screen.Screen exitScreen)>, Action<(UnityScreenNavigator.Runtime.Core.Screen.Screen enterScreen, UnityScreenNavigator.Runtime.Core.Screen.Screen exitScreen)>, Action<(UnityScreenNavigator.Runtime.Core.Screen.Screen enterScreen, UnityScreenNavigator.Runtime.Core.Screen.Screen exitScreen)>, Action<(UnityScreenNavigator.Runtime.Core.Screen.Screen enterScreen, UnityScreenNavigator.Runtime.Core.Screen.Screen exitScreen)>)
+  type: Constructor
+  source:
+    id: .ctor
+    path: ''
+    startLine: 2368
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public AnonymousScreenContainerCallbackReceiver(Action<(Screen enterScreen, Screen exitScreen)> onBeforePush = null, Action<(Screen enterScreen, Screen exitScreen)> onAfterPush = null, Action<(Screen enterScreen, Screen exitScreen)> onBeforePop = null, Action<(Screen enterScreen, Screen exitScreen)> onAfterPop = null)
+    parameters:
+    - id: onBeforePush
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    - id: onAfterPush
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    - id: onBeforePop
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    - id: onAfterPop
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    content.vb: Public Sub New(onBeforePush As Action(Of (enterScreen As Screen, exitScreen As Screen)) = Nothing, onAfterPush As Action(Of (enterScreen As Screen, exitScreen As Screen)) = Nothing, onBeforePop As Action(Of (enterScreen As Screen, exitScreen As Screen)) = Nothing, onAfterPop As Action(Of (enterScreen As Screen, exitScreen As Screen)) = Nothing)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.#ctor*
+  nameWithType.vb: AnonymousScreenContainerCallbackReceiver.New(Action(Of (enterScreen As Screen, exitScreen As Screen)), Action(Of (enterScreen As Screen, exitScreen As Screen)), Action(Of (enterScreen As Screen, exitScreen As Screen)), Action(Of (enterScreen As Screen, exitScreen As Screen)))
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.New(Action(Of (enterScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen, exitScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen)), Action(Of (enterScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen, exitScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen)), Action(Of (enterScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen, exitScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen)), Action(Of (enterScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen, exitScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen)))
+  name.vb: New(Action(Of (enterScreen As Screen, exitScreen As Screen)), Action(Of (enterScreen As Screen, exitScreen As Screen)), Action(Of (enterScreen As Screen, exitScreen As Screen)), Action(Of (enterScreen As Screen, exitScreen As Screen)))
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  id: BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: BeforePush(Screen, Screen)
+  nameWithType: AnonymousScreenContainerCallbackReceiver.BeforePush(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  type: Method
+  source:
+    id: BeforePush
+    path: ''
+    startLine: 2380
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void BeforePush(Screen enterScreen, Screen exitScreen)
+    parameters:
+    - id: enterScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    - id: exitScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    content.vb: Public Sub BeforePush(enterScreen As Screen, exitScreen As Screen)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  id: AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AfterPush(Screen, Screen)
+  nameWithType: AnonymousScreenContainerCallbackReceiver.AfterPush(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  type: Method
+  source:
+    id: AfterPush
+    path: ''
+    startLine: 2385
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void AfterPush(Screen enterScreen, Screen exitScreen)
+    parameters:
+    - id: enterScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    - id: exitScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    content.vb: Public Sub AfterPush(enterScreen As Screen, exitScreen As Screen)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  id: BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: BeforePop(Screen, Screen)
+  nameWithType: AnonymousScreenContainerCallbackReceiver.BeforePop(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  type: Method
+  source:
+    id: BeforePop
+    path: ''
+    startLine: 2390
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void BeforePop(Screen enterScreen, Screen exitScreen)
+    parameters:
+    - id: enterScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    - id: exitScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    content.vb: Public Sub BeforePop(enterScreen As Screen, exitScreen As Screen)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  id: AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AfterPop(Screen, Screen)
+  nameWithType: AnonymousScreenContainerCallbackReceiver.AfterPop(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  type: Method
+  source:
+    id: AfterPop
+    path: ''
+    startLine: 2395
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void AfterPop(Screen enterScreen, Screen exitScreen)
+    parameters:
+    - id: enterScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    - id: exitScreen
+      type: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    content.vb: Public Sub AfterPop(enterScreen As Screen, exitScreen As Screen)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPop
+  commentId: E:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPop
+  id: OnAfterPop
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: OnAfterPop
+  nameWithType: AnonymousScreenContainerCallbackReceiver.OnAfterPop
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPop
+  type: Event
+  source:
+    id: OnAfterPop
+    path: ''
+    startLine: 2400
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public event Action<(Screen enterScreen, Screen exitScreen)> OnAfterPop
+    return:
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    content.vb: Public Event OnAfterPop As Action(Of (enterScreen As Screen, exitScreen As Screen))
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPush
+  commentId: E:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPush
+  id: OnAfterPush
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: OnAfterPush
+  nameWithType: AnonymousScreenContainerCallbackReceiver.OnAfterPush
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnAfterPush
+  type: Event
+  source:
+    id: OnAfterPush
+    path: ''
+    startLine: 2401
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public event Action<(Screen enterScreen, Screen exitScreen)> OnAfterPush
+    return:
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    content.vb: Public Event OnAfterPush As Action(Of (enterScreen As Screen, exitScreen As Screen))
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePop
+  commentId: E:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePop
+  id: OnBeforePop
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: OnBeforePop
+  nameWithType: AnonymousScreenContainerCallbackReceiver.OnBeforePop
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePop
+  type: Event
+  source:
+    id: OnBeforePop
+    path: ''
+    startLine: 2402
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public event Action<(Screen enterScreen, Screen exitScreen)> OnBeforePop
+    return:
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    content.vb: Public Event OnBeforePop As Action(Of (enterScreen As Screen, exitScreen As Screen))
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePush
+  commentId: E:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePush
+  id: OnBeforePush
+  parent: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: OnBeforePush
+  nameWithType: AnonymousScreenContainerCallbackReceiver.OnBeforePush
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.OnBeforePush
+  type: Event
+  source:
+    id: OnBeforePush
+    path: ''
+    startLine: 2403
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public event Action<(Screen enterScreen, Screen exitScreen)> OnBeforePush
+    return:
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+    content.vb: Public Event OnBeforePush As Action(Of (enterScreen As Screen, exitScreen As Screen))
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Screen
+  commentId: N:UnityScreenNavigator.Runtime.Core.Screen
+  name: UnityScreenNavigator.Runtime.Core.Screen
+  nameWithType: UnityScreenNavigator.Runtime.Core.Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: IScreenContainerCallbackReceiver
+  nameWithType: IScreenContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.#ctor*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.#ctor
+  name: AnonymousScreenContainerCallbackReceiver
+  nameWithType: AnonymousScreenContainerCallbackReceiver.AnonymousScreenContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AnonymousScreenContainerCallbackReceiver
+  nameWithType.vb: AnonymousScreenContainerCallbackReceiver.New
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.New
+  name.vb: New
+- uid: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}
+  commentId: '!:Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}}'
+  definition: Global.Action`1
+  name: Action<(Screen enterScreen, Screen exitScreen)>
+  nameWithType: Action<(Screen enterScreen, Screen exitScreen)>
+  fullName: Action<(UnityScreenNavigator.Runtime.Core.Screen.Screen enterScreen, UnityScreenNavigator.Runtime.Core.Screen.Screen exitScreen)>
+  nameWithType.vb: Action(Of (enterScreen As Screen, exitScreen As Screen))
+  fullName.vb: Action(Of (enterScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen, exitScreen As UnityScreenNavigator.Runtime.Core.Screen.Screen))
+  name.vb: Action(Of (enterScreen As Screen, exitScreen As Screen))
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: " "
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}.enterScreen
+    name: enterScreen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: " "
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}.exitScreen
+    name: exitScreen
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}.enterScreen
+    name: enterScreen
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen}.exitScreen
+    name: exitScreen
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+  - name: )
+- uid: Global.Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush
+  name: BeforePush
+  nameWithType: AnonymousScreenContainerCallbackReceiver.BeforePush
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePush
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  name: BeforePush(Screen, Screen)
+  nameWithType: IScreenContainerCallbackReceiver.BeforePush(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: BeforePush
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: BeforePush
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.Screen
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: Screen
+  nameWithType: Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush
+  name: AfterPush
+  nameWithType: AnonymousScreenContainerCallbackReceiver.AfterPush
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPush
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  name: AfterPush(Screen, Screen)
+  nameWithType: IScreenContainerCallbackReceiver.AfterPush(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: AfterPush
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: AfterPush
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop
+  name: BeforePop
+  nameWithType: AnonymousScreenContainerCallbackReceiver.BeforePop
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.BeforePop
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  name: BeforePop(Screen, Screen)
+  nameWithType: IScreenContainerCallbackReceiver.BeforePop(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: BeforePop
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: BeforePop
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop
+  name: AfterPop
+  nameWithType: AnonymousScreenContainerCallbackReceiver.AfterPop
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver.AfterPop
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  name: AfterPop(Screen, Screen)
+  nameWithType: IScreenContainerCallbackReceiver.AfterPop(Screen, Screen)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen, UnityScreenNavigator.Runtime.Core.Screen.Screen)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: AfterPop
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Screen.Screen,UnityScreenNavigator.Runtime.Core.Screen.Screen)
+    name: AfterPop
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+    name: Screen
+  - name: )

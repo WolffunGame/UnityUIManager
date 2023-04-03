@@ -1,0 +1,712 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.Modal
+  id: Modal
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  children:
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent,System.Int32)
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent)
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter
+  - UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit
+  langs:
+  - csharp
+  - vb
+  name: Modal
+  nameWithType: Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  type: Class
+  source:
+    id: Modal
+    path: ''
+    startLine: 1451
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: 'public class Modal : Window, IModalLifecycleEvent'
+    content.vb: Public Class Modal Inherits Window Implements IModalLifecycleEvent
+  inheritance:
+  - System.Object
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier
+  commentId: P:UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier
+  id: Identifier
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: Identifier
+  nameWithType: Modal.Identifier
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier
+  type: Property
+  source:
+    id: Identifier
+    path: ''
+    startLine: 1464
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public override string Identifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides Property Identifier As String
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier*
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer
+  commentId: P:UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer
+  id: AnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: AnimationContainer
+  nameWithType: Modal.AnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer
+  type: Property
+  source:
+    id: AnimationContainer
+    path: ''
+    startLine: 1470
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public ModalTransitionAnimationContainer AnimationContainer { get; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+    content.vb: Public ReadOnly Property AnimationContainer As ModalTransitionAnimationContainer
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer*
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize
+  id: Initialize
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: Modal.Initialize()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize()
+  type: Method
+  source:
+    id: Initialize
+    path: ''
+    startLine: 1472
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual UniTask Initialize()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function Initialize() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Initialize
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter
+  id: WillPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: WillPushEnter()
+  nameWithType: Modal.WillPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter()
+  type: Method
+  source:
+    id: WillPushEnter
+    path: ''
+    startLine: 1477
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual UniTask WillPushEnter()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPushEnter() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter
+  id: DidPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: DidPushEnter()
+  nameWithType: Modal.DidPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter()
+  type: Method
+  source:
+    id: DidPushEnter
+    path: ''
+    startLine: 1482
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual void DidPushEnter()
+    content.vb: Public Overridable Sub DidPushEnter()
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit
+  id: WillPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: WillPushExit()
+  nameWithType: Modal.WillPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit()
+  type: Method
+  source:
+    id: WillPushExit
+    path: ''
+    startLine: 1486
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual UniTask WillPushExit()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPushExit() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit
+  id: DidPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: DidPushExit()
+  nameWithType: Modal.DidPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit()
+  type: Method
+  source:
+    id: DidPushExit
+    path: ''
+    startLine: 1491
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual void DidPushExit()
+    content.vb: Public Overridable Sub DidPushExit()
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter
+  id: WillPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: WillPopEnter()
+  nameWithType: Modal.WillPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter()
+  type: Method
+  source:
+    id: WillPopEnter
+    path: ''
+    startLine: 1495
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual UniTask WillPopEnter()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPopEnter() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter
+  id: DidPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: DidPopEnter()
+  nameWithType: Modal.DidPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter()
+  type: Method
+  source:
+    id: DidPopEnter
+    path: ''
+    startLine: 1501
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual void DidPopEnter()
+    content.vb: Public Overridable Sub DidPopEnter()
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit
+  id: WillPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: WillPopExit()
+  nameWithType: Modal.WillPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit()
+  type: Method
+  source:
+    id: WillPopExit
+    path: ''
+    startLine: 1505
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual UniTask WillPopExit()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPopExit() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit
+  id: DidPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: DidPopExit()
+  nameWithType: Modal.DidPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit()
+  type: Method
+  source:
+    id: DidPopExit
+    path: ''
+    startLine: 1511
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual void DidPopExit()
+    content.vb: Public Overridable Sub DidPopExit()
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup
+  id: Cleanup
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: Cleanup()
+  nameWithType: Modal.Cleanup()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup()
+  type: Method
+  source:
+    id: Cleanup
+    path: ''
+    startLine: 1515
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public virtual UniTask Cleanup()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function Cleanup() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Cleanup
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent,System.Int32)
+  id: AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: AddLifecycleEvent(IModalLifecycleEvent, int)
+  nameWithType: Modal.AddLifecycleEvent(IModalLifecycleEvent, int)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent, int)
+  type: Method
+  source:
+    id: AddLifecycleEvent
+    path: ''
+    startLine: 1520
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public void AddLifecycleEvent(IModalLifecycleEvent lifecycleEvent, int priority = 0)
+    parameters:
+    - id: lifecycleEvent
+      type: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+    - id: priority
+      type: System.Int32
+    content.vb: Public Sub AddLifecycleEvent(lifecycleEvent As IModalLifecycleEvent, priority As Integer = 0)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent*
+  nameWithType.vb: Modal.AddLifecycleEvent(IModalLifecycleEvent, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent, Integer)
+  name.vb: AddLifecycleEvent(IModalLifecycleEvent, Integer)
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent)
+  id: RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  langs:
+  - csharp
+  - vb
+  name: RemoveLifecycleEvent(IModalLifecycleEvent)
+  nameWithType: Modal.RemoveLifecycleEvent(IModalLifecycleEvent)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent)
+  type: Method
+  source:
+    id: RemoveLifecycleEvent
+    path: ''
+    startLine: 1525
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public void RemoveLifecycleEvent(IModalLifecycleEvent lifecycleEvent)
+    parameters:
+    - id: lifecycleEvent
+      type: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+    content.vb: Public Sub RemoveLifecycleEvent(lifecycleEvent As IModalLifecycleEvent)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Modal
+  commentId: N:UnityScreenNavigator.Runtime.Core.Modal
+  name: UnityScreenNavigator.Runtime.Core.Modal
+  nameWithType: UnityScreenNavigator.Runtime.Core.Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: IModalLifecycleEvent
+  nameWithType: IModalLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier
+  name: Identifier
+  nameWithType: Modal.Identifier
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.Identifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer
+  name: AnimationContainer
+  nameWithType: Modal.AnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.AnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: ModalTransitionAnimationContainer
+  nameWithType: ModalTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.ModalTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize
+  name: Initialize
+  nameWithType: Modal.Initialize
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.Initialize
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Initialize
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Initialize
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: Initialize()
+  nameWithType: IModalLifecycleEvent.Initialize()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Initialize()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Initialize
+    name: Initialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Initialize
+    name: Initialize
+  - name: (
+  - name: )
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter
+  name: WillPushEnter
+  nameWithType: Modal.WillPushEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: WillPushEnter()
+  nameWithType: IModalLifecycleEvent.WillPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushEnter
+    name: WillPushEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushEnter
+    name: WillPushEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter
+  name: DidPushEnter
+  nameWithType: Modal.DidPushEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: DidPushEnter()
+  nameWithType: IModalLifecycleEvent.DidPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushEnter
+    name: DidPushEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushEnter
+    name: DidPushEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit
+  name: WillPushExit
+  nameWithType: Modal.WillPushExit
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: WillPushExit()
+  nameWithType: IModalLifecycleEvent.WillPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushExit
+    name: WillPushExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPushExit
+    name: WillPushExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit
+  name: DidPushExit
+  nameWithType: Modal.DidPushExit
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: DidPushExit()
+  nameWithType: IModalLifecycleEvent.DidPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushExit
+    name: DidPushExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPushExit
+    name: DidPushExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter
+  name: WillPopEnter
+  nameWithType: Modal.WillPopEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: WillPopEnter()
+  nameWithType: IModalLifecycleEvent.WillPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopEnter
+    name: WillPopEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopEnter
+    name: WillPopEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter
+  name: DidPopEnter
+  nameWithType: Modal.DidPopEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: DidPopEnter()
+  nameWithType: IModalLifecycleEvent.DidPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopEnter
+    name: DidPopEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopEnter
+    name: DidPopEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit
+  name: WillPopExit
+  nameWithType: Modal.WillPopExit
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.WillPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: WillPopExit()
+  nameWithType: IModalLifecycleEvent.WillPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopExit
+    name: WillPopExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.WillPopExit
+    name: WillPopExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit
+  name: DidPopExit
+  nameWithType: Modal.DidPopExit
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.DidPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: DidPopExit()
+  nameWithType: IModalLifecycleEvent.DidPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopExit
+    name: DidPopExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.DidPopExit
+    name: DidPopExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup
+  name: Cleanup
+  nameWithType: Modal.Cleanup
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.Cleanup
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Cleanup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Cleanup
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent
+  name: Cleanup()
+  nameWithType: IModalLifecycleEvent.Cleanup()
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Cleanup()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Cleanup
+    name: Cleanup
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Modal.IModalLifecycleEvent.Cleanup
+    name: Cleanup
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent
+  name: AddLifecycleEvent
+  nameWithType: Modal.AddLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.AddLifecycleEvent
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent
+  name: RemoveLifecycleEvent
+  nameWithType: Modal.RemoveLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal.RemoveLifecycleEvent

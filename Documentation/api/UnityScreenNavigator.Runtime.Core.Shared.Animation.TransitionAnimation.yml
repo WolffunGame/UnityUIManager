@@ -1,0 +1,537 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  id: TransitionAnimation
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid(System.String)
+  - UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex
+  langs:
+  - csharp
+  - vb
+  name: TransitionAnimation
+  nameWithType: TransitionAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  type: Class
+  source:
+    id: TransitionAnimation
+    path: ''
+    startLine: 3976
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public sealed class TransitionAnimation
+    content.vb: Public NotInheritable Class TransitionAnimation
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex
+  id: PartnerIdentifierRegex
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: PartnerIdentifierRegex
+  nameWithType: TransitionAnimation.PartnerIdentifierRegex
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex
+  type: Property
+  source:
+    id: PartnerIdentifierRegex
+    path: ''
+    startLine: 3991
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public string PartnerIdentifierRegex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PartnerIdentifierRegex As String
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType
+  id: AssetType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: AssetType
+  nameWithType: TransitionAnimation.AssetType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType
+  type: Property
+  source:
+    id: AssetType
+    path: ''
+    startLine: 3997
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public AnimationAssetType AssetType { get; set; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+    content.vb: Public Property AssetType As AnimationAssetType
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour
+  id: AnimationBehaviour
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: AnimationBehaviour
+  nameWithType: TransitionAnimation.AnimationBehaviour
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour
+  type: Property
+  source:
+    id: AnimationBehaviour
+    path: ''
+    startLine: 4003
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public TransitionAnimationBehaviour AnimationBehaviour { get; set; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+    content.vb: Public Property AnimationBehaviour As TransitionAnimationBehaviour
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject
+  id: AnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: AnimationObject
+  nameWithType: TransitionAnimation.AnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject
+  type: Property
+  source:
+    id: AnimationObject
+    path: ''
+    startLine: 4009
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public TransitionAnimationObject AnimationObject { get; set; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+    content.vb: Public Property AnimationObject As TransitionAnimationObject
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid(System.String)
+  id: IsValid(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: IsValid(string)
+  nameWithType: TransitionAnimation.IsValid(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid(string)
+  type: Method
+  source:
+    id: IsValid
+    path: ''
+    startLine: 4015
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public bool IsValid(string partnerScreenIdentifier)
+    parameters:
+    - id: partnerScreenIdentifier
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsValid(partnerScreenIdentifier As String) As Boolean
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid*
+  nameWithType.vb: TransitionAnimation.IsValid(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid(String)
+  name.vb: IsValid(String)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation
+  id: GetAnimation
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation
+  langs:
+  - csharp
+  - vb
+  name: GetAnimation()
+  nameWithType: TransitionAnimation.GetAnimation()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation()
+  type: Method
+  source:
+    id: GetAnimation
+    path: ''
+    startLine: 4041
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  syntax:
+    content: public ITransitionAnimation GetAnimation()
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+    content.vb: Public Function GetAnimation() As ITransitionAnimation
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Animation
+  name: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+    name: Animation
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Animation
+    name: Animation
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex
+  name: PartnerIdentifierRegex
+  nameWithType: TransitionAnimation.PartnerIdentifierRegex
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.PartnerIdentifierRegex
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType
+  name: AssetType
+  nameWithType: TransitionAnimation.AssetType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AssetType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Animation
+  name: AnimationAssetType
+  nameWithType: AnimationAssetType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.AnimationAssetType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour
+  name: AnimationBehaviour
+  nameWithType: TransitionAnimation.AnimationBehaviour
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationBehaviour
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: TransitionAnimationBehaviour
+  nameWithType: TransitionAnimationBehaviour
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationBehaviour
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject
+  name: AnimationObject
+  nameWithType: TransitionAnimation.AnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.AnimationObject
+- uid: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: TransitionAnimationObject
+  nameWithType: TransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.TransitionAnimationObject
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid
+  name: IsValid
+  nameWithType: TransitionAnimation.IsValid
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation
+  name: GetAnimation
+  nameWithType: TransitionAnimation.GetAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Animation.TransitionAnimation.GetAnimation
+- uid: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: ITransitionAnimation
+  nameWithType: ITransitionAnimation
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.ITransitionAnimation

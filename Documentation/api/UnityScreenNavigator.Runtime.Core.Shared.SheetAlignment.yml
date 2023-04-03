@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  id: SheetAlignment
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Bottom
+  - UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Center
+  - UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Left
+  - UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Right
+  - UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Top
+  langs:
+  - csharp
+  - vb
+  name: SheetAlignment
+  nameWithType: SheetAlignment
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  type: Enum
+  source:
+    id: SheetAlignment
+    path: ''
+    startLine: 3364
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: public enum SheetAlignment
+    content.vb: Public Enum SheetAlignment
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Left
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Left
+  id: Left
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: SheetAlignment.Left
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Left
+  type: Field
+  source:
+    id: Left
+    path: ''
+    startLine: 3366
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: Left = 0
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Top
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Top
+  id: Top
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  langs:
+  - csharp
+  - vb
+  name: Top
+  nameWithType: SheetAlignment.Top
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Top
+  type: Field
+  source:
+    id: Top
+    path: ''
+    startLine: 3367
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: Top = 1
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Right
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Right
+  id: Right
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: SheetAlignment.Right
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Right
+  type: Field
+  source:
+    id: Right
+    path: ''
+    startLine: 3368
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: Right = 2
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Bottom
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Bottom
+  id: Bottom
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  langs:
+  - csharp
+  - vb
+  name: Bottom
+  nameWithType: SheetAlignment.Bottom
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Bottom
+  type: Field
+  source:
+    id: Bottom
+    path: ''
+    startLine: 3369
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: Bottom = 3
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Center
+  commentId: F:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Center
+  id: Center
+  parent: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: SheetAlignment.Center
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment.Center
+  type: Field
+  source:
+    id: Center
+    path: ''
+    startLine: 3370
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared
+  syntax:
+    content: Center = 4
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared
+  name: UnityScreenNavigator.Runtime.Core.Shared
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared
+  fullName: UnityScreenNavigator.Runtime.Core.Shared
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+- uid: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment
+  parent: UnityScreenNavigator.Runtime.Core.Shared
+  name: SheetAlignment
+  nameWithType: SheetAlignment
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.SheetAlignment

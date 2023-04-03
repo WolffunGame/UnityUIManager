@@ -1,0 +1,154 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  id: ContainerLayerSettings
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers
+  langs:
+  - csharp
+  - vb
+  name: ContainerLayerSettings
+  nameWithType: ContainerLayerSettings
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  type: Class
+  source:
+    id: ContainerLayerSettings
+    path: ''
+    startLine: 4387
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: 'public class ContainerLayerSettings : ScriptableObject'
+    content.vb: Public Class ContainerLayerSettings Inherits ScriptableObject
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers
+  id: GetContainerLayers
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  langs:
+  - csharp
+  - vb
+  name: GetContainerLayers()
+  nameWithType: ContainerLayerSettings.GetContainerLayers()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers()
+  type: Method
+  source:
+    id: GetContainerLayers
+    path: ''
+    startLine: 4392
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public ContainerLayerConfiguration[] GetContainerLayers()
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration[]
+    content.vb: Public Function GetContainerLayers() As ContainerLayerConfiguration()
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers
+  id: AutoSortLayers
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  langs:
+  - csharp
+  - vb
+  name: AutoSortLayers()
+  nameWithType: ContainerLayerSettings.AutoSortLayers()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers()
+  type: Method
+  source:
+    id: AutoSortLayers
+    path: ''
+    startLine: 4400
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  syntax:
+    content: public void AutoSortLayers()
+    content.vb: Public Sub AutoSortLayers()
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers
+  name: GetContainerLayers
+  nameWithType: ContainerLayerSettings.GetContainerLayers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.GetContainerLayers
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration[]
+  isExternal: true
+  name: ContainerLayerConfiguration[]
+  nameWithType: ContainerLayerConfiguration[]
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration[]
+  nameWithType.vb: ContainerLayerConfiguration()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration()
+  name.vb: ContainerLayerConfiguration()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration
+    name: ContainerLayerConfiguration
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration
+    name: ContainerLayerConfiguration
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers
+  name: AutoSortLayers
+  nameWithType: ContainerLayerSettings.AutoSortLayers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings.AutoSortLayers

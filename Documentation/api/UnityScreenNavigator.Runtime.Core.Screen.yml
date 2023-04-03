@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Screen
+  commentId: N:UnityScreenNavigator.Runtime.Core.Screen
+  id: UnityScreenNavigator.Runtime.Core.Screen
+  children:
+  - UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenContainerExtensions
+  - UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Screen
+  nameWithType: UnityScreenNavigator.Runtime.Core.Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+  name: AnonymousScreenContainerCallbackReceiver
+  nameWithType: AnonymousScreenContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.AnonymousScreenContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: IScreenContainerCallbackReceiver
+  nameWithType: IScreenContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: IScreenLifecycleEvent
+  nameWithType: IScreenLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.Screen
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: Screen
+  nameWithType: Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: ScreenContainer
+  nameWithType: ScreenContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainer
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainerExtensions
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.ScreenContainerExtensions
+  name: ScreenContainerExtensions
+  nameWithType: ScreenContainerExtensions
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenContainerExtensions
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: ScreenTransitionAnimationContainer
+  nameWithType: ScreenTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Screen
+  commentId: N:UnityScreenNavigator.Runtime.Core.Screen
+  name: UnityScreenNavigator.Runtime.Core.Screen
+  nameWithType: UnityScreenNavigator.Runtime.Core.Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen

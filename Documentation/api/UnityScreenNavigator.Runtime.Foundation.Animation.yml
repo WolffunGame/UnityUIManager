@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Foundation.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Foundation.Animation
+  id: UnityScreenNavigator.Runtime.Foundation.Animation
+  children:
+  - UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Foundation.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Foundation.Animation
+  fullName: UnityScreenNavigator.Runtime.Foundation.Animation
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  commentId: T:UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation
+  name: IAnimation
+  nameWithType: IAnimation
+  fullName: UnityScreenNavigator.Runtime.Foundation.Animation.IAnimation

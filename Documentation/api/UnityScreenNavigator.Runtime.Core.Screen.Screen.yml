@@ -1,0 +1,720 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.Screen
+  id: Screen
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  children:
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent,System.Int32)
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent)
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter
+  - UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit
+  langs:
+  - csharp
+  - vb
+  name: Screen
+  nameWithType: Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  type: Class
+  source:
+    id: Screen
+    path: ''
+    startLine: 2493
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: 'public class Screen : Window, IScreenLifecycleEvent'
+    content.vb: Public Class Screen Inherits Window Implements IScreenLifecycleEvent
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Demo.Scripts.Demo.Screen2
+  - Demo.Scripts.Demo.Screen3
+  - Demo.Scripts.Demo.Screen4
+  - Demo.Scripts.HomeLoadingScreen
+  - Demo.Scripts.HomeScreen
+  - Demo.Scripts.ShopScreen
+  - Demo.Scripts.TopScreen
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier
+  commentId: P:UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier
+  id: Identifier
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: Identifier
+  nameWithType: Screen.Identifier
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier
+  type: Property
+  source:
+    id: Identifier
+    path: ''
+    startLine: 2508
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public override string Identifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides Property Identifier As String
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer
+  commentId: P:UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer
+  id: AnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: AnimationContainer
+  nameWithType: Screen.AnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer
+  type: Property
+  source:
+    id: AnimationContainer
+    path: ''
+    startLine: 2515
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public ScreenTransitionAnimationContainer AnimationContainer { get; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+    content.vb: Public ReadOnly Property AnimationContainer As ScreenTransitionAnimationContainer
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer*
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize
+  id: Initialize
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: Screen.Initialize()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize()
+  type: Method
+  source:
+    id: Initialize
+    path: ''
+    startLine: 2518
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual UniTask Initialize()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function Initialize() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Initialize
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter
+  id: WillPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: WillPushEnter()
+  nameWithType: Screen.WillPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter()
+  type: Method
+  source:
+    id: WillPushEnter
+    path: ''
+    startLine: 2523
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual UniTask WillPushEnter()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPushEnter() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter
+  id: DidPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: DidPushEnter()
+  nameWithType: Screen.DidPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter()
+  type: Method
+  source:
+    id: DidPushEnter
+    path: ''
+    startLine: 2528
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual void DidPushEnter()
+    content.vb: Public Overridable Sub DidPushEnter()
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit
+  id: WillPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: WillPushExit()
+  nameWithType: Screen.WillPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit()
+  type: Method
+  source:
+    id: WillPushExit
+    path: ''
+    startLine: 2533
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual UniTask WillPushExit()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPushExit() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit
+  id: DidPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: DidPushExit()
+  nameWithType: Screen.DidPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit()
+  type: Method
+  source:
+    id: DidPushExit
+    path: ''
+    startLine: 2538
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual void DidPushExit()
+    content.vb: Public Overridable Sub DidPushExit()
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter
+  id: WillPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: WillPopEnter()
+  nameWithType: Screen.WillPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter()
+  type: Method
+  source:
+    id: WillPopEnter
+    path: ''
+    startLine: 2542
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual UniTask WillPopEnter()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPopEnter() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter
+  id: DidPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: DidPopEnter()
+  nameWithType: Screen.DidPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter()
+  type: Method
+  source:
+    id: DidPopEnter
+    path: ''
+    startLine: 2547
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual void DidPopEnter()
+    content.vb: Public Overridable Sub DidPopEnter()
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit
+  id: WillPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: WillPopExit()
+  nameWithType: Screen.WillPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit()
+  type: Method
+  source:
+    id: WillPopExit
+    path: ''
+    startLine: 2551
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual UniTask WillPopExit()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function WillPopExit() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit
+  id: DidPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: DidPopExit()
+  nameWithType: Screen.DidPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit()
+  type: Method
+  source:
+    id: DidPopExit
+    path: ''
+    startLine: 2556
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual void DidPopExit()
+    content.vb: Public Overridable Sub DidPopExit()
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup
+  id: Cleanup
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: Cleanup()
+  nameWithType: Screen.Cleanup()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup()
+  type: Method
+  source:
+    id: Cleanup
+    path: ''
+    startLine: 2560
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public virtual UniTask Cleanup()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overridable Function Cleanup() As UniTask
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup*
+  implements:
+  - UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Cleanup
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent,System.Int32)
+  id: AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: AddLifecycleEvent(IScreenLifecycleEvent, int)
+  nameWithType: Screen.AddLifecycleEvent(IScreenLifecycleEvent, int)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent, int)
+  type: Method
+  source:
+    id: AddLifecycleEvent
+    path: ''
+    startLine: 2565
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void AddLifecycleEvent(IScreenLifecycleEvent lifecycleEvent, int priority = 0)
+    parameters:
+    - id: lifecycleEvent
+      type: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+    - id: priority
+      type: System.Int32
+    content.vb: Public Sub AddLifecycleEvent(lifecycleEvent As IScreenLifecycleEvent, priority As Integer = 0)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent*
+  nameWithType.vb: Screen.AddLifecycleEvent(IScreenLifecycleEvent, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent, Integer)
+  name.vb: AddLifecycleEvent(IScreenLifecycleEvent, Integer)
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent)
+  id: RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent)
+  parent: UnityScreenNavigator.Runtime.Core.Screen.Screen
+  langs:
+  - csharp
+  - vb
+  name: RemoveLifecycleEvent(IScreenLifecycleEvent)
+  nameWithType: Screen.RemoveLifecycleEvent(IScreenLifecycleEvent)
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent(UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent)
+  type: Method
+  source:
+    id: RemoveLifecycleEvent
+    path: ''
+    startLine: 2570
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Screen
+  syntax:
+    content: public void RemoveLifecycleEvent(IScreenLifecycleEvent lifecycleEvent)
+    parameters:
+    - id: lifecycleEvent
+      type: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+    content.vb: Public Sub RemoveLifecycleEvent(lifecycleEvent As IScreenLifecycleEvent)
+  overload: UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Screen
+  commentId: N:UnityScreenNavigator.Runtime.Core.Screen
+  name: UnityScreenNavigator.Runtime.Core.Screen
+  nameWithType: UnityScreenNavigator.Runtime.Core.Screen
+  fullName: UnityScreenNavigator.Runtime.Core.Screen
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Screen
+    name: Screen
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: IScreenLifecycleEvent
+  nameWithType: IScreenLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier
+  name: Identifier
+  nameWithType: Screen.Identifier
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.Identifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer
+  name: AnimationContainer
+  nameWithType: Screen.AnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.AnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Core.Screen
+  name: ScreenTransitionAnimationContainer
+  nameWithType: ScreenTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.ScreenTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize
+  name: Initialize
+  nameWithType: Screen.Initialize
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.Initialize
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Initialize
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Initialize
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: Initialize()
+  nameWithType: IScreenLifecycleEvent.Initialize()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Initialize()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Initialize
+    name: Initialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Initialize
+    name: Initialize
+  - name: (
+  - name: )
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter
+  name: WillPushEnter
+  nameWithType: Screen.WillPushEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: WillPushEnter()
+  nameWithType: IScreenLifecycleEvent.WillPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushEnter
+    name: WillPushEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushEnter
+    name: WillPushEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter
+  name: DidPushEnter
+  nameWithType: Screen.DidPushEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: DidPushEnter()
+  nameWithType: IScreenLifecycleEvent.DidPushEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushEnter
+    name: DidPushEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushEnter
+    name: DidPushEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit
+  name: WillPushExit
+  nameWithType: Screen.WillPushExit
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: WillPushExit()
+  nameWithType: IScreenLifecycleEvent.WillPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushExit
+    name: WillPushExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPushExit
+    name: WillPushExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit
+  name: DidPushExit
+  nameWithType: Screen.DidPushExit
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPushExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: DidPushExit()
+  nameWithType: IScreenLifecycleEvent.DidPushExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushExit
+    name: DidPushExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPushExit
+    name: DidPushExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter
+  name: WillPopEnter
+  nameWithType: Screen.WillPopEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: WillPopEnter()
+  nameWithType: IScreenLifecycleEvent.WillPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopEnter
+    name: WillPopEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopEnter
+    name: WillPopEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter
+  name: DidPopEnter
+  nameWithType: Screen.DidPopEnter
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopEnter
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopEnter
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopEnter
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: DidPopEnter()
+  nameWithType: IScreenLifecycleEvent.DidPopEnter()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopEnter()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopEnter
+    name: DidPopEnter
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopEnter
+    name: DidPopEnter
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit
+  name: WillPopExit
+  nameWithType: Screen.WillPopExit
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.WillPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: WillPopExit()
+  nameWithType: IScreenLifecycleEvent.WillPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopExit
+    name: WillPopExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.WillPopExit
+    name: WillPopExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit
+  name: DidPopExit
+  nameWithType: Screen.DidPopExit
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.DidPopExit
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopExit
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopExit
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: DidPopExit()
+  nameWithType: IScreenLifecycleEvent.DidPopExit()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopExit()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopExit
+    name: DidPopExit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.DidPopExit
+    name: DidPopExit
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup
+  name: Cleanup
+  nameWithType: Screen.Cleanup
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.Cleanup
+- uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Cleanup
+  commentId: M:UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Cleanup
+  parent: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent
+  name: Cleanup()
+  nameWithType: IScreenLifecycleEvent.Cleanup()
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Cleanup()
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Cleanup
+    name: Cleanup
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Screen.IScreenLifecycleEvent.Cleanup
+    name: Cleanup
+  - name: (
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent
+  name: AddLifecycleEvent
+  nameWithType: Screen.AddLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.AddLifecycleEvent
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent
+  name: RemoveLifecycleEvent
+  nameWithType: Screen.RemoveLifecycleEvent
+  fullName: UnityScreenNavigator.Runtime.Core.Screen.Screen.RemoveLifecycleEvent

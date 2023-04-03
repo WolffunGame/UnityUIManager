@@ -1,0 +1,284 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  id: TipPosition
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomLeftCorner
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomMiddle
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomRightCorner
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasBottomMiddle
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasTopMiddle
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.LeftMiddle
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.RightMiddle
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopLeftCorner
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopMiddle
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopRightCorner
+  langs:
+  - csharp
+  - vb
+  name: TipPosition
+  nameWithType: TipPosition
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  type: Enum
+  source:
+    id: TipPosition
+    path: ''
+    startLine: 6816
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: public enum TipPosition
+    content.vb: Public Enum TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopRightCorner
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopRightCorner
+  id: TopRightCorner
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: TopRightCorner
+  nameWithType: TipPosition.TopRightCorner
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopRightCorner
+  type: Field
+  source:
+    id: TopRightCorner
+    path: ''
+    startLine: 6818
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: TopRightCorner = 0
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomRightCorner
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomRightCorner
+  id: BottomRightCorner
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: BottomRightCorner
+  nameWithType: TipPosition.BottomRightCorner
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomRightCorner
+  type: Field
+  source:
+    id: BottomRightCorner
+    path: ''
+    startLine: 6819
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: BottomRightCorner = 1
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopLeftCorner
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopLeftCorner
+  id: TopLeftCorner
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: TopLeftCorner
+  nameWithType: TipPosition.TopLeftCorner
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopLeftCorner
+  type: Field
+  source:
+    id: TopLeftCorner
+    path: ''
+    startLine: 6820
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: TopLeftCorner = 2
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomLeftCorner
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomLeftCorner
+  id: BottomLeftCorner
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: BottomLeftCorner
+  nameWithType: TipPosition.BottomLeftCorner
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomLeftCorner
+  type: Field
+  source:
+    id: BottomLeftCorner
+    path: ''
+    startLine: 6821
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: BottomLeftCorner = 3
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopMiddle
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopMiddle
+  id: TopMiddle
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: TopMiddle
+  nameWithType: TipPosition.TopMiddle
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.TopMiddle
+  type: Field
+  source:
+    id: TopMiddle
+    path: ''
+    startLine: 6822
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: TopMiddle = 4
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomMiddle
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomMiddle
+  id: BottomMiddle
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: BottomMiddle
+  nameWithType: TipPosition.BottomMiddle
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.BottomMiddle
+  type: Field
+  source:
+    id: BottomMiddle
+    path: ''
+    startLine: 6823
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: BottomMiddle = 5
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.RightMiddle
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.RightMiddle
+  id: RightMiddle
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: RightMiddle
+  nameWithType: TipPosition.RightMiddle
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.RightMiddle
+  type: Field
+  source:
+    id: RightMiddle
+    path: ''
+    startLine: 6824
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: RightMiddle = 6
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.LeftMiddle
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.LeftMiddle
+  id: LeftMiddle
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: LeftMiddle
+  nameWithType: TipPosition.LeftMiddle
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.LeftMiddle
+  type: Field
+  source:
+    id: LeftMiddle
+    path: ''
+    startLine: 6825
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: LeftMiddle = 7
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasTopMiddle
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasTopMiddle
+  id: CanvasTopMiddle
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: CanvasTopMiddle
+  nameWithType: TipPosition.CanvasTopMiddle
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasTopMiddle
+  type: Field
+  source:
+    id: CanvasTopMiddle
+    path: ''
+    startLine: 6826
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: CanvasTopMiddle = 8
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasBottomMiddle
+  commentId: F:UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasBottomMiddle
+  id: CanvasBottomMiddle
+  parent: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  langs:
+  - csharp
+  - vb
+  name: CanvasBottomMiddle
+  nameWithType: TipPosition.CanvasBottomMiddle
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition.CanvasBottomMiddle
+  type: Field
+  source:
+    id: CanvasBottomMiddle
+    path: ''
+    startLine: 6827
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity
+  syntax:
+    content: CanvasBottomMiddle = 9
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: TipPosition
+  nameWithType: TipPosition
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition

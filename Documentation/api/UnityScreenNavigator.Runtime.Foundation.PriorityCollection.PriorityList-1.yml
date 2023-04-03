@@ -1,0 +1,407 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  commentId: T:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  id: PriorityList`1
+  parent: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  children:
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Add(`0,System.Int32)
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Clear
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Count
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.GetEnumerator
+  - UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Remove(`0)
+  langs:
+  - csharp
+  - vb
+  name: PriorityList<T>
+  nameWithType: PriorityList<T>
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>
+  type: Class
+  source:
+    id: PriorityList
+    path: ''
+    startLine: 6084
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  summary: "\nThe list that will sort the items in order of priority.\n"
+  example: []
+  syntax:
+    content: 'public class PriorityList<T> : IEnumerable<T>, IEnumerable, ICollection, IReadOnlyCollection<T>'
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: Public Class PriorityList(Of T) Inherits IEnumerable(Of T) Implements IEnumerable, ICollection, IReadOnlyCollection(Of T)
+  inheritance:
+  - System.Object
+  implements:
+  - Global.IEnumerable
+  - Global.ICollection
+  - Global.IReadOnlyCollection{{T}}
+  nameWithType.vb: PriorityList(Of T)
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T)
+  name.vb: PriorityList(Of T)
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.GetEnumerator
+  commentId: M:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.GetEnumerator
+  id: GetEnumerator
+  parent: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: PriorityList<T>.GetEnumerator()
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.GetEnumerator()
+  type: Method
+  source:
+    id: GetEnumerator
+    path: ''
+    startLine: 6088
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  syntax:
+    content: public IEnumerator<T> GetEnumerator()
+    return:
+      type: Global.IEnumerator{{T}}
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of T)
+  overload: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.GetEnumerator*
+  nameWithType.vb: PriorityList(Of T).GetEnumerator()
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).GetEnumerator()
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Count
+  commentId: P:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Count
+  id: Count
+  parent: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: PriorityList<T>.Count
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Count
+  type: Property
+  source:
+    id: Count
+    path: ''
+    startLine: 6101
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Count*
+  nameWithType.vb: PriorityList(Of T).Count
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Count
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Add(`0,System.Int32)
+  commentId: M:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Add(`0,System.Int32)
+  id: Add(`0,System.Int32)
+  parent: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  langs:
+  - csharp
+  - vb
+  name: Add(T, int)
+  nameWithType: PriorityList<T>.Add(T, int)
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Add(T, int)
+  type: Method
+  source:
+    id: Add
+    path: ''
+    startLine: 6109
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  summary: "\nAdd objects based on priority.\nIf the priority is the same, the object added earlier will be placed in front.\n"
+  example: []
+  syntax:
+    content: public void Add(T item, int priority)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: ''
+    - id: priority
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub Add(item As T, priority As Integer)
+  overload: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Add*
+  nameWithType.vb: PriorityList(Of T).Add(T, Integer)
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Add(T, Integer)
+  name.vb: Add(T, Integer)
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Remove(`0)
+  commentId: M:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Remove(`0)
+  id: Remove(`0)
+  parent: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(T)
+  nameWithType: PriorityList<T>.Remove(T)
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Remove(T)
+  type: Method
+  source:
+    id: Remove
+    path: ''
+    startLine: 6148
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  summary: "\nRemove the first appeared one of the specified values.\n"
+  example: []
+  syntax:
+    content: public bool Remove(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function Remove(item As T) As Boolean
+  overload: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Remove*
+  nameWithType.vb: PriorityList(Of T).Remove(T)
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Remove(T)
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Clear
+  commentId: M:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Clear
+  id: Clear
+  parent: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: PriorityList<T>.Clear()
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Clear()
+  type: Method
+  source:
+    id: Clear
+    path: ''
+    startLine: 6175
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  summary: "\nClear all objects.\n"
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Clear*
+  nameWithType.vb: PriorityList(Of T).Clear()
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Clear()
+references:
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  commentId: N:UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  name: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  nameWithType: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation
+    name: Foundation
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+    name: PriorityCollection
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation
+    name: Foundation
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection
+    name: PriorityCollection
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Global.IEnumerable
+  isExternal: true
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: IEnumerable
+- uid: Global.ICollection
+  isExternal: true
+  name: ICollection
+  nameWithType: ICollection
+  fullName: ICollection
+- uid: Global.IReadOnlyCollection{{T}}
+  commentId: '!:Global.IReadOnlyCollection{`0}'
+  definition: Global.IReadOnlyCollection`1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: Global.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Global.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Global.IReadOnlyCollection`1
+  isExternal: true
+  name: IReadOnlyCollection<>
+  nameWithType: IReadOnlyCollection<>
+  fullName: IReadOnlyCollection<>
+  nameWithType.vb: IReadOnlyCollection(Of )
+  fullName.vb: IReadOnlyCollection(Of )
+  name.vb: IReadOnlyCollection(Of )
+  spec.csharp:
+  - uid: Global.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.GetEnumerator*
+  commentId: Overload:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.GetEnumerator
+  name: GetEnumerator
+  nameWithType: PriorityList<T>.GetEnumerator
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.GetEnumerator
+  nameWithType.vb: PriorityList(Of T).GetEnumerator
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).GetEnumerator
+- uid: Global.IEnumerator{{T}}
+  commentId: '!:Global.IEnumerator{`0}'
+  definition: Global.IEnumerator`1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Global.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<>
+  nameWithType: IEnumerator<>
+  fullName: IEnumerator<>
+  nameWithType.vb: IEnumerator(Of )
+  fullName.vb: IEnumerator(Of )
+  name.vb: IEnumerator(Of )
+  spec.csharp:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Count*
+  commentId: Overload:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Count
+  name: Count
+  nameWithType: PriorityList<T>.Count
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Count
+  nameWithType.vb: PriorityList(Of T).Count
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Add*
+  commentId: Overload:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Add
+  name: Add
+  nameWithType: PriorityList<T>.Add
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Add
+  nameWithType.vb: PriorityList(Of T).Add
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Add
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Remove*
+  commentId: Overload:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Remove
+  name: Remove
+  nameWithType: PriorityList<T>.Remove
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Remove
+  nameWithType.vb: PriorityList(Of T).Remove
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Remove
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Clear*
+  commentId: Overload:UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList`1.Clear
+  name: Clear
+  nameWithType: PriorityList<T>.Clear
+  fullName: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList<T>.Clear
+  nameWithType.vb: PriorityList(Of T).Clear
+  fullName.vb: UnityScreenNavigator.Runtime.Foundation.PriorityCollection.PriorityList(Of T).Clear

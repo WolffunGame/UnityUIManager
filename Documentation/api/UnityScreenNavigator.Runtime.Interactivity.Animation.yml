@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Animation
+  id: UnityScreenNavigator.Runtime.Interactivity.Animation
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Animation.InteractivityTransitionAnimationContainer
+  - UnityScreenNavigator.Runtime.Interactivity.Animation.SwitchTransitionAnimationObject
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Interactivity.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Animation
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Animation
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Animation.InteractivityTransitionAnimationContainer
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Animation.InteractivityTransitionAnimationContainer
+  name: InteractivityTransitionAnimationContainer
+  nameWithType: InteractivityTransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Animation.InteractivityTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Interactivity.Animation.SwitchTransitionAnimationObject
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Animation.SwitchTransitionAnimationObject
+  parent: UnityScreenNavigator.Runtime.Interactivity.Animation
+  name: SwitchTransitionAnimationObject
+  nameWithType: SwitchTransitionAnimationObject
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Animation.SwitchTransitionAnimationObject
+- uid: UnityScreenNavigator.Runtime.Interactivity.Animation
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Animation
+  name: UnityScreenNavigator.Runtime.Interactivity.Animation
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Animation
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Animation
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Animation
+    name: Animation
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Animation
+    name: Animation

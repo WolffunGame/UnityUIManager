@@ -1,0 +1,319 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  id: IAttributes
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add(Type,System.Object)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add``1(``0)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get(Type)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get``1
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove(Type)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove``1
+  langs:
+  - csharp
+  - vb
+  name: IAttributes
+  nameWithType: IAttributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  type: Interface
+  source:
+    id: IAttributes
+    path: ''
+    startLine: 4621
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: public interface IAttributes
+    content.vb: Public Interface IAttributes
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get(Type)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get(Type)
+  id: Get(Type)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: Get(Type)
+  nameWithType: IAttributes.Get(Type)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get(Type)
+  type: Method
+  source:
+    id: Get
+    path: ''
+    startLine: 4623
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: object Get(Type type)
+    parameters:
+    - id: type
+      type: Global.Type
+    return:
+      type: System.Object
+    content.vb: Function [Get](type As Type) As Object
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get``1
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get``1
+  id: Get``1
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: Get<T>()
+  nameWithType: IAttributes.Get<T>()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get<T>()
+  type: Method
+  source:
+    id: Get
+    path: ''
+    startLine: 4625
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: T Get<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Function [Get](Of T)() As T
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get*
+  nameWithType.vb: IAttributes.Get(Of T)()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get(Of T)()
+  name.vb: Get(Of T)()
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add(Type,System.Object)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add(Type,System.Object)
+  id: Add(Type,System.Object)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: Add(Type, object)
+  nameWithType: IAttributes.Add(Type, object)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add(Type, object)
+  type: Method
+  source:
+    id: Add
+    path: ''
+    startLine: 4627
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: void Add(Type type, object target)
+    parameters:
+    - id: type
+      type: Global.Type
+    - id: target
+      type: System.Object
+    content.vb: Sub Add(type As Type, target As Object)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add*
+  nameWithType.vb: IAttributes.Add(Type, Object)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add(Type, Object)
+  name.vb: Add(Type, Object)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add``1(``0)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add``1(``0)
+  id: Add``1(``0)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: Add<T>(T)
+  nameWithType: IAttributes.Add<T>(T)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add<T>(T)
+  type: Method
+  source:
+    id: Add
+    path: ''
+    startLine: 4629
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: void Add<T>(T target)
+    parameters:
+    - id: target
+      type: '{T}'
+    typeParameters:
+    - id: T
+    content.vb: Sub Add(Of T)(target As T)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add*
+  nameWithType.vb: IAttributes.Add(Of T)(T)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add(Of T)(T)
+  name.vb: Add(Of T)(T)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove(Type)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove(Type)
+  id: Remove(Type)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: Remove(Type)
+  nameWithType: IAttributes.Remove(Type)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove(Type)
+  type: Method
+  source:
+    id: Remove
+    path: ''
+    startLine: 4631
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: object Remove(Type type)
+    parameters:
+    - id: type
+      type: Global.Type
+    return:
+      type: System.Object
+    content.vb: Function Remove(type As Type) As Object
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove``1
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove``1
+  id: Remove``1
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: Remove<T>()
+  nameWithType: IAttributes.Remove<T>()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove<T>()
+  type: Method
+  source:
+    id: Remove
+    path: ''
+    startLine: 4633
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: T Remove<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Function Remove(Of T)() As T
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove*
+  nameWithType.vb: IAttributes.Remove(Of T)()
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove(Of T)()
+  name.vb: Remove(Of T)()
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator
+  id: GetEnumerator
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: IAttributes.GetEnumerator()
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator()
+  type: Method
+  source:
+    id: GetEnumerator
+    path: ''
+    startLine: 4635
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: IEnumerator GetEnumerator()
+    return:
+      type: Global.IEnumerator
+    content.vb: Function GetEnumerator() As IEnumerator
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UnityScreenNavigator.Runtime.Core.Shared.Views
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get
+  name: Get
+  nameWithType: IAttributes.Get
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Get
+- uid: Global.Type
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: Type
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add
+  name: Add
+  nameWithType: IAttributes.Add
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Add
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove
+  name: Remove
+  nameWithType: IAttributes.Remove
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.Remove
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator
+  name: GetEnumerator
+  nameWithType: IAttributes.GetEnumerator
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IAttributes.GetEnumerator
+- uid: Global.IEnumerator
+  isExternal: true
+  name: IEnumerator
+  nameWithType: IEnumerator
+  fullName: IEnumerator

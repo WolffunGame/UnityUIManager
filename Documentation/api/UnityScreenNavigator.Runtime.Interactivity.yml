@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  id: UnityScreenNavigator.Runtime.Interactivity
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  - UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  - UnityScreenNavigator.Runtime.Interactivity.Toast
+  - UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  - UnityScreenNavigator.Runtime.Interactivity.TooltipExtensions
+  - UnityScreenNavigator.Runtime.Interactivity.TooltipOutbound
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Toast
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Toast
+  name: Toast
+  nameWithType: Toast
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Toast
+- uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: AlertDialog
+  nameWithType: AlertDialog
+  fullName: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+- uid: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.TipPosition
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: TipPosition
+  nameWithType: TipPosition
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TipPosition
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+- uid: UnityScreenNavigator.Runtime.Interactivity.TooltipExtensions
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.TooltipExtensions
+  name: TooltipExtensions
+  nameWithType: TooltipExtensions
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TooltipExtensions
+- uid: UnityScreenNavigator.Runtime.Interactivity.TooltipOutbound
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.TooltipOutbound
+  name: TooltipOutbound
+  nameWithType: TooltipOutbound
+  fullName: UnityScreenNavigator.Runtime.Interactivity.TooltipOutbound
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity

@@ -1,0 +1,188 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  id: ISheetContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  children:
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  - UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  langs:
+  - csharp
+  - vb
+  name: ISheetContainerCallbackReceiver
+  nameWithType: ISheetContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  type: Interface
+  source:
+    id: ISheetContainerCallbackReceiver
+    path: ''
+    startLine: 5065
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: public interface ISheetContainerCallbackReceiver
+    content.vb: Public Interface ISheetContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  id: BeforeShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: BeforeShow(Sheet, Sheet)
+  nameWithType: ISheetContainerCallbackReceiver.BeforeShow(Sheet, Sheet)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet, UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  type: Method
+  source:
+    id: BeforeShow
+    path: ''
+    startLine: 5067
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: void BeforeShow(Sheet enterSheet, Sheet exitSheet)
+    parameters:
+    - id: enterSheet
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    - id: exitSheet
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    content.vb: Sub BeforeShow(enterSheet As Sheet, exitSheet As Sheet)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  id: AfterShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AfterShow(Sheet, Sheet)
+  nameWithType: ISheetContainerCallbackReceiver.AfterShow(Sheet, Sheet)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet, UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  type: Method
+  source:
+    id: AfterShow
+    path: ''
+    startLine: 5069
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: void AfterShow(Sheet enterSheet, Sheet exitSheet)
+    parameters:
+    - id: enterSheet
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    - id: exitSheet
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    content.vb: Sub AfterShow(enterSheet As Sheet, exitSheet As Sheet)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  id: BeforeHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: BeforeHide(Sheet)
+  nameWithType: ISheetContainerCallbackReceiver.BeforeHide(Sheet)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  type: Method
+  source:
+    id: BeforeHide
+    path: ''
+    startLine: 5071
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: void BeforeHide(Sheet exitSheet)
+    parameters:
+    - id: exitSheet
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    content.vb: Sub BeforeHide(exitSheet As Sheet)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide*
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  id: AfterHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AfterHide(Sheet)
+  nameWithType: ISheetContainerCallbackReceiver.AfterHide(Sheet)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  type: Method
+  source:
+    id: AfterHide
+    path: ''
+    startLine: 5073
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: void AfterHide(Sheet exitSheet)
+    parameters:
+    - id: exitSheet
+      type: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    content.vb: Sub AfterHide(exitSheet As Sheet)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet
+  commentId: N:UnityScreenNavigator.Runtime.Core.Sheet
+  name: UnityScreenNavigator.Runtime.Core.Sheet
+  nameWithType: UnityScreenNavigator.Runtime.Core.Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow
+  name: BeforeShow
+  nameWithType: ISheetContainerCallbackReceiver.BeforeShow
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeShow
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: Sheet
+  nameWithType: Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow
+  name: AfterShow
+  nameWithType: ISheetContainerCallbackReceiver.AfterShow
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterShow
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide
+  name: BeforeHide
+  nameWithType: ISheetContainerCallbackReceiver.BeforeHide
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.BeforeHide
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide
+  name: AfterHide
+  nameWithType: ISheetContainerCallbackReceiver.AfterHide
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.AfterHide

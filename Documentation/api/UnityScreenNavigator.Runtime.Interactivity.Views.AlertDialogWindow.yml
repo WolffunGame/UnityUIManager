@@ -1,0 +1,294 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  id: AlertDialogWindow
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel
+  - UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside
+  - UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView
+  - UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel
+  - UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize
+  langs:
+  - csharp
+  - vb
+  name: AlertDialogWindow
+  nameWithType: AlertDialogWindow
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  type: Class
+  source:
+    id: AlertDialogWindow
+    path: ''
+    startLine: 7709
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: 'public sealed class AlertDialogWindow : Modal'
+    content.vb: Public NotInheritable Class AlertDialogWindow Inherits Modal
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside
+  id: CanceledOnTouchOutside
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  langs:
+  - csharp
+  - vb
+  name: CanceledOnTouchOutside
+  nameWithType: AlertDialogWindow.CanceledOnTouchOutside
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside
+  type: Property
+  source:
+    id: CanceledOnTouchOutside
+    path: ''
+    startLine: 7727
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public bool CanceledOnTouchOutside { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property CanceledOnTouchOutside As Boolean
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView
+  id: ContentView
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  langs:
+  - csharp
+  - vb
+  name: ContentView
+  nameWithType: AlertDialogWindow.ContentView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView
+  type: Property
+  source:
+    id: ContentView
+    path: ''
+    startLine: 7729
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public IUIView ContentView { get; set; }
+    parameters: []
+    return:
+      type: Global.IUIView
+    content.vb: Public Property ContentView As IUIView
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize
+  id: Initialize
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: AlertDialogWindow.Initialize()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize()
+  type: Method
+  source:
+    id: Initialize
+    path: ''
+    startLine: 7751
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public override UniTask Initialize()
+    return:
+      type: Global.UniTask
+    content.vb: Public Overrides Function Initialize() As UniTask
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel
+  id: DialogModel
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  langs:
+  - csharp
+  - vb
+  name: DialogModel
+  nameWithType: AlertDialogWindow.DialogModel
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel
+  type: Property
+  source:
+    id: DialogModel
+    path: ''
+    startLine: 7757
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public AsyncReactiveProperty<AlertDialog> DialogModel { get; }
+    parameters: []
+    return:
+      type: Global.AsyncReactiveProperty{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+    content.vb: Public ReadOnly Property DialogModel As AsyncReactiveProperty(Of AlertDialog)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel
+  id: Cancel
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow
+  langs:
+  - csharp
+  - vb
+  name: Cancel()
+  nameWithType: AlertDialogWindow.Cancel()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel()
+  type: Method
+  source:
+    id: Cancel
+    path: ''
+    startLine: 7773
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public void Cancel()
+    content.vb: Public Sub Cancel()
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel*
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Views
+  name: UnityScreenNavigator.Runtime.Interactivity.Views
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Views
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside
+  name: CanceledOnTouchOutside
+  nameWithType: AlertDialogWindow.CanceledOnTouchOutside
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.CanceledOnTouchOutside
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView
+  name: ContentView
+  nameWithType: AlertDialogWindow.ContentView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.ContentView
+- uid: Global.IUIView
+  isExternal: true
+  name: IUIView
+  nameWithType: IUIView
+  fullName: IUIView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize
+  name: Initialize
+  nameWithType: AlertDialogWindow.Initialize
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Initialize
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel
+  name: DialogModel
+  nameWithType: AlertDialogWindow.DialogModel
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.DialogModel
+- uid: Global.AsyncReactiveProperty{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}
+  commentId: '!:Global.AsyncReactiveProperty{UnityScreenNavigator.Runtime.Interactivity.AlertDialog}'
+  definition: Global.AsyncReactiveProperty`1
+  name: AsyncReactiveProperty<AlertDialog>
+  nameWithType: AsyncReactiveProperty<AlertDialog>
+  fullName: AsyncReactiveProperty<UnityScreenNavigator.Runtime.Interactivity.AlertDialog>
+  nameWithType.vb: AsyncReactiveProperty(Of AlertDialog)
+  fullName.vb: AsyncReactiveProperty(Of UnityScreenNavigator.Runtime.Interactivity.AlertDialog)
+  name.vb: AsyncReactiveProperty(Of AlertDialog)
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+    name: AlertDialog
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Interactivity.AlertDialog
+    name: AlertDialog
+  - name: )
+- uid: Global.AsyncReactiveProperty`1
+  isExternal: true
+  name: AsyncReactiveProperty<>
+  nameWithType: AsyncReactiveProperty<>
+  fullName: AsyncReactiveProperty<>
+  nameWithType.vb: AsyncReactiveProperty(Of )
+  fullName.vb: AsyncReactiveProperty(Of )
+  name.vb: AsyncReactiveProperty(Of )
+  spec.csharp:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.AsyncReactiveProperty`1
+    name: AsyncReactiveProperty
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel
+  name: Cancel
+  nameWithType: AlertDialogWindow.Cancel
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.AlertDialogWindow.Cancel

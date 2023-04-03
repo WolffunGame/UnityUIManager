@@ -1,0 +1,409 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  id: IUIViewGroup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView(System.String)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views
+  langs:
+  - csharp
+  - vb
+  name: IUIViewGroup
+  nameWithType: IUIViewGroup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  type: Interface
+  source:
+    id: IUIViewGroup
+    path: ''
+    startLine: 4753
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  summary: "\nPresent a group of views, such as a <xref href=\"UnityScreenNavigator.Runtime.Core.Shared.Views.Window\" data-throw-if-not-resolved=\"false\"></xref> have a <see cref=\"!:ToastView\"></see> to show messages, then these views in a <xref href=\"UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: 'public interface IUIViewGroup : IUIView'
+    content.vb: Public Interface IUIViewGroup Inherits IUIView
+  inheritedMembers:
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  - UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views
+  id: Views
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  langs:
+  - csharp
+  - vb
+  name: Views
+  nameWithType: IUIViewGroup.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views
+  type: Property
+  source:
+    id: Views
+    path: ''
+    startLine: 4755
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  syntax:
+    content: List<IUIView> Views { get; }
+    parameters: []
+    return:
+      type: Global.List{UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView}
+    content.vb: ReadOnly Property Views As List(Of IUIView)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView(System.String)
+  id: GetView(System.String)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  langs:
+  - csharp
+  - vb
+  name: GetView(string)
+  nameWithType: IUIViewGroup.GetView(string)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView(string)
+  type: Method
+  source:
+    id: GetView
+    path: ''
+    startLine: 4761
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  summary: "\nGet the view by name\n"
+  example: []
+  syntax:
+    content: IUIView GetView(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    return:
+      type: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+      description: ''
+    content.vb: Function GetView(name As String) As IUIView
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView*
+  nameWithType.vb: IUIViewGroup.GetView(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView(String)
+  name.vb: GetView(String)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  id: AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  langs:
+  - csharp
+  - vb
+  name: AddView(IUIView, bool)
+  nameWithType: IUIViewGroup.AddView(IUIView, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView, bool)
+  type: Method
+  source:
+    id: AddView
+    path: ''
+    startLine: 4768
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  summary: "\nAdd a view to the view group.\n"
+  example: []
+  syntax:
+    content: void AddView(IUIView view, bool worldPositionStays = false)
+    parameters:
+    - id: view
+      type: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+      description: ''
+    - id: worldPositionStays
+      type: System.Boolean
+      description: ''
+    content.vb: Sub AddView(view As IUIView, worldPositionStays As Boolean = False)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView*
+  nameWithType.vb: IUIViewGroup.AddView(IUIView, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView, Boolean)
+  name.vb: AddView(IUIView, Boolean)
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout)
+  id: AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  langs:
+  - csharp
+  - vb
+  name: AddView(IUIView, UILayout)
+  nameWithType: IUIViewGroup.AddView(IUIView, UILayout)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView, UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout)
+  type: Method
+  source:
+    id: AddView
+    path: ''
+    startLine: 4775
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  summary: "\nAdd a view to the view group.\n"
+  example: []
+  syntax:
+    content: void AddView(IUIView view, UILayout layout)
+    parameters:
+    - id: view
+      type: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+      description: ''
+    - id: layout
+      type: UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+      description: ''
+    content.vb: Sub AddView(view As IUIView, layout As UILayout)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView*
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  id: RemoveView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView,System.Boolean)
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  langs:
+  - csharp
+  - vb
+  name: RemoveView(IUIView, bool)
+  nameWithType: IUIViewGroup.RemoveView(IUIView, bool)
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView, bool)
+  type: Method
+  source:
+    id: RemoveView
+    path: ''
+    startLine: 4782
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Shared.Views
+  summary: "\nRemoves the view from the view group.\n"
+  example: []
+  syntax:
+    content: void RemoveView(IUIView view, bool worldPositionStays = false)
+    parameters:
+    - id: view
+      type: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+      description: ''
+    - id: worldPositionStays
+      type: System.Boolean
+      description: ''
+    content.vb: Sub RemoveView(view As IUIView, worldPositionStays As Boolean = False)
+  overload: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView*
+  nameWithType.vb: IUIViewGroup.RemoveView(IUIView, Boolean)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView(UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView, Boolean)
+  name.vb: RemoveView(IUIView, Boolean)
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+  name: Window
+  nameWithType: Window
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.Window
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: IUIViewGroup
+  nameWithType: IUIViewGroup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UnityScreenNavigator.Runtime.Core.Shared.Views
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views
+    name: Views
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: RectTransform
+  nameWithType: IUIView.RectTransform
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.RectTransform
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: Alpha
+  nameWithType: IUIView.Alpha
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Alpha
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: Interactable
+  nameWithType: IUIView.Interactable
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Interactable
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: CanvasGroup
+  nameWithType: IUIView.CanvasGroup
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.CanvasGroup
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: Name
+  nameWithType: IUIView.Name
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Name
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: Parent
+  nameWithType: IUIView.Parent
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Parent
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: Owner
+  nameWithType: IUIView.Owner
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Owner
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: Visibility
+  nameWithType: IUIView.Visibility
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.Visibility
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  commentId: P:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  name: ExtraAttributes
+  nameWithType: IUIView.ExtraAttributes
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView.ExtraAttributes
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: IUIView
+  nameWithType: IUIView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views
+  name: Views
+  nameWithType: IUIViewGroup.Views
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.Views
+- uid: Global.List{UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView}
+  commentId: '!:Global.List{UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView}'
+  definition: Global.List`1
+  name: List<IUIView>
+  nameWithType: List<IUIView>
+  fullName: List<UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView>
+  nameWithType.vb: List(Of IUIView)
+  fullName.vb: List(Of UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView)
+  name.vb: List(Of IUIView)
+  spec.csharp:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+    name: IUIView
+  - name: '>'
+  spec.vb:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIView
+    name: IUIView
+  - name: )
+- uid: Global.List`1
+  isExternal: true
+  name: List<>
+  nameWithType: List<>
+  fullName: List<>
+  nameWithType.vb: List(Of )
+  fullName.vb: List(Of )
+  name.vb: List(Of )
+  spec.csharp:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView
+  name: GetView
+  nameWithType: IUIViewGroup.GetView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.GetView
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView
+  name: AddView
+  nameWithType: IUIViewGroup.AddView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.AddView
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Views
+  name: UILayout
+  nameWithType: UILayout
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.UILayout
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView
+  name: RemoveView
+  nameWithType: IUIViewGroup.RemoveView
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Views.IUIViewGroup.RemoveView

@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  id: ToastView
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation(CancellationToken)
+  - UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation(CancellationToken)
+  - UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ToastView
+  nameWithType: ToastView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  type: Class
+  source:
+    id: ToastView
+    path: ''
+    startLine: 7888
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: 'public class ToastView : UIView'
+    content.vb: Public Class ToastView Inherits UIView
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage(System.String)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage(System.String)
+  id: SetMessage(System.String)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  langs:
+  - csharp
+  - vb
+  name: SetMessage(string)
+  nameWithType: ToastView.SetMessage(string)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage(string)
+  type: Method
+  source:
+    id: SetMessage
+    path: ''
+    startLine: 7897
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public void SetMessage(string message)
+    parameters:
+    - id: message
+      type: System.String
+    content.vb: Public Sub SetMessage(message As String)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage*
+  nameWithType.vb: ToastView.SetMessage(String)
+  fullName.vb: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage(String)
+  name.vb: SetMessage(String)
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation(CancellationToken)
+  id: PlayEnterAnimation(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  langs:
+  - csharp
+  - vb
+  name: PlayEnterAnimation(CancellationToken)
+  nameWithType: ToastView.PlayEnterAnimation(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation(CancellationToken)
+  type: Method
+  source:
+    id: PlayEnterAnimation
+    path: ''
+    startLine: 7903
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public UniTask PlayEnterAnimation(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+    content.vb: Public Function PlayEnterAnimation(cancellationToken As CancellationToken) As UniTask
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation(CancellationToken)
+  id: PlayExitAnimation(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView
+  langs:
+  - csharp
+  - vb
+  name: PlayExitAnimation(CancellationToken)
+  nameWithType: ToastView.PlayExitAnimation(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation(CancellationToken)
+  type: Method
+  source:
+    id: PlayExitAnimation
+    path: ''
+    startLine: 7916
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public UniTask PlayExitAnimation(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+    content.vb: Public Function PlayExitAnimation(cancellationToken As CancellationToken) As UniTask
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation*
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Views
+  name: UnityScreenNavigator.Runtime.Interactivity.Views
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Views
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage
+  name: SetMessage
+  nameWithType: ToastView.SetMessage
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.SetMessage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation
+  name: PlayEnterAnimation
+  nameWithType: ToastView.PlayEnterAnimation
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayEnterAnimation
+- uid: Global.CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation
+  name: PlayExitAnimation
+  nameWithType: ToastView.PlayExitAnimation
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.ToastView.PlayExitAnimation

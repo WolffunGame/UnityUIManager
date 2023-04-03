@@ -1,0 +1,411 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  id: TooltipView
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views
+  children:
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close(CancellationToken)
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup(IUIViewGroup)
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show(CancellationToken)
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip
+  - UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer
+  langs:
+  - csharp
+  - vb
+  name: TooltipView
+  nameWithType: TooltipView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  type: Class
+  source:
+    id: TooltipView
+    path: ''
+    startLine: 7941
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: 'public class TooltipView : UIView'
+    content.vb: Public Class TooltipView Inherits UIView
+  inheritance:
+  - System.Object
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer
+  id: TransitionAnimationContainer
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: TransitionAnimationContainer
+  nameWithType: TooltipView.TransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer
+  type: Property
+  source:
+    id: TransitionAnimationContainer
+    path: ''
+    startLine: 7960
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  summary: "\nManage animations for tooltip\n"
+  example: []
+  syntax:
+    content: public InteractivityTransitionAnimationContainer TransitionAnimationContainer { get; }
+    parameters: []
+    return:
+      type: Global.InteractivityTransitionAnimationContainer
+    content.vb: Public ReadOnly Property TransitionAnimationContainer As InteractivityTransitionAnimationContainer
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView
+  id: ContentView
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: ContentView
+  nameWithType: TooltipView.ContentView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView
+  type: Property
+  source:
+    id: ContentView
+    path: ''
+    startLine: 7971
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  summary: "\nCustom content view for the tooltip.\n"
+  example: []
+  syntax:
+    content: public IUIView ContentView { get; set; }
+    parameters: []
+    return:
+      type: Global.IUIView
+    content.vb: Public Property ContentView As IUIView
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip
+  commentId: P:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip
+  id: Tooltip
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: Tooltip
+  nameWithType: TooltipView.Tooltip
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip
+  type: Property
+  source:
+    id: Tooltip
+    path: ''
+    startLine: 7990
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public Tooltip Tooltip { get; set; }
+    parameters: []
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+    content.vb: Public Property Tooltip As Tooltip
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose
+  id: QuickClose
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: QuickClose()
+  nameWithType: TooltipView.QuickClose()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose()
+  type: Method
+  source:
+    id: QuickClose
+    path: ''
+    startLine: 7992
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public void QuickClose()
+    content.vb: Public Sub QuickClose()
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close(CancellationToken)
+  id: Close(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: Close(CancellationToken)
+  nameWithType: TooltipView.Close(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close(CancellationToken)
+  type: Method
+  source:
+    id: Close
+    path: ''
+    startLine: 7997
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: protected virtual void Close(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    content.vb: Protected Overridable Sub Close(cancellationToken As CancellationToken)
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show(CancellationToken)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show(CancellationToken)
+  id: Show(CancellationToken)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: Show(CancellationToken)
+  nameWithType: TooltipView.Show(CancellationToken)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show(CancellationToken)
+  type: Method
+  source:
+    id: Show
+    path: ''
+    startLine: 8024
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public UniTask Show(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: Global.CancellationToken
+    return:
+      type: Global.UniTask
+    content.vb: Public Function Show(cancellationToken As CancellationToken) As UniTask
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start
+  id: Start
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: TooltipView.Start()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start()
+  type: Method
+  source:
+    id: Start
+    path: ''
+    startLine: 8038
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: protected override void Start()
+    content.vb: Protected Overrides Sub Start()
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy
+  id: OnDestroy
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: OnDestroy()
+  nameWithType: TooltipView.OnDestroy()
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy()
+  type: Method
+  source:
+    id: OnDestroy
+    path: ''
+    startLine: 8062
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: protected override void OnDestroy()
+    content.vb: Protected Overrides Sub OnDestroy()
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy*
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup(IUIViewGroup)
+  commentId: M:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup(IUIViewGroup)
+  id: SetViewGroup(IUIViewGroup)
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  langs:
+  - csharp
+  - vb
+  name: SetViewGroup(IUIViewGroup)
+  nameWithType: TooltipView.SetViewGroup(IUIViewGroup)
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup(IUIViewGroup)
+  type: Method
+  source:
+    id: SetViewGroup
+    path: ''
+    startLine: 8069
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Interactivity.Views
+  syntax:
+    content: public TooltipView SetViewGroup(IUIViewGroup viewGroup)
+    parameters:
+    - id: viewGroup
+      type: Global.IUIViewGroup
+    return:
+      type: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+    content.vb: Public Function SetViewGroup(viewGroup As IUIViewGroup) As TooltipView
+  overload: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup*
+references:
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity.Views
+  name: UnityScreenNavigator.Runtime.Interactivity.Views
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity.Views
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity.Views
+    name: Views
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer
+  name: TransitionAnimationContainer
+  nameWithType: TooltipView.TransitionAnimationContainer
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.TransitionAnimationContainer
+- uid: Global.InteractivityTransitionAnimationContainer
+  commentId: '!:Global.InteractivityTransitionAnimationContainer'
+  isExternal: true
+  name: InteractivityTransitionAnimationContainer
+  nameWithType: InteractivityTransitionAnimationContainer
+  fullName: InteractivityTransitionAnimationContainer
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView
+  name: ContentView
+  nameWithType: TooltipView.ContentView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.ContentView
+- uid: Global.IUIView
+  isExternal: true
+  name: IUIView
+  nameWithType: IUIView
+  fullName: IUIView
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip
+  name: Tooltip
+  nameWithType: TooltipView.Tooltip
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Tooltip
+- uid: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Tooltip
+  parent: UnityScreenNavigator.Runtime.Interactivity
+  name: Tooltip
+  nameWithType: Tooltip
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Tooltip
+- uid: UnityScreenNavigator.Runtime.Interactivity
+  commentId: N:UnityScreenNavigator.Runtime.Interactivity
+  name: UnityScreenNavigator.Runtime.Interactivity
+  nameWithType: UnityScreenNavigator.Runtime.Interactivity
+  fullName: UnityScreenNavigator.Runtime.Interactivity
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Interactivity
+    name: Interactivity
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose
+  name: QuickClose
+  nameWithType: TooltipView.QuickClose
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.QuickClose
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close
+  name: Close
+  nameWithType: TooltipView.Close
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Close
+- uid: Global.CancellationToken
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: CancellationToken
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show
+  name: Show
+  nameWithType: TooltipView.Show
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Show
+- uid: Global.UniTask
+  isExternal: true
+  name: UniTask
+  nameWithType: UniTask
+  fullName: UniTask
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start
+  name: Start
+  nameWithType: TooltipView.Start
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.Start
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy
+  name: OnDestroy
+  nameWithType: TooltipView.OnDestroy
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.OnDestroy
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup*
+  commentId: Overload:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup
+  name: SetViewGroup
+  nameWithType: TooltipView.SetViewGroup
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView.SetViewGroup
+- uid: Global.IUIViewGroup
+  isExternal: true
+  name: IUIViewGroup
+  nameWithType: IUIViewGroup
+  fullName: IUIViewGroup
+- uid: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  commentId: T:UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView
+  parent: UnityScreenNavigator.Runtime.Interactivity.Views
+  name: TooltipView
+  nameWithType: TooltipView
+  fullName: UnityScreenNavigator.Runtime.Interactivity.Views.TooltipView

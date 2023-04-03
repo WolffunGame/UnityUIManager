@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Layers
+  id: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  children:
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayer
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  - UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager`1
+  langs:
+  - csharp
+  - vb
+  name: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayer
+  name: ContainerLayer
+  nameWithType: ContainerLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+  name: ContainerLayerManager
+  nameWithType: ContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerManager
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+  name: ContainerLayerSettings
+  nameWithType: ContainerLayerSettings
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerSettings
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration
+  name: ContainerLayerConfiguration
+  nameWithType: ContainerLayerConfiguration
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerConfiguration
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: IContainerLayer
+  nameWithType: IContainerLayer
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayer
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: ContainerLayerType
+  nameWithType: ContainerLayerType
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.ContainerLayerType
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+  parent: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: IContainerLayerManager
+  nameWithType: IContainerLayerManager
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerLayerManager
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager`1
+  commentId: T:UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager`1
+  name: IContainerManager<TWindow>
+  nameWithType: IContainerManager<TWindow>
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager<TWindow>
+  nameWithType.vb: IContainerManager(Of TWindow)
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager(Of TWindow)
+  name.vb: IContainerManager(Of TWindow)
+  spec.csharp:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager`1
+    name: IContainerManager
+  - name: <
+  - name: TWindow
+  - name: '>'
+  spec.vb:
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers.IContainerManager`1
+    name: IContainerManager
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TWindow
+  - name: )
+- uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  commentId: N:UnityScreenNavigator.Runtime.Core.Shared.Layers
+  name: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  nameWithType: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  fullName: UnityScreenNavigator.Runtime.Core.Shared.Layers
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared
+    name: Shared
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Shared.Layers
+    name: Layers

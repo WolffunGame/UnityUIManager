@@ -1,0 +1,430 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  id: SheetContainerExtensions
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  children:
+  - UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer,Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet})
+  langs:
+  - csharp
+  - vb
+  name: SheetContainerExtensions
+  nameWithType: SheetContainerExtensions
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  type: Class
+  source:
+    id: SheetContainerExtensions
+    path: ''
+    startLine: 5676
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  syntax:
+    content: public static class SheetContainerExtensions
+    content.vb: Public Module SheetContainerExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer,Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet})
+  commentId: M:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer,Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet})
+  id: AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer,Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet})
+  isExtensionMethod: true
+  parent: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddCallbackReceiver(SheetContainer, Action<(Sheet enterSheet, Sheet exitSheet)>, Action<(Sheet enterSheet, Sheet exitSheet)>, Action<Sheet>, Action<Sheet>)
+  nameWithType: SheetContainerExtensions.AddCallbackReceiver(SheetContainer, Action<(Sheet enterSheet, Sheet exitSheet)>, Action<(Sheet enterSheet, Sheet exitSheet)>, Action<Sheet>, Action<Sheet>)
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer, Action<(UnityScreenNavigator.Runtime.Core.Sheet.Sheet enterSheet, UnityScreenNavigator.Runtime.Core.Sheet.Sheet exitSheet)>, Action<(UnityScreenNavigator.Runtime.Core.Sheet.Sheet enterSheet, UnityScreenNavigator.Runtime.Core.Sheet.Sheet exitSheet)>, Action<UnityScreenNavigator.Runtime.Core.Sheet.Sheet>, Action<UnityScreenNavigator.Runtime.Core.Sheet.Sheet>)
+  type: Method
+  source:
+    id: AddCallbackReceiver
+    path: ''
+    startLine: 5686
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Sheet
+  summary: "\nAdd callbacks.\n"
+  example: []
+  syntax:
+    content: public static void AddCallbackReceiver(this SheetContainer self, Action<(Sheet enterSheet, Sheet exitSheet)> onBeforeShow = null, Action<(Sheet enterSheet, Sheet exitSheet)> onAfterShow = null, Action<Sheet> onBeforeHide = null, Action<Sheet> onAfterHide = null)
+    parameters:
+    - id: self
+      type: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+      description: ''
+    - id: onBeforeShow
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}
+      description: ''
+    - id: onAfterShow
+      type: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}
+      description: ''
+    - id: onBeforeHide
+      type: Global.Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet}
+      description: ''
+    - id: onAfterHide
+      type: Global.Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet}
+      description: ''
+    content.vb: Public Shared Sub AddCallbackReceiver(self As SheetContainer, onBeforeShow As Action(Of (enterSheet As Sheet, exitSheet As Sheet)) = Nothing, onAfterShow As Action(Of (enterSheet As Sheet, exitSheet As Sheet)) = Nothing, onBeforeHide As Action(Of Sheet) = Nothing, onAfterHide As Action(Of Sheet) = Nothing)
+  overload: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver*
+  nameWithType.vb: SheetContainerExtensions.AddCallbackReceiver(SheetContainer, Action(Of (enterSheet As Sheet, exitSheet As Sheet)), Action(Of (enterSheet As Sheet, exitSheet As Sheet)), Action(Of Sheet), Action(Of Sheet))
+  fullName.vb: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver(UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer, Action(Of (enterSheet As UnityScreenNavigator.Runtime.Core.Sheet.Sheet, exitSheet As UnityScreenNavigator.Runtime.Core.Sheet.Sheet)), Action(Of (enterSheet As UnityScreenNavigator.Runtime.Core.Sheet.Sheet, exitSheet As UnityScreenNavigator.Runtime.Core.Sheet.Sheet)), Action(Of UnityScreenNavigator.Runtime.Core.Sheet.Sheet), Action(Of UnityScreenNavigator.Runtime.Core.Sheet.Sheet))
+  name.vb: AddCallbackReceiver(SheetContainer, Action(Of (enterSheet As Sheet, exitSheet As Sheet)), Action(Of (enterSheet As Sheet, exitSheet As Sheet)), Action(Of Sheet), Action(Of Sheet))
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Sheet
+  commentId: N:UnityScreenNavigator.Runtime.Core.Sheet
+  name: UnityScreenNavigator.Runtime.Core.Sheet
+  nameWithType: UnityScreenNavigator.Runtime.Core.Sheet
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet
+    name: Sheet
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver
+  name: AddCallbackReceiver
+  nameWithType: SheetContainerExtensions.AddCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainerExtensions.AddCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  commentId: T:UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+  parent: UnityScreenNavigator.Runtime.Core.Sheet
+  name: SheetContainer
+  nameWithType: SheetContainer
+  fullName: UnityScreenNavigator.Runtime.Core.Sheet.SheetContainer
+- uid: Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}
+  commentId: '!:Global.Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}}'
+  definition: Global.Action`1
+  name: Action<(Sheet enterSheet, Sheet exitSheet)>
+  nameWithType: Action<(Sheet enterSheet, Sheet exitSheet)>
+  fullName: Action<(UnityScreenNavigator.Runtime.Core.Sheet.Sheet enterSheet, UnityScreenNavigator.Runtime.Core.Sheet.Sheet exitSheet)>
+  nameWithType.vb: Action(Of (enterSheet As Sheet, exitSheet As Sheet))
+  fullName.vb: Action(Of (enterSheet As UnityScreenNavigator.Runtime.Core.Sheet.Sheet, exitSheet As UnityScreenNavigator.Runtime.Core.Sheet.Sheet))
+  name.vb: Action(Of (enterSheet As Sheet, exitSheet As Sheet))
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: (
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: " "
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.enterSheet
+    name: enterSheet
+  - name: ','
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: " "
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.exitSheet
+    name: exitSheet
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.enterSheet
+    name: enterSheet
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}.exitSheet
+    name: exitSheet
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: )
+  - name: )
+- uid: Global.Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet}
+  commentId: '!:Global.Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet}'
+  definition: Global.Action`1
+  name: Action<Sheet>
+  nameWithType: Action<Sheet>
+  fullName: Action<UnityScreenNavigator.Runtime.Core.Sheet.Sheet>
+  nameWithType.vb: Action(Of Sheet)
+  fullName.vb: Action(Of UnityScreenNavigator.Runtime.Core.Sheet.Sheet)
+  name.vb: Action(Of Sheet)
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityScreenNavigator.Runtime.Core.Sheet.Sheet
+    name: Sheet
+  - name: )
+- uid: Global.Action`1
+  isExternal: true
+  name: Action<>
+  nameWithType: Action<>
+  fullName: Action<>
+  nameWithType.vb: Action(Of )
+  fullName.vb: Action(Of )
+  name.vb: Action(Of )
+  spec.csharp:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: <
+  - name: ''
+  - name: '>'
+  spec.vb:
+  - uid: Global.Action`1
+    name: Action
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: ''
+  - name: )

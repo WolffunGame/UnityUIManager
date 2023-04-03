@@ -1,0 +1,21 @@
+### YamlMime:ManagedReference
+items:
+- uid: Global
+  id: Global
+  children:
+  - Global.TestUniTask
+  langs:
+  - csharp
+  - vb
+  name: ''
+  nameWithType: ''
+  fullName: ''
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+references:
+- uid: Global.TestUniTask
+  commentId: T:Global.TestUniTask
+  name: TestUniTask
+  nameWithType: TestUniTask
+  fullName: TestUniTask

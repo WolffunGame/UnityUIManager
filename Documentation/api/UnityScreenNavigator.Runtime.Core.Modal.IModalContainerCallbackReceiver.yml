@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  id: IModalContainerCallbackReceiver
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  children:
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  - UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  langs:
+  - csharp
+  - vb
+  name: IModalContainerCallbackReceiver
+  nameWithType: IModalContainerCallbackReceiver
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  type: Interface
+  source:
+    id: IModalContainerCallbackReceiver
+    path: ''
+    startLine: 1368
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: public interface IModalContainerCallbackReceiver
+    content.vb: Public Interface IModalContainerCallbackReceiver
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  id: BeforePush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: BeforePush(Modal, Modal)
+  nameWithType: IModalContainerCallbackReceiver.BeforePush(Modal, Modal)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush(UnityScreenNavigator.Runtime.Core.Modal.Modal, UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  type: Method
+  source:
+    id: BeforePush
+    path: ''
+    startLine: 1370
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: void BeforePush(Modal enterModal, Modal exitModal)
+    parameters:
+    - id: enterModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    - id: exitModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    content.vb: Sub BeforePush(enterModal As Modal, exitModal As Modal)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush*
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  id: AfterPush(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AfterPush(Modal, Modal)
+  nameWithType: IModalContainerCallbackReceiver.AfterPush(Modal, Modal)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush(UnityScreenNavigator.Runtime.Core.Modal.Modal, UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  type: Method
+  source:
+    id: AfterPush
+    path: ''
+    startLine: 1372
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: void AfterPush(Modal enterModal, Modal exitModal)
+    parameters:
+    - id: enterModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    - id: exitModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    content.vb: Sub AfterPush(enterModal As Modal, exitModal As Modal)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush*
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  id: BeforePop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: BeforePop(Modal, Modal)
+  nameWithType: IModalContainerCallbackReceiver.BeforePop(Modal, Modal)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop(UnityScreenNavigator.Runtime.Core.Modal.Modal, UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  type: Method
+  source:
+    id: BeforePop
+    path: ''
+    startLine: 1374
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: void BeforePop(Modal enterModal, Modal exitModal)
+    parameters:
+    - id: enterModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    - id: exitModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    content.vb: Sub BeforePop(enterModal As Modal, exitModal As Modal)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop*
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  commentId: M:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  id: AfterPop(UnityScreenNavigator.Runtime.Core.Modal.Modal,UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  parent: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver
+  langs:
+  - csharp
+  - vb
+  name: AfterPop(Modal, Modal)
+  nameWithType: IModalContainerCallbackReceiver.AfterPop(Modal, Modal)
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop(UnityScreenNavigator.Runtime.Core.Modal.Modal, UnityScreenNavigator.Runtime.Core.Modal.Modal)
+  type: Method
+  source:
+    id: AfterPop
+    path: ''
+    startLine: 1376
+  assemblies:
+  - cs.temp.dll
+  namespace: UnityScreenNavigator.Runtime.Core.Modal
+  syntax:
+    content: void AfterPop(Modal enterModal, Modal exitModal)
+    parameters:
+    - id: enterModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    - id: exitModal
+      type: UnityScreenNavigator.Runtime.Core.Modal.Modal
+    content.vb: Sub AfterPop(enterModal As Modal, exitModal As Modal)
+  overload: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop*
+references:
+- uid: UnityScreenNavigator.Runtime.Core.Modal
+  commentId: N:UnityScreenNavigator.Runtime.Core.Modal
+  name: UnityScreenNavigator.Runtime.Core.Modal
+  nameWithType: UnityScreenNavigator.Runtime.Core.Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal
+  spec.csharp:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+  spec.vb:
+  - uid: UnityScreenNavigator
+    name: UnityScreenNavigator
+  - name: .
+  - uid: UnityScreenNavigator.Runtime
+    name: Runtime
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core
+    name: Core
+  - name: .
+  - uid: UnityScreenNavigator.Runtime.Core.Modal
+    name: Modal
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush
+  name: BeforePush
+  nameWithType: IModalContainerCallbackReceiver.BeforePush
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePush
+- uid: UnityScreenNavigator.Runtime.Core.Modal.Modal
+  commentId: T:UnityScreenNavigator.Runtime.Core.Modal.Modal
+  parent: UnityScreenNavigator.Runtime.Core.Modal
+  name: Modal
+  nameWithType: Modal
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.Modal
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush
+  name: AfterPush
+  nameWithType: IModalContainerCallbackReceiver.AfterPush
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPush
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop
+  name: BeforePop
+  nameWithType: IModalContainerCallbackReceiver.BeforePop
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.BeforePop
+- uid: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop*
+  commentId: Overload:UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop
+  name: AfterPop
+  nameWithType: IModalContainerCallbackReceiver.AfterPop
+  fullName: UnityScreenNavigator.Runtime.Core.Modal.IModalContainerCallbackReceiver.AfterPop
