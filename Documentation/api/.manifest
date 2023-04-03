@@ -1,0 +1,10 @@
+{
+  "DocFxForUnity": "DocFxForUnity.yml",
+  "DocFxForUnity.Player": "DocFxForUnity.Player.yml",
+  "DocFxForUnity.Player.Equipment": "DocFxForUnity.Player.yml",
+  "DocFxForUnity.Player.Health": "DocFxForUnity.Player.yml",
+  "DocFxForUnity.Player.Hit(System.Int32)": "DocFxForUnity.Player.yml",
+  "DocFxForUnity.Player.HurtClip": "DocFxForUnity.Player.yml",
+  "DocFxForUnity.Player.Start": "DocFxForUnity.Player.yml",
+  "DocFxForUnity.Player.StartingHealth": "DocFxForUnity.Player.yml"
+}
