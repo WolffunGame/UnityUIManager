@@ -2,3 +2,9 @@ apiRules:
 - include:
     uidRegex: ^UnityScreenNavigator.*
     type: Namespace
+- exclude:
+    uidRegex: _Samples.*
+    type: Namespace
+- exclude:
+    uidRegex: Demo*
+    type: Namespace
