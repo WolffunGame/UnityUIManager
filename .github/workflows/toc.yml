@@ -9,3 +9,8 @@ jobs:
         with:
           FOLDING: true
           TOC_TITLE: Details
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: your-branch  # default: gh-pages
