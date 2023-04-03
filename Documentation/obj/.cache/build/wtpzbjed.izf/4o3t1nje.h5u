@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class AnonymousSheetContainerCallbackReceiver
+ | UnityUIManager </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class AnonymousSheetContainerCallbackReceiver
+ | UnityUIManager ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver">
+
+
+  <h1 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver" class="text-break">Class AnonymousSheetContainerCallbackReceiver
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">object</span></div>
+    <div class="level1"><span class="xref">AnonymousSheetContainerCallbackReceiver</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.html">ISheetContainerCallbackReceiver</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">UnityScreenNavigator</span>.<span class="xref">Runtime</span>.<span class="xref">Core</span>.<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.html">Sheet</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AnonymousSheetContainerCallbackReceiver : ISheetContainerCallbackReceiver</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver__ctor_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.#ctor*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver__ctor_Action_System_ValueTuple_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_UnityScreenNavigator_Runtime_Core_Sheet_Sheet___Action_System_ValueTuple_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_UnityScreenNavigator_Runtime_Core_Sheet_Sheet___Action_UnityScreenNavigator_Runtime_Core_Sheet_Sheet__Action_UnityScreenNavigator_Runtime_Core_Sheet_Sheet__" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.#ctor(Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{System.ValueTuple{UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet}},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet},Action{UnityScreenNavigator.Runtime.Core.Sheet.Sheet})">AnonymousSheetContainerCallbackReceiver(Action&lt;(Sheet enterSheet, Sheet exitSheet)&gt;, Action&lt;(Sheet enterSheet, Sheet exitSheet)&gt;, Action&lt;Sheet&gt;, Action&lt;Sheet&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnonymousSheetContainerCallbackReceiver(Action&lt;(Sheet enterSheet, Sheet exitSheet)&gt; onBeforeShow = null, Action&lt;(Sheet enterSheet, Sheet exitSheet)&gt; onAfterShow = null, Action&lt;Sheet&gt; onBeforeHide = null, Action&lt;Sheet&gt; onAfterHide = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;(<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">enterSheet</span>, <a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">exitSheet</span>)&gt;</td>
+        <td><span class="parametername">onBeforeShow</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;(<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">enterSheet</span>, <a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">exitSheet</span>)&gt;</td>
+        <td><span class="parametername">onAfterShow</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a>&gt;</td>
+        <td><span class="parametername">onBeforeHide</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a>&gt;</td>
+        <td><span class="parametername">onAfterHide</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_AfterHide_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.AfterHide*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_AfterHide_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.AfterHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)">AfterHide(Sheet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AfterHide(Sheet exitSheet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a></td>
+        <td><span class="parametername">exitSheet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_AfterShow_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.AfterShow*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_AfterShow_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.AfterShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)">AfterShow(Sheet, Sheet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AfterShow(Sheet enterSheet, Sheet exitSheet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a></td>
+        <td><span class="parametername">enterSheet</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a></td>
+        <td><span class="parametername">exitSheet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_BeforeHide_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.BeforeHide*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_BeforeHide_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.BeforeHide(UnityScreenNavigator.Runtime.Core.Sheet.Sheet)">BeforeHide(Sheet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeforeHide(Sheet exitSheet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a></td>
+        <td><span class="parametername">exitSheet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_BeforeShow_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.BeforeShow*"></a>
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_BeforeShow_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_UnityScreenNavigator_Runtime_Core_Sheet_Sheet_" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.BeforeShow(UnityScreenNavigator.Runtime.Core.Sheet.Sheet,UnityScreenNavigator.Runtime.Core.Sheet.Sheet)">BeforeShow(Sheet, Sheet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeforeShow(Sheet enterSheet, Sheet exitSheet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a></td>
+        <td><span class="parametername">enterSheet</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a></td>
+        <td><span class="parametername">exitSheet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+</h3>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_OnAfterHide" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.OnAfterHide">OnAfterHide</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;Sheet&gt; OnAfterHide</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_OnAfterShow" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.OnAfterShow">OnAfterShow</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;(Sheet enterSheet, Sheet exitSheet)&gt; OnAfterShow</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;(<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">enterSheet</span>, <a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">exitSheet</span>)&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_OnBeforeHide" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.OnBeforeHide">OnBeforeHide</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;Sheet&gt; OnBeforeHide</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="UnityScreenNavigator_Runtime_Core_Sheet_AnonymousSheetContainerCallbackReceiver_OnBeforeShow" data-uid="UnityScreenNavigator.Runtime.Core.Sheet.AnonymousSheetContainerCallbackReceiver.OnBeforeShow">OnBeforeShow</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;(Sheet enterSheet, Sheet exitSheet)&gt; OnBeforeShow</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;(<a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">enterSheet</span>, <a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.Sheet.html">Sheet</a> <span class="xref">exitSheet</span>)&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="UnityScreenNavigator.Runtime.Core.Sheet.ISheetContainerCallbackReceiver.html">ISheetContainerCallbackReceiver</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      UnityUIManager
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
