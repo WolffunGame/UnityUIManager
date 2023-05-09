@@ -86,6 +86,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 InstanceCacheByTransform.Remove(keyToRemove);
             }
+
+            ContainerLayerManager.Remove(this);
         }
 
         /// <summary>

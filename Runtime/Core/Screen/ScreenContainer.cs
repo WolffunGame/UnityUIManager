@@ -64,6 +64,8 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                     keysToRemove.Add(cache.Key);
 
             foreach (var keyToRemove in keysToRemove) InstanceCacheByTransform.Remove(keyToRemove);
+
+            ContainerLayerManager.Remove(this);
         }
 
         public override Window Current => _screenList.Count > 0 ? _screenList[_screenList.Count - 1] : null;
