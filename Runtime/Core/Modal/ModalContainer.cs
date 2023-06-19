@@ -38,6 +38,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         private ModalBackdrop _backdropPrefab;
 
         private bool _isInTransition;
+
+        public bool IsInTransition => _isInTransition;
         
         /// <summary>
         ///     Stacked modals.
