@@ -12,6 +12,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
     [DisallowMultipleComponent]
     public class Modal : Window, IModalLifecycleEvent
     {
+        [SerializeField] protected bool _isFillRectWhenExit = true;
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
         [SerializeField] [EnabledIf(nameof(_usePrefabNameAsIdentifier), false)]
@@ -192,7 +193,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             if (!push)
             {
                 gameObject.SetActive(true);
-                RectTransform.FillParent((RectTransform) Parent);
+                if (_isFillRectWhenExit)
+                {
+                    RectTransform.FillParent((RectTransform)Parent);
+                }
                 Alpha = 1.0f;
             }
 
