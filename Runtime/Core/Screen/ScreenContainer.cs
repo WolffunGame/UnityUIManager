@@ -38,6 +38,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         ///     Stacked screens.
         /// </summary>
         public IReadOnlyList<string> Screens => _screenItems;
+        public bool IsInTransition => _isInTransition;
 
 
         private void Awake()
