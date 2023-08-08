@@ -29,6 +29,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             set => _identifier = value;
         }
 
+        public UniTaskCompletionSource DoneEnter = new UniTaskCompletionSource();
+
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
         
         public virtual UniTask Initialize()
@@ -180,6 +182,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 Interactable = true;
             }
+
+            DoneEnter.TrySetResult();
         }
 
 
