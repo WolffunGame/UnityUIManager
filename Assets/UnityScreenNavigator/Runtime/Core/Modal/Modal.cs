@@ -29,55 +29,65 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             set => _identifier = value;
         }
 
-        public UniTaskCompletionSource DoneEnter = new UniTaskCompletionSource();
+        public AsyncReactiveProperty<LifeCycleEnum> LifeCycle = new(default);
 
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
         
         public virtual UniTask Initialize()
         {
+            LifeCycle.Value = LifeCycleEnum.INIT;
             return UniTask.CompletedTask;
         }
 
         public virtual UniTask WillPushEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_PUSH_ENTER;
             return UniTask.CompletedTask;
         }
 
         public virtual void DidPushEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_PUSH_ENTER;
         }
 
         public virtual UniTask WillPushExit()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_PUSH_EXIT;
             return UniTask.CompletedTask;
         }
 
         public virtual void DidPushExit()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_PUSH_EXIT;
         }
 
         public virtual UniTask WillPopEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_POP_ENTER;
             return UniTask.CompletedTask;
         }
 
 
         public virtual void DidPopEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_POP_ENTER;
         }
 
         public virtual UniTask WillPopExit()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_POP_EXIT;
             return UniTask.CompletedTask;
         }
 
 
         public virtual void DidPopExit()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_POP_EXIT;
         }
         // ReSharper disable Unity.PerformanceAnalysis
         public virtual UniTask Cleanup()
         {
+            LifeCycle.Value = LifeCycleEnum.CLEANUP;
             return UniTask.CompletedTask;
         }
 
@@ -183,7 +193,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 Interactable = true;
             }
 
-            DoneEnter.TrySetResult();
+        //    DoneEnter.TrySetResult();
         }
 
 
@@ -245,6 +255,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         internal void AfterExit(bool push, Modal partnerModal)
         {
+            //
             if (push)
             {
                 foreach (var lifecycleEvent in _lifecycleEvents)
