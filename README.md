@@ -99,3 +99,34 @@ yield return registerHandle;
 var showHandle = sheetContainer.Show("ExampleSheet", false);
 yield return showHandle;
 ```
+
+Note that when multiple sheets with same resource keys are instantiated by the `Register()` method, the identity of the sheet instance cannot guaranteed by the resource key.  
+In such case, use the sheet ID instead of the resource key, as shown below.
+
+```cs
+SheetContainer sheetContainer;
+
+// Instantiate the sheet named "ExampleSheet" and get the sheet id.
+var sheetId = 0;
+var registerHandle = sheetContainer.Register("ExampleSheet", x =>
+{
+    sheetId = x.sheetId;
+});
+yield return registerHandle;
+
+// Show the sheet with sheetId.
+var showHandle = sheetContainer.Show(sheetId, false);
+yield return showHandle;
+```
+
+Also, to hide the active sheet instead of switching it, use the `Hide()` method.
+
+```cs
+SheetContainer sheetContainer;
+
+// Hide the active sheet.
+var handle = sheetContainer.Hide(true);
+
+// Wait for the transition to finish.
+yield return handle;
+```
