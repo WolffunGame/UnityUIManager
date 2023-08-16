@@ -53,6 +53,32 @@ These screens can be nested. And, the area of each screen can be freely specifie
   <img width="50%" src="https://user-images.githubusercontent.com/47441314/137634860-ae202ce7-5d2d-48b1-a938-358381d16780.gif" alt="Demo">
 </p>
 
+### Create page and transition
+To create the page transition, first attach the "Screen Containter" component to and GameObject under the Canvas. The pages will be displayed to fit it, so adjust the size. Next, attach the `Screen` component to root GameObject under the Resources folder with an arbitrary name. And call `ScreenContainer.Push()` with the Resources path to display the page.
+
+```cs
+ScreenContainer screenContainer;
+
+var handle = screenContainer.Push("ExamplePage", true);
+
+// wait for the transition to finish
+yield return handle;
+//await handle.Task; // You can also use await.
+//handle.Onterminate += () => { }; // You can also use callback. 
+```
+
+Also, use `ScreenContainer.Pop()` to discard the active page and display the previous page.
+
+```cs
+ScreenContainer screenContainer;
+
+// Pop the active page
+var handle = screenContainer.Pop(true);
+
+// Wait for the transition to finish.
+yield return handle;
+```
+
 ### Create modal and transition
 To create the modal transition, first attach the "Modal Container" component to an GameObject under the Canvas. In general, modals are desinged to cover ther entire window with their backdrop and block clicks. Therefore, the size of the GameObject should basically be set to match the window size. Next, attach `Modal` component to the root GameObject of the modal view. This root GameObject will be  adjusted to fit the size of the ` Modal Container`. So if you want to create the modal with margins, create a child GameObject with a smaller size and create the content inside it.
 
@@ -130,3 +156,4 @@ var handle = sheetContainer.Hide(true);
 // Wait for the transition to finish.
 yield return handle;
 ```
+
