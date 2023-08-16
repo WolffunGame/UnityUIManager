@@ -88,3 +88,14 @@ yield return handle;
 #### Create Sheet and transistion
 To create the sheet transition, first attach the "Sheet Container" component to an GameObject under the Canvas. The sheets will be displayed to fit it, so adjust the size. Next, attach `Sheet` component to the root GameObject of the sheet view. Place this GameObject under the Resources folder with and arbittrary name. Call `SheetContainer.Register()` with ther Resources path to create the sheet. After it is created, you can change the active sheet by calling `SheetContainer.Show()`.
 
+```cs
+SheetContainer sheetContainer;
+
+// Instantiate the sheet named "ExampleSheet"
+var registerHandle = sheetContainer.Register("ExampleSheet");
+yield return registerHandle;
+
+// Show the sheet named "ExampleSheet"
+var showHandle = sheetContainer.Show("ExampleSheet", false);
+yield return showHandle;
+```
