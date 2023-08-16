@@ -10,7 +10,7 @@ Library for screen transitions, transition animations, transition history stacki
 <details>
 <summary>Details</summary>
 
-- [Overview](#overview)modalconscre
+- [Overview](#overview)
     - [Features](#features)
 
 </details>
