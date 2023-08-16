@@ -23,3 +23,35 @@ Library for screen transitions, transition animations, transition history stacki
 * Separated workflow with animators for complex screen transition animations.
 * Well-separated library with no extra functions (ex. GUI library, state machine).
 * And standard features such as history stacking and click prevention during transitions.
+
+## Basic Screen Transition
+
+### Concept of screens and transitions
+Unity Screen Navigator classifies screens into threee types: "Page", "Modal" and "Sheet".
+
+"Page" is the screen thast transition in sequence. For example, when you transition form the Page A to Page B, Page A will be stacked in the history. And when you return form Page B. Page A will be redisplayed with its states intact
+
+<p align="center">
+  <img width="50%" src="https://user-images.githubusercontent.com/47441314/136680850-2aca1977-02c2-4730-a0d8-603934f71c80.gif" alt="Demo">
+</p>
+
+"Modal" is a screen that is stacked in a window. When it is displayed, all interaction except for the foreground modal will be blocked.
+
+<p align="center">
+  <img width="50%" src="https://user-images.githubusercontent.com/47441314/136698982-21ff5172-e38d-4d80-a976-a7ecc511c048.gif" alt="Demo">
+</p>
+
+And "Sheet" is used for tab-like GUI. History is not managed, and only one active screen is displayed.
+
+<p align="center">
+  <img width="50%" src="https://user-images.githubusercontent.com/47441314/136700074-2a4fa134-dc5d-4b72-90d8-f6b12c91fc0f.gif" alt="Demo">
+
+These screens can be nested. And, the area of each screen can be freely specified (not necessarily the entire window).
+
+</p>
+<p align="center">
+  <img width="50%" src="https://user-images.githubusercontent.com/47441314/137634860-ae202ce7-5d2d-48b1-a938-358381d16780.gif" alt="Demo">
+</p>
+
+### Create modal and transition
+To create the modal transition, first attach the "Modal Container" component to an GameObject under the Canvas. In general, modals are desinged to cover ther entire window with their backdrop and block clicks. Therefore, the size of the GameObject should basically be set to match the window size. Next, attach `Modal` component to the root GameObject of the modal view. This root GameObject will be  adjusted to fit the size of the ` Modal Container`. So if you want to create the modal with margins, create a child GameObject with a smaller size and create the content inside it.
