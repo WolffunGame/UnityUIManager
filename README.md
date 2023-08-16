@@ -10,7 +10,7 @@ Library for screen transitions, transition animations, transition history stacki
 <details>
 <summary>Details</summary>
 
-- [Overview](#overview)
+- [Overview](#overview)modalconscre
     - [Features](#features)
 
 </details>
@@ -55,3 +55,36 @@ These screens can be nested. And, the area of each screen can be freely specifie
 
 ### Create modal and transition
 To create the modal transition, first attach the "Modal Container" component to an GameObject under the Canvas. In general, modals are desinged to cover ther entire window with their backdrop and block clicks. Therefore, the size of the GameObject should basically be set to match the window size. Next, attach `Modal` component to the root GameObject of the modal view. This root GameObject will be  adjusted to fit the size of the ` Modal Container`. So if you want to create the modal with margins, create a child GameObject with a smaller size and create the content inside it.
+
+<p align="center">
+  <img width="70%" src="https://user-images.githubusercontent.com/47441314/136698661-e4e247b6-7938-4fb5-8f6f-f2897f42eebe.png" alt="Demo">
+</p>
+
+Place this GameObject under the Resources folder with an arbitrary name. And call `ModalContainer.Push()` with the Resources path to display the page.
+
+```cs
+ModalContainer modalContainer;
+
+var handle = modalContainer.Push("Exmaple", true);
+
+// Wait for the transition to finish.
+yield return handle;
+//await handle.Task; // You can also use await.
+//handle.OnTerminate += () => { }; // You can also use callback.
+```
+
+Also, use `ModalContainer.Pop()` to discard the active modal and display the previous modal.
+
+```cs
+ModalContainer modalContainer;
+
+// Pop the active modal.
+var handle = modalContainer.Pop(true);
+
+// Wait for the transition to finish.
+yield return handle;
+```
+
+#### Create Sheet and transistion
+To create the sheet transition, first attach the "Sheet Container" component to an GameObject under the Canvas. The sheets will be displayed to fit it, so adjust the size. Next, attach `Sheet` component to the root GameObject of the sheet view. Place this GameObject under the Resources folder with and arbittrary name. Call `SheetContainer.Register()` with ther Resources path to create the sheet. After it is created, you can change the active sheet by calling `SheetContainer.Show()`.
+
