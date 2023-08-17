@@ -192,3 +192,26 @@ var modalContainer = ModalContainer.Find("SomeModalContainer");
 var sheetContainer = SheetContaiern.Find("SomeSheetContainer");
 ```
 
+## Screen Transition Animation
+
+#### Setting common transition animations
+In default, a standard transition animation is set for reach screen type. Ypu can create a class derived from `TransitionAnimationObject` to create custom transition animation. This class has a property and methods to define the animation behavior.
+
+```cs
+// Duration (Second).
+public abstract float Duration {get;}
+
+// Initialize.
+public abstract void Setup();
+
+// Define the state at this time.
+public abstract void SetTiem();
+```
+
+Refer to [SimpleTransitionAnimationObject]() for the practical implementation.
+
+Then instantiate this ScriptableObject, and assign it to `UnityScreenNavigatorSettings`. You can create `UnityScreenNavigatorSettings` from `Assets > Create > Screen Navigator Settings`.
+
+<p align="center">
+    <img width="60%" src="https://user-images.githubusercontent.com/47441314/137321487-e2267184-6eba-46a7-9f4e-468176822408.png">
+</p>
