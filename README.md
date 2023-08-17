@@ -219,7 +219,7 @@ Then instantiate this ScriptableObject, and assign it to `UnityScreenNavigatorSe
 #### Setting transition animation for each screen
 You can also set up different animation for each screen. Each Page, Modal, and Sheet component has the `AnimationContainer` property. You can set the transition animation to it.
 
-<p>
+<p align ="center">
     <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632127-2e224b47-3ef1-4fdd-a64a-986b38d5ea6a.png">
 </p>
 
@@ -230,6 +230,25 @@ Then, attach this component and set the `Asset Type` to `MonoBehaviour` and assi
 
 #### Change transition animation according to partner screen
 For example, when screen A enters and screen B exits, screen B is called the "Partner Screen" of screen A. If you enter the name of the partner sreen in the property shown below, the transition animation will be applied only when this name matches the partner screen name.
- <p>
+
+ <p align="center">
     <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632918-9d777817-d2dc-43c9-bd7e-c6a1713a5f26.png">
  </p>
+
+ In default, the prefab name is used as the screen name. If you want to name it explicitly, uncheck `Use Prefab Name as Identifier` and enter a name in the `Identifier` property.
+
+<p align="center">
+    <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632986-f5727a42-4c27-48aa-930d-e7b0673b978f.png">
+</p>
+
+In addition, regular expressions can be used for the `Partner Page Identifier Regex`. And if multiple animations are set, they will be evaluated in order from top.
+
+#### Screen transition animation and drawing order
+
+In the transition animation of a screen with a partner screen, the drawing order can be important. For example, an animation where the screen covers the partner screen. If you want to control the drawing order, use the `Rendering Order` property.
+
+<p align="center">
+    <img width="60%" src="https://user-images.githubusercontent.com/47441314/137633021-4e864c77-baa0-4d42-a8e7-b0183f7302f5.png">
+</p>
+
+During the screen transtion, the screen is drawn in the order of decreasing this value. Note that modals do not have a `Rendering Order` property, since the newest one is always displayed in front.
