@@ -205,7 +205,7 @@ public abstract float Duration {get;}
 public abstract void Setup();
 
 // Define the state at this time.
-public abstract void SetTiem();
+public abstract void SetTime();
 ```
 
 Refer to [SimpleTransitionAnimationObject]() for the practical implementation.
@@ -215,3 +215,14 @@ Then instantiate this ScriptableObject, and assign it to `UnityScreenNavigatorSe
 <p align="center">
     <img width="60%" src="https://user-images.githubusercontent.com/47441314/137321487-e2267184-6eba-46a7-9f4e-468176822408.png">
 </p>
+
+#### Setting transition animation for each screen
+You can also set up different animation for each screen. Each Page, Modal, and Sheet component has the `AnimationContainer` property. You can set the transition animation to it.
+
+<p>
+    <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632127-2e224b47-3ef1-4fdd-a64a-986b38d5ea6a.png">
+</p>
+
+You can change the transition animation of this screen by setting the `Asset Type` to `Scriptable Object` and assigning the `TransitionAnimationObject` described in the previous section to `Animation Object`. Also, you can use MonoBehaviour instead of the ScriptableObject. In this case, first create a class that extends `TransitionAnimationBehaviour`.
+
+Refer to [SimpleTransitionAnimationBehaviour]() for practical implementation.
