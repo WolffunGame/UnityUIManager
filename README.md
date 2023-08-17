@@ -67,8 +67,6 @@ var handle = screenContainer.Push("ExamplePage", true);
 
 // wait for the transition to finish
 yield return handle;
-//await handle.Task; // You can also use await.
-//handle.Onterminate += () => { }; // You can also use callback. 
 ```
 
 Also, use `ScreenContainer.Pop()` to discard the active page and display the previous page.
@@ -99,8 +97,6 @@ var handle = modalContainer.Push("Exmaple", true);
 
 // Wait for the transition to finish.
 yield return handle;
-//await handle.Task; // You can also use await.
-//handle.OnTerminate += () => { }; // You can also use callback.
 ```
 
 Also, use `ModalContainer.Pop()` to discard the active modal and display the previous modal.
@@ -159,5 +155,40 @@ var handle = sheetContainer.Hide(true);
 
 // Wait for the transition to finish.
 yield return handle;
+```
+
+#### How to wait for the transition
+Each method for transition returns `AsyncProcessHandle` as the return value. Using this object you can wait for the transition process to finish. You can use coroutines, asynchronous methods, and callbacks to do this. to wait in a coroutine, use ` yield return` as shown below.
+
+```cs
+yield return screenContainer.Push("ExamplePage", true);
+```
+
+To wait in an asynchronous method, use await for `AsyncProcessHandle.Task` as follows.
+
+```cs
+await screenContainer.Push("ExamplePage", true);
+```
+
+#### Getting containers with static methods
+
+Each container (`PageContainer` / `ModalContainer` / `SheetContainer`) has static methods to get the instance. Using `Container.Of()` as follows, you can get the container that is attached to the nearest parent form the given Transform or RectTransform.
+
+```cs
+var screenContainer = ScreenContainer.Of(transform);
+
+var modalContainer = ModalContainer.Of(transform);
+
+var sheetContainer = SheetContainer.Of(transform);
+```
+
+Also, you can set the `Name` property in the container's Inspector to get the container by its name. In this case, use the `Container.Find()` method as follows.
+
+```cs
+var screenContainer = ScreenContainer.Find("SomePageContainer");
+
+var modalContainer = ModalContainer.Find("SomeModalContainer");
+
+var sheetContainer = SheetContaiern.Find("SomeSheetContainer");
 ```
 
