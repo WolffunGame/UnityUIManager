@@ -226,3 +226,10 @@ You can also set up different animation for each screen. Each Page, Modal, and S
 You can change the transition animation of this screen by setting the `Asset Type` to `Scriptable Object` and assigning the `TransitionAnimationObject` described in the previous section to `Animation Object`. Also, you can use MonoBehaviour instead of the ScriptableObject. In this case, first create a class that extends `TransitionAnimationBehaviour`.
 
 Refer to [SimpleTransitionAnimationBehaviour]() for practical implementation.
+Then, attach this component and set the `Asset Type` to `MonoBehaviour` and assign the reference to `Animation Behaviour`.
+
+#### Change transition animation according to partner screen
+For example, when screen A enters and screen B exits, screen B is called the "Partner Screen" of screen A. If you enter the name of the partner sreen in the property shown below, the transition animation will be applied only when this name matches the partner screen name.
+ <p>
+    <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632918-9d777817-d2dc-43c9-bd7e-c6a1713a5f26.png">
+ </p>
