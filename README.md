@@ -251,3 +251,28 @@ In the transition animation of a screen with a partner screen, the drawing order
 </p>
 
 During the screen transtion, the screen is drawn in the order of decreasing this value. Note that modals do not have a `Rendering Order` property, since the newest one is always displayed in front.
+
+#### Create simple transition animations easily
+You can use `SimpleTransitionAnimationObject` as a transition animation implementation. This can be created from `Asset > Create Screen Navigator > Simple Transition Animation`. Then, a ScriptableObject as shown below will be generated, and you can set up the animation from the inspector.
+
+<p align="center">
+    <img width="60%" src="https://user-images.githubusercontent.com/47441314/137326944-112e0254-cd27-4d49-a32b-9c436b9537e4.png">
+</p>
+
+You can also use `SimpleTransitionAnimationBehaviour` as a MonoBehaviour implementation of this. This is used by attaching directly to a GameObject.
+
+<p align="center">
+  <img width="60%" src="https://user-images.githubusercontent.com/47441314/137326555-90cdce8d-98da-4a00-99cc-5a65c1086760.png">
+</p>
+
+|Property Name|Description|
+|-|-|
+|Delay|Delay time before the animation starts (seconds).|
+|Duration|Animation duration (seconds).|
+|Ease Type|Type of the easing functions.|
+|Before Alignment|Relative position from the container before transition.|
+|Before Scale|Scale before transition.|
+|Before Alpha|Transparency before transition.|
+|After Alignment|Relative position from the container after transition.|
+|After Scale|Scale after transition.|
+|After Alpha|Transparency after transition.|
