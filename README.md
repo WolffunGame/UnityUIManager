@@ -24,16 +24,16 @@ Library for screen transitions, transition animations, transition history stacki
 #### Features
 * You can create pages, modals, tabs and their transitions easily and flexibly.
 * Manage screen lifecycle and memory from load to destroy.
-* Separated workflow with animators for complex screen transition animations.
-* Well-separated library with no extra functions (ex. GUI library, state machine).
-* And standard features such as history stacking and click prevention during transitions.
+* Separated workflow from animators for complex screen transition animations.
+* Well-separated library from no extra functions (ex. GUI library, state machine).
+* And standard features such as history stacking and clicks prevention during transitions.
 
 ## Basic Screen Transition
 
 ### Concept of screens and transitions
-Unity Screen Navigator classifies screens into threee types: "Page", "Modal" and "Sheet".
+Unity Screen Navigator classifies screens into three types: "Page", "Modal" and "Sheet".
 
-"Page" is the screen thast transition in sequence. For example, when you transition form the Page A to Page B, Page A will be stacked in the history. And when you return form Page B. Page A will be redisplayed with its states intact
+"Page" is the screen that transition in sequence. For example, when you transition form Page A to Page B, Page A will be stacked in the history. And when you return from Page B. Page A will be redisplayed with its states intact.
 
 <p align="center">
   <img width="50%" src="https://user-images.githubusercontent.com/47441314/136680850-2aca1977-02c2-4730-a0d8-603934f71c80.gif" alt="Demo">
@@ -58,7 +58,7 @@ These screens can be nested. And, the area of each screen can be freely specifie
 </p>
 
 ### Create page and transition
-To create the page transition, first attach the "Screen Containter" component to and GameObject under the Canvas. The pages will be displayed to fit it, so adjust the size. Next, attach the `Screen` component to root GameObject under the Resources folder with an arbitrary name. And call `ScreenContainer.Push()` with the Resources path to display the page.
+To create the page transition, first attach the "Screen Container" component to and GameObject under the Canvas. The pages will be displayed to fit it, so adjust the size. Next, attach the `Screen` component to root GameObject under the Resources folder with an arbitrary name. And call `ScreenContainer.Push()` with the Resources path to display the page.
 
 ```cs
 ScreenContainer screenContainer;
@@ -82,7 +82,7 @@ yield return handle;
 ```
 
 ### Create modal and transition
-To create the modal transition, first attach the "Modal Container" component to an GameObject under the Canvas. In general, modals are desinged to cover ther entire window with their backdrop and block clicks. Therefore, the size of the GameObject should basically be set to match the window size. Next, attach `Modal` component to the root GameObject of the modal view. This root GameObject will be  adjusted to fit the size of the ` Modal Container`. So if you want to create the modal with margins, create a child GameObject with a smaller size and create the content inside it.
+To create the modal transition, first attach the "Modal Container" component to an GameObject under the Canvas. In general, modals are desinged to cover ther entire window with their backdrop and block clicks. Therefore, the size of the GameObject should basically be set to match the window size. Next, attach `Modal` component to the root GameObject of the modal view. This root GameObject will be adjusted to fit the size of the ` Modal Container`. So if you want to create the modal with margins, create a child GameObject with a smaller size and create the content inside it.
 
 <p align="center">
   <img width="70%" src="https://user-images.githubusercontent.com/47441314/136698661-e4e247b6-7938-4fb5-8f6f-f2897f42eebe.png" alt="Demo">
@@ -112,7 +112,7 @@ yield return handle;
 ```
 
 #### Create Sheet and transistion
-To create the sheet transition, first attach the "Sheet Container" component to an GameObject under the Canvas. The sheets will be displayed to fit it, so adjust the size. Next, attach `Sheet` component to the root GameObject of the sheet view. Place this GameObject under the Resources folder with and arbittrary name. Call `SheetContainer.Register()` with ther Resources path to create the sheet. After it is created, you can change the active sheet by calling `SheetContainer.Show()`.
+To create the sheet transition, first attach the "Sheet Container" component to an GameObject under the Canvas. The sheets will be displayed to fit it, so adjust the size. Next, attach `Sheet` component to the root GameObject of the sheet view. Place this GameObject under the Resources folder with and arbittrary name. Call `SheetContainer.Register()` with their Resources path to create the sheet. After it is created, you can change the active sheet by calling `SheetContainer.Show()`.
 
 ```cs
 SheetContainer sheetContainer;
@@ -126,8 +126,7 @@ var showHandle = sheetContainer.Show("ExampleSheet", false);
 yield return showHandle;
 ```
 
-Note that when multiple sheets with same resource keys are instantiated by the `Register()` method, the identity of the sheet instance cannot guaranteed by the resource key.  
-In such case, use the sheet ID instead of the resource key, as shown below.
+Note that when multiple sheets with same resource keys are instantiated by the `Register()` method, the identity of the sheet instance cannot guaranteed by the resource key. In such case, use the sheet ID instead of the resource key, as shown below.
 
 ```cs
 SheetContainer sheetContainer;
@@ -164,7 +163,7 @@ Each method for transition returns `AsyncProcessHandle` as the return value. Usi
 yield return screenContainer.Push("ExamplePage", true);
 ```
 
-To wait in an asynchronous method, use await for `AsyncProcessHandle.Task` as follows.
+To wait in an asynchronous method, use await for `AsyncProcessHandle.Task` as follow.
 
 ```cs
 await screenContainer.Push("ExamplePage", true);
@@ -172,7 +171,7 @@ await screenContainer.Push("ExamplePage", true);
 
 #### Getting containers with static methods
 
-Each container (`PageContainer` / `ModalContainer` / `SheetContainer`) has static methods to get the instance. Using `Container.Of()` as follows, you can get the container that is attached to the nearest parent form the given Transform or RectTransform.
+Each container (`PageContainer` / `ModalContainer` / `SheetContainer`) has static methods to get the instance. Using `Container.Of()` as follow, you can get the container that is attached to the nearest parent form the given Transform or RectTransform.
 
 ```cs
 var screenContainer = ScreenContainer.Of(transform);
@@ -182,7 +181,7 @@ var modalContainer = ModalContainer.Of(transform);
 var sheetContainer = SheetContainer.Of(transform);
 ```
 
-Also, you can set the `Name` property in the container's Inspector to get the container by its name. In this case, use the `Container.Find()` method as follows.
+Also, you can set the `Name` property in the container's Inspector to get the container by its name. In this case, use the `Container.Find()` method as follow.
 
 ```cs
 var screenContainer = ScreenContainer.Find("SomePageContainer");
@@ -195,7 +194,7 @@ var sheetContainer = SheetContaiern.Find("SomeSheetContainer");
 ## Screen Transition Animation
 
 #### Setting common transition animations
-In default, a standard transition animation is set for reach screen type. Ypu can create a class derived from `TransitionAnimationObject` to create custom transition animation. This class has a property and methods to define the animation behavior.
+In default, a standard transition animation is set for reach screen type. You can create a class derived from `TransitionAnimationObject` to create custom transition animation. This class has a property and methods to define the animation behavior.
 
 ```cs
 // Duration (Second).
@@ -229,7 +228,7 @@ Refer to [SimpleTransitionAnimationBehaviour]() for practical implementation.
 Then, attach this component and set the `Asset Type` to `MonoBehaviour` and assign the reference to `Animation Behaviour`.
 
 #### Change transition animation according to partner screen
-For example, when screen A enters and screen B exits, screen B is called the "Partner Screen" of screen A. If you enter the name of the partner sreen in the property shown below, the transition animation will be applied only when this name matches the partner screen name.
+For example, when screen A enters and screen B exits, screen B is called the "Partner Screen" of screen A. If you enter the name of the partner sreen in the property as shown below, the transition animation will be applied only when this name matches the partner screen name.
 
  <p align="center">
     <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632918-9d777817-d2dc-43c9-bd7e-c6a1713a5f26.png">
