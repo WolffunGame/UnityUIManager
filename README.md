@@ -17,6 +17,15 @@ Library for screen transitions, transition animations, transition history stacki
      - [Create screen and transition](#create-screen-and-transition)
      - [Create modal and transition](#create-modal-and-transition)
      - [Create sheet and transition](#create-sheet-and-transistion)
+     - [How to wait for the transition](#how-to-wait-for-the-transition)
+     - [Getting containers with static methods](#getting-containers-with-static-methods)
+- [Screen Transition Animation](#screen-transition-animation)
+     - [Setting common transition animations](#setting-common-transition-animations)
+     - [Setting transition animation for each screen](#setting-transition-animation-for-each-screen)
+     - [Change transition animation according to partner screen](#change-transition-animation-according-to-partner-screen)
+     - [Create simple transition animation and drawing order](#screen-transition-animation-and-drawing-order)
+     - [Create simple transition animations easily](#create-simple-transition-animations-easily)
+     - [Create animation with Timeline](#create-animation-with-timeline)
 </details>
 
 ## Overview
@@ -276,3 +285,30 @@ You can also use `SimpleTransitionAnimationBehaviour` as a MonoBehaviour impleme
 |After Alignment|Relative position from the container after transition.|
 |After Scale|Scale after transition.|
 |After Alpha|Transparency after transition.|
+
+#### Create animation with Timeline
+You can use Timeline to create transition animation.
+It is recommended to use Timeline for complex transitin animation.
+
+<p align="center">
+  <img width="60%" src="https://user-images.githubusercontent.com/47441314/137634258-135b454e-04b5-49e8-a87a-bfb6ede03f49.gif">
+</p>
+
+To implement this, first attach the `Timeline Transition Animation Behaviour` to a GameObject. And assign `Playable Director` and `Timeline Asset` to properties.
+
+<p align="center">
+  <img width="60%" src="https://user-images.githubusercontent.com/47441314/137633599-dd8b204e-e6ec-46bf-b93c-ee54b4ac3d59.png">
+</p>
+
+`Play On Awake` property of `Playable Director` need to be unchecked.
+
+<p align="center">
+  <img width="60%" src="https://user-images.githubusercontent.com/47441314/137633492-4d837177-a381-486f-8942-df26e522da91.png">
+</p>
+
+Finally, assign this `Timeline Transition Animation Behaviour` to the `Animation Container`.
+
+<p align="center">
+  <img width="60%" src="https://user-images.githubusercontent.com/47441314/137633821-1fa1a8d6-ca41-49ca-aacf-dcf7f744c0b1.png">
+</p>
+
