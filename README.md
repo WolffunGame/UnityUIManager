@@ -26,6 +26,10 @@ Library for screen transitions, transition animations, transition history stacki
      - [Create simple transition animation and drawing order](#screen-transition-animation-and-drawing-order)
      - [Create simple transition animations easily](#create-simple-transition-animations-easily)
      - [Create animation with Timeline](#create-animation-with-timeline)
+- [Lifecycle Events](#lifecycle-events)
+     - [Lifecycle events of the screen](#lifecycle-events-of-the-screen)
+     - [Lifecycle events of the modal](#lifecycle-events-of-the-modal)
+     - [Lifecycle events of the sheet](#lifecycle-events-of-the-sheet)
 </details>
 
 ## Overview
@@ -312,3 +316,209 @@ Finally, assign this `Timeline Transition Animation Behaviour` to the `Animation
   <img width="60%" src="https://user-images.githubusercontent.com/47441314/137633821-1fa1a8d6-ca41-49ca-aacf-dcf7f744c0b1.png">
 </p>
 
+## Lifecycle Events
+
+#### Lifecycle events of the screen 
+By overriding following methods in the class derived from the `Screen` class, you can write the processs associated with the lifecycle of the screen.
+
+```cs
+
+public class SomeScreen : Screen
+{
+    // Called just after this screen is loaded.
+    public override IEnumerator Initialize() { yield break; }
+    // Called just before this screen is released.
+    public override IEnumerator Cleanup() { yield break; }
+    // Called just before this screen is displayed by the Push transition.
+    public override IEnumerator WillPushEnter() { yield break; }
+    // Called just after this screen is displayed by the Push transition.
+    public override void DidPushEnter() { }
+    // Called just before this screen is hidden by the Push transition.
+    public override IEnumerator WillPushExit() { yield break; }
+    // Called just after this screen is hidden by the Push transition.
+    public override void DidPushExit() { }
+    // Called just before this screen is displayed by the Pop transition.
+    public override IEnumerator WillPopEnter() { yield break; }
+    // Called just after this screen is displayed by the Pop transition.
+    public override void DidPopEnter() { }
+    // Called just before this screen is hidden by the Pop transition.
+    public override IEnumerator WillPopExit() { yield break; }
+    // Called just after this screen is hidden by the Pop transition.
+    public override void DidPopExit() { }
+}
+
+```
+
+You can also register lifecycle events externally by `Screen.AddLifeCycleEvents()` as below.
+
+```cs
+
+// IScreenLifecycleEvent is the interface that has lifecycle events described above.
+// You can specify the execution priority with the second argument.
+//  Less than 0: executed before Screen lifecycle event.
+//  Greater than 0: executed after Screen lifecycle event.
+IScreenLifecycleEvent lifecycleEventImpl;
+Screen screen;
+screen.AddLifecycleEvent(lifecycleEventImpl, -1);
+
+// It is also possible to register only some lifecycle events as follows.
+IEnumerator OnWillPushEnter()
+{
+    // Some code.
+    yield break;
+}
+screen.AddLifecycleEvent(onWillPushEnter: OnWillPushEnter);
+
+```
+
+And you can also hook transition events from the container by passing object that implements `IScreenContainerCallbackReceiver` to `ScreenContainer.AddCallbackReceiver()`.
+
+```cs
+
+public interface IScreenContainerCallbackReceiver
+{
+    // Called just before the Push transition is executed.
+    void BeforePush(Screen enterPage, Screen exitPage);
+    // Called just after the Push transition is executed.
+    void AfterPush(Screen enterPage, Screen exitPage);
+    // Called just before the Pop transition is executed.
+    void BeforePop(Screen enterPage, Screen exitPage);
+    // Called just after the Pop transition is executed.
+    void AfterPop(Screen enterPage, Screen exitPage);
+}
+
+```
+
+#### Lifecycle events of the modal
+By overriding following methods in the class derived from the `Modal` class, you can write the processes associated with the lifecycle of the modal.
+
+```cs
+
+public class SomeModal : Modal
+{
+    // Called just after this modal is loaded.
+    public override IEnumerator Initialize() { yield break; }
+    // Called just before this modal is released.
+    public override IEnumerator Cleanup() { yield break; }
+    // Called just before this model is displayed by the Push transition.
+    public override IEnumerator WillPushEnter() { yield break; }
+    // Called just after this modal is displayed by the Push transition.
+    public override void DidPushEnter() { }
+    // Called just before this modal is hidden by the Push transition.
+    public override IEnumerator WillPushExit() { yield break; }
+    // Called just after this modal is hidden by the Push transition.
+    public override void DidPushExit() { }
+    // Called just before this modal is displayed by the Pop transition.
+    public override IEnumerator WillPopEnter() { yield break; }
+    // Called just after this modal is displayed by the Pop transition.
+    public override void DidPopEnter() { }
+    // Called just before this modal is hidden by the Pop transition.
+    public override IEnumerator WillPopExit() { yield break; }
+    // Called just after this modal is hidden by the Pop transition.
+    public override void DidPopExit() { }
+}
+
+```
+
+You can also register lifecycle events externally by `Modal.AddLifecycleEvents()` as below.
+
+```cs
+
+// IModalLifecycleEvent is the interface that has lifecycle events described above.
+// You can specify the execution priority with the second argument.
+//  Less than 0: executed before Modal lifecycle event.
+//  Greater than 0: executed after Modal lifecycle event.
+IModalLifecycleEvent lifecycleEventImpl;
+Modal modal;
+Modal.AddLifecycleEvent(lifecycleEventImpl, -1);
+
+// It is also possible to register only some lifecycle events as follows.
+IEnumerator OnWillPushEnter()
+{
+    // Some code.
+    yield break;
+}
+modal.AddLifecycleEvent(onWillPushEnter: OnWillPushEnter);
+
+```
+
+And you can also hook transition events from the container by passing object that implements `IModalContainerCallbackReceiver` to `ModalContainer.AddCallbackReceiver()`.
+
+```cs
+
+public interface IModalContainerCallbackReceiver
+{
+    // Called just before the Push transition is executed.
+    void BeforePush(Modal enterModal, Modal exitModal);
+    // Called just after the Push transition is executed.
+    void AfterPush(Modal enterModal, Modal exitModal);
+    // Called just before the Pop transition is executed.
+    void BeforePop(Modal enterModal, Modal exitModal);
+    // Called just after the Pop transition is executed.
+    void AfterPop(Modal enterModal, Modal exitModal);
+}
+
+```
+
+#### Lifecycle events of the sheet
+By overriding following methods in the class derived from the `Sheet` class, you can write the processes associated with the lifecycle of the sheet.
+
+```cs
+
+public class SomeSheet : Sheet
+{
+    // Called just after this sheet is loaded.
+    public override IEnumerator Initialize() { yield break; }
+    // Called just before this sheet is released.
+    public override IEnumerator Cleanup() { yield break; }
+    // Called just before this sheet is displayed.
+    public override IEnumerator WillEnter() { yield break; }
+    // Called just after this sheet is displayed.
+    public override void DidEnter() { }
+    // Called just before this sheet is hidden.
+    public override IEnumerator WillExit() { yield break; }
+    // Called just after this sheet is hidden.
+    public override void DidExit() { }
+}
+
+```
+
+You can also register lifecycle events externally by `Sheet.AddLifecycleEvents()` as below.
+
+```cs
+
+// ISheetLifecycleEvent is the interface that has lifecycle events described above.
+// You can specify the execution priority with the second argument.
+//  Less than 0: executed before Sheet lifecycle event.
+//  Greater than 0: executed after Sheet lifecycle event.
+ISheetLifecycleEvent lifecycleEventImpl;
+Sheet sheet;
+Sheet.AddLifecycleEvent(lifecycleEventImpl, -1);
+
+// It is also possible to register only some lifecycle events as follows.
+IEnumerator OnWillEnter()
+{
+    // Some code.
+    yield break;
+}
+sheet.AddLifecycleEvent(onWillEnter: OnWillEnter);
+
+```
+
+And you can also hook transition events from the container by passing object that implements `ISheetContainerCallbackReceiver` to `SheetContainer.AddCallbackReceiver()`.
+
+```cs
+
+public interface ISheetContainerCallbackReceiver
+{
+    // Called just before the Show transition is executed.
+    void BeforeShow(Sheet enterSheet, Sheet exitSheet);
+    // Called just after the Show transition is executed.
+    void AfterShow(Sheet enterSheet, Sheet exitSheet);
+    // Called just before the Hide transition is executed.
+    void BeforeHide(Sheet exitSheet);
+    // Called just after the Hide transition is executed.
+    void AfterHide(Sheet exitSheet);
+}
+
+```
