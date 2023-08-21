@@ -14,7 +14,7 @@ Library for screen transitions, transition animations, transition history stacki
      - [Features](#features)
 - [Basic Screen Transition](#basic-screen-transition)
      - [Concept of screens and transition](#concept-of-screens-and-transitions)
-     - [Create page and transition](#create-page-and-transition)
+     - [Create screen and transition](#create-screen-and-transition)
      - [Create modal and transition](#create-modal-and-transition)
      - [Create sheet and transition](#create-sheet-and-transistion)
 </details>
@@ -22,7 +22,7 @@ Library for screen transitions, transition animations, transition history stacki
 ## Overview
 
 #### Features
-* You can create pages, modals, tabs and their transitions easily and flexibly.
+* You can create screens, modals, tabs and their transitions easily and flexibly.
 * Manage screen lifecycle and memory from load to destroy.
 * Separated workflow from animators for complex screen transition animations.
 * Well-separated library from no extra functions (ex. GUI library, state machine).
@@ -57,8 +57,8 @@ These screens can be nested. And, the area of each screen can be freely specifie
   <img width="50%" src="https://user-images.githubusercontent.com/47441314/137634860-ae202ce7-5d2d-48b1-a938-358381d16780.gif" alt="Demo">
 </p>
 
-### Create page and transition
-To create the page transition, first attach the "Screen Container" component to and GameObject under the Canvas. The pages will be displayed to fit it, so adjust the size. Next, attach the `Screen` component to root GameObject under the Resources folder with an arbitrary name. And call `ScreenContainer.Push()` with the Resources path to display the page.
+### Create screen and transition
+To create the screen transition, first attach the "Screen Container" component to and GameObject under the Canvas. The screens will be displayed to fit it, so adjust the size. Next, attach the `Screen` component to root GameObject under the Resources folder with an arbitrary name. And call `ScreenContainer.Push()` with the Resources path to display the screen.
 
 ```cs
 ScreenContainer screenContainer;
@@ -69,12 +69,12 @@ var handle = screenContainer.Push("ExamplePage", true);
 yield return handle;
 ```
 
-Also, use `ScreenContainer.Pop()` to discard the active page and display the previous page.
+Also, use `ScreenContainer.Pop()` to discard the active screen and display the previous screen.
 
 ```cs
 ScreenContainer screenContainer;
 
-// Pop the active page
+// Pop the active screen
 var handle = screenContainer.Pop(true);
 
 // Wait for the transition to finish.
@@ -88,7 +88,7 @@ To create the modal transition, first attach the "Modal Container" component to 
   <img width="70%" src="https://user-images.githubusercontent.com/47441314/136698661-e4e247b6-7938-4fb5-8f6f-f2897f42eebe.png" alt="Demo">
 </p>
 
-Place this GameObject under the Resources folder with an arbitrary name. And call `ModalContainer.Push()` with the Resources path to display the page.
+Place this GameObject under the Resources folder with an arbitrary name. And call `ModalContainer.Push()` with the Resources path to display the screen.
 
 ```cs
 ModalContainer modalContainer;
