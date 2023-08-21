@@ -76,7 +76,7 @@ To create the screen transition, first attach the "Screen Container" component t
 ```cs
 ScreenContainer screenContainer;
 
-var handle = screenContainer.Push("ExamplePage", true);
+var handle = screenContainer.Push("ExampleScreen", true);
 
 // wait for the transition to finish
 yield return handle;
@@ -173,18 +173,18 @@ yield return handle;
 Each method for transition returns `AsyncProcessHandle` as the return value. Using this object you can wait for the transition process to finish. You can use coroutines, asynchronous methods, and callbacks to do this. to wait in a coroutine, use ` yield return` as shown below.
 
 ```cs
-yield return screenContainer.Push("ExamplePage", true);
+yield return screenContainer.Push("ExampleScreen", true);
 ```
 
 To wait in an asynchronous method, use await for `AsyncProcessHandle.Task` as follow.
 
 ```cs
-await screenContainer.Push("ExamplePage", true);
+await screenContainer.Push("ExampleScreen", true);
 ```
 
 #### Getting containers with static methods
 
-Each container (`PageContainer` / `ModalContainer` / `SheetContainer`) has static methods to get the instance. Using `Container.Of()` as follow, you can get the container that is attached to the nearest parent form the given Transform or RectTransform.
+Each container (`ScreenContainer` / `ModalContainer` / `SheetContainer`) has static methods to get the instance. Using `Container.Of()` as follow, you can get the container that is attached to the nearest parent form the given Transform or RectTransform.
 
 ```cs
 var screenContainer = ScreenContainer.Of(transform);
@@ -197,7 +197,7 @@ var sheetContainer = SheetContainer.Of(transform);
 Also, you can set the `Name` property in the container's Inspector to get the container by its name. In this case, use the `Container.Find()` method as follow.
 
 ```cs
-var screenContainer = ScreenContainer.Find("SomePageContainer");
+var screenContainer = ScreenContainer.Find("SomeScreenContainer");
 
 var modalContainer = ModalContainer.Find("SomeModalContainer");
 
@@ -378,13 +378,13 @@ And you can also hook transition events from the container by passing object tha
 public interface IScreenContainerCallbackReceiver
 {
     // Called just before the Push transition is executed.
-    void BeforePush(Screen enterPage, Screen exitPage);
+    void BeforePush(Screen enterScreen, Screen exitScreen);
     // Called just after the Push transition is executed.
-    void AfterPush(Screen enterPage, Screen exitPage);
+    void AfterPush(Screen enterScreen, Screen exitScreen);
     // Called just before the Pop transition is executed.
-    void BeforePop(Screen enterPage, Screen exitPage);
+    void BeforePop(Screen enterScreen, Screen exitScreen);
     // Called just after the Pop transition is executed.
-    void AfterPop(Screen enterPage, Screen exitPage);
+    void AfterPop(Screen enterScreen, Screen exitScreen);
 }
 
 ```
