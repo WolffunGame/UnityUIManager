@@ -178,7 +178,7 @@ Each method for transition returns `AsyncProcessHandle` as the return value. Usi
 yield return screenContainer.Push("ExampleScreen", true);
 ```
 
-To wait in an asynchronous method, use await for `AsyncProcessHandle.Task` as follow.
+To wait in an asynchronous method, use await as follow.
 
 ```cs
 await screenContainer.Push("ExampleScreen", true);
