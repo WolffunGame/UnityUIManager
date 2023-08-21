@@ -31,9 +31,9 @@ Library for screen transitions, transition animations, transition history stacki
 ## Basic Screen Transition
 
 ### Concept of screens and transitions
-Unity Screen Navigator classifies screens into three types: "Page", "Modal" and "Sheet".
+Unity Screen Navigator classifies screens into three types: "Screen", "Modal" and "Sheet".
 
-"Page" is the screen that transition in sequence. For example, when you transition form Page A to Page B, Page A will be stacked in the history. And when you return from Page B. Page A will be redisplayed with its states intact.
+"Screen" is the screen that transition in sequence. For example, when you transition form Screen A to Screen B, Screen A will be stacked in the history. And when you return from Screen B. Screen A will be redisplayed with its states intact.
 
 <p align="center">
   <img width="50%" src="https://user-images.githubusercontent.com/47441314/136680850-2aca1977-02c2-4730-a0d8-603934f71c80.gif" alt="Demo">
@@ -216,7 +216,7 @@ Then instantiate this ScriptableObject, and assign it to `UnityScreenNavigatorSe
 </p>
 
 #### Setting transition animation for each screen
-You can also set up different animation for each screen. Each Page, Modal, and Sheet component has the `AnimationContainer` property. You can set the transition animation to it.
+You can also set up different animation for each screen. Each Screen, Modal, and Sheet component has the `AnimationContainer` property. You can set the transition animation to it.
 
 <p align ="center">
     <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632127-2e224b47-3ef1-4fdd-a64a-986b38d5ea6a.png">
@@ -240,7 +240,7 @@ For example, when screen A enters and screen B exits, screen B is called the "Pa
     <img width="60%" src="https://user-images.githubusercontent.com/47441314/137632986-f5727a42-4c27-48aa-930d-e7b0673b978f.png">
 </p>
 
-In addition, regular expressions can be used for the `Partner Page Identifier Regex`. And if multiple animations are set, they will be evaluated in order from top.
+In addition, regular expressions can be used for the `Partner Screen Identifier Regex`. And if multiple animations are set, they will be evaluated in order from top.
 
 #### Screen transition animation and drawing order
 
