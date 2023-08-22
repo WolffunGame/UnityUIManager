@@ -11,6 +11,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
     [DisallowMultipleComponent]
     public class Screen : Window, IScreenLifecycleEvent
     {
+        [SerializeField] protected bool _isFillRectWhenExit = true;
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
         [SerializeField] [EnabledIf(nameof(_usePrefabNameAsIdentifier), false)]
@@ -210,7 +211,10 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         private UniTask BeforeExitTask(bool push, Screen partnerScreen)
         {
             gameObject.SetActive(true);
-            RectTransform.FillParent((RectTransform)Parent);
+
+            if (_isFillRectWhenExit)
+                RectTransform.FillParent((RectTransform)Parent);
+                
             if (!UnityScreenNavigatorSettings.Instance.EnableInteractionInTransition)
             {
                 Interactable = false;
