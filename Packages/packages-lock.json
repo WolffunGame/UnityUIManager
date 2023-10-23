@@ -15,7 +15,7 @@
       "url": "https://package.openupm.com"
     },
     "com.dre0dru.addressables.services": {
-      "version": "https://github.com/felixngd/AddressablesServices.git#upm",
+      "version": "https://github.com/WolffunGame/AddressablesServices.git#upm",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -35,11 +35,11 @@
       "hash": "799efe48dc0a6990e8a1d7a2372415a11fa8dfbc"
     },
     "com.laicasaane.unity-supplements": {
-      "version": "2.6.0",
+      "version": "https://github.com/WolffunGame/unity-supplements.git#2.6.0",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {},
-      "url": "https://package.openupm.com"
+      "hash": "2ea1b286a7b97921a30b90019f4b1510571642a3"
     },
     "com.timcassell.protopromise": {
       "version": "https://github.com/TimCassell/ProtoPromise.git?path=ProtoPromise_Unity/Assets/Plugins/ProtoPromise",
@@ -123,6 +123,22 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.sysroot": {
+      "version": "2.0.7",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "2.0.6",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.7"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.test-framework": {
       "version": "1.1.33",
       "depth": 0,
@@ -152,6 +168,16 @@
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.toolchain.win-x86_64-linux-x86_64": {
+      "version": "2.0.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.7",
+        "com.unity.sysroot.linux-x86_64": "2.0.6"
       },
       "url": "https://packages.unity.com"
     },
