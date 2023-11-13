@@ -356,13 +356,16 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             // Play Animation
-            await exitModal.Exit(false, playAnimation, enterModal);
+            var animModalExit = exitModal.Exit(false, playAnimation, enterModal);
+
+            var animBackdropExit = backdrop.Exit(playAnimation);
+
+            await UniTask.WhenAll(animModalExit, animBackdropExit);
+
             if (enterModal != null)
             {
                 await enterModal.Enter(false, playAnimation, exitModal);
             }
-
-            await backdrop.Exit(playAnimation);
 
             // End Transition
             _modals.RemoveAt(_modals.Count - 1);
