@@ -296,14 +296,16 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
             // Play Animation
 
-            await backdrop.Enter(option.PlayAnimation);
+            var taskBackdropEnter = backdrop.Enter(option.PlayAnimation);
 
             if (exitModal != null)
             {
                 await exitModal.Exit(true, option.PlayAnimation, enterModal);
             }
 
-            await enterModal.Enter(true, option.PlayAnimation, exitModal);
+            var taskModalEnter = enterModal.Enter(true, option.PlayAnimation, exitModal);
+
+            await UniTask.WhenAll(taskBackdropEnter, taskModalEnter);
 
             // End Transition
             _modals.Add(enterModal);
