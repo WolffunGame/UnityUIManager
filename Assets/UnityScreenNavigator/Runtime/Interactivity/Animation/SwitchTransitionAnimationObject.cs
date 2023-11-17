@@ -19,6 +19,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
         [SerializeField] private Vector3 _afterScale = Vector3.one;
         [SerializeField] private float _afterAlpha = 1.0f;
 
+        [Space(12)]
+        [Header("Custom Scale Curve")]
+        [Tooltip("Enable if you want to use Animation curve for scale instead of Ease Type above")]
+        [SerializeField] private bool _isUsingScaleCurve = false;
+        [SerializeField] private AnimationCurve _scaleCurve = AnimationCurve.Linear(0f, 0f, 0.3f, 1f);
+
         private CanvasGroup _canvasGroup;
 
         //private Sequence _sequence;
@@ -62,6 +68,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
             var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeScale);
+            if (_isUsingScaleCurve) await scaleTweener.SetEase(_scaleCurve);
+
             var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeAlpha);
             _ = sequence.Join(scaleTweener);
@@ -72,7 +80,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
         public void SetParams(float? duration = null, Ease? easeType = null,
             Vector3? beforeScale = null, float? beforeAlpha = null,
-            Vector3? afterScale = null, float? afterAlpha = null)
+            Vector3? afterScale = null, float? afterAlpha = null,
+            AnimationCurve scaleCurve = null, bool? isUsingScaleCurve = null)
         {
             if (duration.HasValue)
             {
@@ -102,6 +111,16 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
             if (afterAlpha.HasValue)
             {
                 _afterAlpha = afterAlpha.Value;
+            }
+
+            if (isUsingScaleCurve.HasValue)
+            {
+                _isUsingScaleCurve = isUsingScaleCurve.Value;
+            }
+
+            if (scaleCurve != null)
+            {
+                _scaleCurve = scaleCurve;
             }
         }
     }
