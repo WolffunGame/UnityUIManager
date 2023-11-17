@@ -88,12 +88,15 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             var anchorPosTweener = RectTransform.DOAnchorPos(_afterPosition, _duration).SetDelay(_delay)
                 .SetEase(_easeType).From(_beforePosition);
 
-            var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).SetEase(_easeType)
-                .From(_beforeScale);
-            if (_isUsingScaleCurve) await scaleTweener.SetEase(_scaleCurve);
+            var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay);
+            if (_isUsingScaleCurve)
+                scaleTweener.SetEase(_scaleCurve).From(_beforeScale);
+            else
+                scaleTweener.SetEase(_easeType).From(_beforeScale);
 
             var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeAlpha);
+
              _ = _sequence.Join(anchorPosTweener);
              _ = _sequence.Join(scaleTweener);
              _ = _sequence.Join(fadeTweener);
