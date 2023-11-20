@@ -21,9 +21,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
 
         [Space(12)]
         [Header("Custom Scale Curve")]
-        [Tooltip("Enable if you want to use Animation curve for scale instead of Ease Type above")]
-        [SerializeField] private bool _isUsingScaleCurve = false;
-        [SerializeField] private AnimationCurve _scaleCurve = AnimationCurve.Linear(0f, 0f, 0.3f, 1f);
+        [SerializeField] private AnimationCurve _easeCurve = AnimationCurve.Linear(0f, 0f, 0.3f, 1f);
 
         private CanvasGroup _canvasGroup;
 
@@ -66,11 +64,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
         {
             var sequence = DOTween.Sequence();
 
-            var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay);            
-            if (_isUsingScaleCurve)
-                scaleTweener.SetEase(_scaleCurve).From(_beforeScale);
-            else
-                scaleTweener.SetEase(_easeType).From(_beforeScale);
+            var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).From(_beforeScale);            
+
 
             var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforeAlpha);
@@ -78,13 +73,24 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
             _ = sequence.Join(scaleTweener);
             _ = sequence.Join(fadeTweener);
 
+            if (_easeType == Ease.INTERNAL_Custom)
+            {
+                scaleTweener.SetEase(_easeCurve);
+                fadeTweener.SetEase(_easeCurve);
+            }    
+            else
+            {
+                scaleTweener.SetEase(_easeType);
+                fadeTweener.SetEase(_easeType);
+            }
+
             await sequence.AwaitForComplete(cancellationToken: cancellationToken);
         }
 
         public void SetParams(float? duration = null, Ease? easeType = null,
             Vector3? beforeScale = null, float? beforeAlpha = null,
             Vector3? afterScale = null, float? afterAlpha = null,
-            AnimationCurve scaleCurve = null, bool? isUsingScaleCurve = null)
+            AnimationCurve scaleCurve = null)
         {
             if (duration.HasValue)
             {
@@ -116,14 +122,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Animation
                 _afterAlpha = afterAlpha.Value;
             }
 
-            if (isUsingScaleCurve.HasValue)
-            {
-                _isUsingScaleCurve = isUsingScaleCurve.Value;
-            }
-
             if (scaleCurve != null)
             {
-                _scaleCurve = scaleCurve;
+                _easeCurve = scaleCurve;
             }
         }
     }

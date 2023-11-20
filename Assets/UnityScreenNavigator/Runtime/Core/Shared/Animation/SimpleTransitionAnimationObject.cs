@@ -22,9 +22,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         [Space(12)]
         [Header("Custom Scale Curve")]
-        [Tooltip("Enable if you want to use Animation curve for scale instead of Ease Type above")]
-        [SerializeField] private bool _isUsingScaleCurve = false;
-        [SerializeField] private AnimationCurve _scaleCurve = AnimationCurve.Linear(0f, 0f, 0.3f, 1f);
+        [SerializeField] private AnimationCurve _easeCurve = AnimationCurve.Linear(0f, 0f, 0.3f, 1f);
 
         private Vector3 _afterPosition;
         private Vector3 _beforePosition;
@@ -85,21 +83,41 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             // RectTransform.localScale = scale;
             // _canvasGroup.alpha = alpha;
 
-            var anchorPosTweener = RectTransform.DOAnchorPos(_afterPosition, _duration).SetDelay(_delay)
-                .SetEase(_easeType).From(_beforePosition);
 
-            var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay);
-            if (_isUsingScaleCurve)
-                scaleTweener.SetEase(_scaleCurve).From(_beforeScale);
-            else
-                scaleTweener.SetEase(_easeType).From(_beforeScale);
 
-            var fadeTweener = _canvasGroup.DOFade(_afterAlpha, _duration).SetDelay(_delay).SetEase(_easeType)
+            var anchorPosTweener = RectTransform
+                .DOAnchorPos(_afterPosition, _duration)
+                .SetDelay(_delay)
+                .From(_beforePosition);
+
+            var scaleTweener = RectTransform
+                .DOScale(_afterScale, _duration)
+                .SetDelay(_delay)
+                .From(_beforeScale);
+
+            var fadeTweener = _canvasGroup
+                .DOFade(_afterAlpha, _duration)
+                .SetDelay(_delay)
                 .From(_beforeAlpha);
 
-             _ = _sequence.Join(anchorPosTweener);
+            if (_easeType == Ease.INTERNAL_Custom)
+            {
+                anchorPosTweener.SetEase(_easeCurve);
+                scaleTweener.SetEase(_easeCurve);
+                fadeTweener.SetEase(_easeCurve);
+            }
+            else
+            {
+                anchorPosTweener.SetEase(_easeType);
+                scaleTweener.SetEase(_easeType);
+                fadeTweener.SetEase(_easeType);
+            }
+
+
+            _ = _sequence.Join(anchorPosTweener);
              _ = _sequence.Join(scaleTweener);
              _ = _sequence.Join(fadeTweener);
+
             await _sequence.AwaitForComplete(cancellationToken: cancellationToken);
 
             _canvasGroup.interactable = _canvasGroupInteractable;
@@ -110,7 +128,7 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             Vector3? beforeScale = null, float? beforeAlpha = null, SheetAlignment? afterAlignment = null,
             Vector3? afterScale = null, float? afterAlpha = null,
             bool? canvasGroupInteractable = null, bool? canvasGroupBlockRaycast = null,
-            AnimationCurve scaleCurve = null, bool? isUsingScaleCurve = null)
+            AnimationCurve scaleCurve = null)
         {
             if (duration.HasValue)
             {
@@ -162,14 +180,9 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
                 _canvasGroupBlockRaycast = canvasGroupBlockRaycast.Value;
             }
 
-            if (isUsingScaleCurve.HasValue)
-            {
-                _isUsingScaleCurve = isUsingScaleCurve.Value;
-            }
-
             if (scaleCurve != null)
             {
-                _scaleCurve = scaleCurve;
+                _easeCurve = scaleCurve;
             }
         }
     }
