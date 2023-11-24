@@ -58,49 +58,51 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             return container.Current;
         }
 
-        public static UniTask<Toast> Show(string text, float duration = 3f)
+        public static UniTask<Toast> Show(string text, float duration = 3f, CancellationToken cancellationToken = default)
         {
-            return Show(ToastKey, null, text, duration, null, null);
+            return Show(ToastKey, null, text, duration, null, null, cancellationToken);
         }
 
-        public static UniTask<Toast> Show(string text, float duration, UILayout layout)
+        public static UniTask<Toast> Show(string text, float duration, UILayout layout, CancellationToken cancellationToken = default)
         {
-            return Show(ToastKey, null, text, duration, layout, null);
+            return Show(ToastKey, null, text, duration, layout, null, cancellationToken);
         }
 
-        public static UniTask<Toast> Show(string text, float duration, UILayout layout, Action callback)
+        public static UniTask<Toast> Show(string text, float duration, UILayout layout, Action callback, CancellationToken cancellationToken = default)
         {
-            return Show(ToastKey, null, text, duration, layout, callback);
+            return Show(ToastKey, null, text, duration, layout, callback, cancellationToken);
         }
 
-        public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration = 3f)
+        public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration = 3f, CancellationToken cancellationToken = default)
         {
-            return Show(ToastKey, viewGroup, text, duration, null, null);
+            return Show(ToastKey, viewGroup, text, duration, null, null, cancellationToken);
         }
 
-        public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout)
+        public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout, CancellationToken cancellationToken = default)
         {
-            return Show(ToastKey, viewGroup, text, duration, layout, null);
+            return Show(ToastKey, viewGroup, text, duration, layout, null, cancellationToken);
         }
 
         public static UniTask<Toast> Show(IUIViewGroup viewGroup, string text, float duration, UILayout layout,
-            Action callback)
+            Action callback, CancellationToken cancellationToken = default)
         {
-            return Show(ToastKey, viewGroup, text, duration, layout, callback);
+            return Show(ToastKey, viewGroup, text, duration, layout, callback, cancellationToken);
         }
         
-        public static UniTask<Toast> Show(string key, IUIViewGroup viewGroup, string text, float duration = 3f)
+        public static UniTask<Toast> Show(string key, IUIViewGroup viewGroup, string text, float duration = 3f, CancellationToken cancellationToken = default)
         {
-            return Show(key, viewGroup, text, duration, null, null);
+            return Show(key, viewGroup, text, duration, null, null, cancellationToken);
         }
         
-        public static UniTask<Toast> Show(string key, string text, float duration)
+        public static UniTask<Toast> Show(string key, string text, float duration, CancellationToken cancellationToken = default)
         {
-            return Show(key, null, text, duration, null, null);
+            return Show(key, null, text, duration, null, null, cancellationToken);
         }
 
+        //Return the created Toast
+        //TODO: add another awaiter for finish showing
         private static async UniTask<Toast> Show(string viewName, IUIViewGroup viewGroup, string text, float duration,
-            UILayout layout, Action callback)
+            UILayout layout, Action callback, CancellationToken cancellationToken = default)
         {
             //Cancel all existing toasts
             foreach (var t in Toasts)
@@ -121,12 +123,18 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             var toast = new Toast(view, viewGroup, text, duration, layout, callback);
             Toasts.Add(toast);
-            await toast.Show(view.GetCancellationTokenOnDestroy());
+
+            var cancelToken = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, view.GetCancellationTokenOnDestroy());
+
+            cancelToken.Token.Register(() => toast.Cancel());
+
+            await toast.Show(cancelToken.Token);
+
             return toast;
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        public async UniTask Cancel(CancellationToken cancellationToken)
+        public async UniTask Cancel(CancellationToken cancellationToken = default)
         {
             if (View == null || View.Owner == null)
                 return;
