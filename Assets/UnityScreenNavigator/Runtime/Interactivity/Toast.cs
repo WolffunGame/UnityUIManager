@@ -20,7 +20,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         private readonly Action _callback;
         private readonly UILayout _layout;
         private readonly IUIViewGroup _viewGroup;
-        
+
         private static readonly List<Toast> Toasts = new List<Toast>();
         private static readonly IAssetsKeyLoader<GameObject> AssetsKeyLoader = new AssetsKeyLoader<GameObject>();
         private Toast(ToastView view, IUIViewGroup viewGroup, string message, float duration) : this(view, viewGroup,
@@ -88,12 +88,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         {
             return Show(ToastKey, viewGroup, text, duration, layout, callback);
         }
-        
+
         public static UniTask<Toast> Show(string key, IUIViewGroup viewGroup, string text, float duration = 3f)
         {
             return Show(key, viewGroup, text, duration, null, null);
         }
-        
+
         public static UniTask<Toast> Show(string key, string text, float duration)
         {
             return Show(key, null, text, duration, null, null);
@@ -110,7 +110,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
             if (string.IsNullOrEmpty(viewName))
                 viewName = ToastKey;
-            
+
             var contentGo = await AssetsKeyLoader.LoadAssetAsync(viewName);
             if (contentGo == null)
                 throw new Exception($"Toast view is not found. viewName: {viewName}");
@@ -133,12 +133,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             if (!View.Visibility)
             {
-                Object.Destroy(View);
+                Object.Destroy(View.gameObject);
                 return;
             }
-            
+
             await View.PlayExitAnimation(cancellationToken);
-            Object.Destroy(View);
+            Object.Destroy(View.gameObject);
             DoCallback();
         }
 
