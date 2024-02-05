@@ -14,7 +14,8 @@
         "AddressableAssets.Loaders",
         "ItemPooling",
         "ZBase.Foundation.Pooling.Addressables",
-        "ZBase.Foundation.Pooling"
+        "ZBase.Foundation.Pooling",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

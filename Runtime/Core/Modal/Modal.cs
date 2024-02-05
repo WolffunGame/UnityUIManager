@@ -12,6 +12,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
     [DisallowMultipleComponent]
     public class Modal : Window, IModalLifecycleEvent
     {
+        [SerializeField] protected bool _isFillRectWhenExit = true;
         [SerializeField] private bool _usePrefabNameAsIdentifier = true;
 
         [SerializeField] [EnabledIf(nameof(_usePrefabNameAsIdentifier), false)]
@@ -28,53 +29,65 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             set => _identifier = value;
         }
 
+        public AsyncReactiveProperty<LifeCycleEnum> LifeCycle = new(default);
+
         public ModalTransitionAnimationContainer AnimationContainer => _animationContainer;
         
         public virtual UniTask Initialize()
         {
+            LifeCycle.Value = LifeCycleEnum.INIT;
             return UniTask.CompletedTask;
         }
 
         public virtual UniTask WillPushEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_PUSH_ENTER;
             return UniTask.CompletedTask;
         }
 
         public virtual void DidPushEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_PUSH_ENTER;
         }
 
         public virtual UniTask WillPushExit()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_PUSH_EXIT;
             return UniTask.CompletedTask;
         }
 
         public virtual void DidPushExit()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_PUSH_EXIT;
         }
 
         public virtual UniTask WillPopEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_POP_ENTER;
             return UniTask.CompletedTask;
         }
 
 
         public virtual void DidPopEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_POP_ENTER;
         }
 
         public virtual UniTask WillPopExit()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_POP_EXIT;
             return UniTask.CompletedTask;
         }
 
 
         public virtual void DidPopExit()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_POP_EXIT;
         }
         // ReSharper disable Unity.PerformanceAnalysis
         public virtual UniTask Cleanup()
         {
+            LifeCycle.Value = LifeCycleEnum.CLEANUP;
             return UniTask.CompletedTask;
         }
 
@@ -179,6 +192,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             {
                 Interactable = true;
             }
+
+        //    DoneEnter.TrySetResult();
         }
 
 
@@ -192,7 +207,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             if (!push)
             {
                 gameObject.SetActive(true);
-                RectTransform.FillParent((RectTransform) Parent);
+                if (_isFillRectWhenExit)
+                {
+                    RectTransform.FillParent((RectTransform)Parent);
+                }
                 Alpha = 1.0f;
             }
 
@@ -237,6 +255,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         internal void AfterExit(bool push, Modal partnerModal)
         {
+            //
             if (push)
             {
                 foreach (var lifecycleEvent in _lifecycleEvents)
