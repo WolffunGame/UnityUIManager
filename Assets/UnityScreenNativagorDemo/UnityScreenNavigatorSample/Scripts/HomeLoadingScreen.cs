@@ -7,7 +7,7 @@ namespace Demo.Scripts
     {
         public override void DidPushEnter()
         {
-            var pushOption = new WindowOption(ResourceKey.HomePagePrefab(), true);
+            var pushOption = new WindowOption(ResourceKey.HomePagePrefab(), true, IsPoolable:true);
             // Transition to "Home".
             ScreenContainer.Of(transform).Push(pushOption);
         }

@@ -12,6 +12,8 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         private CanvasGroup _canvasGroup;
         private RectTransform _parentTransform;
         private RectTransform _rectTransform;
+        
+        public bool IsPoolItem { get; set; }
 
         public ModalBackdropTransitionAnimationContainer AnimationContainer => _animationContainer;
 

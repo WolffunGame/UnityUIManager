@@ -5,13 +5,14 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 {
     public readonly struct WindowOption
     {
-        public WindowOption(string resourcePath, bool playAnimation, int priority = 0, bool stack = true)
+        public WindowOption(string resourcePath, bool playAnimation, int priority = 0, bool stack = true, bool IsPoolable = false)
         {
             ResourcePath = resourcePath;
             PlayAnimation = playAnimation;
             Stack = stack;
             WindowCreated = new AsyncReactiveProperty<Window>(default);
             Priority = priority;
+            this.IsPoolable = IsPoolable;
         }
         
         public bool PlayAnimation { get; }
@@ -22,6 +23,8 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         public bool Stack { get; }
 
+        public bool IsPoolable { get; }
+        
         public string ResourcePath { get; }
     }
 }
