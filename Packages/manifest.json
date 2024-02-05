@@ -18,6 +18,9 @@
     "com.unity.timeline": "1.6.5",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.6",
     "com.unity.ugui": "1.0.0",
+    "com.zbase.collections.pooled": "https://github.com/WolffunGame/System.Collections.Pooled.git#2.8.1",
+    "com.zbase.foundation.pooling": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#Update-Pool",
+    "org.nuget.system.runtime.compilerservices.unsafe": "6.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -51,6 +54,13 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "scopedRegistries": [
+    {
+      "name": "Unity NuGet",
+      "url": "https://unitynuget-registry.azurewebsites.net",
+      "scopes": [
+        "org.nuget"
+      ]
+    },
     {
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",

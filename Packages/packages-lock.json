@@ -8,8 +8,8 @@
       "url": "https://package.openupm.com"
     },
     "com.cysharp.unitask": {
-      "version": "2.3.1",
-      "depth": 0,
+      "version": "2.3.3",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
@@ -189,6 +189,30 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.zbase.collections.pooled": {
+      "version": "https://github.com/WolffunGame/System.Collections.Pooled.git#2.8.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "de6060023df653ce3ab3fbf7f7a42ce2e1216c11"
+    },
+    "com.zbase.foundation.pooling": {
+      "version": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#Update-Pool",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.cysharp.unitask": "2.3.3",
+        "com.zbase.collections.pooled": "2.8.1"
+      },
+      "hash": "6b20e617b3855f51fe0136aadf66c3f5f9b2da52"
+    },
+    "org.nuget.system.runtime.compilerservices.unsafe": {
+      "version": "6.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
