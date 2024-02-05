@@ -1,11 +1,13 @@
 {
   "name": "com.felixngd.unityuimanager",
   "displayName": "Unity UI Manager",
-  "version": "1.2.28",
+  "version": "1.2.29",
   "unity": "2020.3",
   "license": "MIT",
   "dependencies": {
-    "com.cysharp.unitask": "2.2.5"
+    "com.cysharp.unitask": "2.2.5",
+    "com.zbase.collections.pooled": "2.8.1",
+    "com.zbase.foundation.pooling": "2.3.9"
   },
   "author": {
     "name": "Nguyen Danh Dat",
