@@ -1,21 +1,21 @@
 {
   "dependencies": {
     "com.coffee.upm-git-extension": {
-      "version": "2.1.1",
+      "version": "2.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
     "com.cysharp.unitask": {
-      "version": "2.3.3",
-      "depth": 1,
+      "version": "2.3.1",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
     "com.dre0dru.addressables.services": {
-      "version": "https://github.com/felixngd/AddressablesServices.git#upm",
+      "version": "https://github.com/WolffunGame/AddressablesServices.git#upm",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -35,11 +35,11 @@
       "hash": "799efe48dc0a6990e8a1d7a2372415a11fa8dfbc"
     },
     "com.laicasaane.unity-supplements": {
-      "version": "2.6.0",
+      "version": "https://github.com/WolffunGame/unity-supplements.git#2.6.0",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {},
-      "url": "https://package.openupm.com"
+      "hash": "2ea1b286a7b97921a30b90019f4b1510571642a3"
     },
     "com.timcassell.protopromise": {
       "version": "https://github.com/TimCassell/ProtoPromise.git?path=ProtoPromise_Unity/Assets/Plugins/ProtoPromise",
@@ -107,11 +107,36 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.inputsystem": {
+      "version": "1.6.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.20.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot": {
+      "version": "2.0.7",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "2.0.6",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.7"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
@@ -146,6 +171,16 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.toolchain.win-x86_64-linux-x86_64": {
+      "version": "2.0.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.7",
+        "com.unity.sysroot.linux-x86_64": "2.0.6"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ugui": {
       "version": "1.0.0",
       "depth": 0,
@@ -154,30 +189,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "com.zbase.collections.pooled": {
-      "version": "https://github.com/WolffunGame/System.Collections.Pooled.git#2.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "de6060023df653ce3ab3fbf7f7a42ce2e1216c11"
-    },
-    "com.zbase.foundation.pooling": {
-      "version": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#Update-Pool",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.cysharp.unitask": "2.3.3",
-        "com.zbase.collections.pooled": "2.8.1"
-      },
-      "hash": "6b20e617b3855f51fe0136aadf66c3f5f9b2da52"
-    },
-    "org.nuget.system.runtime.compilerservices.unsafe": {
-      "version": "6.0.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
