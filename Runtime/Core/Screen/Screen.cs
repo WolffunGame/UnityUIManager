@@ -19,9 +19,9 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         [SerializeField] private int _renderingOrder;
 
         [SerializeField]
-        private ScreenTransitionAnimationContainer _animationContainer = new ScreenTransitionAnimationContainer();
+        private ScreenTransitionAnimationContainer _animationContainer = new();
 
-        private readonly PriorityList<IScreenLifecycleEvent> _lifecycleEvents = new PriorityList<IScreenLifecycleEvent>();
+        private readonly PriorityList<IScreenLifecycleEvent> _lifecycleEvents = new();
 
         public override string Identifier
         {

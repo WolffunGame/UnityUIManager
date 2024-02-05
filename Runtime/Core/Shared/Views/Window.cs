@@ -9,5 +9,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Views
 
         public virtual int Priority { get; set; }
 
+        public bool IsPoolItem { get; set; }
     }
 }

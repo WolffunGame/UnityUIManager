@@ -14,10 +14,10 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
     [Serializable]
     public sealed class ScreenTransitionAnimationContainer
     {
-        [SerializeField] private List<TransitionAnimation> _pushEnterAnimations = new List<TransitionAnimation>();
-        [SerializeField] private List<TransitionAnimation> _pushExitAnimations = new List<TransitionAnimation>();
-        [SerializeField] private List<TransitionAnimation> _popEnterAnimations = new List<TransitionAnimation>();
-        [SerializeField] private List<TransitionAnimation> _popExitAnimations = new List<TransitionAnimation>();
+        [SerializeField] private List<TransitionAnimation> _pushEnterAnimations = new();
+        [SerializeField] private List<TransitionAnimation> _pushExitAnimations = new();
+        [SerializeField] private List<TransitionAnimation> _popEnterAnimations = new();
+        [SerializeField] private List<TransitionAnimation> _popExitAnimations = new();
 
         public List<TransitionAnimation> PushEnterAnimations => _pushEnterAnimations;
         public List<TransitionAnimation> PushExitAnimations => _pushExitAnimations;
