@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
-
+using DG.Tweening;
+using Sequence = DG.Tweening.Sequence;
 namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
 {
     public sealed class SimpleTransitionAnimationBehaviour : TransitionAnimationBehaviour
@@ -56,16 +56,6 @@ namespace UnityScreenNavigator.Runtime.Core.Shared.Animation
 
         public async UniTask SetTime()
         {
-            // time = Mathf.Max(0.0f, time - _delay);
-            // var progress = _duration <= 0.0f ? 1.0f : Mathf.Clamp01(time / _duration);
-            // progress = Easings.Interpolate(progress, _easeType);
-            // var position = Vector3.Lerp(_beforePosition, _afterPosition, progress);
-            // var scale = Vector3.Lerp(_beforeScale, _afterScale, progress);
-            // var alpha = Mathf.Lerp(_beforeAlpha, _afterAlpha, progress);
-            // RectTransform.anchoredPosition = position;
-            // RectTransform.localScale = scale;
-            // _canvasGroup.alpha = alpha;
-
             var anchorTweener = RectTransform.DOAnchorPos(_afterPosition, _duration).SetDelay(_delay).SetEase(_easeType)
                 .From(_beforePosition);
             var scaleTweener = RectTransform.DOScale(_afterScale, _duration).SetDelay(_delay).SetEase(_easeType)
