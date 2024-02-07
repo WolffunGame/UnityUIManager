@@ -279,7 +279,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             var afterLoadHandle = enterModal.AfterLoad((RectTransform) transform);
             await afterLoadHandle;
 
-            var exitModal = _modals.Count == 0 ? null : _modals[_modals.Count - 1];
+            var exitModal = _modals.Count == 0 ? null : _modals[^1];
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers)
