@@ -198,14 +198,14 @@
       "hash": "de6060023df653ce3ab3fbf7f7a42ce2e1216c11"
     },
     "com.zbase.foundation.pooling": {
-      "version": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#Update-Pool",
+      "version": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#main",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.cysharp.unitask": "2.3.3",
         "com.zbase.collections.pooled": "2.8.1"
       },
-      "hash": "6b20e617b3855f51fe0136aadf66c3f5f9b2da52"
+      "hash": "5104e174d0c5babb2871278b9c2cba3c46fde731"
     },
     "org.nuget.system.runtime.compilerservices.unsafe": {
       "version": "6.0.0",
