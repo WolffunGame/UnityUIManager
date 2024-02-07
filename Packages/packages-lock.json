@@ -1,15 +1,15 @@
 {
   "dependencies": {
     "com.coffee.upm-git-extension": {
-      "version": "2.0.3",
+      "version": "2.1.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
     "com.cysharp.unitask": {
-      "version": "2.3.1",
-      "depth": 0,
+      "version": "2.3.3",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
@@ -55,16 +55,25 @@
       "dependencies": {}
     },
     "com.unity.addressables": {
-      "version": "1.19.19",
+      "version": "1.21.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.19.6",
+        "com.unity.scriptablebuildpipeline": "1.21.5",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ai.navigation": {
+      "version": "1.1.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -117,7 +126,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.20.1",
+      "version": "1.21.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -160,7 +169,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.6.5",
+      "version": "1.7.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -189,6 +198,30 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.zbase.collections.pooled": {
+      "version": "https://github.com/WolffunGame/System.Collections.Pooled.git#2.8.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "de6060023df653ce3ab3fbf7f7a42ce2e1216c11"
+    },
+    "com.zbase.foundation.pooling": {
+      "version": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.cysharp.unitask": "2.3.3",
+        "com.zbase.collections.pooled": "2.8.1"
+      },
+      "hash": "5104e174d0c5babb2871278b9c2cba3c46fde731"
+    },
+    "org.nuget.system.runtime.compilerservices.unsafe": {
+      "version": "6.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
@@ -321,17 +354,6 @@
     "com.unity.modules.uielements": {
       "version": "1.0.0",
       "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.modules.ui": "1.0.0",
-        "com.unity.modules.imgui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.uielementsnative": "1.0.0"
-      }
-    },
-    "com.unity.modules.uielementsnative": {
-      "version": "1.0.0",
-      "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",

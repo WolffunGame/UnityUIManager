@@ -12,6 +12,9 @@
         "Unity.TextMeshPro",
         "UniTask.TextMeshPro",
         "AddressableAssets.Loaders",
+        "ItemPooling",
+        "ZBase.Foundation.Pooling.Addressables",
+        "ZBase.Foundation.Pooling",
         "Unity.InputSystem"
     ],
     "includePlatforms": [],

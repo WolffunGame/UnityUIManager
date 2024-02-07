@@ -54,9 +54,9 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             DialogModel.Subscribe(OnModelChanged);
             return base.Initialize();
         }
+        
 
-        public AsyncReactiveProperty<AlertDialog> DialogModel { get; } =
-            new AsyncReactiveProperty<AlertDialog>(default);
+        public AsyncReactiveProperty<AlertDialog> DialogModel { get; } = new(default);
 
         private void Button_OnClick(int which)
         {
@@ -78,6 +78,11 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
         private void OnModelChanged(AlertDialog dialog)
         {
+            confirmButton.onClick.RemoveAllListeners();
+            cancelButton.onClick.RemoveAllListeners();
+            neutralButton.onClick.RemoveAllListeners();
+            outsideButton.onClick.RemoveAllListeners();
+            
             if (messageText != null)
             {
                 if (!string.IsNullOrEmpty(dialog.Message))
@@ -168,12 +173,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             }
 
             CanceledOnTouchOutside = dialog.CanceledOnTouchOutside;
-            if (outsideButton != null && CanceledOnTouchOutside)
-            {
-                outsideButton.gameObject.SetActive(true);
-                outsideButton.interactable = true;
-                outsideButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.ButtonNegative); });
-            }
+            if (outsideButton == null || !CanceledOnTouchOutside) return;
+            outsideButton.gameObject.SetActive(true);
+            outsideButton.interactable = true;
+            outsideButton.onClick.AddListener(() => { Button_OnClick(AlertDialog.ButtonNegative); });
         }
     }
 }

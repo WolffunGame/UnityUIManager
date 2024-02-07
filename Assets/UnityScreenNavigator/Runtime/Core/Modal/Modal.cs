@@ -19,9 +19,9 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         private string _identifier;
 
         [SerializeField]
-        private ModalTransitionAnimationContainer _animationContainer = new ModalTransitionAnimationContainer();
+        private ModalTransitionAnimationContainer _animationContainer = new();
 
-        private readonly PriorityList<IModalLifecycleEvent> _lifecycleEvents = new PriorityList<IModalLifecycleEvent>();
+        private readonly PriorityList<IModalLifecycleEvent> _lifecycleEvents = new();
 
         public override string Identifier
         {

@@ -111,7 +111,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             string cancelButtonText,
             bool canceledOnTouchOutside = false, int priority = 0)
         {
-            var dialog = new AlertDialog(title, message, confirmButtonText, neutralButtonText, cancelButtonText, canceledOnTouchOutside);
+            var dialog = new AlertDialog(title, message, confirmButtonText, neutralButtonText, cancelButtonText,
+                canceledOnTouchOutside);
 
             return ShowMessage(DialogKey, dialog, priority);
         }
@@ -154,14 +155,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             {
                 modalContainer = ModalContainer.Create(_defaultDialogContainer, 10, ContainerLayerType.Modal);
             }
-            
-            var option = new WindowOption(DialogKey, true, priority);
-            var window = (AlertDialogWindow) await modalContainer.Push(option);
-            //var createdWindow = await option.WindowCreated.WaitAsync();
-            //var window = (AlertDialogWindow)createdWindow;
+
+            var option = new WindowOption(DialogKey, true, priority, IsPoolable: true);
+            var window = (AlertDialogWindow)await modalContainer.Push(option);
             window.DialogModel.Value = dialog;
             window.ContentView = contentView;
-            
+
             return dialog;
         }
 
@@ -184,9 +183,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
         public static UniTask<AlertDialog> ShowMessage(string key, AlertDialog viewModel, int priority = 0)
-        {
-            return ShowMessage(key, null, viewModel, priority);
-        }
+            => ShowMessage(key, null, viewModel, priority);
+
         // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Displays information to the user. 
@@ -196,7 +194,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         /// <param name="dialog">The view model of the dialog box</param>
         /// <param name="priority"></param>
         /// <returns>A AlertDialog.</returns>
-        private static async UniTask<AlertDialog> ShowMessage(string key, string contentViewName, AlertDialog dialog, int priority = 0)
+        private static async UniTask<AlertDialog> ShowMessage(string key, string contentViewName, AlertDialog dialog,
+            int priority = 0)
         {
             AlertDialogWindow window = null;
             IUIView contentView = null;
@@ -204,22 +203,23 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             {
                 if (string.IsNullOrEmpty(key))
                     key = DialogKey;
-                
+
                 var modalContainer = ModalContainer.Find(_defaultDialogContainer);
                 if (modalContainer == null)
                 {
                     modalContainer = ModalContainer.Create(_defaultDialogContainer, 10, ContainerLayerType.Modal);
                 }
+
                 if (!string.IsNullOrEmpty(contentViewName))
                 {
                     var contentGo = await AssetsKeyLoader.LoadAssetAsync(contentViewName);
                     var content = Object.Instantiate(contentGo);
-                    contentView = content.GetComponent<IUIView>();   
+                    contentView = content.GetComponent<IUIView>();
                 }
 
-                var option = new WindowOption(key, true, priority);
-                window = (AlertDialogWindow) await modalContainer.Push(option);
-                
+                var option = new WindowOption(key, true, priority, IsPoolable: true);
+                window = (AlertDialogWindow)await modalContainer.Push(option);
+
                 window.DialogModel.Value = dialog;
                 window.ContentView = contentView;
                 return dialog;
@@ -236,22 +236,24 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                     GameObject.Destroy(contentView.Owner);
                     AssetsKeyLoader.UnloadAsset(contentViewName);
                 }
+
                 Debug.LogError(e);
             }
-            
+
             return default;
         }
 
         public AsyncReactiveProperty<int> UserClick { get; private set; }
-        
+
         public string Title;
         public string Message;
         public string ConfirmButtonText;
         public string NeutralButtonText;
         public string CancelButtonText;
         public bool CanceledOnTouchOutside;
-        
-        public AlertDialog(string title, string message, string confirmButtonText, string neutralButtonText, string cancelButtonText, bool canceledOnTouchOutside)
+
+        public AlertDialog(string title, string message, string confirmButtonText, string neutralButtonText,
+            string cancelButtonText, bool canceledOnTouchOutside)
         {
             Title = title;
             Message = message;
@@ -261,6 +263,5 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             CanceledOnTouchOutside = canceledOnTouchOutside;
             UserClick = new AsyncReactiveProperty<int>(0);
         }
-
     }
 }

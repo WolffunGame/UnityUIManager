@@ -7,29 +7,27 @@ using UnityEngine.UI;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Layers;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
+using ZBase.Foundation.Pooling.GameObjectItem.LazyPool.Extensions;
 
 namespace UnityScreenNavigator.Runtime.Core.Screen
 {
     [RequireComponent(typeof(RectMask2D))]
     public sealed class ScreenContainer : ContainerLayer, IContainerManager<Screen>
     {
-        private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform =
-            new Dictionary<int, ScreenContainer>(5);
+        private static readonly Dictionary<int, ScreenContainer> InstanceCacheByTransform = new(5);
 
-        private static readonly Dictionary<string, ScreenContainer> InstanceCacheByName =
-            new Dictionary<string, ScreenContainer>(5);
+        private static readonly Dictionary<string, ScreenContainer> InstanceCacheByName = new(5);
 
-        private readonly List<IScreenContainerCallbackReceiver> _callbackReceivers =
-            new List<IScreenContainerCallbackReceiver>();
+        private readonly List<IScreenContainerCallbackReceiver> _callbackReceivers = new();
 
         //controls load and unload of resources
-        private readonly List<string> _screenItems = new List<string>(5);
+        private readonly List<string> _screenItems = new(5);
         private readonly IAssetsKeyLoader<GameObject> _assetsKeyLoader = new AssetsKeyLoader<GameObject>();
 
         //Controls the visibility of the screens, the last one is always visible
-        private readonly List<Screen> _screenList = new List<Screen>(5);
+        private readonly List<Screen> _screenList = new(5);
 
-        private readonly List<string> _preloadAssetKeys = new List<string>(5);
+        private readonly List<string> _preloadAssetKeys = new(5);
 
         private bool _isActiveScreenStacked;
         private bool _isInTransition;
@@ -53,11 +51,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             {
                 _assetsKeyLoader.UnloadAsset(preloadAssetKey);
             }
+
             _preloadAssetKeys.Clear();
-            
+
             _assetsKeyLoader.UnloadAllAssets();
             _screenItems.Clear();
-            
+
             InstanceCacheByName.Remove(LayerName);
             var keysToRemove = new List<int>();
             foreach (var cache in InstanceCacheByTransform)
@@ -69,7 +68,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             ContainerLayerManager.Remove(this);
         }
 
-        public override Window Current => _screenList.Count > 0 ? _screenList[_screenList.Count - 1] : null;
+        public override Window Current => _screenList.Count > 0 ? _screenList[^1] : null;
 
         public override int VisibleElementInLayer => Screens.Count;
 
@@ -78,10 +77,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// </summary>
         /// <param name="option"></param>
         /// <returns></returns>
-        public UniTask<Screen> Push(WindowOption option)
-        {
-            return PushTask(option);
-        }
+        public UniTask<Screen> Push(WindowOption option) => PushTask(option);
 
         /// <summary>
         ///     Pop current screen.
@@ -97,59 +93,59 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         ///     Add a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
-        public void AddCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
-        {
+        public void AddCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver) =>
             _callbackReceivers.Add(callbackReceiver);
-        }
 
         /// <summary>
         ///     Remove a callback receiver.
         /// </summary>
         /// <param name="callbackReceiver"></param>
-        public void RemoveCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver)
-        {
+        public void RemoveCallbackReceiver(IScreenContainerCallbackReceiver callbackReceiver) =>
             _callbackReceivers.Remove(callbackReceiver);
-        }
 
         private async UniTask<Screen> PushTask(WindowOption option)
         {
             if (option.ResourcePath == null) throw new ArgumentNullException(nameof(option.ResourcePath));
 
             if (_isInTransition)
-            {
                 await UniTask.WaitUntil(() => !_isInTransition);
-            }
 
             _isInTransition = true;
 
             // Setup
-            var operationResult = await _assetsKeyLoader.LoadAssetAsync(option.ResourcePath);
+            Screen enterScreen;
+            if (!option.IsPoolable)
+            {
+                var operationResult = await _assetsKeyLoader.LoadAssetAsync(option.ResourcePath);
+                var instance = Instantiate(operationResult);
+                enterScreen = instance.GetComponent<Screen>();
+            }
+            else
+            {
+                var instance = await LazyAssetRefGameObjectPool.Rent(option.ResourcePath);
+                enterScreen = instance.GetComponent<Screen>();
+            }
 
-            var instance = Instantiate(operationResult);
-            var enterScreen = instance.GetComponent<Screen>();
             if (enterScreen == null)
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(Screen)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
-            _screenItems.Add(option.ResourcePath);
 
+            _screenItems.Add(option.ResourcePath);
+            enterScreen.IsPoolItem = option.IsPoolable;
             option.WindowCreated.Value = enterScreen;
 
-            var afterLoadTask = enterScreen.AfterLoad((RectTransform) transform);
+            var afterLoadTask = enterScreen.AfterLoad((RectTransform)transform);
             await afterLoadTask;
 
-            var exitScreen = _screenList.Count == 0 ? null : _screenList[_screenList.Count - 1];
-            var exitScreenId = exitScreen == null ? (int?) null : exitScreen.GetInstanceID();
+            var exitScreen = _screenList.Count == 0 ? null : _screenList[^1];
+            var exitScreenId = exitScreen == null ? (int?)null : exitScreen.GetInstanceID();
 
             // Preprocess
             foreach (var callbackReceiver in _callbackReceivers)
-            {
                 callbackReceiver.BeforePush(enterScreen, exitScreen);
-            }
 
             if (exitScreen != null)
-            {
                 await exitScreen.BeforeExit(true, enterScreen);
-            }
 
             await enterScreen.BeforeEnter(true, exitScreen);
 
@@ -168,9 +164,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
             // End Transition
             if (!_isActiveScreenStacked && exitScreenId.HasValue)
-            {
                 _screenList.RemoveAt(_screenList.Count - 1);
-            }
 
             _screenList.Add(enterScreen);
             _isInTransition = false;
@@ -190,7 +184,13 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
                 _assetsKeyLoader.UnloadAsset(_screenItems[^2]);
                 _screenItems.RemoveAt(_screenItems.Count - 2);
-                Destroy(exitScreen.gameObject);
+                if (exitScreen.IsPoolItem)
+                {
+                    Debug.LogError( $"Return to pool {exitScreen.gameObject.name}");
+                    LazyAssetRefGameObjectPool.Return(exitScreen.gameObject);
+                }
+                else
+                    Destroy(exitScreen.gameObject);
             }
 
             _isActiveScreenStacked = option.Stack;
@@ -241,10 +241,12 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             var beforeReleaseTask = exitScreen.BeforeRelease();
             await beforeReleaseTask;
 
-            _assetsKeyLoader.UnloadAsset(_screenItems[^1]);
+            //_assetsKeyLoader.UnloadAsset(_screenItems[^1]);
             _screenItems.RemoveAt(_screenItems.Count - 1);
-            Destroy(exitScreen.gameObject);
-
+            if (exitScreen.IsPoolItem)
+                LazyAssetRefGameObjectPool.Return(exitScreen.gameObject);
+            else
+                Destroy(exitScreen.gameObject);
             _isActiveScreenStacked = true;
         }
 
@@ -270,14 +272,16 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                 Debug.LogWarning($"Cannot pop to {identifier} because it is not in the stack.");
                 return;
             }
+
             for (var i = 0; i < count; i++)
             {
-                if(playAnimationAtLast && i == count - 1)
+                if (playAnimationAtLast && i == count - 1)
                     await PopTask(true);
                 else
                     await PopTask(false);
             }
         }
+
         /// <summary>
         /// Pop all screens except the first screen in the stack.
         /// </summary>
@@ -295,6 +299,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
                     await PopTask(false);
             }
         }
+
         /// <summary>
         /// Pop all screens in the stack.
         /// </summary>
@@ -320,7 +325,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         /// <returns></returns>
         public static ScreenContainer Of(Transform transform, bool useCache = true)
         {
-            return Of((RectTransform) transform, useCache);
+            return Of((RectTransform)transform, useCache);
         }
 
         /// <summary>
