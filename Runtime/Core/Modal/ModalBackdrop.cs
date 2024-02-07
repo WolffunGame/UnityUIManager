@@ -67,7 +67,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         {
             gameObject.SetActive(true);
             _rectTransform.FillParent(_parentTransform);
-            _canvasGroup.alpha = 1;
+            //_canvasGroup.alpha = 1;
 
             if (playAnimation)
             {
