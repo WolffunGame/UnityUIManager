@@ -241,7 +241,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             var beforeReleaseTask = exitScreen.BeforeRelease();
             await beforeReleaseTask;
 
-            _assetsKeyLoader.UnloadAsset(_screenItems[^1]);
+            //_assetsKeyLoader.UnloadAsset(_screenItems[^1]);
             _screenItems.RemoveAt(_screenItems.Count - 1);
             if (exitScreen.IsPoolItem)
                 LazyAssetRefGameObjectPool.Return(exitScreen.gameObject);

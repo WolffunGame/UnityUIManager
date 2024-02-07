@@ -3,7 +3,9 @@ using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
+using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Interactivity.Animation;
 
 namespace UnityScreenNavigator.Runtime.Interactivity.Views
@@ -23,6 +25,10 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             new InteractivityTransitionAnimationContainer();
 
         [SerializeField] private bool isDisableAutoClose;
+        public bool IsDisableAutoClose => isDisableAutoClose;
+
+        [SerializeField] private bool isNeedRaycastHelper;
+        public bool IsNeedRaycastHelper => isNeedRaycastHelper;
 
         /// <summary>
         /// Manage animations for tooltip
@@ -83,8 +89,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             var exitAnim = transitionAnimationContainer.GetAnimation(false);
             if (exitAnim == null)
             {
-                gameObject.SetActive(false);
-                exitAnim = SwitchTransitionAnimationObject.CreateInstance();
+                //gameObject.SetActive(false);
+                exitAnim = UnityScreenNavigatorSettings.Instance.TooltipExitAnimation;
             }
 
             exitAnim.Setup(RectTransform);
@@ -96,8 +102,8 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             var enterAnim = TransitionAnimationContainer.GetAnimation(true);
             if (enterAnim == null)
             {
-                gameObject.SetActive(false);
-                enterAnim = SwitchTransitionAnimationObject.CreateInstance();
+                //gameObject.SetActive(false);
+                enterAnim = UnityScreenNavigatorSettings.Instance.TooltipEnterAnimation;
             }
 
             enterAnim.Setup(RectTransform);
@@ -113,6 +119,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
             Tooltip.CloseOnCancelClick?.Subscribe(b => closeButton.gameObject.SetActive(b));
             closeButton?.OnClickAsAsyncEnumerable().Subscribe(_ => Close(this.GetCancellationTokenOnDestroy()));
 
+
             if (!isDisableAutoClose)
             {
                 UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ =>
@@ -123,11 +130,13 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
                           {
                               Close(this.GetCancellationTokenOnDestroy());
                           }
+
                       }
                   },
                   this.GetCancellationTokenOnDestroy());
             }
         }
+
 
         protected override void OnDestroy()
         {
