@@ -248,38 +248,45 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         
         public static async UniTask<(Tooltip, TooltipView)> LazyShow(string key, IUIViewGroup container , bool closeOnCancelClick = true)
         {
-            if (string.IsNullOrEmpty(key))
+            try
             {
-                key = ViewName;
-            }
-
-            //load tooltip view
-            var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key);
+                if (string.IsNullOrEmpty(key))
+                {
+                    key = ViewName;
+                }
+                //load tooltip view
+                var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key).Timeout(TimeSpan.FromSeconds(5));
             
-            if (tipAsset == null)
+                if (tipAsset == null)
+                {
+                    throw new Exception($"Can't find tooltip asset with key: {key}");
+                }
+
+                var content = Object.Instantiate(tipAsset);
+            
+                var view = content.GetComponent<TooltipView>();
+
+                var viewGroup = container;
+
+                var tip = new Tooltip(closeOnCancelClick);
+
+                view.SetViewGroup(viewGroup);
+
+                view.Tooltip = tip;
+
+                //  await tip.DoneSetUp.WaitAsync();
+
+                //   await view.Show(view.GetCancellationTokenOnDestroy());
+
+                Tooltips.Add(view, tip);
+
+                return (tip, view);
+            }
+            catch (Exception e)
             {
-                throw new Exception($"Can't find tooltip asset with key: {key}");
+                Debug.LogError(e.StackTrace);
+                throw;
             }
-
-            var content = Object.Instantiate(tipAsset);
-            
-            var view = content.GetComponent<TooltipView>();
-
-            var viewGroup = container;
-
-            var tip = new Tooltip(closeOnCancelClick);
-
-            view.SetViewGroup(viewGroup);
-
-            view.Tooltip = tip;
-
-          //  await tip.DoneSetUp.WaitAsync();
-
-         //   await view.Show(view.GetCancellationTokenOnDestroy());
-
-            Tooltips.Add(view, tip);
-
-            return (tip, view);
         }
 
         /// <summary>
