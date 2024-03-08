@@ -284,7 +284,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
             }
             catch (Exception e)
             {
-                Debug.LogError(e.StackTrace);
+                Debug.LogError($"LazyShow {e.Message} {e.StackTrace}");
                 throw;
             }
         }
