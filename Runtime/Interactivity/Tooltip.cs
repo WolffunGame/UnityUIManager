@@ -250,27 +250,35 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         {
             try
             {
+                Debug.Log($"LazyShow {key}");
                 if (string.IsNullOrEmpty(key))
                 {
                     key = ViewName;
                 }
                 //load tooltip view
                 var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key).Timeout(TimeSpan.FromSeconds(5));
-            
+                Debug.Log("LazyShow 1");
+
                 if (tipAsset == null)
                 {
                     throw new Exception($"Can't find tooltip asset with key: {key}");
                 }
+                Debug.Log("LazyShow 2");
 
                 var content = Object.Instantiate(tipAsset);
             
                 var view = content.GetComponent<TooltipView>();
 
                 var viewGroup = container;
+                Debug.Log("LazyShow 3");
 
                 var tip = new Tooltip(closeOnCancelClick);
+                Debug.Log("LazyShow 4");
+
 
                 view.SetViewGroup(viewGroup);
+                Debug.Log("LazyShow 5");
+
 
                 view.Tooltip = tip;
 
@@ -279,6 +287,7 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 //   await view.Show(view.GetCancellationTokenOnDestroy());
 
                 Tooltips.Add(view, tip);
+                Debug.Log("LazyShow 6");
 
                 return (tip, view);
             }
