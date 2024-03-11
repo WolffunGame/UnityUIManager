@@ -268,6 +268,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(Modal)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
             }
+            
+            // There is a problem with client wait forever at option.WindowCreated.WaitAsync() when
+            // option.WindowCreated.Value is assigned value at same frame 
+            // that call PushTask, we temporary eliminate that problem by wait 1 frame
+            // Todo: need better solution for this problem
+            await UniTask.DelayFrame(1);
 
             _modalItems.Add(option.ResourcePath);
             enterModal.Priority = option.Priority;
