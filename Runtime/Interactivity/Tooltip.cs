@@ -271,10 +271,19 @@ namespace UnityScreenNavigator.Runtime.Interactivity
                 Debug.Log("LazyShow 2");
                 
                 await UniTask.DelayFrame(2);
+                
+                Debug.Log("LazyShow 2.2");
 
                 var content = Object.Instantiate(tipAsset);
-            
+                
+                Debug.Log("LazyShow 2.3");
+                
+                await UniTask.DelayFrame(2);
+                
+                Debug.Log("LazyShow 2.4");
                 var view = content.GetComponent<TooltipView>();
+                
+                Debug.Log("LazyShow 2.5");
 
                 var viewGroup = container;
                 Debug.Log("LazyShow 3");
