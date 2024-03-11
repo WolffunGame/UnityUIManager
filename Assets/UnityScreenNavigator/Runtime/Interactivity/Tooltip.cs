@@ -250,53 +250,26 @@ namespace UnityScreenNavigator.Runtime.Interactivity
         {
             try
             {
-                Debug.Log($"LazyShow {key}");
                 if (string.IsNullOrEmpty(key))
                 {
                     key = ViewName;
                 }
 
-                await UniTask.DelayFrame(2);
-                Debug.Log("LazyShow 0");
                 //load tooltip view
                 var tipAsset = await _assetsKeyLoader.LoadAssetAsync(key).Timeout(TimeSpan.FromSeconds(5));
-                Debug.Log("LazyShow 1");
-                
-                await UniTask.DelayFrame(2);
 
                 if (tipAsset == null)
                 {
                     throw new Exception($"Can't find tooltip asset with key: {key}");
                 }
-                Debug.Log("LazyShow 2");
-                
-                await UniTask.DelayFrame(2);
-                
-                Debug.Log("LazyShow 2.2");
 
                 var content = Object.Instantiate(tipAsset);
-                
-                Debug.Log("LazyShow 2.3");
-                
-                await UniTask.DelayFrame(2);
-                
-                Debug.Log("LazyShow 2.4");
                 var view = content.GetComponent<TooltipView>();
-                
-                Debug.Log("LazyShow 2.5");
-
                 var viewGroup = container;
-                Debug.Log("LazyShow 3");
-                await UniTask.DelayFrame(2);
 
                 var tip = new Tooltip(closeOnCancelClick);
-                Debug.Log("LazyShow 4");
-                await UniTask.DelayFrame(2);
-
-
+                
                 view.SetViewGroup(viewGroup);
-                Debug.Log("LazyShow 5");
-                await UniTask.DelayFrame(2);
 
 
                 view.Tooltip = tip;
