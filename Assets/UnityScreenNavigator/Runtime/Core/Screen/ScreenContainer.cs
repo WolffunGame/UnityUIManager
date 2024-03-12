@@ -129,20 +129,21 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             if (enterScreen == null)
                 throw new InvalidOperationException(
                     $"Cannot transition because the \"{nameof(Screen)}\" component is not attached to the specified resource \"{option.ResourcePath}\".");
+            
+            _screenItems.Add(option.ResourcePath);
+            enterScreen.IsPoolItem = option.IsPoolable;
 
+            var afterLoadTask = enterScreen.AfterLoad((RectTransform)transform);
+            await afterLoadTask;
+            
             // There is a problem with client wait forever at option.WindowCreated.WaitAsync() when
             // option.WindowCreated.Value is assigned value at same frame 
             // that call PushTask, we temporary eliminate that problem by wait 1 frame
             // Todo: need better solution for this problem
             await UniTask.DelayFrame(1);
             
-            _screenItems.Add(option.ResourcePath);
-            enterScreen.IsPoolItem = option.IsPoolable;
             option.WindowCreated.Value = enterScreen;
-
-            var afterLoadTask = enterScreen.AfterLoad((RectTransform)transform);
-            await afterLoadTask;
-
+            
             var exitScreen = _screenList.Count == 0 ? null : _screenList[^1];
             var exitScreenId = exitScreen == null ? (int?)null : exitScreen.GetInstanceID();
 
