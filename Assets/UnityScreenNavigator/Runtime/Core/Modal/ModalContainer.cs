@@ -237,6 +237,13 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             }
 
             _isInTransition = true;
+            
+            // There is a problem with client wait forever at option.WindowCreated.WaitAsync() when
+            // option.WindowCreated.Value is assigned value at same frame 
+            // that call PushTask, we temporary eliminate that problem by wait 1 frame
+            // Todo: need better solution for this problem
+            await UniTask.DelayFrame(1);
+            
             ModalBackdrop backdrop;
             if (!option.IsPoolable)
                 backdrop = Instantiate(_backdropPrefab);
@@ -272,17 +279,10 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             _modalItems.Add(option.ResourcePath);
             enterModal.Priority = option.Priority;
             enterModal.IsPoolItem = option.IsPoolable;
+            option.WindowCreated.Value = enterModal;
 
             var afterLoadHandle = enterModal.AfterLoad((RectTransform)transform);
             await afterLoadHandle;
-            
-            // There is a problem with client wait forever at option.WindowCreated.WaitAsync() when
-            // option.WindowCreated.Value is assigned value at same frame 
-            // that call PushTask, we temporary eliminate that problem by wait 1 frame
-            // Todo: need better solution for this problem
-            await UniTask.DelayFrame(1);
-            
-            option.WindowCreated.Value = enterModal;
 
             var exitModal = _modals.Count == 0 ? null : _modals[^1];
 
