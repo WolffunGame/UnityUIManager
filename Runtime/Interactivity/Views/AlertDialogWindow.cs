@@ -78,10 +78,17 @@ namespace UnityScreenNavigator.Runtime.Interactivity.Views
 
         private void OnModelChanged(AlertDialog dialog)
         {
-            confirmButton.onClick.RemoveAllListeners();
-            cancelButton.onClick.RemoveAllListeners();
-            neutralButton.onClick.RemoveAllListeners();
-            outsideButton.onClick.RemoveAllListeners();
+            if(confirmButton != null)
+                confirmButton.onClick.RemoveAllListeners();
+                
+            if(cancelButton != null)
+                cancelButton.onClick.RemoveAllListeners();
+            
+            if(neutralButton != null)
+                neutralButton.onClick.RemoveAllListeners();
+            
+            if(outsideButton != null)
+                outsideButton.onClick.RemoveAllListeners();
             
             if (messageText != null)
             {
