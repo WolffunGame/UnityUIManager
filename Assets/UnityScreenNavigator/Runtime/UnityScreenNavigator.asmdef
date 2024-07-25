@@ -15,7 +15,8 @@
         "ItemPooling",
         "ZBase.Foundation.Pooling.Addressables",
         "ZBase.Foundation.Pooling",
-        "Unity.InputSystem"
+        "Unity.InputSystem",
+        "GameObjectLazyPool.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
