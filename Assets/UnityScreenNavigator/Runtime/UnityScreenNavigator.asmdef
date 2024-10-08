@@ -11,7 +11,12 @@
         "DOTween.Modules",
         "Unity.TextMeshPro",
         "UniTask.TextMeshPro",
-        "AddressableAssets.Loaders"
+        "AddressableAssets.Loaders",
+        "ItemPooling",
+        "ZBase.Foundation.Pooling.Addressables",
+        "ZBase.Foundation.Pooling",
+        "Unity.InputSystem",
+        "GameObjectLazyPool.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

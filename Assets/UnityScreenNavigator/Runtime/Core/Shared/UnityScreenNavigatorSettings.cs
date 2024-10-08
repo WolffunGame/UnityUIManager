@@ -36,6 +36,10 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
         [SerializeField] private TransitionAnimationObject _modalBackdropExitAnimation;
 
+        [SerializeField] private TransitionAnimationObject _tooltipEnterAnimation;
+
+        [SerializeField] private TransitionAnimationObject _tooltipExitAnimation;
+
         [SerializeField] private ModalBackdrop _modalBackdropPrefab;
 
 
@@ -64,6 +68,17 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
             ? Instantiate(_pagePushExitAnimation)
             : SimpleTransitionAnimationObject.CreateInstance(beforeAlignment: SheetAlignment.Center,
                 afterAlignment: SheetAlignment.Left);
+
+        public ITransitionAnimation TooltipEnterAnimation => _tooltipEnterAnimation != null
+            ? Instantiate(_tooltipEnterAnimation)
+            : SimpleTransitionAnimationObject.CreateInstance(beforeScale: Vector3.zero,
+                afterScale: Vector3.one);
+
+        public ITransitionAnimation TooltipExitAnimation => _tooltipExitAnimation != null
+            ? Instantiate(_tooltipExitAnimation)
+            : SimpleTransitionAnimationObject.CreateInstance(beforeScale: Vector3.one,
+                afterScale: Vector3.zero);
+
 
         public ITransitionAnimation PagePopEnterAnimation => _pagePopEnterAnimation != null
             ? Instantiate(_pagePopEnterAnimation)

@@ -1,21 +1,27 @@
 {
   "dependencies": {
-    "com.coffee.upm-git-extension": "2.0.0-preview.4",
+    "com.coffee.upm-git-extension": "2.1.1",
     "com.cysharp.unitask": "2.3.1",
-    "com.dre0dru.addressables.services": "https://github.com/felixngd/AddressablesServices.git#upm",
+    "com.dre0dru.addressables.services": "https://github.com/WolffunGame/AddressablesServices.git#upm",
     "com.harumak.unityuiplayables": "https://github.com/Haruma-K/UnityUIPlayables.git?path=/Assets/UnityUIPlayables",
-    "com.laicasaane.unity-supplements": "2.6.0",
+    "com.laicasaane.unity-supplements": "https://github.com/WolffunGame/unity-supplements.git#2.6.0",
     "com.timcassell.protopromise": "https://github.com/TimCassell/ProtoPromise.git?path=ProtoPromise_Unity/Assets/Plugins/ProtoPromise",
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.addressables": "1.19.19",
-    "com.unity.collab-proxy": "1.17.2",
-    "com.unity.ide.rider": "3.0.15",
-    "com.unity.ide.visualstudio": "2.0.16",
+    "com.unity.addressables": "1.21.12",
+    "com.unity.ai.navigation": "1.1.4",
+    "com.unity.collab-proxy": "2.0.5",
+    "com.unity.ide.rider": "3.0.24",
+    "com.unity.ide.visualstudio": "2.0.18",
     "com.unity.ide.vscode": "1.2.5",
-    "com.unity.test-framework": "1.1.31",
+    "com.unity.inputsystem": "1.6.3",
+    "com.unity.test-framework": "1.1.33",
     "com.unity.textmeshpro": "3.0.6",
-    "com.unity.timeline": "1.6.4",
+    "com.unity.timeline": "1.7.5",
+    "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.6",
     "com.unity.ugui": "1.0.0",
+    "com.zbase.collections.pooled": "https://github.com/WolffunGame/System.Collections.Pooled.git#2.8.1",
+    "com.zbase.foundation.pooling": "https://github.com/WolffunGame/Unity.Pooling.git?path=Packages/ZBase.Foundation.Pooling/#main",
+    "org.nuget.system.runtime.compilerservices.unsafe": "6.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -50,12 +56,18 @@
   },
   "scopedRegistries": [
     {
+      "name": "Unity NuGet",
+      "url": "https://unitynuget-registry.azurewebsites.net",
+      "scopes": [
+        "org.nuget"
+      ]
+    },
+    {
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
         "com.coffee.upm-git-extension",
         "com.cysharp.unitask",
-        "com.laicasaane.unity-supplements",
         "com.openupm"
       ]
     }

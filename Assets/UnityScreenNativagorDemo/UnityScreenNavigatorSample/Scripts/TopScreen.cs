@@ -10,10 +10,7 @@ namespace Demo.Scripts
     {
         [SerializeField] private Button _button;
 
-        protected override void Start()
-        {
-            _button.onClick.AddListener(OnClick);
-        }
+        protected override void Start() => _button.onClick.AddListener(OnClick);
 
         protected override void OnDestroy()
         {
@@ -22,7 +19,7 @@ namespace Demo.Scripts
 
         private void OnClick()
         {
-            var option = new WindowOption(ResourceKey.HomeLoadingPagePrefab(), true);
+            var option = new WindowOption(ResourceKey.HomeLoadingPagePrefab(), true, IsPoolable:true);
             ScreenContainer.Of(transform).Push(option);
         }
     }

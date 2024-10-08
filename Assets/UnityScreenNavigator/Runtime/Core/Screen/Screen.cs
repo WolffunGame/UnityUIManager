@@ -19,9 +19,9 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         [SerializeField] private int _renderingOrder;
 
         [SerializeField]
-        private ScreenTransitionAnimationContainer _animationContainer = new ScreenTransitionAnimationContainer();
+        private ScreenTransitionAnimationContainer _animationContainer = new();
 
-        private readonly PriorityList<IScreenLifecycleEvent> _lifecycleEvents = new PriorityList<IScreenLifecycleEvent>();
+        private readonly PriorityList<IScreenLifecycleEvent> _lifecycleEvents = new();
 
         public override string Identifier
         {
@@ -29,54 +29,65 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             set => _identifier = value;
         }
         
-
+        public AsyncReactiveProperty<LifeCycleEnum> LifeCycle = new(default);
         public ScreenTransitionAnimationContainer AnimationContainer => _animationContainer;
 
         
         public virtual UniTask Initialize()
         {
+            LifeCycle.Value = LifeCycleEnum.INIT;
             return UniTask.CompletedTask;
         }
-        
+
         public virtual UniTask WillPushEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_PUSH_ENTER;
             return UniTask.CompletedTask;
         }
 
         public virtual void DidPushEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_PUSH_ENTER;
         }
-
 
         public virtual UniTask WillPushExit()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_PUSH_EXIT;
             return UniTask.CompletedTask;
         }
 
         public virtual void DidPushExit()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_PUSH_EXIT;
         }
-        
+
         public virtual UniTask WillPopEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_POP_ENTER;
             return UniTask.CompletedTask;
         }
 
+
         public virtual void DidPopEnter()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_POP_ENTER;
         }
-        
+
         public virtual UniTask WillPopExit()
         {
+            LifeCycle.Value = LifeCycleEnum.WILL_POP_EXIT;
             return UniTask.CompletedTask;
         }
-        
+
+
         public virtual void DidPopExit()
         {
+            LifeCycle.Value = LifeCycleEnum.DID_POP_EXIT;
         }
-        
+        // ReSharper disable Unity.PerformanceAnalysis
         public virtual UniTask Cleanup()
         {
+            LifeCycle.Value = LifeCycleEnum.CLEANUP;
             return UniTask.CompletedTask;
         }
 
