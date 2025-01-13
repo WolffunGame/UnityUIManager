@@ -141,12 +141,12 @@ namespace UnityScreenNavigator.Runtime.Interactivity
 
             if (!View.Visibility)
             {
-                Object.Destroy(View);
+                Object.Destroy(View.gameObject);
                 return;
             }
             
             await View.PlayExitAnimation(cancellationToken);
-            Object.Destroy(View);
+            Object.Destroy(View.gameObject);
             DoCallback();
         }
 
