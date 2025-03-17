@@ -21,6 +21,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         [SerializeField]
         private ModalTransitionAnimationContainer _animationContainer = new();
 
+        private bool _hasAddMyselfToLifeCycle;
         private readonly PriorityList<IModalLifecycleEvent> _lifecycleEvents = new();
 
         public override string Identifier
@@ -103,7 +104,11 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
 
         internal UniTask AfterLoad(RectTransform parentTransform)
         {
-            _lifecycleEvents.Add(this, 0);
+            if(!_hasAddMyselfToLifeCycle)
+            {
+                _lifecycleEvents.Add(this, 0);
+                _hasAddMyselfToLifeCycle = true;
+            }
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
             Parent = parentTransform;
             RectTransform.FillParent((RectTransform) Parent);
