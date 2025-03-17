@@ -1,7 +1,7 @@
 {
   "name": "com.wolffungame.unityuimanager",
   "displayName": "Unity UI Manager",
-  "version": "2.3.14",
+  "version": "2.3.15",
   "unity": "2020.3",
   "license": "MIT",
   "dependencies": {

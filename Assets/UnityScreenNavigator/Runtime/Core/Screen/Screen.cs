@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Shared;
 using UnityScreenNavigator.Runtime.Core.Shared.Views;
 using UnityScreenNavigator.Runtime.Foundation;
@@ -21,6 +22,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
         [SerializeField]
         private ScreenTransitionAnimationContainer _animationContainer = new();
 
+        private bool _hasAddMyselfToScreenLifeCycle;
         private readonly PriorityList<IScreenLifecycleEvent> _lifecycleEvents = new();
 
         public override string Identifier
@@ -103,7 +105,11 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
 
         internal UniTask AfterLoad(RectTransform rectTransform)
         {
-            _lifecycleEvents.Add(this, 0);
+            if(!_hasAddMyselfToScreenLifeCycle)
+            {
+                _lifecycleEvents.Add(this, 0);
+                _hasAddMyselfToScreenLifeCycle = true;
+            }
             _identifier = _usePrefabNameAsIdentifier ? gameObject.name.Replace("(Clone)", string.Empty) : _identifier;
             Parent = rectTransform;
             RectTransform.FillParent((RectTransform)Parent);
@@ -113,7 +119,7 @@ namespace UnityScreenNavigator.Runtime.Core.Screen
             for (var i = 0; i < Parent.childCount; i++)
             {
                 var child = Parent.GetChild(i);
-                var childScreen = child.GetComponent<Screen>();
+                var childScreen = child.GetComponent<Screen>(); // Todo: improve this get component
                 siblingIndex = i;
                 if (_renderingOrder >= childScreen._renderingOrder)
                 {
