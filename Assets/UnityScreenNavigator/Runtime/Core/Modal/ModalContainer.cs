@@ -80,14 +80,27 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             var keysToRemove = CollectionPool<List<int>, int>.Get();
             
             foreach (var cache in InstanceCacheByTransform)
-                if (Equals(cache.Value))
+                if (cache.Value && Equals(cache.Value))
                     keysToRemove.Add(cache.Key);
 
             foreach (var keyToRemove in keysToRemove)
                 InstanceCacheByTransform.Remove(keyToRemove);
 
             CollectionPool<List<int>, int>.Release(keysToRemove);
-            ContainerLayerManager.Remove(this);
+            var containerLayerManager = ContainerLayerManager;
+            
+            if(containerLayerManager != null)
+            {
+                if (containerLayerManager is MonoBehaviour monoContainerLayerManager)
+                {
+                    if(monoContainerLayerManager)
+                        containerLayerManager.Remove(this);
+                }
+                else
+                {
+                    containerLayerManager.Remove(this);
+                }
+            }
         }
 
         /// <summary>
