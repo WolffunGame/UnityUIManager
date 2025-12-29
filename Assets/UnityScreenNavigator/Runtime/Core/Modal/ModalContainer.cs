@@ -81,7 +81,12 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
             foreach (var keyToRemove in keysToRemove)
                 InstanceCacheByTransform.Remove(keyToRemove);
             CollectionPool<List<int>, int>.Release(keysToRemove);
-            ContainerLayerManager.Remove(this);
+
+            if (ContainerLayerManager)
+            {
+                ContainerLayerManager.Remove(this);
+            }
+            
         }
 
         /// <summary>
