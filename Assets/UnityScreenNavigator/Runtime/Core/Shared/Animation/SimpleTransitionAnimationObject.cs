@@ -120,8 +120,12 @@ namespace UnityScreenNavigator.Runtime.Core.Shared
 
             await _sequence.AwaitForComplete(cancellationToken: cancellationToken);
 
-            _canvasGroup.interactable = _canvasGroupInteractable;
-            _canvasGroup.blocksRaycasts = _canvasGroupBlockRaycast;
+            if (_canvasGroup != null)
+            {
+                _canvasGroup.interactable = _canvasGroupInteractable;
+                _canvasGroup.blocksRaycasts = _canvasGroupBlockRaycast;
+            }
+            
         }
 
         public void SetParams(float? duration = null, Ease? easeType = null, SheetAlignment? beforeAlignment = null,
